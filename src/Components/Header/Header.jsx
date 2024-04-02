@@ -1,4 +1,6 @@
-import React from 'react';
+import React from "react";
+import Logo from "../../assets/img/logo-white.svg";
+import User from "../../assets/img/user.png";
 
 const Header = () => {
   const handleLogin = () => {
@@ -10,17 +12,37 @@ const Header = () => {
   };
 
   return (
-    <header>
+    <header className="header">
       <div className="logo">
-        {/* Add your logo here */}
+        <img src={Logo} alt="Freetold"></img>
       </div>
-      <nav>
-        {/* Add your navbar items here */}
+      <nav className="menu">
+        <ul>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="#">Properties</a>
+          </li>
+          <li>
+            <a href="#">Contact Us</a>
+          </li>
+          <li>
+            <a href="#" className="log-in"><img src={User} alt="user"></img>Log In</a>
+          </li>
+          <li>
+            <button className="sign-up">Sign Up</button>
+          </li>
+          <li>
+            <button className="write-a-review">Write a review</button>
+          </li>
+        </ul>
       </nav>
-      <div className="buttons">
-        <button onClick={handleLogin}>Login</button>
-        <button onClick={handleRegister}>Register</button>
-      </div>
+      <button className="hamburger-menu">
+        <span className="line"></span>
+        <span className="line"></span>
+        <span className="line"></span>
+      </button>
     </header>
   );
 };

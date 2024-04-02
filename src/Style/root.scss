@@ -1,12 +1,13 @@
 // Colors
-$primary-color: #007bff;
-$secondary-color: #6c757d;
+$primary-color: #0a2446;
+$secondary-color: #ef6c67;
 $success-color: #28a745;
 $danger-color: #dc3545;
 $warning-color: #ffc107;
 $info-color: #17a2b8;
 $light-color: #f8f9fa;
 $dark-color: #343a40;
+$white: #fff;
 
 // Font Sizes
 $small-font-size: 12px;
@@ -28,8 +29,143 @@ $small-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 $medium-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 $large-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 $medium-spacing;
 }
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: $medium-spacing;
+  margin-left: $medium-spacing;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.col {
+  flex: 1 0 0;
+  padding: 0 $medium-spacing;
+
+  @media (max-width: 768px) {
+    flex: none;
+    width: 100%;
+    margin-bottom: $medium-spacing;
+  }
+}
+
+h1 {
+  font-family: Geologica;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 80px;
+  text-align: left;
+}
+
+h2 {
+  font-family: Geologica;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 53px;
+  text-align: left;
+}
+
+h3 {
+  font-family: Geologica;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 40px;
+  text-align: left;
+}
+
+h4 {
+  font-family: Geologica;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+  text-align: left;
+}
+
+p {
+  font-family: Geologica;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: left;
+}
+
+// Header START
+.header {
+  display: flex;
+  align-items: center;
+  padding: 12px 40px;
+  background-color: $primary-color;
+  color: $white;
+
+  .logo {
+    flex: 1;
+    img {
+      max-width: 150px;
+      height: auto;
+    }
+  }
+
+  .menu {
+    flex: 2;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: flex-end;
+      gap: $large-spacing;
+
+      li {
+        align-content: center;
+        a {
+          color: inherit;
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        a.log-in {
+          display: flex;
+          align-items: center;
+          gap: $small-spacing;
+        }
+      }
+    }
+  }
+
+  .hamburger-menu {
+    display: none; // Hide by default on larger screens
+
+    @media (max-width: 768px) {
+      display: block;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+      margin-left: auto;
+      .line {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: $white;
+        margin: 5px 0;
+      }
+    }
+  }
+}
+
+// Header END
