@@ -1,0 +1,20 @@
+@import "root";
+.homepage-text {
+  text-align: center;
+  margin: 15% auto 0;
+  .badge {
+    text-align: inherit;
+    color: $secondary-color;
+  }
+  .title {
+    color: $primary-color;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 53px;
+    text-align: inherit;
+  }
+  .subtitle {
+    color: $primary-color;
+    text-align: inherit;
+  }
+}

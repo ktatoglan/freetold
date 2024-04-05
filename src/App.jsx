@@ -10,7 +10,7 @@ import { AppProvider } from './Contexts/AppContext';
 function App() {
 	return (
 		<AppProvider>
-			<div>
+			<div className='main-content'>
         <Header />
 				<Router>
 					<Routes>

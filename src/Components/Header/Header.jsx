@@ -1,8 +1,20 @@
-import React from "react";
+import { useState } from "react";
+import { NavLink, Link } from "react-router-dom";
 import Logo from "../../assets/img/logo-white.svg";
 import User from "../../assets/img/user.png";
+import Modal from "./Modal";
 
 const Header = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   const handleLogin = () => {
     // Handle login logic here
   };
@@ -28,13 +40,20 @@ const Header = () => {
             <a href="#">Contact Us</a>
           </li>
           <li>
-            <a href="#" className="log-in"><img src={User} alt="user"></img>Log In</a>
+            <a href="#" className="log-in">
+              <img src={User} alt="user"></img>Log In
+            </a>
           </li>
           <li>
             <button className="sign-up">Sign Up</button>
           </li>
           <li>
-            <button className="write-a-review">Write a review</button>
+            <button className="write-a-review" onClick={openModal}>
+              Write a review
+            </button>
+            <Modal isOpen={isModalOpen} closeModal={closeModal}>
+              <p>This is the content of the modal.</p>
+            </Modal>
           </li>
         </ul>
       </nav>

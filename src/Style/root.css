@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Geologica", sans-serif;
 }
 
 .container {
@@ -66,7 +67,7 @@ h4 {
   text-align: left;
 }
 
-p {
+p, .footer ul a, .footer .copyright, .header .menu ul li button {
   font-family: Geologica;
   font-size: 14px;
   font-weight: 400;
@@ -114,6 +115,31 @@ p {
   align-items: center;
   gap: 8px;
 }
+.header .menu ul li button {
+  padding: 8px 16px 8px 16px;
+  gap: 8px;
+  border-radius: 8px;
+  border: 1px solid #ef6c67;
+  cursor: pointer;
+}
+.header .menu ul li button.sign-up {
+  background-color: transparent;
+  color: #ef6c67;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.header .menu ul li button.sign-up:hover {
+  background-color: #ef6c67;
+  color: #fff;
+}
+.header .menu ul li button.write-a-review {
+  background-color: #ef6c67;
+  color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.header .menu ul li button.write-a-review:hover {
+  background-color: transparent;
+  color: #fff;
+}
 .header .hamburger-menu {
   display: none;
 }
@@ -133,4 +159,38 @@ p {
     background-color: #fff;
     margin: 5px 0;
   }
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  padding: 12px 40px;
+}
+.footer .row {
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+}
+.footer .row .col {
+  padding: 0;
+}
+.footer .row .col:last-of-type {
+  display: flex;
+  justify-content: end;
+}
+.footer .copyright {
+  color: #919191;
+}
+.footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 24px;
+}
+.footer ul a {
+  color: #919191;
+}
+.footer ul a:hover {
+  text-decoration: none;
 }/*# sourceMappingURL=root.css.map */
