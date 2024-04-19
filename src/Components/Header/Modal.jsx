@@ -32,7 +32,55 @@ const Modal = ({ closeModal }) => {
         <div className="title">
           <h3>Let's start with the address</h3>
         </div>
-        <div className="form">Modal Write a Review Form</div>
+        <div className="form">
+          <div className="row search-bar">
+            <input
+              type="text"
+              className="text-input search-input"
+              placeholder="Enter address starting from postcode"
+            />
+          </div>
+          <div className="row">
+            <div className="col">
+              <p htmlFor="">Adress line 1</p>
+              <input type="text" className="text-input" placeholder="Street" />
+            </div>
+            <div className="col">
+              <p htmlFor="">Adress line 2(Optional)</p>
+              <input
+                type="text"
+                className="text-input"
+                placeholder="Neighborhood"
+              />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col">
+              <p htmlFor="">Town/City</p>
+              <input type="text" className="text-input" />
+            </div>
+            <div className="col">
+              <p htmlFor="">Country</p>
+              <input type="text" className="text-input" />
+            </div>
+            <div className="col">
+              <p htmlFor="">Postcode</p>
+              <input type="text" className="text-input" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col">
+              <button
+                className="write-a-review"
+                onClick={() => {
+                  setOpenModal(true);
+                }}
+              >
+                Write a review
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
