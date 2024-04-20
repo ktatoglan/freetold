@@ -1,0 +1,260 @@
+@import "root";
+$gray-text: #646464;
+.container {
+  .review-flow {
+    text-align: center;
+    margin: 2rem auto;
+    .review-header {
+      .header-text,
+      .header-step {
+        color: $gray-text;
+        @extend .small-text;
+      }
+      .header-address {
+        margin-top: $small-spacing;
+        p {
+          @extend p;
+          color: $primary-color;
+          font-weight: 600;
+          .address-icon {
+            margin-right: $small-spacing;
+          }
+        }
+      }
+      .header-progress-bar {
+        margin-top: $medium-spacing;
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+        }
+
+        .progress {
+          height: 5px;
+          background-color: $light-text;
+          flex-grow: 1;
+          margin-right: 5px;
+          border-radius: 2px;
+
+          &:last-child {
+            margin-right: 0;
+          }
+
+          &.active {
+            background-color: $secondary-color;
+          }
+        }
+      }
+      .header-step {
+        @extend .small-text;
+        color: $gray-text;
+        margin-top: $medium-spacing;
+      }
+    }
+    .review-content {
+      .row {
+        margin: $large-spacing 0px;
+      }
+      .mt-small {
+        margin-top: $small-spacing !important;
+      }
+      .col {
+        padding: 0 !important;
+      }
+      h3 {
+        color: $primary-color;
+      }
+      p.input-title {
+        font-weight: 600;
+        color: $primary-color;
+      }
+      input,
+      select {
+        color: $light-text;
+        border-radius: 8px;
+        border: 1px solid $light-border;
+        padding: 10px 14px 10px 14px;
+        margin-right: 5px;
+      }
+      .sharing {
+        border: 1px solid $light-border;
+        padding: $large-spacing $medium-spacing;
+        border-radius: 15px;
+        width: 100%;
+        .title {
+          font-weight: 600;
+          color: black;
+          padding-left: 21px;
+        }
+        .toggle-group,
+        .counter-group {
+          color: $gray-text;
+          display: flex;
+          gap: $medium-spacing;
+          margin-top: $small-spacing;
+          margin-bottom: $large-spacing;
+          a {
+            color: $secondary-color;
+            margin-left: $medium-spacing;
+          }
+        }
+        .counter-group {
+          padding-left: 21px;
+          margin-bottom: $no-spacing;
+          button {
+            width: $large-spacing + 1px;
+            height: $large-spacing + 1px;
+            font-size: $medium-font-size;
+            font-weight: 600;
+            border: 1px solid $light-border;
+            background-color: transparent;
+            border-radius: 100%;
+            line-height: $medium-font-size + 1px;
+          }
+        }
+      }
+      .future-contact {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        .contact-text {
+          color: $primary-color;
+          margin-top: $small-spacing/2;
+        }
+        .toggle-group {
+          color: $gray-text;
+          display: flex;
+          gap: $medium-spacing;
+          margin-top: $medium-spacing;
+          margin-bottom: $large-spacing;
+        }
+      }
+
+      .buttons {
+        display: flex;
+        padding: 0;
+        width: 100%;
+        justify-content: space-between;
+        button {
+          @extend p;
+          padding: 8px 16px 8px 16px;
+          gap: 8px;
+          cursor: pointer;
+          &.pre-step {
+            background-color: #f5f5f5;
+            color: $gray-text;
+            border-radius: 8px;
+            border: 1px solid #f5f5f5;
+          }
+          &.next-step {
+            background-color: $secondary-color;
+            color: $white;
+            border-radius: 8px;
+            border: 1px solid $secondary-color;
+          }
+        }
+      }
+
+      // Toggle switch
+      .toggle-group {
+        input[type="checkbox"] {
+          height: 0;
+          width: 0;
+          visibility: hidden;
+        }
+        label {
+          cursor: pointer;
+          text-indent: -9999px;
+          width: 36px;
+          height: 20px;
+          background: $light-text;
+          display: block;
+          border-radius: 100px;
+          position: relative;
+        }
+        label:after {
+          content: "";
+          position: absolute;
+          top: 2px;
+          left: 2px;
+          width: 16px;
+          height: 16px;
+          background: #fff;
+          border-radius: 9px;
+          transition: 0.3s;
+        }
+        input:checked + label {
+          background: $primary-color;
+        }
+        input:checked + label:after {
+          left: calc(100% - 2px);
+          transform: translateX(-100%);
+        }
+        label:active:after {
+          width: 36px;
+        }
+      }
+      // Toggle switch ----
+
+      // 2nd step
+      .radio-group {
+        display: inline-flex;
+        align-items: center;
+        padding: 0 $medium-spacing;
+        input[type="radio"] {
+          margin-right: $small-spacing;
+          height: $medium-spacing;
+          width: $medium-spacing;
+          position: relative;
+          appearance: none;
+          border: 2px solid #ccc;
+          border-radius: 50%;
+          outline: none;
+          cursor: pointer;
+          padding: 0;
+
+          &:checked {
+            border-color: $secondary-color;
+
+            &::after {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: 6px;
+              height: 6px;
+              background-color: $secondary-color;
+              border-radius: 50%;
+            }
+          }
+        }
+        label {
+          margin-right: $medium-spacing;
+          color: $gray-text;
+        }
+      }
+
+      .bills {
+        .title {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          gap: $small-spacing/2;
+          margin-bottom: $small-spacing;
+        }
+        .bill-input-group {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+        }
+        .cur-symbol {
+          color: $gray-text;
+          position: relative;
+          left: -25px;
+        }
+      }
+    }
+  }
+}

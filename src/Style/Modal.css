@@ -75,6 +75,13 @@ p, .modalContainer .form button, .footer ul a, .footer .copyright, .header .menu
   text-align: left;
 }
 
+.small-text {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 16px;
+  text-align: left;
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -268,8 +275,4 @@ p, .modalContainer .form button, .footer ul a, .footer .copyright, .header .menu
   background-color: #ef6c67;
   color: #fff;
   transition: background-color 0.3s ease, color 0.3s ease;
-}
-.modalContainer .form button.write-a-review:hover {
-  background-color: transparent;
-  color: #fff;
 }/*# sourceMappingURL=Modal.css.map */

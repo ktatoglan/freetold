@@ -6,6 +6,8 @@ import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import './Style/root.css';
 import { AppProvider } from './Contexts/AppContext';
+import WriteReview1 from './Components/WriteReview/WriteReview1';
+import WriteReview2 from './Components/WriteReview/WriteReview2';
 
 function App() {
 	return (
@@ -34,6 +36,18 @@ function App() {
 							exact
 							element={<RegisterPage />}
 						/>
+						<Route
+							path='/write-a-review-1'
+							exact
+							element={<WriteReview1 />}
+						/>
+						<Route
+							path='/write-a-review-2'
+							exact
+							element={<WriteReview2 />}
+						/>
+
+
 						
 					</Routes>
 				</Router>

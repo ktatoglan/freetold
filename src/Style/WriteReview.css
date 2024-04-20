@@ -1,0 +1,440 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Geologica", sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 16px;
+  margin-left: 16px;
+}
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+}
+
+.col {
+  flex: 1 0 0;
+  padding: 0 16px;
+}
+@media (max-width: 768px) {
+  .col {
+    flex: none;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+}
+
+h1 {
+  font-family: Geologica;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 80px;
+  text-align: left;
+}
+
+h2 {
+  font-family: Geologica;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 53px;
+  text-align: left;
+}
+
+h3 {
+  font-family: Geologica;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 40px;
+  text-align: left;
+}
+
+h4 {
+  font-family: Geologica;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+  text-align: left;
+}
+
+p, .container .review-flow .review-content .buttons button, .container .review-flow .review-header .header-address p, .container .review-flow .review-header .header-address .header .menu ul li button, .header .menu ul li .container .review-flow .review-header .header-address button, .container .review-flow .review-header .header-address .footer .copyright, .footer .container .review-flow .review-header .header-address .copyright, .container .review-flow .review-header .header-address .footer ul a, .footer ul .container .review-flow .review-header .header-address a, .footer ul a, .footer .copyright, .header .menu ul li button {
+  font-family: Geologica;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: left;
+}
+
+.small-text, .container .review-flow .review-header .header-text,
+.container .review-flow .review-header .header-step {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 16px;
+  text-align: left;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 12px 40px;
+  background-color: #0a2446;
+  color: #fff;
+}
+.header .logo {
+  flex: 1;
+}
+.header .logo img {
+  max-width: 150px;
+  height: auto;
+}
+.header .menu {
+  flex: 2;
+}
+.header .menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 24px;
+}
+.header .menu ul li {
+  align-content: center;
+}
+.header .menu ul li a {
+  color: inherit;
+  text-decoration: none;
+}
+.header .menu ul li a:hover {
+  text-decoration: underline;
+}
+.header .menu ul li a.log-in {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.header .menu ul li button {
+  padding: 8px 16px 8px 16px;
+  gap: 8px;
+  border-radius: 8px;
+  border: 1px solid #ef6c67;
+  cursor: pointer;
+}
+.header .menu ul li button.sign-up {
+  background-color: transparent;
+  color: #ef6c67;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.header .menu ul li button.sign-up:hover {
+  background-color: #ef6c67;
+  color: #fff;
+}
+.header .menu ul li button.write-a-review {
+  background-color: #ef6c67;
+  color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.header .menu ul li button.write-a-review:hover {
+  background-color: transparent;
+  color: #fff;
+}
+.header .hamburger-menu {
+  display: none;
+}
+@media (max-width: 768px) {
+  .header .hamburger-menu {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin-left: auto;
+  }
+  .header .hamburger-menu .line {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+  }
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  padding: 12px 40px;
+}
+.footer .row {
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+}
+.footer .row .col {
+  padding: 0;
+}
+.footer .row .col:last-of-type {
+  display: flex;
+  justify-content: end;
+}
+.footer .copyright {
+  color: #919191;
+}
+.footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 24px;
+}
+.footer ul a {
+  color: #919191;
+}
+.footer ul a:hover {
+  text-decoration: none;
+}
+
+.container .review-flow {
+  text-align: center;
+  margin: 2rem auto;
+}
+.container .review-flow .review-header .header-text,
+.container .review-flow .review-header .header-step {
+  color: #646464;
+}
+.container .review-flow .review-header .header-address {
+  margin-top: 8px;
+}
+.container .review-flow .review-header .header-address p, .container .review-flow .review-header .header-address .review-content .buttons button, .container .review-flow .review-content .buttons .review-header .header-address button, .container .review-flow .review-header .header-address .header .menu ul li button, .header .menu ul li .container .review-flow .review-header .header-address button, .container .review-flow .review-header .header-address .footer .copyright, .footer .container .review-flow .review-header .header-address .copyright, .container .review-flow .review-header .header-address .footer ul a, .footer ul .container .review-flow .review-header .header-address a {
+  color: #0a2446;
+  font-weight: 600;
+}
+.container .review-flow .review-header .header-address p .address-icon, .container .review-flow .review-header .header-address .review-content .buttons button .address-icon, .container .review-flow .review-content .buttons .review-header .header-address button .address-icon, .container .review-flow .review-header .header-address .header .menu ul li button .address-icon, .header .menu ul li .container .review-flow .review-header .header-address button .address-icon, .container .review-flow .review-header .header-address .footer .copyright .address-icon, .footer .container .review-flow .review-header .header-address .copyright .address-icon, .container .review-flow .review-header .header-address .footer ul a .address-icon, .footer ul .container .review-flow .review-header .header-address a .address-icon {
+  margin-right: 8px;
+}
+.container .review-flow .review-header .header-progress-bar {
+  margin-top: 16px;
+}
+.container .review-flow .review-header .header-progress-bar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+.container .review-flow .review-header .header-progress-bar .progress {
+  height: 5px;
+  background-color: #919191;
+  flex-grow: 1;
+  margin-right: 5px;
+  border-radius: 2px;
+}
+.container .review-flow .review-header .header-progress-bar .progress:last-child {
+  margin-right: 0;
+}
+.container .review-flow .review-header .header-progress-bar .progress.active {
+  background-color: #ef6c67;
+}
+.container .review-flow .review-header .header-step {
+  color: #646464;
+  margin-top: 16px;
+}
+.container .review-flow .review-content .row {
+  margin: 24px 0px;
+}
+.container .review-flow .review-content .mt-small {
+  margin-top: 8px !important;
+}
+.container .review-flow .review-content .col {
+  padding: 0 !important;
+}
+.container .review-flow .review-content h3 {
+  color: #0a2446;
+}
+.container .review-flow .review-content p.input-title, .container .review-flow .review-content .buttons button.input-title, .container .review-flow .review-content .header .menu ul li button.input-title, .header .menu ul li .container .review-flow .review-content button.input-title, .container .review-flow .review-content .footer .input-title.copyright, .footer .container .review-flow .review-content .input-title.copyright, .container .review-flow .review-content .footer ul a.input-title, .footer ul .container .review-flow .review-content a.input-title, .container .review-flow .review-header .header-address .header .menu ul li .review-content button.input-title, .container .review-flow .review-header .header-address .footer .review-content .input-title.copyright, .container .review-flow .review-header .header-address .footer ul .review-content a.input-title {
+  font-weight: 600;
+  color: #0a2446;
+}
+.container .review-flow .review-content input,
+.container .review-flow .review-content select {
+  color: #919191;
+  border-radius: 8px;
+  border: 1px solid #D9D9D9;
+  padding: 10px 14px 10px 14px;
+  margin-right: 5px;
+}
+.container .review-flow .review-content .sharing {
+  border: 1px solid #D9D9D9;
+  padding: 24px 16px;
+  border-radius: 15px;
+  width: 100%;
+}
+.container .review-flow .review-content .sharing .title {
+  font-weight: 600;
+  color: black;
+  padding-left: 21px;
+}
+.container .review-flow .review-content .sharing .toggle-group,
+.container .review-flow .review-content .sharing .counter-group {
+  color: #646464;
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+.container .review-flow .review-content .sharing .toggle-group a,
+.container .review-flow .review-content .sharing .counter-group a {
+  color: #ef6c67;
+  margin-left: 16px;
+}
+.container .review-flow .review-content .sharing .counter-group {
+  padding-left: 21px;
+  margin-bottom: 0px;
+}
+.container .review-flow .review-content .sharing .counter-group button {
+  width: 25px;
+  height: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  border: 1px solid #D9D9D9;
+  background-color: transparent;
+  border-radius: 100%;
+  line-height: 17px;
+}
+.container .review-flow .review-content .future-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.container .review-flow .review-content .future-contact .contact-text {
+  color: #0a2446;
+  margin-top: 4px;
+}
+.container .review-flow .review-content .future-contact .toggle-group {
+  color: #646464;
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+.container .review-flow .review-content .buttons {
+  display: flex;
+  padding: 0;
+  width: 100%;
+  justify-content: space-between;
+}
+.container .review-flow .review-content .buttons button {
+  padding: 8px 16px 8px 16px;
+  gap: 8px;
+  cursor: pointer;
+}
+.container .review-flow .review-content .buttons button.pre-step {
+  background-color: #f5f5f5;
+  color: #646464;
+  border-radius: 8px;
+  border: 1px solid #f5f5f5;
+}
+.container .review-flow .review-content .buttons button.next-step {
+  background-color: #ef6c67;
+  color: #fff;
+  border-radius: 8px;
+  border: 1px solid #ef6c67;
+}
+.container .review-flow .review-content .toggle-group input[type=checkbox] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+.container .review-flow .review-content .toggle-group label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 36px;
+  height: 20px;
+  background: #919191;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+.container .review-flow .review-content .toggle-group label:after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 9px;
+  transition: 0.3s;
+}
+.container .review-flow .review-content .toggle-group input:checked + label {
+  background: #0a2446;
+}
+.container .review-flow .review-content .toggle-group input:checked + label:after {
+  left: calc(100% - 2px);
+  transform: translateX(-100%);
+}
+.container .review-flow .review-content .toggle-group label:active:after {
+  width: 36px;
+}
+.container .review-flow .review-content .radio-group {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 16px;
+}
+.container .review-flow .review-content .radio-group input[type=radio] {
+  margin-right: 8px;
+  height: 16px;
+  width: 16px;
+  position: relative;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+}
+.container .review-flow .review-content .radio-group input[type=radio]:checked {
+  border-color: #ef6c67;
+}
+.container .review-flow .review-content .radio-group input[type=radio]:checked::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  background-color: #ef6c67;
+  border-radius: 50%;
+}
+.container .review-flow .review-content .radio-group label {
+  margin-right: 16px;
+  color: #646464;
+}
+.container .review-flow .review-content .bills .title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+.container .review-flow .review-content .bills .bill-input-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.container .review-flow .review-content .bills .cur-symbol {
+  color: #646464;
+  position: relative;
+  left: -25px;
+}/*# sourceMappingURL=WriteReview.css.map */

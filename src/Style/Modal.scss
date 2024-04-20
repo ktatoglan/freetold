@@ -75,10 +75,6 @@ $background-color_3: transparent;
 		  background-color: $secondary-color;
 		  color: $white;
 		  transition: background-color 0.3s ease, color 0.3s ease;
-		  &:hover {
-			background-color: transparent;
-			color: $white;
-		  }
 		}
 	  }
   }

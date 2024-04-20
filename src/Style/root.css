@@ -75,6 +75,13 @@ p, .footer ul a, .footer .copyright, .header .menu ul li button {
   text-align: left;
 }
 
+.small-text {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 16px;
+  text-align: left;
+}
+
 .header {
   display: flex;
   align-items: center;
