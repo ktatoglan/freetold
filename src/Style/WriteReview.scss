@@ -62,8 +62,8 @@ $gray-text: #646464;
       .mb-small {
         margin-bottom: $small-spacing !important;
       }
-      .p-0{
-        padding: 0!important;
+      .p-0 {
+        padding: 0 !important;
       }
       .col {
         padding: 0 !important;
@@ -334,7 +334,11 @@ $gray-text: #646464;
           background-image: url("../assets/img/mail-default.png");
         }
         &.mail input[type="radio"]:checked ~ label,
-        &.mail input[type="radio"]:checked ~ label ~ input[type="radio"] + label,
+        &.mail
+          input[type="radio"]:checked
+          ~ label
+          ~ input[type="radio"]
+          + label,
         &.mail input[type="radio"]:checked ~ label ~ label {
           background-image: url("../assets/img/mail-selected.png");
         }
@@ -396,6 +400,14 @@ $gray-text: #646464;
         }
         textarea {
           width: 100%;
+        }
+      }
+
+      .approval {
+        margin-top: $medium-spacing;
+        color: $gray-text;
+        input[type="checkbox"] {
+          accent-color: $primary-color;
         }
       }
     }

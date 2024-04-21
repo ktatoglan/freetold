@@ -517,4 +517,11 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
 }
 .container .review-flow .review-content .content textarea {
   width: 100%;
+}
+.container .review-flow .review-content .approval {
+  margin-top: 16px;
+  color: #646464;
+}
+.container .review-flow .review-content .approval input[type=checkbox] {
+  accent-color: #0a2446;
 }/*# sourceMappingURL=WriteReview.css.map */

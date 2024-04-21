@@ -4,6 +4,7 @@ const MyContext = createContext();
 
 const AppProvider = ({ children }) => {
   const [mode, setMode] = useState('light');
+  // Set review data eklenecek
 
   return (
     <MyContext.Provider
