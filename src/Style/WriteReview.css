@@ -253,6 +253,12 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
 .container .review-flow .review-content .mt-small {
   margin-top: 8px !important;
 }
+.container .review-flow .review-content .mb-small {
+  margin-bottom: 8px !important;
+}
+.container .review-flow .review-content .p-0 {
+  padding: 0 !important;
+}
 .container .review-flow .review-content .col {
   padding: 0 !important;
 }
@@ -264,7 +270,8 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
   color: #0a2446;
 }
 .container .review-flow .review-content input,
-.container .review-flow .review-content select {
+.container .review-flow .review-content select,
+.container .review-flow .review-content textarea {
   color: #919191;
   border-radius: 8px;
   border: 1px solid #D9D9D9;
@@ -437,4 +444,77 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
   color: #646464;
   position: relative;
   left: -25px;
+}
+.container .review-flow .review-content .rating-container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.container .review-flow .review-content .rating-container input[type=radio] {
+  display: none;
+}
+.container .review-flow .review-content .rating-container label {
+  display: inline-block;
+  width: 25px;
+  height: 24px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  margin-right: 8px;
+}
+.container .review-flow .review-content .rating-container.stars label {
+  background-image: url("../assets/img/star-default.png");
+}
+.container .review-flow .review-content .rating-container.stars input[type=radio]:checked ~ label, .container .review-flow .review-content .rating-container.stars input[type=radio]:checked ~ label ~ input[type=radio] + label, .container .review-flow .review-content .rating-container.stars input[type=radio]:checked ~ label ~ label {
+  background-image: url("../assets/img/star-selected.png");
+}
+.container .review-flow .review-content .rating-container.heat label {
+  background-image: url("../assets/img/heat-default.png");
+}
+.container .review-flow .review-content .rating-container.heat input[type=radio]:checked ~ label, .container .review-flow .review-content .rating-container.heat input[type=radio]:checked ~ label ~ input[type=radio] + label, .container .review-flow .review-content .rating-container.heat input[type=radio]:checked ~ label ~ label {
+  background-image: url("../assets/img/heat-selected.png");
+}
+.container .review-flow .review-content .rating-container.lit label {
+  background-image: url("../assets/img/lit-default.png");
+}
+.container .review-flow .review-content .rating-container.lit input[type=radio]:checked ~ label, .container .review-flow .review-content .rating-container.lit input[type=radio]:checked ~ label ~ input[type=radio] + label, .container .review-flow .review-content .rating-container.lit input[type=radio]:checked ~ label ~ label {
+  background-image: url("../assets/img/lit-selected.png");
+}
+.container .review-flow .review-content .rating-container.web label {
+  background-image: url("../assets/img/web-default.png");
+}
+.container .review-flow .review-content .rating-container.web input[type=radio]:checked ~ label, .container .review-flow .review-content .rating-container.web input[type=radio]:checked ~ label ~ input[type=radio] + label, .container .review-flow .review-content .rating-container.web input[type=radio]:checked ~ label ~ label {
+  background-image: url("../assets/img/web-selected.png");
+}
+.container .review-flow .review-content .rating-container.mail label {
+  background-image: url("../assets/img/mail-default.png");
+}
+.container .review-flow .review-content .rating-container.mail input[type=radio]:checked ~ label, .container .review-flow .review-content .rating-container.mail input[type=radio]:checked ~ label ~ input[type=radio] + label, .container .review-flow .review-content .rating-container.mail input[type=radio]:checked ~ label ~ label {
+  background-image: url("../assets/img/mail-selected.png");
+}
+.container .review-flow .review-content .content {
+  width: 100%;
+}
+.container .review-flow .review-content .content .input-container {
+  display: flex;
+  align-items: center;
+}
+.container .review-flow .review-content .content input[type=text] {
+  color: #919191;
+  border-radius: 8px;
+  border: 1px solid #D9D9D9;
+  padding: 10px 14px 10px 14px;
+  margin-right: 5px;
+  width: 100%;
+}
+.container .review-flow .review-content .content .character-counter {
+  margin-left: 10px;
+  color: #919191;
+  position: relative;
+  left: -4.5rem;
+}
+.container .review-flow .review-content .content .hidden {
+  visibility: hidden;
+}
+.container .review-flow .review-content .content textarea {
+  width: 100%;
 }/*# sourceMappingURL=WriteReview.css.map */

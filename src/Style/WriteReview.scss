@@ -59,6 +59,12 @@ $gray-text: #646464;
       .mt-small {
         margin-top: $small-spacing !important;
       }
+      .mb-small {
+        margin-bottom: $small-spacing !important;
+      }
+      .p-0{
+        padding: 0!important;
+      }
       .col {
         padding: 0 !important;
       }
@@ -70,7 +76,8 @@ $gray-text: #646464;
         color: $primary-color;
       }
       input,
-      select {
+      select,
+      textarea {
         color: $light-text;
         border-radius: 8px;
         border: 1px solid $light-border;
@@ -253,6 +260,142 @@ $gray-text: #646464;
           color: $gray-text;
           position: relative;
           left: -25px;
+        }
+      }
+      // Rating containers
+      .rating-container {
+        display: flex;
+        flex-direction: row-reverse;
+
+        input[type="radio"] {
+          display: none;
+        }
+
+        label {
+          display: inline-block;
+          width: 25px;
+          height: 24px;
+          background-size: contain;
+          background-repeat: no-repeat;
+          cursor: pointer;
+          margin-right: $small-spacing;
+        }
+
+        // Step-3 stars
+        &.stars label {
+          background-image: url("../assets/img/star-default.png");
+        }
+        &.stars input[type="radio"]:checked ~ label,
+        &.stars
+          input[type="radio"]:checked
+          ~ label
+          ~ input[type="radio"]
+          + label,
+        &.stars input[type="radio"]:checked ~ label ~ label {
+          background-image: url("../assets/img/star-selected.png");
+        }
+
+        // Step-4 Heat
+        &.heat label {
+          background-image: url("../assets/img/heat-default.png");
+        }
+        &.heat input[type="radio"]:checked ~ label,
+        &.heat
+          input[type="radio"]:checked
+          ~ label
+          ~ input[type="radio"]
+          + label,
+        &.heat input[type="radio"]:checked ~ label ~ label {
+          background-image: url("../assets/img/heat-selected.png");
+        }
+
+        // Step-4 Lit
+        &.lit label {
+          background-image: url("../assets/img/lit-default.png");
+        }
+        &.lit input[type="radio"]:checked ~ label,
+        &.lit input[type="radio"]:checked ~ label ~ input[type="radio"] + label,
+        &.lit input[type="radio"]:checked ~ label ~ label {
+          background-image: url("../assets/img/lit-selected.png");
+        }
+
+        // Step-4 Web
+        &.web label {
+          background-image: url("../assets/img/web-default.png");
+        }
+        &.web input[type="radio"]:checked ~ label,
+        &.web input[type="radio"]:checked ~ label ~ input[type="radio"] + label,
+        &.web input[type="radio"]:checked ~ label ~ label {
+          background-image: url("../assets/img/web-selected.png");
+        }
+
+        // Step-4 Mail
+        &.mail label {
+          background-image: url("../assets/img/mail-default.png");
+        }
+        &.mail input[type="radio"]:checked ~ label,
+        &.mail input[type="radio"]:checked ~ label ~ input[type="radio"] + label,
+        &.mail input[type="radio"]:checked ~ label ~ label {
+          background-image: url("../assets/img/mail-selected.png");
+        }
+      }
+
+      // .rating-container {
+      //   display: flex;
+      //   flex-direction: row-reverse;
+
+      //   input[type="radio"] {
+      //     display: none;
+      //   }
+
+      //   label {
+      //     display: inline-block;
+      //     width: 25px;
+      //     height: 24px;
+      //     background-image: url("../assets/img/star-default.png");
+      //     background-size: cover;
+      //     cursor: pointer;
+      //     margin-right: $small-spacing;
+      //   }
+
+      //   input[type="radio"]:checked ~ label {
+      //     background-image: url("../assets/img/star-selected.png");
+      //   }
+      //   input[type="radio"]:checked ~ label ~ input[type="radio"] + label {
+      //     background-image: url("../assets/img/star-selected.png");
+      //   }
+      //   input[type="radio"]:checked ~ label ~ label {
+      //     background-image: url("../assets/img/star-selected.png");
+      //   }
+      // }
+      // 3rd Step
+      .content {
+        width: 100%;
+        .input-container {
+          display: flex;
+          align-items: center;
+        }
+
+        input[type="text"] {
+          color: $light-text;
+          border-radius: 8px;
+          border: 1px solid $light-border;
+          padding: 10px 14px 10px 14px;
+          margin-right: 5px;
+          width: 100%;
+        }
+
+        .character-counter {
+          margin-left: 10px;
+          color: $light-text;
+          position: relative;
+          left: -4.5rem;
+        }
+        .hidden {
+          visibility: hidden;
+        }
+        textarea {
+          width: 100%;
         }
       }
     }

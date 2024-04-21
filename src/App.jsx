@@ -8,6 +8,8 @@ import './Style/root.css';
 import { AppProvider } from './Contexts/AppContext';
 import WriteReview1 from './Components/WriteReview/WriteReview1';
 import WriteReview2 from './Components/WriteReview/WriteReview2';
+import WriteReview3 from './Components/WriteReview/WriteReview3';
+import WriteReview4 from './Components/WriteReview/WriteReview4';
 
 function App() {
 	return (
@@ -45,6 +47,16 @@ function App() {
 							path='/write-a-review-2'
 							exact
 							element={<WriteReview2 />}
+						/>
+						<Route
+							path='/write-a-review-3'
+							exact
+							element={<WriteReview3 />}
+						/>
+						<Route
+							path='/write-a-review-4'
+							exact
+							element={<WriteReview4 />}
 						/>
 
 
