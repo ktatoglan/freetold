@@ -3,9 +3,13 @@ import { NavLink, Link } from "react-router-dom";
 import Logo from "../../assets/img/logo-white.svg";
 import User from "../../assets/img/user.png";
 import Modal from "./Modal";
+import LoginModal from "../Login/LoginModal";
+import RegisterModal from "../Register/RegisterModal";
 
 const Header = () => {
   const [openModal, setOpenModal] = useState(false);
+  const [openLoginModal, setOpenLoginModal] = useState(false);
+  const [openRegisterModal, setOpenRegisterModal] = useState(false);
 
   const handleLogin = () => {
     // Handle login logic here
@@ -33,12 +37,25 @@ const Header = () => {
               <a href="#">Contact Us</a>
             </li>
             <li>
-              <a href="#" className="log-in">
+              <a
+                href="#"
+                className="log-in"
+                onClick={() => {
+                  setOpenLoginModal(true);
+                }}
+              >
                 <img src={User} alt="user"></img>Log In
               </a>
             </li>
             <li>
-              <button className="sign-up">Sign Up</button>
+              <button
+                className="sign-up"
+                onClick={() => {
+                  setOpenRegisterModal(true);
+                }}
+              >
+                Sign Up
+              </button>
             </li>
             <li>
               <button
@@ -59,6 +76,8 @@ const Header = () => {
         </button>
       </header>
       {openModal && <Modal closeModal={setOpenModal} />}
+      {openLoginModal && <LoginModal closeLoginModal={setOpenLoginModal} />}
+      {openRegisterModal && <RegisterModal closeRegisterModal={setOpenRegisterModal} />}
     </>
   );
 };
