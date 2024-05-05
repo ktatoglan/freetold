@@ -73,7 +73,8 @@ const Modal = ({ closeModal }) => {
               <button
                 className="write-a-review"
                 onClick={() => {
-                  setOpenModal(true);
+                  //setOpenModal(true);
+                  window.location.href = "write-a-review-1";1
                 }}
               >
                 Write a review

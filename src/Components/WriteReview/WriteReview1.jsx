@@ -137,7 +137,7 @@ function WriteReview1() {
           <div className="row">
             <div className="buttons">
               <button className="pre-step">Previous step</button>
-              <button className="next-step">Next step</button>
+              <button className="next-step" onClick={()=>{ window.location.href = 'write-a-review-2';}}>Next step</button>
             </div>
           </div>
         </div>

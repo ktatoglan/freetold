@@ -3,6 +3,21 @@ import "../../Style/Modal.css";
 
 const LoginModal = ({ closeLoginModal }) => {
   const LoginModalRef = useRef();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = () => {
+    fetch('https://freetold-backend.vercel.app/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    })
+      .then(response => response.json())
+      .then(data => alert(data.message))
+      .catch(error => console.error('Error:', error));
+  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -42,7 +57,9 @@ const LoginModal = ({ closeLoginModal }) => {
               <input
                 type="email"
                 className="text-input"
-                placeholder="Email adress"
+                placeholder="Email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
           </div>
@@ -53,6 +70,8 @@ const LoginModal = ({ closeLoginModal }) => {
                 type="password"
                 className="text-input"
                 placeholder="******"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <p>
                 Should include uppercase letter, number and 8 characters or more
@@ -63,7 +82,7 @@ const LoginModal = ({ closeLoginModal }) => {
             <div className="col">
               <div className="toggle-group">
                 <input type="checkbox" id="switch" />
-                <label for="switch">Toggle</label>
+                <label htmlFor="switch">Toggle</label>
                 <p>Stay signed in</p>
               </div>
             </div>
@@ -73,10 +92,10 @@ const LoginModal = ({ closeLoginModal }) => {
               <button
                 className="write-a-review"
                 onClick={() => {
-                  setOpenLoginModal(true);
+                  handleLogin();
                 }}
               >
-                Continue
+                Login
               </button>
             </div>
           </div>

@@ -23,7 +23,7 @@ const Header = () => {
     <>
       <header className="header">
         <div className="logo">
-          <img src={Logo} alt="Freetold"></img>
+          <img src={Logo} alt="Freetold" onClick={()=>{window.location.href = '/';}}></img>
         </div>
         <nav className="menu">
           <ul>
@@ -57,16 +57,21 @@ const Header = () => {
                 Sign Up
               </button>
             </li>
-            <li>
-              <button
-                className="write-a-review"
-                onClick={() => {
-                  setOpenModal(true);
-                }}
-              >
-                Write a review
-              </button>
-            </li>
+            {
+              window.location.href.includes('write-a-review') ?
+               <></>
+               :
+               <li>
+                <button
+                  className="write-a-review"
+                  onClick={() => {
+                    setOpenModal(true);
+                  }}
+                >
+                  Write a review
+                </button>
+              </li>
+            }
           </ul>
         </nav>
         <button className="hamburger-menu">

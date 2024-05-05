@@ -3,6 +3,24 @@ import "../../Style/Modal.css";
 
 const RegisterModal = ({ closeRegisterModal }) => {
   const RegisterModalRef = useRef();
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [staying, setStaying] = useState("");
+  const [postcode, setPostcode] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleRegister = () => {
+    fetch('https://freetold-backend.vercel.app/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, name, postcode , password }),
+    })
+      .then(response => response.json())
+      .then(data => alert(data.message))
+      .catch(error => alert('Error:', error));
+  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -42,26 +60,46 @@ const RegisterModal = ({ closeRegisterModal }) => {
               <input
                 type="email"
                 className="text-input"
-                placeholder="Email adress"
+                placeholder="Email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
           </div>
           <div className="row">
             <div className="col">
               <p htmlFor="">What should we call you?</p>
-              <input type="text" className="text-input" placeholder="Alena" />
+              <input
+                type="text"
+                className="text-input"
+                placeholder="Alena"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
             </div>
           </div>
           <div className="row">
             <div className="col">
               <p htmlFor="">Where are you staying now?</p>
-              <input type="text" className="text-input" placeholder="Rent" />
+              <input
+                type="text"
+                className="text-input"
+                placeholder="Rent"
+                value={staying}
+                onChange={(e) => setStaying(e.target.value)}
+              />
             </div>
           </div>
           <div className="row">
             <div className="col">
               <p htmlFor="">Your Current Postcode</p>
-              <input type="text" className="text-input" placeholder="Address" />
+              <input
+                type="text"
+                className="text-input"
+                placeholder="Address"
+                value={postcode}
+                onChange={(e) => setPostcode(e.target.value)}
+              />
             </div>
           </div>
           <div className="row">
@@ -71,6 +109,8 @@ const RegisterModal = ({ closeRegisterModal }) => {
                 type="password"
                 className="text-input"
                 placeholder="******"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <p>
                 Should include uppercase letter, number and 8 characters or more
@@ -100,11 +140,11 @@ const RegisterModal = ({ closeRegisterModal }) => {
             <div className="col">
               <button
                 className="write-a-review"
-                onClick={() => {
-                  setOpenRegisterModal(true);
+                onClick={async () => {
+                  await handleRegister();
                 }}
               >
-                Continue
+                Register
               </button>
             </div>
           </div>

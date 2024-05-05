@@ -96,6 +96,9 @@ p, .footer ul a, .footer .copyright, .header .menu ul li button {
   max-width: 150px;
   height: auto;
 }
+.header .logo :hover {
+  cursor: pointer;
+}
 .header .menu {
   flex: 2;
 }
@@ -169,6 +172,10 @@ p, .footer ul a, .footer .copyright, .header .menu ul li button {
 }
 
 .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   align-items: center;
   padding: 12px 40px;
@@ -200,4 +207,4 @@ p, .footer ul a, .footer .copyright, .header .menu ul li button {
 }
 .footer ul a:hover {
   text-decoration: none;
-}/*# sourceMappingURL=root.css.map */
+}

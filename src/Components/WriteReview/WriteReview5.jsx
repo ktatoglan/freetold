@@ -157,7 +157,7 @@ function WriteReview5() {
           <div className="row">
             <div className="buttons">
               <button className="pre-step">Previous step</button>
-              <button className="next-step">Submit the review</button>
+              <button className="next-step"onClick={()=>{ window.location.href = '/';}}>Submit the review</button>
             </div>
           </div>
         </div>
