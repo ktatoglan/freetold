@@ -80,18 +80,6 @@ const RegisterModal = ({ closeRegisterModal }) => {
           </div>
           <div className="row">
             <div className="col">
-              <p htmlFor="">Where are you staying now?</p>
-              <input
-                type="text"
-                className="text-input"
-                placeholder="Rent"
-                value={staying}
-                onChange={(e) => setStaying(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col">
               <p htmlFor="">Your Current Postcode</p>
               <input
                 type="text"
@@ -144,7 +132,7 @@ const RegisterModal = ({ closeRegisterModal }) => {
                   await handleRegister();
                 }}
               >
-                Register
+                Create an account
               </button>
             </div>
           </div>
