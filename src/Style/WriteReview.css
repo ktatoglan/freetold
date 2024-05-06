@@ -90,12 +90,20 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
   background-color: #0a2446;
   color: #fff;
 }
+@media (max-width: 768px) {
+  .header {
+    padding: 30px 20px 12px;
+  }
+}
 .header .logo {
   flex: 1;
 }
 .header .logo img {
   max-width: 150px;
   height: auto;
+}
+.header .logo :hover {
+  cursor: pointer;
 }
 .header .menu {
   flex: 2;
@@ -170,6 +178,10 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
 }
 
 .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   align-items: center;
   padding: 12px 40px;
@@ -188,6 +200,11 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
 }
 .footer .copyright {
   color: #919191;
+}
+@media (max-width: 768px) {
+  .footer .copyright {
+    margin: auto;
+  }
 }
 .footer ul {
   list-style: none;

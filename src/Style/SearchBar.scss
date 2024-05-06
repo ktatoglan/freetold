@@ -1,0 +1,50 @@
+@import "vars";
+.home-search {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  gap: $medium-spacing;
+  .search-icon svg {
+    position: relative;
+    top: 27%;
+    left: 40px;
+  }
+  input {
+    width: 40%;
+    min-width: 300px;
+    border-radius: 8px;
+    border: 1px solid $light-text;
+    padding: 12px 16px 12px 32px;
+  }
+  button {
+    @extend p;
+    background-color: $primary-color;
+    color: $white;
+    padding: 8px 16px 8px 16px;
+    gap: 8px;
+    border-radius: 8px;
+    border: 1px solid $primary-color;
+    cursor: pointer;
+    &.write-a-review {
+      background-color: $primary-color;
+      color: $white;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+  }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 12px;
+    gap: $small-spacing;
+    .search-icon {
+      display: none; // Sonra düzenlenecek
+    }
+    input {
+      width: 100%;
+      padding: 12px 16px 12px 16px;
+    }
+    button {
+      padding: 12px 16px 12px 16px;
+      text-align: center;
+    }
+  }
+}

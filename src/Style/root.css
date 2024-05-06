@@ -89,6 +89,11 @@ p, .footer ul a, .footer .copyright, .header .menu ul li button {
   background-color: #0a2446;
   color: #fff;
 }
+@media (max-width: 768px) {
+  .header {
+    padding: 30px 20px 12px;
+  }
+}
 .header .logo {
   flex: 1;
 }
@@ -150,6 +155,23 @@ p, .footer ul a, .footer .copyright, .header .menu ul li button {
   background-color: transparent;
   color: #fff;
 }
+@media (max-width: 768px) {
+  .header .menu {
+    display: none;
+  }
+}
+.header .online-login {
+  display: none;
+}
+@media (max-width: 768px) {
+  .header .online-login {
+    display: block;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-right: 15px;
+  }
+}
 .header .hamburger-menu {
   display: none;
 }
@@ -180,6 +202,11 @@ p, .footer ul a, .footer .copyright, .header .menu ul li button {
   align-items: center;
   padding: 12px 40px;
 }
+@media (max-width: 768px) {
+  .footer.unset-position {
+    position: unset !important;
+  }
+}
 .footer .row {
   margin-left: 0;
   margin-right: 0;
@@ -195,6 +222,11 @@ p, .footer ul a, .footer .copyright, .header .menu ul li button {
 .footer .copyright {
   color: #919191;
 }
+@media (max-width: 768px) {
+  .footer .copyright {
+    margin: auto;
+  }
+}
 .footer ul {
   list-style: none;
   padding: 0;
@@ -208,3 +240,8 @@ p, .footer ul a, .footer .copyright, .header .menu ul li button {
 .footer ul a:hover {
   text-decoration: none;
 }
+@media (max-width: 768px) {
+  .footer ul {
+    justify-content: center;
+  }
+}/*# sourceMappingURL=root.css.map */

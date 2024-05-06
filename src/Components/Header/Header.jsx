@@ -23,7 +23,13 @@ const Header = () => {
     <>
       <header className="header">
         <div className="logo">
-          <img src={Logo} alt="Freetold" onClick={()=>{window.location.href = '/';}}></img>
+          <img
+            src={Logo}
+            alt="Freetold"
+            onClick={() => {
+              window.location.href = "/";
+            }}
+          ></img>
         </div>
         <nav className="menu">
           <ul>
@@ -57,11 +63,10 @@ const Header = () => {
                 Sign Up
               </button>
             </li>
-            {
-              window.location.href.includes('write-a-review') ?
-               <></>
-               :
-               <li>
+            {window.location.href.includes("write-a-review") ? (
+              <></>
+            ) : (
+              <li>
                 <button
                   className="write-a-review"
                   onClick={() => {
@@ -71,9 +76,17 @@ const Header = () => {
                   Write a review
                 </button>
               </li>
-            }
+            )}
           </ul>
         </nav>
+        <button
+          className="online-login"
+          onClick={() => {
+            setOpenLoginModal(true);
+          }}
+        >
+          <img src={User} alt="user"></img>
+        </button>
         <button className="hamburger-menu">
           <span className="line"></span>
           <span className="line"></span>
@@ -82,7 +95,9 @@ const Header = () => {
       </header>
       {openModal && <Modal closeModal={setOpenModal} />}
       {openLoginModal && <LoginModal closeLoginModal={setOpenLoginModal} />}
-      {openRegisterModal && <RegisterModal closeRegisterModal={setOpenRegisterModal} />}
+      {openRegisterModal && (
+        <RegisterModal closeRegisterModal={setOpenRegisterModal} />
+      )}
     </>
   );
 };

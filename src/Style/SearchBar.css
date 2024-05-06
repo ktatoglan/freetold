@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Geologica", sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 16px;
+  margin-left: 16px;
+}
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+}
+
+.col {
+  flex: 1 0 0;
+  padding: 0 16px;
+}
+@media (max-width: 768px) {
+  .col {
+    flex: none;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+}
+
+h1 {
+  font-family: Geologica;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 80px;
+  text-align: left;
+}
+
+h2 {
+  font-family: Geologica;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 53px;
+  text-align: left;
+}
+
+h3 {
+  font-family: Geologica;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 40px;
+  text-align: left;
+}
+
+h4 {
+  font-family: Geologica;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+  text-align: left;
+}
+
+p, .home-search button {
+  font-family: Geologica;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: left;
+}
+
+.small-text {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 16px;
+  text-align: left;
+}
+
+.home-search {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  gap: 16px;
+}
+.home-search .search-icon svg {
+  position: relative;
+  top: 27%;
+  left: 40px;
+}
+.home-search input {
+  width: 40%;
+  min-width: 300px;
+  border-radius: 8px;
+  border: 1px solid #919191;
+  padding: 12px 16px 12px 32px;
+}
+.home-search button {
+  background-color: #0a2446;
+  color: #fff;
+  padding: 8px 16px 8px 16px;
+  gap: 8px;
+  border-radius: 8px;
+  border: 1px solid #0a2446;
+  cursor: pointer;
+}
+.home-search button.write-a-review {
+  background-color: #0a2446;
+  color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+@media (max-width: 768px) {
+  .home-search {
+    flex-direction: column;
+    padding: 12px;
+    gap: 8px;
+  }
+  .home-search .search-icon {
+    display: none;
+  }
+  .home-search input {
+    width: 100%;
+    padding: 12px 16px 12px 16px;
+  }
+  .home-search button {
+    padding: 12px 16px 12px 16px;
+    text-align: center;
+  }
+}/*# sourceMappingURL=SearchBar.css.map */

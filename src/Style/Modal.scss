@@ -1,4 +1,4 @@
-@import "root";
+@import "vars"; 
 $color_1: white;
 $background-color_1: rgba(200, 200, 200);
 $background-color_2: white;
@@ -12,6 +12,7 @@ $background-color_3: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 .modalContainer {
   width: 45%;
