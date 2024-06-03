@@ -67,7 +67,7 @@ h4 {
   text-align: left;
 }
 
-p, .container .review-flow .review-content .buttons button, .container .review-flow .review-header .header-address p, .container .review-flow .review-header .header-address .header .menu ul li button, .header .menu ul li .container .review-flow .review-header .header-address button, .container .review-flow .review-header .header-address .footer .copyright, .footer .container .review-flow .review-header .header-address .copyright, .container .review-flow .review-header .header-address .footer ul a, .footer ul .container .review-flow .review-header .header-address a, .footer ul a, .footer .copyright, .header .menu ul li button {
+p, .container .review-flow .review-content .buttons button, .container .review-flow .review-header .header-address p {
   font-family: Geologica;
   font-size: 14px;
   font-weight: 400;
@@ -83,143 +83,6 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
   text-align: left;
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  padding: 12px 40px;
-  background-color: #0a2446;
-  color: #fff;
-}
-@media (max-width: 768px) {
-  .header {
-    padding: 30px 20px 12px;
-  }
-}
-.header .logo {
-  flex: 1;
-}
-.header .logo img {
-  max-width: 150px;
-  height: auto;
-}
-.header .logo :hover {
-  cursor: pointer;
-}
-.header .menu {
-  flex: 2;
-}
-.header .menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: flex-end;
-  gap: 24px;
-}
-.header .menu ul li {
-  align-content: center;
-}
-.header .menu ul li a {
-  color: inherit;
-  text-decoration: none;
-}
-.header .menu ul li a:hover {
-  text-decoration: underline;
-}
-.header .menu ul li a.log-in {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.header .menu ul li button {
-  padding: 8px 16px 8px 16px;
-  gap: 8px;
-  border-radius: 8px;
-  border: 1px solid #ef6c67;
-  cursor: pointer;
-}
-.header .menu ul li button.sign-up {
-  background-color: transparent;
-  color: #ef6c67;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-.header .menu ul li button.sign-up:hover {
-  background-color: #ef6c67;
-  color: #fff;
-}
-.header .menu ul li button.write-a-review {
-  background-color: #ef6c67;
-  color: #fff;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-.header .menu ul li button.write-a-review:hover {
-  background-color: transparent;
-  color: #fff;
-}
-.header .hamburger-menu {
-  display: none;
-}
-@media (max-width: 768px) {
-  .header .hamburger-menu {
-    display: block;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-    margin-left: auto;
-  }
-  .header .hamburger-menu .line {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-    margin: 5px 0;
-  }
-}
-
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  padding: 12px 40px;
-}
-.footer .row {
-  margin-left: 0;
-  margin-right: 0;
-  width: 100%;
-}
-.footer .row .col {
-  padding: 0;
-}
-.footer .row .col:last-of-type {
-  display: flex;
-  justify-content: end;
-}
-.footer .copyright {
-  color: #919191;
-}
-@media (max-width: 768px) {
-  .footer .copyright {
-    margin: auto;
-  }
-}
-.footer ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 24px;
-}
-.footer ul a {
-  color: #919191;
-}
-.footer ul a:hover {
-  text-decoration: none;
-}
-
 .container .review-flow {
   text-align: center;
   margin: 2rem auto;
@@ -231,11 +94,11 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
 .container .review-flow .review-header .header-address {
   margin-top: 8px;
 }
-.container .review-flow .review-header .header-address p, .container .review-flow .review-header .header-address .review-content .buttons button, .container .review-flow .review-content .buttons .review-header .header-address button, .container .review-flow .review-header .header-address .header .menu ul li button, .header .menu ul li .container .review-flow .review-header .header-address button, .container .review-flow .review-header .header-address .footer .copyright, .footer .container .review-flow .review-header .header-address .copyright, .container .review-flow .review-header .header-address .footer ul a, .footer ul .container .review-flow .review-header .header-address a {
+.container .review-flow .review-header .header-address p, .container .review-flow .review-header .header-address .review-content .buttons button, .container .review-flow .review-content .buttons .review-header .header-address button {
   color: #0a2446;
   font-weight: 600;
 }
-.container .review-flow .review-header .header-address p .address-icon, .container .review-flow .review-header .header-address .review-content .buttons button .address-icon, .container .review-flow .review-content .buttons .review-header .header-address button .address-icon, .container .review-flow .review-header .header-address .header .menu ul li button .address-icon, .header .menu ul li .container .review-flow .review-header .header-address button .address-icon, .container .review-flow .review-header .header-address .footer .copyright .address-icon, .footer .container .review-flow .review-header .header-address .copyright .address-icon, .container .review-flow .review-header .header-address .footer ul a .address-icon, .footer ul .container .review-flow .review-header .header-address a .address-icon {
+.container .review-flow .review-header .header-address p .address-icon, .container .review-flow .review-header .header-address .review-content .buttons button .address-icon, .container .review-flow .review-content .buttons .review-header .header-address button .address-icon {
   margin-right: 8px;
 }
 .container .review-flow .review-header .header-progress-bar {
@@ -282,7 +145,7 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
 .container .review-flow .review-content h3 {
   color: #0a2446;
 }
-.container .review-flow .review-content p.input-title, .container .review-flow .review-content .buttons button.input-title, .container .review-flow .review-content .header .menu ul li button.input-title, .header .menu ul li .container .review-flow .review-content button.input-title, .container .review-flow .review-content .footer .input-title.copyright, .footer .container .review-flow .review-content .input-title.copyright, .container .review-flow .review-content .footer ul a.input-title, .footer ul .container .review-flow .review-content a.input-title, .container .review-flow .review-header .header-address .header .menu ul li .review-content button.input-title, .container .review-flow .review-header .header-address .footer .review-content .input-title.copyright, .container .review-flow .review-header .header-address .footer ul .review-content a.input-title {
+.container .review-flow .review-content p.input-title, .container .review-flow .review-content .buttons button.input-title {
   font-weight: 600;
   color: #0a2446;
 }
@@ -291,12 +154,12 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
 .container .review-flow .review-content textarea {
   color: #919191;
   border-radius: 8px;
-  border: 1px solid #D9D9D9;
+  border: 1px solid #d9d9d9;
   padding: 10px 14px 10px 14px;
   margin-right: 5px;
 }
 .container .review-flow .review-content .sharing {
-  border: 1px solid #D9D9D9;
+  border: 1px solid #d9d9d9;
   padding: 24px 16px;
   border-radius: 15px;
   width: 100%;
@@ -328,7 +191,7 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
   height: 25px;
   font-size: 16px;
   font-weight: 600;
-  border: 1px solid #D9D9D9;
+  border: 1px solid #d9d9d9;
   background-color: transparent;
   border-radius: 100%;
   line-height: 17px;
@@ -518,7 +381,7 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
 .container .review-flow .review-content .content input[type=text] {
   color: #919191;
   border-radius: 8px;
-  border: 1px solid #D9D9D9;
+  border: 1px solid #d9d9d9;
   padding: 10px 14px 10px 14px;
   margin-right: 5px;
   width: 100%;

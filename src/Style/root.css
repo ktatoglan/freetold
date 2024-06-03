@@ -194,18 +194,10 @@ p, .footer ul a, .footer .copyright, .header .menu ul li button {
 }
 
 .footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  background-color: #0a2446;
   display: flex;
   align-items: center;
   padding: 12px 40px;
-}
-@media (max-width: 768px) {
-  .footer.unset-position {
-    position: unset !important;
-  }
 }
 .footer .row {
   margin-left: 0;
@@ -220,7 +212,7 @@ p, .footer ul a, .footer .copyright, .header .menu ul li button {
   justify-content: end;
 }
 .footer .copyright {
-  color: #919191;
+  color: #fff;
 }
 @media (max-width: 768px) {
   .footer .copyright {
@@ -235,7 +227,7 @@ p, .footer ul a, .footer .copyright, .header .menu ul li button {
   gap: 24px;
 }
 .footer ul a {
-  color: #919191;
+  color: #fff;
 }
 .footer ul a:hover {
   text-decoration: none;

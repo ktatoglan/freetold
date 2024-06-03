@@ -116,16 +116,17 @@
 
 // Footer
 .footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  // position: fixed;
+  // bottom: 0;
+  // left: 0;
+  // width: 100%;
 
-  &.unset-position {
-    @media (max-width: 768px) {
-      position: unset !important;
-    }
-  }
+  // &.unset-position {
+  //   @media (max-width: 768px) {
+  //     position: unset !important;
+  //   }
+  // }
+  background-color: $primary-color;
 
   display: flex;
   align-items: center;
@@ -147,7 +148,8 @@
 
   .copyright {
     @extend p;
-    color: $light-text;
+    // color: $light-text;
+    color: $white;
     @media (max-width: 768px) {
       margin: auto;
     }
@@ -162,7 +164,8 @@
 
     a {
       @extend p;
-      color: $light-text;
+      // color: $light-text;
+      color: $white;
       &:hover {
         text-decoration: none;
       }
