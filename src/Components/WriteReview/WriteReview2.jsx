@@ -1,7 +1,9 @@
 import React from "react";
 import "../../Style/WriteReview.css";
+import { useAppProvider } from "../../Contexts/AppContext";
 
 function WriteReview2() {
+  const { rentAmount, setRentAmount, rentPeriod, setRentPeriod, isBillsIncluded, setIsBillsIncluded, billsPerPerson, setBillsPerPerson, billsWholeHouse, setBillsWholeHouse, electricBill, setElectricBill, waterBill, setWaterBill, gasBill, setGasBill, internetBill, setInternetBill } = useAppProvider();
   return (
     <div className="container">
       <div className="review-flow">

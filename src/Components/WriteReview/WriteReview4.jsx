@@ -1,7 +1,9 @@
 import { useState } from "react";
 import "../../Style/WriteReview.css";
+import { useAppProvider } from "../../Contexts/AppContext";
 
 function WriteReview4() {
+  const { heatUpLevel, setHeatUpLevel, wellLitLevel, setWellLitLevel, internetConnectionLevel, setInternetConnectionLevel, isItPetFriendly, setIsItPetFriendly, anythingToBeFixed, setAnythingToBeFixed, ownerRespondScore, setOwnerRespondScore, healthConcerns, setHealthConcerns } = useAppProvider();
   return (
     <div className="container">
       <div className="review-flow">

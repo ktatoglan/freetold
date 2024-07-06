@@ -1,7 +1,10 @@
 import React from "react";
 import "../../Style/WriteReview.css";
+import { useAppProvider } from "../../Contexts/AppContext";
 
 function WriteReview1() {
+  const { moveInDate, setMoveInDate, tenancyPeriod, setTenancyPeriod, isItSharingFlat, setIsItSharingFlat, peopleNumberLivingAtHome, setPeopleNumberLivingAtHome, futureRentersContactMe, setFutureRentersContactMe } = useAppProvider();
+
   return (
     <div className="container">
       <div className="review-flow">

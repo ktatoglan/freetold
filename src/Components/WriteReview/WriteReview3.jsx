@@ -1,9 +1,11 @@
 import { useState } from "react";
 import "../../Style/WriteReview.css";
+import { useAppProvider } from "../../Contexts/AppContext";
 
 function WriteReview3() {
   const [text, setText] = useState("");
   const maxLength = 75;
+  const { reviewHeadline, setReviewHeadline } = useAppProvider();
 
   const handleChange = (event) => {
     const inputText = event.target.value;
