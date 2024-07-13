@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../../Style/WriteReview.css";
 import { useAppProvider } from "../../Contexts/AppContext";
+import { useNavigate } from "react-router-dom";
 
 function WriteReview4() {
   const {
@@ -21,6 +22,7 @@ function WriteReview4() {
   } = useAppProvider();
 
   const [reviewScore, setReviewScore] = useState(0);
+  const navigate = useNavigate();
 
   return (
     <div className="container">
@@ -245,7 +247,7 @@ function WriteReview4() {
               <button
                 className="pre-step"
                 onClick={() => {
-                  window.location.href = "write-a-review-3";
+                  navigate("/write-a-review-3");
                 }}
               >
                 Previous step
@@ -253,7 +255,7 @@ function WriteReview4() {
               <button
                 className="next-step"
                 onClick={() => {
-                  window.location.href = "write-a-review-5";
+                  navigate("/write-a-review-5");
                 }}
               >
                 Next step

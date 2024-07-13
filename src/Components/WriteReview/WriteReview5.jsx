@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "../../Style/WriteReview.css";
 import { useAppProvider } from "../../Contexts/AppContext";
+import { useNavigate } from "react-router-dom";
 
 function WriteReview5() {
   const { sendReview, perceptionNeighborsLevel, setPerceptionNeighborsLevel, noiseNeighborsLevel, setNoiseNeighborsLevel, parkingScore, setParkingScore, trafficScore, setTrafficScore, safetyConcerns, setSafetyConcerns, agreeCheckbox, setAgreeCheckbox } = useAppProvider();
-
+  const navigate = useNavigate();
   return (
     <div className="container">
       <div className="review-flow">
@@ -183,7 +184,7 @@ function WriteReview5() {
 
           <div className="row">
             <div className="buttons">
-              <button className="pre-step" onClick={() => { window.location.href = 'write-a-review-4'; }}>Previous step</button>
+              <button className="pre-step" onClick={() => { navigate('write-a-review-4') }}>Previous step</button>
               <button className="next-step" onClick={() => { /*</div>window.location.href = '/';*/ sendReview(); }}>Submit the review</button>
             </div>
           </div>
