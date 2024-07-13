@@ -1,8 +1,23 @@
 import { useState, useEffect, useRef } from "react";
 import "../../Style/Modal.css";
+import { useAppProvider } from "../../Contexts/AppContext";
+import { useNavigate } from "react-router-dom";
 
 const Modal = ({ closeModal }) => {
   const modalRef = useRef();
+  const {
+    addressLine1,
+    setAddressLine1,
+    addressLine2,
+    setAddressLine2,
+    townCity,
+    setTownCity,
+    country,
+    setCountry,
+    postCode,
+    setPostCode
+  } = useAppProvider();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -42,30 +57,53 @@ const Modal = ({ closeModal }) => {
           </div>
           <div className="row">
             <div className="col">
-              <p htmlFor="">Adress line 1</p>
-              <input type="text" className="text-input" placeholder="Street" />
+              <p htmlFor="">Address line 1</p>
+              <input
+                type="text"
+                className="text-input"
+                placeholder="Street"
+                value={addressLine1}
+                onChange={(e) => setAddressLine1(e.target.value)}
+              />
             </div>
             <div className="col">
-              <p htmlFor="">Adress line 2(Optional)</p>
+              <p htmlFor="">Address line 2 (Optional)</p>
               <input
                 type="text"
                 className="text-input"
                 placeholder="Neighborhood"
+                value={addressLine2}
+                onChange={(e) => setAddressLine2(e.target.value)}
               />
             </div>
           </div>
           <div className="row">
             <div className="col">
               <p htmlFor="">Town/City</p>
-              <input type="text" className="text-input" />
+              <input
+                type="text"
+                className="text-input"
+                value={townCity}
+                onChange={(e) => setTownCity(e.target.value)}
+              />
             </div>
             <div className="col">
               <p htmlFor="">Country</p>
-              <input type="text" className="text-input" />
+              <input
+                type="text"
+                className="text-input"
+                value={country}
+                onChange={(e) => setCountry(e.target.value)}
+              />
             </div>
             <div className="col">
               <p htmlFor="">Postcode</p>
-              <input type="text" className="text-input" />
+              <input
+                type="text"
+                className="text-input"
+                value={postCode}
+                onChange={(e) => setPostCode(e.target.value)}
+              />
             </div>
           </div>
           <div className="row">
@@ -74,7 +112,7 @@ const Modal = ({ closeModal }) => {
                 className="write-a-review"
                 onClick={() => {
                   //setOpenModal(true);
-                  window.location.href = "write-a-review-1";1
+                  navigate("/write-a-review-1");
                 }}
               >
                 Write a review
