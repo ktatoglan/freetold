@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/img/logo-white.svg";
 import User from "../../assets/img/user.png";
 import Modal from "./Modal";
@@ -10,7 +10,6 @@ const Header = () => {
   const [openModal, setOpenModal] = useState(false);
   const [openLoginModal, setOpenLoginModal] = useState(false);
   const [openRegisterModal, setOpenRegisterModal] = useState(false);
-
   const handleLogin = () => {
     // Handle login logic here
   };
@@ -70,7 +69,8 @@ const Header = () => {
                 <button
                   className="write-a-review"
                   onClick={() => {
-                    setOpenModal(true);
+                    //setOpenModal(true);
+                    window.location.href = "/write-a-review-0";
                   }}
                 >
                   Write a review

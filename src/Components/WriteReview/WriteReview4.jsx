@@ -1,9 +1,27 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "../../Style/WriteReview.css";
 import { useAppProvider } from "../../Contexts/AppContext";
 
 function WriteReview4() {
-  const { heatUpLevel, setHeatUpLevel, wellLitLevel, setWellLitLevel, internetConnectionLevel, setInternetConnectionLevel, isItPetFriendly, setIsItPetFriendly, anythingToBeFixed, setAnythingToBeFixed, ownerRespondScore, setOwnerRespondScore, healthConcerns, setHealthConcerns } = useAppProvider();
+  const {
+    heatUpLevel,
+    setHeatUpLevel,
+    wellLitLevel,
+    setWellLitLevel,
+    internetConnectionLevel,
+    setInternetConnectionLevel,
+    isItPetFriendly,
+    setIsItPetFriendly,
+    anythingToBeFixed,
+    setAnythingToBeFixed,
+    ownerRespondScore,
+    setOwnerRespondScore,
+    healthConcerns,
+    setHealthConcerns
+  } = useAppProvider();
+
+  const [reviewScore, setReviewScore] = useState(0);
+
   return (
     <div className="container">
       <div className="review-flow">
@@ -22,16 +40,16 @@ function WriteReview4() {
                   <path
                     d="M16.5 8.83325C16.5 14.6666 9 19.6666 9 19.6666C9 19.6666 1.5 14.6666 1.5 8.83325C1.5 6.84413 2.29018 4.93647 3.6967 3.52995C5.10322 2.12343 7.01088 1.33325 9 1.33325C10.9891 1.33325 12.8968 2.12343 14.3033 3.52995C15.7098 4.93647 16.5 6.84413 16.5 8.83325Z"
                     stroke="#EF6C67"
-                    stroke-width="1.66667"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="1.66667"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                   <path
                     d="M9 11.3333C10.3807 11.3333 11.5 10.214 11.5 8.83325C11.5 7.45254 10.3807 6.33325 9 6.33325C7.61929 6.33325 6.5 7.45254 6.5 8.83325C6.5 10.214 7.61929 11.3333 9 11.3333Z"
                     stroke="#EF6C67"
-                    stroke-width="1.66667"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="1.66667"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </span>
@@ -59,34 +77,42 @@ function WriteReview4() {
             <div className="col">
               <p className="input-title">How well does the house heat up?</p>
               <div className="row mt-small mb-small">
-                <div class="rating-container heat">
-                  <input type="radio" id="heat5" name="rating" value="5" />
-                  <label htmlFor="heat5"></label>
-                  <input type="radio" id="heat4" name="rating" value="4" />
-                  <label htmlFor="heat4"></label>
-                  <input type="radio" id="heat3" name="rating" value="3" />
-                  <label htmlFor="heat3"></label>
-                  <input type="radio" id="heat2" name="rating" value="2" />
-                  <label htmlFor="heat2"></label>
-                  <input type="radio" id="heat1" name="rating" value="1" />
-                  <label htmlFor="heat1"></label>
+                <div className="rating-container heat">
+                  {Array.from({ length: 5 }, (_, index) => (
+                    <React.Fragment key={index}>
+                      <input
+                        type="radio"
+                        id={`heat${index + 1}`}
+                        name="heat-container"
+                        value={index + 1}
+                        checked={heatUpLevel === 5 - index}
+                        onClick={() => setHeatUpLevel(5 - index)}
+                        onChange={() => {}}
+                      />
+                      <label htmlFor={`heat${index + 1}`}></label>
+                    </React.Fragment>
+                  ))}
                 </div>
               </div>
             </div>
             <div className="col">
               <p className="input-title">Is it a well-lit home?</p>
               <div className="row mt-small mb-small">
-                <div class="rating-container lit">
-                  <input type="radio" id="lit5" name="rating" value="5" />
-                  <label for="lit5"></label>
-                  <input type="radio" id="lit4" name="rating" value="4" />
-                  <label for="lit4"></label>
-                  <input type="radio" id="lit3" name="rating" value="3" />
-                  <label for="lit3"></label>
-                  <input type="radio" id="lit2" name="rating" value="2" />
-                  <label for="lit2"></label>
-                  <input type="radio" id="lit1" name="rating" value="1" />
-                  <label for="lit1"></label>
+                <div className="rating-container lit">
+                  {Array.from({ length: 5 }, (_, index) => (
+                    <React.Fragment key={index}>
+                      <input
+                        type="radio"
+                        id={`lit${index + 1}`}
+                        name="lit-container"
+                        value={index + 1}
+                        checked={wellLitLevel === 5 - index}
+                        onClick={() => setWellLitLevel(5 - index )}
+                        onChange={() => {}}
+                      />
+                      <label htmlFor={`lit${index + 1}`}></label>
+                    </React.Fragment>
+                  ))}
                 </div>
               </div>
             </div>
@@ -95,17 +121,21 @@ function WriteReview4() {
             <div className="col">
               <p className="input-title">How is your internet connection?</p>
               <div className="row mt-small mb-small">
-                <div class="rating-container web">
-                  <input type="radio" id="web5" name="rating" value="5" />
-                  <label for="web5"></label>
-                  <input type="radio" id="web4" name="rating" value="4" />
-                  <label for="web4"></label>
-                  <input type="radio" id="web3" name="rating" value="3" />
-                  <label for="web3"></label>
-                  <input type="radio" id="web2" name="rating" value="2" />
-                  <label for="web2"></label>
-                  <input type="radio" id="web1" name="rating" value="1" />
-                  <label for="web1"></label>
+                <div className="rating-container web">
+                  {Array.from({ length: 5 }, (_, index) => (
+                    <React.Fragment key={index}>
+                      <input
+                        type="radio"
+                        id={`web${index + 1}`}
+                        name="web-container"
+                        value={index + 1}
+                        checked={internetConnectionLevel === 5 - index }
+                        onClick={() => setInternetConnectionLevel(5 - index)}
+                        onChange={() => {}}
+                      />
+                      <label htmlFor={`web${index + 1}`}></label>
+                    </React.Fragment>
+                  ))}
                 </div>
               </div>
             </div>
@@ -127,9 +157,23 @@ function WriteReview4() {
               </p>
               <div className="row mt-small mb-small">
                 <div className="radio-group p-0">
-                  <input type="radio" name="pet-friendly" id="pet-yes" />
+                  <input
+                    type="radio"
+                    name="pet-friendly"
+                    id="pet-yes"
+                    checked={isItPetFriendly}
+                    onClick={() => setIsItPetFriendly(true)}
+                    onChange={() => {}}
+                  />
                   <label htmlFor="pet-yes">Yes</label>
-                  <input type="radio" name="pet-friendly" id="pet-no" />
+                  <input
+                    type="radio"
+                    name="pet-friendly"
+                    id="pet-no"
+                    checked={!isItPetFriendly}
+                    onClick={() => setIsItPetFriendly(false)}
+                    onChange={() => {}}
+                  />
                   <label htmlFor="pet-no">No</label>
                 </div>
               </div>
@@ -143,9 +187,11 @@ function WriteReview4() {
 
               <div className="input-container">
                 <textarea
-                  class="custom-textarea"
+                  className="custom-textarea"
                   placeholder="Such as appliances, windows, etc"
                   rows={4}
+                  value={anythingToBeFixed}
+                  onChange={(e) => setAnythingToBeFixed(e.target.value)}
                 ></textarea>
                 <div className="character-counter hidden"></div>
               </div>
@@ -155,30 +201,38 @@ function WriteReview4() {
             <div className="col">
               <p className="input-title">How quickly did the owner respond? </p>
               <div className="row mt-small mb-small">
-                <div class="rating-container mail">
-                  <input type="radio" id="mail5" name="rating" value="5" />
-                  <label for="mail5"></label>
-                  <input type="radio" id="mail4" name="rating" value="4" />
-                  <label for="mail4"></label>
-                  <input type="radio" id="mail3" name="rating" value="3" />
-                  <label for="mail3"></label>
-                  <input type="radio" id="mail2" name="rating" value="2" />
-                  <label for="mail2"></label>
-                  <input type="radio" id="mail1" name="rating" value="1" />
-                  <label for="mail1"></label>
+                <div className="rating-container mail">
+                  {Array.from({ length: 5 }, (_, index) => (
+                    <React.Fragment key={index}>
+                      <input
+                        type="radio"
+                        id={`mail${index + 1}`}
+                        name="mail-container"
+                        value={index + 1}
+                        checked={ownerRespondScore === (5 - (index ))}
+                        onClick={() => setOwnerRespondScore(5 - (index ))}
+                        onChange={() => {}}
+                      />
+                      <label htmlFor={`mail${index + 1}`}></label>
+                    </React.Fragment>
+                  ))}
                 </div>
               </div>
             </div>
           </div>
           <div className="row">
             <div className="content">
-              <p className="contact-title input-title">Do you have any health concerns about the property?</p>
+              <p className="contact-title input-title">
+                Do you have any health concerns about the property?
+              </p>
 
               <div className="input-container">
                 <textarea
-                  class="custom-textarea"
+                  className="custom-textarea"
                   placeholder="Mold, leaking, etc."
                   rows={4}
+                  value={healthConcerns}
+                  onChange={(e) => setHealthConcerns(e.target.value)}
                 ></textarea>
                 <div className="character-counter hidden"></div>
               </div>
@@ -188,8 +242,22 @@ function WriteReview4() {
 
           <div className="row">
             <div className="buttons">
-              <button className="pre-step" onClick={()=>{ window.location.href = 'write-a-review-3';}}>Previous step</button>
-              <button className="next-step" onClick={()=>{ window.location.href = 'write-a-review-5';}}>Next step</button>
+              <button
+                className="pre-step"
+                onClick={() => {
+                  window.location.href = "write-a-review-3";
+                }}
+              >
+                Previous step
+              </button>
+              <button
+                className="next-step"
+                onClick={() => {
+                  window.location.href = "write-a-review-5";
+                }}
+              >
+                Next step
+              </button>
             </div>
           </div>
         </div>

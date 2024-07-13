@@ -6,12 +6,14 @@ import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import './Style/root.css';
 import { AppProvider } from './Contexts/AppContext';
+import WriteReview0 from './Components/Header/Modal';
 import WriteReview1 from './Components/WriteReview/WriteReview1';
 import WriteReview2 from './Components/WriteReview/WriteReview2';
 import WriteReview3 from './Components/WriteReview/WriteReview3';
 import WriteReview4 from './Components/WriteReview/WriteReview4';
 import WriteReview5 from './Components/WriteReview/WriteReview5';
 import PropertyProfile from './Pages/PropertyProfile';
+
 
 function App() {
 	return (
@@ -39,6 +41,11 @@ function App() {
 							path='/register'
 							exact
 							element={<RegisterPage />}
+						/>
+						<Route
+							path='/write-a-review-0'
+							exact
+							element={<WriteReview0 />}
 						/>
 						<Route
 							path='/write-a-review-1'

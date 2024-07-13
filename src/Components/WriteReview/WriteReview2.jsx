@@ -1,9 +1,31 @@
 import React from "react";
 import "../../Style/WriteReview.css";
 import { useAppProvider } from "../../Contexts/AppContext";
+import { useNavigate } from "react-router-dom";
 
 function WriteReview2() {
-  const { rentAmount, setRentAmount, rentPeriod, setRentPeriod, isBillsIncluded, setIsBillsIncluded, billsPerPerson, setBillsPerPerson, billsWholeHouse, setBillsWholeHouse, electricBill, setElectricBill, waterBill, setWaterBill, gasBill, setGasBill, internetBill, setInternetBill } = useAppProvider();
+  const {
+    rentAmount,
+    setRentAmount,
+    rentPeriod,
+    setRentPeriod,
+    isBillsIncluded,
+    setIsBillsIncluded,
+    billsPerPerson,
+    setBillsPerPerson,
+    billsWholeHouse,
+    setBillsWholeHouse,
+    electricBill,
+    setElectricBill,
+    waterBill,
+    setWaterBill,
+    gasBill,
+    setGasBill,
+    internetBill,
+    setInternetBill,
+  } = useAppProvider();
+  const navigate = useNavigate();
+
   return (
     <div className="container">
       <div className="review-flow">
@@ -22,16 +44,16 @@ function WriteReview2() {
                   <path
                     d="M16.5 8.83325C16.5 14.6666 9 19.6666 9 19.6666C9 19.6666 1.5 14.6666 1.5 8.83325C1.5 6.84413 2.29018 4.93647 3.6967 3.52995C5.10322 2.12343 7.01088 1.33325 9 1.33325C10.9891 1.33325 12.8968 2.12343 14.3033 3.52995C15.7098 4.93647 16.5 6.84413 16.5 8.83325Z"
                     stroke="#EF6C67"
-                    stroke-width="1.66667"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="1.66667"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                   <path
                     d="M9 11.3333C10.3807 11.3333 11.5 10.214 11.5 8.83325C11.5 7.45254 10.3807 6.33325 9 6.33325C7.61929 6.33325 6.5 7.45254 6.5 8.83325C6.5 10.214 7.61929 11.3333 9 11.3333Z"
                     stroke="#EF6C67"
-                    stroke-width="1.66667"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="1.66667"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </span>
@@ -53,22 +75,42 @@ function WriteReview2() {
         </div>
         <div className="review-content">
           <div className="row">
-            <h3>What is your current rent?</h3>
+            <h3>Let's talk financials</h3>
           </div>
           <div className="row">
             <div className="col">
-              <p className="input-title">What is the total tenancy period?</p>
+              <p className="input-title">What is your current rent?</p>
               <div className="row mt-small">
-                <input type="text" />
-                <select name="year">
+                <input
+                  type="text"
+                  value={rentAmount}
+                  onChange={(e) => setRentAmount(e.target.value)}
+                />
+                <select
+                  name="year"
+                  value={rentPeriod}
+                  onChange={(e) => setRentPeriod(e.target.value)}
+                >
                   <option value="GBP">GBP</option>
                   <option value="USD">USD</option>
                   <option value="EUR">EUR</option>
                 </select>
                 <div className="radio-group">
-                  <input type="radio" name="per" id="per-week" />
+                  <input
+                    type="radio"
+                    name="per"
+                    id="per-week"
+                    checked={rentPeriod === "per-week"}
+                    onChange={() => setRentPeriod("per-week")}
+                  />
                   <label htmlFor="per-week">Per Week</label>
-                  <input type="radio" name="per" id="per-month" />
+                  <input
+                    type="radio"
+                    name="per"
+                    id="per-month"
+                    checked={rentPeriod === "per-month"}
+                    onChange={() => setRentPeriod("per-month")}
+                  />
                   <label htmlFor="per-month">Per Month</label>
                 </div>
               </div>
@@ -84,14 +126,31 @@ function WriteReview2() {
                 cost of living here
               </p>
               <div className="toggle-group">
-                <input type="checkbox" id="switch" />
-                <label for="switch">Toggle</label>
+                <input
+                  type="checkbox"
+                  id="switch"
+                  checked={isBillsIncluded}
+                  onChange={() => setIsBillsIncluded(!isBillsIncluded)}
+                />
+                <label htmlFor="switch">Toggle</label>
                 <p>Bills are included</p>
               </div>
               <div className="radio-group">
-                <input type="radio" name="billsPer" id="per-person" />
+                <input
+                  type="radio"
+                  name="billsPer"
+                  id="per-person"
+                  checked={billsPerPerson}
+                  onChange={() => setBillsPerPerson(true)}
+                />
                 <label htmlFor="per-person">Per Person</label>
-                <input type="radio" name="billsPer" id="per-whole" />
+                <input
+                  type="radio"
+                  name="billsPer"
+                  id="per-whole"
+                  checked={billsWholeHouse}
+                  onChange={() => setBillsWholeHouse(true)}
+                />
                 <label htmlFor="per-whole">Per the whole household</label>
               </div>
             </div>
@@ -100,7 +159,7 @@ function WriteReview2() {
             <div className="col">
               <div className="bill">
                 <div className="title">
-                  <svg
+                <svg
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
@@ -112,10 +171,13 @@ function WriteReview2() {
                       fill="#0A2446"
                     />
                   </svg>
-                  Electricity
-                </div>
+                  Electricity</div>
                 <div className="bill-input-group">
-                  <input type="text" name="" id="" />
+                  <input
+                    type="text"
+                    value={electricBill}
+                    onChange={(e) => setElectricBill(e.target.value)}
+                  />
                   <label htmlFor="" className="cur-symbol">
                     £
                   </label>
@@ -125,7 +187,7 @@ function WriteReview2() {
             <div className="col">
               <div className="bill">
                 <div className="title">
-                  <svg
+                <svg
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
@@ -137,10 +199,13 @@ function WriteReview2() {
                       fill="#0A2446"
                     />
                   </svg>
-                  Water
-                </div>
+                  Water</div>
                 <div className="bill-input-group">
-                  <input type="text" name="" id="" />
+                  <input
+                    type="text"
+                    value={waterBill}
+                    onChange={(e) => setWaterBill(e.target.value)}
+                  />
                   <label htmlFor="" className="cur-symbol">
                     £
                   </label>
@@ -150,7 +215,7 @@ function WriteReview2() {
             <div className="col">
               <div className="bill">
                 <div className="title">
-                  <svg
+                <svg
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
@@ -162,10 +227,13 @@ function WriteReview2() {
                       fill="#0A2446"
                     />
                   </svg>
-                  Gas
-                </div>
+                  Gas</div>
                 <div className="bill-input-group">
-                  <input type="text" name="" id="" />
+                  <input
+                    type="text"
+                    value={gasBill}
+                    onChange={(e) => setGasBill(e.target.value)}
+                  />
                   <label htmlFor="" className="cur-symbol">
                     £
                   </label>
@@ -175,7 +243,7 @@ function WriteReview2() {
             <div className="col">
               <div className="bill">
                 <div className="title">
-                  <svg
+                <svg
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
@@ -187,10 +255,13 @@ function WriteReview2() {
                       fill="#0A2446"
                     />
                   </svg>
-                  Internet
-                </div>
+                  Internet</div>
                 <div className="bill-input-group">
-                  <input type="text" name="" id="" />
+                  <input
+                    type="text"
+                    value={internetBill}
+                    onChange={(e) => setInternetBill(e.target.value)}
+                  />
                   <label htmlFor="" className="cur-symbol">
                     £
                   </label>
@@ -200,8 +271,22 @@ function WriteReview2() {
           </div>
           <div className="row">
             <div className="buttons">
-              <button className="pre-step" onClick={()=>{ window.location.href = 'write-a-review-1';}}>Previous step</button>
-              <button className="next-step" onClick={()=>{ window.location.href = 'write-a-review-3';}}>Next step</button>
+              <button
+                className="pre-step"
+                onClick={() => {
+                  navigate("/write-a-review-1");
+                }}
+              >
+                Previous step
+              </button>
+              <button
+                className="next-step"
+                onClick={() => {
+                  navigate("/write-a-review-3");
+                }}
+              >
+                Next step
+              </button>
             </div>
           </div>
         </div>
