@@ -10,6 +10,8 @@ const SearchBar = () => {
     // Replace the following line with your actual search implementation
     const results = ["Result 1", "Result 2", "Result 3"];
 
+    window.location.href = "/property-profile/" + searchTerm;
+
     setSearchResults(results);
   };
 

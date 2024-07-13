@@ -11,6 +11,7 @@ import WriteReview2 from './Components/WriteReview/WriteReview2';
 import WriteReview3 from './Components/WriteReview/WriteReview3';
 import WriteReview4 from './Components/WriteReview/WriteReview4';
 import WriteReview5 from './Components/WriteReview/WriteReview5';
+import PropertyProfile from './Pages/PropertyProfile';
 
 function App() {
 	return (
@@ -64,9 +65,14 @@ function App() {
 							exact
 							element={<WriteReview5 />}
 						/>
+						<Route
+							path='/property-profile/:postalCode'
+							exact
+							element={<PropertyProfile />}
+						/>
 
 
-						
+
 					</Routes>
 				</Router>
         <Footer />
