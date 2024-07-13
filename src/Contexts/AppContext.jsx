@@ -42,7 +42,7 @@ const AppProvider = ({ children }) => {
   const [trafficScore, setTrafficScore] = useState(1);
   const [safetyConcerns, setSafetyConcerns] = useState('');
   const [agreeCheckbox, setAgreeCheckbox] = useState(false);
-  const serverUrl = 'https://freetold-backend.vercel.app/';
+  const serverUrl = 'https://freetold-backend.vercel.app';
 
   const sendReview = async() => {
     console.log('sendReview');
