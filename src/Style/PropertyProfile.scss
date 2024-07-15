@@ -1,0 +1,226 @@
+@import "vars";
+
+.main {
+  display: flex;
+  margin-left: 200px; /* Adjust according to sidebar width */
+  min-height: 100vh; // need to fix later
+  padding-top: 50px;
+}
+
+.content {
+  flex: 1;
+  padding: 0px 20px;
+  margin-right: 8%;
+}
+
+button {
+  cursor: pointer;
+}
+
+.sidebar {
+  width: 200px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 120px 30px 20px;
+  border-right: 1px solid #ddd;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  z-index: -9;
+
+  .back a {
+    @extend p;
+    color: $gray-text;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-top: $large-spacing;
+
+      a {
+        @extend p;
+        text-decoration: none;
+        color: $primary-color;
+        &.active {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .update-date {
+    @extend p;
+    color: $gray-text;
+    display: inline-flex;
+    align-content: center;
+    flex-wrap: wrap;
+    gap: $small-spacing;
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+
+    .save-to-favorites {
+      @extend p;
+      color: $gray-text;
+      border: none;
+      display: inline-flex;
+      align-content: center;
+      flex-wrap: wrap;
+      gap: $small-spacing;
+      cursor: pointer;
+      margin-right: 10px;
+      background-color: $white;
+    }
+
+    .more-actions {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 4px 10px 16px;
+      @extend p;
+      color: $gray-text;
+      border: none;
+      display: inline-flex;
+      align-content: center;
+      flex-wrap: wrap;
+    }
+  }
+}
+.property-details {
+  margin-top: $large-spacing;
+  margin-bottom: 20px;
+  border-radius: 5px;
+
+  .property-info {
+    display: flex;
+    justify-content: space-between;
+
+    .details {
+      max-width: 70%;
+
+      h2 {
+        @extend h2;
+        margin-bottom: $large-spacing;
+        color: $primary-color;
+      }
+
+      input[type="radio"] {
+        display: none;
+      }
+      label {
+        display: inline-block;
+        width: 25px;
+        height: 24px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-right: $small-spacing;
+      }
+      .stars {
+        display: flex;
+        .review-count {
+          @extend p;
+          color: $gray-text;
+          margin-left: $medium-spacing;
+        }
+        label {
+          background-image: url("../assets/img/star-default.png");
+          margin-bottom: $large-spacing;
+        }
+        input[type="radio"]:checked ~ label,
+        input[type="radio"]:checked ~ label ~ input[type="radio"] + label,
+        input[type="radio"]:checked ~ label ~ label {
+          background-image: url("../assets/img/star-selected.png");
+        }
+      }
+      p {
+        @extend p;
+        color: $gray-text;
+        margin-bottom: $large-spacing;
+      }
+    }
+
+    .stats {
+      max-width: 30%;
+      display: flex;
+      flex-direction: column;
+      background-color: #f5f5f5;
+      padding: $large-spacing;
+      border-radius: 10px;
+      border: 1px solid $light-border;
+      color: $primary-color;
+
+
+      .stat-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+
+        .class-icon {
+          width: 60px;
+          height: 60px;
+          font-size: 24px;
+          margin-right: 10px;
+          background-color: $white;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .stat-text {
+          display: flex;
+          flex-direction: column;
+
+          .stat-label {
+            @extend p;
+          }
+
+          .stat-value, & p {
+            @extend h3;
+
+            .info{
+                @extend p;
+                display: inline-block;
+                position: absolute;
+                margin-left: 4px;
+                cursor: pointer;
+
+                
+            }
+            .info.red{
+                color: $secondary-color;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .write-review {
+    background-color: $secondary-color;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #e04a4e;
+    }
+  }
+}
