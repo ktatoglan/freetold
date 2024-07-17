@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import Sidebar from './Sidebar';
 import ContentHeader from './ContentHeader';
 import PropertyDetails from './PropertyDetails';
+import ReviewScore from './ReviewScore';
+import LocationMap from './LocationMap';
+import LocationDetails from './LocationDetails';
+import Reviews from './Reviews';
 
 const PropertyProfile = ({postalCode}) => {
 
@@ -19,6 +23,10 @@ const PropertyProfile = ({postalCode}) => {
       <section className="content">
         <ContentHeader lastUpdate={"23 Sep 2024"}/>
         <PropertyDetails/>
+        <ReviewScore />
+        <LocationMap />
+        <LocationDetails />
+        <Reviews />
       </section>
     </section>
     </>
