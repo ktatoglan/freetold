@@ -1,58 +1,66 @@
-import React from 'react';
-import ReviewSingle from './ReviewSingle';
-
+import React from "react";
+import ReviewSingle from "./ReviewSingle";
 
 const reviewsData = [
   {
     id: 1,
     user: {
-      name: 'M. J., student',
-      duration: 'Stayed in this property for 6 months'
+      name: "M. J., student",
+      duration: "Stayed in this property for 6 months",
     },
-    title: 'Horrible place, stay away from there',
+    title: "Horrible place, stay away from there",
     rating: 1,
-    date: '2 weeks ago',
-    pros: 'Newly Refurbished Spacious 2 bedroom mid terraced property Conveniently Located Near the Center of Town, a short distance to Shops, Amenities and Transport Links.',
-    cons: 'Newly Refurbished Spacious 2 bedroom mid terraced property Conveniently Located Near the Center of Town, a short distance to Shops, Amenities and Transport Links.',
+    date: "2 weeks ago",
+    pros: "Newly Refurbished Spacious 2 bedroom mid terraced property Conveniently Located Near the Center of Town, a short distance to Shops, Amenities and Transport Links.",
+    cons: "Newly Refurbished Spacious 2 bedroom mid terraced property Conveniently Located Near the Center of Town, a short distance to Shops, Amenities and Transport Links.",
     likes: 2,
-    fullReviewLink: '#',
+    fullReviewLink: "#",
     ratingReview: {
       heating: 4.6,
       internet: 3.6,
       noise: 4.6,
       traffic: 5.0,
       ownerResponse: 5.0,
-      neighbors: 5.0
-    }
+      neighbors: 5.0,
+    },
   },
   {
     id: 2,
     user: {
-      name: 'M. J., student',
-      duration: 'Stayed in this property for 6 months'
+      name: "M. J., student",
+      duration: "Stayed in this property for 6 months",
     },
-    title: 'Lovely place for first months',
+    title: "Lovely place for first months",
     rating: 4,
-    date: '2 weeks ago',
-    pros: 'Newly Refurbished Spacious 2 bedroom mid terraced property.',
-    cons: 'Newly Refurbished Spacious 2 bedroom mid terraced property Conveniently Located Near the Center of Town, a short distance to Shops, Amenities and Transport Links.',
+    date: "2 weeks ago",
+    pros: "Newly Refurbished Spacious 2 bedroom mid terraced property.",
+    cons: "Newly Refurbished Spacious 2 bedroom mid terraced property Conveniently Located Near the Center of Town, a short distance to Shops, Amenities and Transport Links.",
     likes: 4,
-    fullReviewLink: '#',
+    fullReviewLink: "#",
     ratingReview: {
       heating: 4.6,
       internet: 3.6,
       noise: 4.6,
       traffic: 5.0,
       ownerResponse: 5.0,
-      neighbors: 5.0
-    }
-  }
+      neighbors: 5.0,
+    },
+  },
 ];
 
 const Reviews = () => (
   <div className="reviews-container">
-    <h2>Reviews</h2>
-    {reviewsData.map(review => (
+    <div className="reviews-header">
+      <h3>Reviews</h3>
+      <div className="sort-by">
+        <label htmlFor="sort-select">Sort by:</label>
+        <select id="sort-select">
+          <option value="rating">Rating</option>
+          <option value="date">Date</option>
+        </select>
+      </div>
+    </div>
+    {reviewsData.map((review) => (
       <ReviewSingle key={review.id} review={review} />
     ))}
   </div>

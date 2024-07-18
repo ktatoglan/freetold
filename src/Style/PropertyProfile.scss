@@ -130,6 +130,7 @@ button {
         background-repeat: no-repeat;
         margin-right: $small-spacing;
       }
+
       .stars {
         display: flex;
         .review-count {
@@ -362,7 +363,6 @@ button {
   }
 }
 
-
 .location-details {
   display: flex;
   gap: $large-spacing;
@@ -376,7 +376,9 @@ button {
     text-align: center;
   }
 
-  .how-to-get-there, .closest-shops, .attractions {
+  .how-to-get-there,
+  .closest-shops,
+  .attractions {
     flex: 1;
     padding: $large-spacing;
     border: 1px solid $light-border;
@@ -384,7 +386,7 @@ button {
 
     h4 {
       margin-bottom: 20px;
-      color: $primary-color
+      color: $primary-color;
     }
 
     .current-location {
@@ -443,7 +445,7 @@ button {
           &.car-icon {
             width: 24px;
             height: 24px;
-          } 
+          }
         }
 
         .details {
@@ -464,7 +466,8 @@ button {
       }
     }
 
-    .shop-option, .attraction-option {
+    .shop-option,
+    .attraction-option {
       display: flex;
       align-items: center;
       padding: $medium-spacing 0;
@@ -499,7 +502,7 @@ button {
           // background: url('/path/to/coffee-icon.svg') no-repeat center center;
           width: 24px;
           height: 24px;
-        } 
+        }
       }
 
       .details {
@@ -519,27 +522,49 @@ button {
 }
 
 .reviews-container {
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  h2 {
-    font-size: 24px;
-    color: #00263E;
+  margin-top: $large-spacing;
+  margin-bottom: $large-spacing;
+  border-radius: $small-spacing;
+  h3 {
+    color: #00263e;
+    margin-bottom: $medium-spacing;
+  }
+
+  .reviews-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 20px;
+
+    .sort-by {
+      display: flex;
+      align-items: center;
+
+      label {
+        font-size: 16px;
+        color: #00263e;
+        margin-right: 10px;
+      }
+
+      select {
+        font-size: 16px;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid $light-border;
+      }
+    }
   }
 }
 
 .review-single {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 20px;
+  border-bottom: 1px solid $light-border;
+  margin: 0px 0px $large-spacing;
+  padding-bottom: $medium-spacing;
 
   .user-info {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: $large-spacing;
 
     .avatar-placeholder {
       width: 40px;
@@ -557,131 +582,150 @@ button {
     .user-duration {
       color: #646464;
     }
-  }
 
-  .review-title {
-    font-size: 18px;
-    color: #00263E;
-    margin-bottom: 10px;
-  }
-
-  .review-rating {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-
-    .star {
-      width: 16px;
-      height: 16px;
-      background-color: #ddd;
-      margin-right: 5px;
-      &.filled {
-        background-color: #FFD700;
-      }
-    }
-
-    .review-date {
-      color: #646464;
-      margin-left: 10px;
+    .save-favorites {
+      display: flex;
+      gap: $small-spacing;
+      margin-left: auto;
+      background-color: transparent;
+      border: none;
+      color: $light-text;
+      cursor: pointer;
+      font-size: 14px;
     }
   }
 
   .review-content {
-    .pros, .cons {
-      margin-bottom: 10px;
-      strong {
-        display: block;
-        margin-bottom: 5px;
-        color: #333;
-      }
-      p {
-        color: #646464;
-      }
-    }
-  }
-
-  .review-footer {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
 
-    .likes {
-      display: flex;
-      align-items: center;
-      .like-icon {
-        width: 16px;
-        height: 16px;
-        background-color: #ccc;
-        margin-right: 5px;
+    .review-details {
+      width: 60%;
+
+      .review-title {
+        font-size: 24px;
+        line-height: 30px;
+        color: $primary-color;
+        margin-bottom: 10px;
       }
-      span {
-        color: #333;
-      }
-    }
 
-    .full-review-link {
-      color: #00263E;
-      text-decoration: none;
-    }
-  }
-
-  .rating-review {
-    background-color: #f9f9f9;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-
-    h4 {
-      color: #00263E;
-      margin-bottom: 10px;
-    }
-
-    .rating-details {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-
-      .rating-item {
+      .review-rating {
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        padding: 5px 0;
-        border-bottom: 1px solid #ddd;
-        &:last-child {
-          border-bottom: none;
+        margin-bottom: 10px;
+        input[type="radio"] {
+          display: none;
+        }
+        label {
+          display: inline-block;
+          width: 25px;
+          height: 24px;
+          background-size: contain;
+          background-repeat: no-repeat;
+          margin-right: $small-spacing;
+        }
+        .stars {
+          display: flex;
+          .review-count {
+            // @extend p;
+            color: $gray-text;
+            margin-left: $medium-spacing;
+          }
+          label {
+            background-image: url("../assets/img/star-default.png");
+            margin-bottom: $medium-spacing;
+          }
+          input[type="radio"]:checked ~ label,
+          input[type="radio"]:checked ~ label ~ input[type="radio"] + label,
+          input[type="radio"]:checked ~ label ~ label {
+            background-image: url("../assets/img/star-selected.png");
+          }
         }
 
-        .icon {
-          width: 20px;
-          height: 20px;
-          /* Add icons background here */
-          /* &.heating-icon {
-            background: url('/path/to/heating-icon.svg') no-repeat center center;
+        .review-date {
+          color: $light-text;
+          margin-left: 10px;
+        }
+      }
+
+      .pros,
+      .cons {
+        margin-bottom: $large-spacing;
+        strong {
+          display: block;
+          margin-bottom: $small-spacing;
+          color: $gray-text;
+        }
+        p {
+          color: $gray-text;
+        }
+      }
+
+      .review-footer {
+        display: flex;
+        gap: $large-spacing;
+        align-items: center;
+        margin-bottom: 10px;
+
+        .likes {
+          display: flex;
+          align-items: center;
+          .like-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
           }
-          &.internet-icon {
-            background: url('/path/to/internet-icon.svg') no-repeat center center;
+          span {
+            color: $gray-text;
           }
-          &.noise-icon {
-            background: url('/path/to/noise-icon.svg') no-repeat center center;
-          }
-          &.traffic-icon {
-            background: url('/path/to/traffic-icon.svg') no-repeat center center;
-          }
-          &.owner-icon {
-            background: url('/path/to/owner-icon.svg') no-repeat center center;
-          }
-          &.neighbors-icon {
-            background: url('/path/to/neighbors-icon.svg') no-repeat center center;
-          } */
         }
 
-        span {
-          color: #333;
-          &:nth-child(2) {
-            flex-grow: 1;
-            text-align: left;
-            padding: 0 10px;
+        .full-review-link {
+          color: $light-text;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .rating-review {
+      width: 35%;
+      border: 1px solid $light-border;
+      border-radius: 10px;
+      padding: $medium-spacing;
+
+      h4 {
+        font-size: 16px;
+        color: $secondary-color;
+        margin-bottom: 10px;
+      }
+
+      .rating-details {
+        .rating-item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: $small-spacing 0;
+          &:last-child {
+            border-bottom: none;
+            
+          }
+          span:last-of-type{
+            color: $secondary-color;
+          }
+          .icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+            /* background: #ccc; */
+          }
+
+          span {
+            color: $gray-text;
+            &:nth-child(2) {
+              flex-grow: 1;
+              text-align: left;
+              padding: 0 10px;
+            }
           }
         }
       }

@@ -412,146 +412,251 @@ button {
   width: 24px;
   text-align: center;
 }
-.location-details .how-to-get-there, .location-details .closest-shops, .location-details .attractions {
+.location-details .how-to-get-there,
+.location-details .closest-shops,
+.location-details .attractions {
   flex: 1;
   padding: 24px;
   border: 1px solid #d9d9d9;
   border-radius: 5px;
 }
-.location-details .how-to-get-there h4, .location-details .closest-shops h4, .location-details .attractions h4 {
+.location-details .how-to-get-there h4,
+.location-details .closest-shops h4,
+.location-details .attractions h4 {
   margin-bottom: 20px;
   color: #0a2446;
 }
-.location-details .how-to-get-there .current-location, .location-details .closest-shops .current-location, .location-details .attractions .current-location {
+.location-details .how-to-get-there .current-location,
+.location-details .closest-shops .current-location,
+.location-details .attractions .current-location {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
   color: #ef6c67;
 }
-.location-details .how-to-get-there .current-location .icon, .location-details .closest-shops .current-location .icon, .location-details .attractions .current-location .icon {
+.location-details .how-to-get-there .current-location .icon,
+.location-details .closest-shops .current-location .icon,
+.location-details .attractions .current-location .icon {
   margin: 0px 8px;
 }
-.location-details .how-to-get-there .current-location .icon.arrow-icon, .location-details .closest-shops .current-location .icon.arrow-icon, .location-details .attractions .current-location .icon.arrow-icon {
+.location-details .how-to-get-there .current-location .icon.arrow-icon,
+.location-details .closest-shops .current-location .icon.arrow-icon,
+.location-details .attractions .current-location .icon.arrow-icon {
   width: 20px;
   height: 20px;
 }
-.location-details .how-to-get-there .location-input-container, .location-details .closest-shops .location-input-container, .location-details .attractions .location-input-container {
+.location-details .how-to-get-there .location-input-container,
+.location-details .closest-shops .location-input-container,
+.location-details .attractions .location-input-container {
   position: relative;
   width: 100%;
   margin-bottom: 20px;
 }
-.location-details .how-to-get-there .location-input-container input, .location-details .closest-shops .location-input-container input, .location-details .attractions .location-input-container input {
+.location-details .how-to-get-there .location-input-container input,
+.location-details .closest-shops .location-input-container input,
+.location-details .attractions .location-input-container input {
   width: 100%;
   padding: 10px;
   padding-right: 40px;
   border: 1px solid #ddd;
   border-radius: 5px;
 }
-.location-details .how-to-get-there .location-input-container .search-icon, .location-details .closest-shops .location-input-container .search-icon, .location-details .attractions .location-input-container .search-icon {
+.location-details .how-to-get-there .location-input-container .search-icon,
+.location-details .closest-shops .location-input-container .search-icon,
+.location-details .attractions .location-input-container .search-icon {
   position: absolute;
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
 }
-.location-details .how-to-get-there .transport-options .option, .location-details .closest-shops .transport-options .option, .location-details .attractions .transport-options .option {
+.location-details .how-to-get-there .transport-options .option,
+.location-details .closest-shops .transport-options .option,
+.location-details .attractions .transport-options .option {
   display: flex;
   align-items: flex-start;
   margin-bottom: 20px;
 }
-.location-details .how-to-get-there .transport-options .option .icon, .location-details .closest-shops .transport-options .option .icon, .location-details .attractions .transport-options .option .icon {
+.location-details .how-to-get-there .transport-options .option .icon,
+.location-details .closest-shops .transport-options .option .icon,
+.location-details .attractions .transport-options .option .icon {
   font-size: 24px;
   margin: 0px 8px;
 }
-.location-details .how-to-get-there .transport-options .option .icon.walking-icon, .location-details .closest-shops .transport-options .option .icon.walking-icon, .location-details .attractions .transport-options .option .icon.walking-icon {
+.location-details .how-to-get-there .transport-options .option .icon.walking-icon,
+.location-details .closest-shops .transport-options .option .icon.walking-icon,
+.location-details .attractions .transport-options .option .icon.walking-icon {
   width: 24px;
   height: 24px;
 }
-.location-details .how-to-get-there .transport-options .option .icon.bus-icon, .location-details .closest-shops .transport-options .option .icon.bus-icon, .location-details .attractions .transport-options .option .icon.bus-icon {
+.location-details .how-to-get-there .transport-options .option .icon.bus-icon,
+.location-details .closest-shops .transport-options .option .icon.bus-icon,
+.location-details .attractions .transport-options .option .icon.bus-icon {
   width: 24px;
   height: 24px;
 }
-.location-details .how-to-get-there .transport-options .option .icon.car-icon, .location-details .closest-shops .transport-options .option .icon.car-icon, .location-details .attractions .transport-options .option .icon.car-icon {
+.location-details .how-to-get-there .transport-options .option .icon.car-icon,
+.location-details .closest-shops .transport-options .option .icon.car-icon,
+.location-details .attractions .transport-options .option .icon.car-icon {
   width: 24px;
   height: 24px;
 }
-.location-details .how-to-get-there .transport-options .option .details .title, .location-details .closest-shops .transport-options .option .details .title, .location-details .attractions .transport-options .option .details .title {
+.location-details .how-to-get-there .transport-options .option .details .title,
+.location-details .closest-shops .transport-options .option .details .title,
+.location-details .attractions .transport-options .option .details .title {
   color: #0a2446;
   font-weight: bold;
   margin-bottom: 5px;
 }
-.location-details .how-to-get-there .transport-options .option .details .title strong, .location-details .closest-shops .transport-options .option .details .title strong, .location-details .attractions .transport-options .option .details .title strong {
+.location-details .how-to-get-there .transport-options .option .details .title strong,
+.location-details .closest-shops .transport-options .option .details .title strong,
+.location-details .attractions .transport-options .option .details .title strong {
   color: #ef6c67;
 }
-.location-details .how-to-get-there .transport-options .option .details span, .location-details .closest-shops .transport-options .option .details span, .location-details .attractions .transport-options .option .details span {
+.location-details .how-to-get-there .transport-options .option .details span,
+.location-details .closest-shops .transport-options .option .details span,
+.location-details .attractions .transport-options .option .details span {
   color: #919191;
   font-weight: 300;
   display: block;
 }
-.location-details .how-to-get-there .shop-option, .location-details .how-to-get-there .attraction-option, .location-details .closest-shops .shop-option, .location-details .closest-shops .attraction-option, .location-details .attractions .shop-option, .location-details .attractions .attraction-option {
+.location-details .how-to-get-there .shop-option,
+.location-details .how-to-get-there .attraction-option,
+.location-details .closest-shops .shop-option,
+.location-details .closest-shops .attraction-option,
+.location-details .attractions .shop-option,
+.location-details .attractions .attraction-option {
   display: flex;
   align-items: center;
   padding: 16px 0;
   border-bottom: 1px solid #ddd;
 }
-.location-details .how-to-get-there .shop-option:last-child, .location-details .how-to-get-there .attraction-option:last-child, .location-details .closest-shops .shop-option:last-child, .location-details .closest-shops .attraction-option:last-child, .location-details .attractions .shop-option:last-child, .location-details .attractions .attraction-option:last-child {
+.location-details .how-to-get-there .shop-option:last-child,
+.location-details .how-to-get-there .attraction-option:last-child,
+.location-details .closest-shops .shop-option:last-child,
+.location-details .closest-shops .attraction-option:last-child,
+.location-details .attractions .shop-option:last-child,
+.location-details .attractions .attraction-option:last-child {
   border-bottom: none;
 }
-.location-details .how-to-get-there .shop-option .icon, .location-details .how-to-get-there .attraction-option .icon, .location-details .closest-shops .shop-option .icon, .location-details .closest-shops .attraction-option .icon, .location-details .attractions .shop-option .icon, .location-details .attractions .attraction-option .icon {
+.location-details .how-to-get-there .shop-option .icon,
+.location-details .how-to-get-there .attraction-option .icon,
+.location-details .closest-shops .shop-option .icon,
+.location-details .closest-shops .attraction-option .icon,
+.location-details .attractions .shop-option .icon,
+.location-details .attractions .attraction-option .icon {
   margin-right: 8px;
 }
-.location-details .how-to-get-there .shop-option .icon.shop-icon, .location-details .how-to-get-there .attraction-option .icon.shop-icon, .location-details .closest-shops .shop-option .icon.shop-icon, .location-details .closest-shops .attraction-option .icon.shop-icon, .location-details .attractions .shop-option .icon.shop-icon, .location-details .attractions .attraction-option .icon.shop-icon {
+.location-details .how-to-get-there .shop-option .icon.shop-icon,
+.location-details .how-to-get-there .attraction-option .icon.shop-icon,
+.location-details .closest-shops .shop-option .icon.shop-icon,
+.location-details .closest-shops .attraction-option .icon.shop-icon,
+.location-details .attractions .shop-option .icon.shop-icon,
+.location-details .attractions .attraction-option .icon.shop-icon {
   width: 24px;
   height: 24px;
 }
-.location-details .how-to-get-there .shop-option .icon.park-icon, .location-details .how-to-get-there .attraction-option .icon.park-icon, .location-details .closest-shops .shop-option .icon.park-icon, .location-details .closest-shops .attraction-option .icon.park-icon, .location-details .attractions .shop-option .icon.park-icon, .location-details .attractions .attraction-option .icon.park-icon {
+.location-details .how-to-get-there .shop-option .icon.park-icon,
+.location-details .how-to-get-there .attraction-option .icon.park-icon,
+.location-details .closest-shops .shop-option .icon.park-icon,
+.location-details .closest-shops .attraction-option .icon.park-icon,
+.location-details .attractions .shop-option .icon.park-icon,
+.location-details .attractions .attraction-option .icon.park-icon {
   width: 24px;
   height: 24px;
 }
-.location-details .how-to-get-there .shop-option .icon.fitness-icon, .location-details .how-to-get-there .attraction-option .icon.fitness-icon, .location-details .closest-shops .shop-option .icon.fitness-icon, .location-details .closest-shops .attraction-option .icon.fitness-icon, .location-details .attractions .shop-option .icon.fitness-icon, .location-details .attractions .attraction-option .icon.fitness-icon {
+.location-details .how-to-get-there .shop-option .icon.fitness-icon,
+.location-details .how-to-get-there .attraction-option .icon.fitness-icon,
+.location-details .closest-shops .shop-option .icon.fitness-icon,
+.location-details .closest-shops .attraction-option .icon.fitness-icon,
+.location-details .attractions .shop-option .icon.fitness-icon,
+.location-details .attractions .attraction-option .icon.fitness-icon {
   width: 24px;
   height: 24px;
 }
-.location-details .how-to-get-there .shop-option .icon.restaurant-icon, .location-details .how-to-get-there .attraction-option .icon.restaurant-icon, .location-details .closest-shops .shop-option .icon.restaurant-icon, .location-details .closest-shops .attraction-option .icon.restaurant-icon, .location-details .attractions .shop-option .icon.restaurant-icon, .location-details .attractions .attraction-option .icon.restaurant-icon {
+.location-details .how-to-get-there .shop-option .icon.restaurant-icon,
+.location-details .how-to-get-there .attraction-option .icon.restaurant-icon,
+.location-details .closest-shops .shop-option .icon.restaurant-icon,
+.location-details .closest-shops .attraction-option .icon.restaurant-icon,
+.location-details .attractions .shop-option .icon.restaurant-icon,
+.location-details .attractions .attraction-option .icon.restaurant-icon {
   width: 24px;
   height: 24px;
 }
-.location-details .how-to-get-there .shop-option .icon.coffee-icon, .location-details .how-to-get-there .attraction-option .icon.coffee-icon, .location-details .closest-shops .shop-option .icon.coffee-icon, .location-details .closest-shops .attraction-option .icon.coffee-icon, .location-details .attractions .shop-option .icon.coffee-icon, .location-details .attractions .attraction-option .icon.coffee-icon {
+.location-details .how-to-get-there .shop-option .icon.coffee-icon,
+.location-details .how-to-get-there .attraction-option .icon.coffee-icon,
+.location-details .closest-shops .shop-option .icon.coffee-icon,
+.location-details .closest-shops .attraction-option .icon.coffee-icon,
+.location-details .attractions .shop-option .icon.coffee-icon,
+.location-details .attractions .attraction-option .icon.coffee-icon {
   width: 24px;
   height: 24px;
 }
-.location-details .how-to-get-there .shop-option .details span, .location-details .how-to-get-there .attraction-option .details span, .location-details .closest-shops .shop-option .details span, .location-details .closest-shops .attraction-option .details span, .location-details .attractions .shop-option .details span, .location-details .attractions .attraction-option .details span {
+.location-details .how-to-get-there .shop-option .details span,
+.location-details .how-to-get-there .attraction-option .details span,
+.location-details .closest-shops .shop-option .details span,
+.location-details .closest-shops .attraction-option .details span,
+.location-details .attractions .shop-option .details span,
+.location-details .attractions .attraction-option .details span {
   display: flex;
 }
-.location-details .how-to-get-there .shop-option .details span:first-child, .location-details .how-to-get-there .attraction-option .details span:first-child, .location-details .closest-shops .shop-option .details span:first-child, .location-details .closest-shops .attraction-option .details span:first-child, .location-details .attractions .shop-option .details span:first-child, .location-details .attractions .attraction-option .details span:first-child {
+.location-details .how-to-get-there .shop-option .details span:first-child,
+.location-details .how-to-get-there .attraction-option .details span:first-child,
+.location-details .closest-shops .shop-option .details span:first-child,
+.location-details .closest-shops .attraction-option .details span:first-child,
+.location-details .attractions .shop-option .details span:first-child,
+.location-details .attractions .attraction-option .details span:first-child {
   font-weight: bold;
   color: #0a2446;
 }
-.location-details .how-to-get-there .shop-option .details span:last-child, .location-details .how-to-get-there .attraction-option .details span:last-child, .location-details .closest-shops .shop-option .details span:last-child, .location-details .closest-shops .attraction-option .details span:last-child, .location-details .attractions .shop-option .details span:last-child, .location-details .attractions .attraction-option .details span:last-child {
+.location-details .how-to-get-there .shop-option .details span:last-child,
+.location-details .how-to-get-there .attraction-option .details span:last-child,
+.location-details .closest-shops .shop-option .details span:last-child,
+.location-details .closest-shops .attraction-option .details span:last-child,
+.location-details .attractions .shop-option .details span:last-child,
+.location-details .attractions .attraction-option .details span:last-child {
   color: #919191;
 }
 
 .reviews-container {
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 10px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  border-radius: 8px;
 }
-.reviews-container h2 {
-  font-size: 24px;
-  color: #00263E;
+.reviews-container h3, .reviews-container .property-details .property-info .stats .stat-item .stat-text .stat-value, .property-details .property-info .stats .stat-item .stat-text .reviews-container .stat-value, .reviews-container .property-details .property-info .stats .stat-item .stat-text p, .property-details .property-info .stats .stat-item .stat-text .reviews-container p, .reviews-container .property-details .property-info .stats .stat-item .stat-text .sidebar .back a, .property-details .property-info .stats .stat-item .stat-text .sidebar .back .reviews-container a, .reviews-container .sidebar .back .property-details .property-info .stats .stat-item .stat-text a, .sidebar .back .property-details .property-info .stats .stat-item .stat-text .reviews-container a, .reviews-container .property-details .property-info .stats .stat-item .stat-text .sidebar ul li a, .property-details .property-info .stats .stat-item .stat-text .sidebar ul li .reviews-container a, .reviews-container .sidebar ul li .property-details .property-info .stats .stat-item .stat-text a, .sidebar ul li .property-details .property-info .stats .stat-item .stat-text .reviews-container a, .reviews-container .property-details .property-info .stats .stat-item .stat-text .content-header .update-date, .property-details .property-info .stats .stat-item .stat-text .content-header .reviews-container .update-date, .reviews-container .content-header .property-details .property-info .stats .stat-item .stat-text .update-date, .content-header .property-details .property-info .stats .stat-item .stat-text .reviews-container .update-date, .reviews-container .property-details .property-info .stats .stat-item .stat-text .content-header .actions .save-to-favorites, .property-details .property-info .stats .stat-item .stat-text .content-header .actions .reviews-container .save-to-favorites, .reviews-container .content-header .actions .property-details .property-info .stats .stat-item .stat-text .save-to-favorites, .content-header .actions .property-details .property-info .stats .stat-item .stat-text .reviews-container .save-to-favorites, .reviews-container .property-details .property-info .stats .stat-item .stat-text .stat-label, .property-details .property-info .stats .stat-item .stat-text .reviews-container .stat-label, .reviews-container .property-details .property-info .stats .stat-item .stat-text .review-score .review-summary .overall-rating .overall-title, .property-details .property-info .stats .stat-item .stat-text .review-score .review-summary .overall-rating .reviews-container .overall-title, .reviews-container .review-score .review-summary .overall-rating .property-details .property-info .stats .stat-item .stat-text .overall-title, .review-score .review-summary .overall-rating .property-details .property-info .stats .stat-item .stat-text .reviews-container .overall-title, .reviews-container .property-details .property-info .stats .stat-item .stat-text .review-score .review-summary .overall-rating .rating-details .details-title, .property-details .property-info .stats .stat-item .stat-text .review-score .review-summary .overall-rating .rating-details .reviews-container .details-title, .reviews-container .review-score .review-summary .overall-rating .rating-details .property-details .property-info .stats .stat-item .stat-text .details-title, .review-score .review-summary .overall-rating .rating-details .property-details .property-info .stats .stat-item .stat-text .reviews-container .details-title {
+  color: #00263e;
+  margin-bottom: 16px;
+}
+.reviews-container .reviews-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
+}
+.reviews-container .reviews-header .sort-by {
+  display: flex;
+  align-items: center;
+}
+.reviews-container .reviews-header .sort-by label {
+  font-size: 16px;
+  color: #00263e;
+  margin-right: 10px;
+}
+.reviews-container .reviews-header .sort-by select {
+  font-size: 16px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #d9d9d9;
 }
 
 .review-single {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 20px;
+  border-bottom: 1px solid #d9d9d9;
+  margin: 0px 0px 24px;
+  padding-bottom: 16px;
 }
 .review-single .user-info {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 24px;
 }
 .review-single .user-info .avatar-placeholder {
   width: 40px;
@@ -567,115 +672,148 @@ button {
 .review-single .user-info .user-duration {
   color: #646464;
 }
-.review-single .review-title {
-  font-size: 18px;
-  color: #00263E;
+.review-single .user-info .save-favorites {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+  background-color: transparent;
+  border: none;
+  color: #919191;
+  cursor: pointer;
+  font-size: 14px;
+}
+.review-single .review-content {
+  display: flex;
+  justify-content: space-between;
+}
+.review-single .review-content .review-details {
+  width: 60%;
+}
+.review-single .review-content .review-details .review-title {
+  font-size: 24px;
+  line-height: 30px;
+  color: #0a2446;
   margin-bottom: 10px;
 }
-.review-single .review-rating {
+.review-single .review-content .review-details .review-rating {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
-.review-single .review-rating .star {
-  width: 16px;
-  height: 16px;
-  background-color: #ddd;
-  margin-right: 5px;
+.review-single .review-content .review-details .review-rating input[type=radio] {
+  display: none;
 }
-.review-single .review-rating .star.filled {
-  background-color: #FFD700;
+.review-single .review-content .review-details .review-rating label {
+  display: inline-block;
+  width: 25px;
+  height: 24px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 8px;
 }
-.review-single .review-rating .review-date {
+.review-single .review-content .review-details .review-rating .stars {
+  display: flex;
+}
+.review-single .review-content .review-details .review-rating .stars .review-count {
   color: #646464;
+  margin-left: 16px;
+}
+.review-single .review-content .review-details .review-rating .stars label {
+  background-image: url("../assets/img/star-default.png");
+  margin-bottom: 16px;
+}
+.review-single .review-content .review-details .review-rating .stars input[type=radio]:checked ~ label,
+.review-single .review-content .review-details .review-rating .stars input[type=radio]:checked ~ label ~ input[type=radio] + label,
+.review-single .review-content .review-details .review-rating .stars input[type=radio]:checked ~ label ~ label {
+  background-image: url("../assets/img/star-selected.png");
+}
+.review-single .review-content .review-details .review-rating .review-date {
+  color: #919191;
   margin-left: 10px;
 }
-.review-single .review-content .pros, .review-single .review-content .cons {
-  margin-bottom: 10px;
+.review-single .review-content .review-details .pros,
+.review-single .review-content .review-details .cons {
+  margin-bottom: 24px;
 }
-.review-single .review-content .pros strong, .review-single .review-content .cons strong {
+.review-single .review-content .review-details .pros strong,
+.review-single .review-content .review-details .cons strong {
   display: block;
-  margin-bottom: 5px;
-  color: #333;
-}
-.review-single .review-content .pros p, .review-single .review-content .pros .sidebar .back a, .sidebar .back .review-single .review-content .pros a, .review-single .review-content .pros .sidebar ul li a, .sidebar ul li .review-single .review-content .pros a, .review-single .review-content .pros .content-header .update-date, .content-header .review-single .review-content .pros .update-date, .review-single .review-content .pros .content-header .actions .save-to-favorites, .content-header .actions .review-single .review-content .pros .save-to-favorites, .review-single .review-content .pros .property-details .property-info .stats .stat-item .stat-text .stat-label, .property-details .property-info .stats .stat-item .stat-text .review-single .review-content .pros .stat-label, .review-single .review-content .pros .review-score .review-summary .overall-rating .overall-title, .review-score .review-summary .overall-rating .review-single .review-content .pros .overall-title, .review-single .review-content .pros .review-score .review-summary .overall-rating .rating-details .details-title, .review-score .review-summary .overall-rating .rating-details .review-single .review-content .pros .details-title, .review-single .review-content .cons p, .review-single .review-content .cons .sidebar .back a, .sidebar .back .review-single .review-content .cons a, .review-single .review-content .cons .sidebar ul li a, .sidebar ul li .review-single .review-content .cons a, .review-single .review-content .cons .content-header .update-date, .content-header .review-single .review-content .cons .update-date, .review-single .review-content .cons .content-header .actions .save-to-favorites, .content-header .actions .review-single .review-content .cons .save-to-favorites, .review-single .review-content .cons .property-details .property-info .stats .stat-item .stat-text .stat-label, .property-details .property-info .stats .stat-item .stat-text .review-single .review-content .cons .stat-label, .review-single .review-content .cons .review-score .review-summary .overall-rating .overall-title, .review-score .review-summary .overall-rating .review-single .review-content .cons .overall-title, .review-single .review-content .cons .review-score .review-summary .overall-rating .rating-details .details-title, .review-score .review-summary .overall-rating .rating-details .review-single .review-content .cons .details-title {
+  margin-bottom: 8px;
   color: #646464;
 }
-.review-single .review-footer {
+.review-single .review-content .review-details .pros p, .review-single .review-content .review-details .pros .sidebar .back a, .sidebar .back .review-single .review-content .review-details .pros a, .review-single .review-content .review-details .pros .sidebar ul li a, .sidebar ul li .review-single .review-content .review-details .pros a, .review-single .review-content .review-details .pros .content-header .update-date, .content-header .review-single .review-content .review-details .pros .update-date, .review-single .review-content .review-details .pros .content-header .actions .save-to-favorites, .content-header .actions .review-single .review-content .review-details .pros .save-to-favorites, .review-single .review-content .review-details .pros .property-details .property-info .stats .stat-item .stat-text .stat-label, .property-details .property-info .stats .stat-item .stat-text .review-single .review-content .review-details .pros .stat-label, .review-single .review-content .review-details .pros .review-score .review-summary .overall-rating .overall-title, .review-score .review-summary .overall-rating .review-single .review-content .review-details .pros .overall-title, .review-single .review-content .review-details .pros .review-score .review-summary .overall-rating .rating-details .details-title, .review-score .review-summary .overall-rating .rating-details .review-single .review-content .review-details .pros .details-title,
+.review-single .review-content .review-details .cons p,
+.review-single .review-content .review-details .cons .sidebar .back a,
+.sidebar .back .review-single .review-content .review-details .cons a,
+.review-single .review-content .review-details .cons .sidebar ul li a,
+.sidebar ul li .review-single .review-content .review-details .cons a,
+.review-single .review-content .review-details .cons .content-header .update-date,
+.content-header .review-single .review-content .review-details .cons .update-date,
+.review-single .review-content .review-details .cons .content-header .actions .save-to-favorites,
+.content-header .actions .review-single .review-content .review-details .cons .save-to-favorites,
+.review-single .review-content .review-details .cons .property-details .property-info .stats .stat-item .stat-text .stat-label,
+.property-details .property-info .stats .stat-item .stat-text .review-single .review-content .review-details .cons .stat-label,
+.review-single .review-content .review-details .cons .review-score .review-summary .overall-rating .overall-title,
+.review-score .review-summary .overall-rating .review-single .review-content .review-details .cons .overall-title,
+.review-single .review-content .review-details .cons .review-score .review-summary .overall-rating .rating-details .details-title,
+.review-score .review-summary .overall-rating .rating-details .review-single .review-content .review-details .cons .details-title {
+  color: #646464;
+}
+.review-single .review-content .review-details .review-footer {
   display: flex;
-  justify-content: space-between;
+  gap: 24px;
   align-items: center;
   margin-bottom: 10px;
 }
-.review-single .review-footer .likes {
+.review-single .review-content .review-details .review-footer .likes {
   display: flex;
   align-items: center;
 }
-.review-single .review-footer .likes .like-icon {
-  width: 16px;
-  height: 16px;
-  background-color: #ccc;
-  margin-right: 5px;
-}
-.review-single .review-footer .likes span {
-  color: #333;
-}
-.review-single .review-footer .full-review-link {
-  color: #00263E;
-  text-decoration: none;
-}
-.review-single .rating-review {
-  background-color: #f9f9f9;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-}
-.review-single .rating-review h4 {
-  color: #00263E;
-  margin-bottom: 10px;
-}
-.review-single .rating-review .rating-details {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.review-single .rating-review .rating-details .rating-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px 0;
-  border-bottom: 1px solid #ddd;
-}
-.review-single .rating-review .rating-details .rating-item:last-child {
-  border-bottom: none;
-}
-.review-single .rating-review .rating-details .rating-item .icon {
+.review-single .review-content .review-details .review-footer .likes .like-icon {
   width: 20px;
   height: 20px;
-  /* Add icons background here */
-  /* &.heating-icon {
-    background: url('/path/to/heating-icon.svg') no-repeat center center;
-  }
-  &.internet-icon {
-    background: url('/path/to/internet-icon.svg') no-repeat center center;
-  }
-  &.noise-icon {
-    background: url('/path/to/noise-icon.svg') no-repeat center center;
-  }
-  &.traffic-icon {
-    background: url('/path/to/traffic-icon.svg') no-repeat center center;
-  }
-  &.owner-icon {
-    background: url('/path/to/owner-icon.svg') no-repeat center center;
-  }
-  &.neighbors-icon {
-    background: url('/path/to/neighbors-icon.svg') no-repeat center center;
-  } */
+  margin-right: 5px;
 }
-.review-single .rating-review .rating-details .rating-item span {
-  color: #333;
+.review-single .review-content .review-details .review-footer .likes span {
+  color: #646464;
 }
-.review-single .rating-review .rating-details .rating-item span:nth-child(2) {
+.review-single .review-content .review-details .review-footer .full-review-link {
+  color: #919191;
+  text-decoration: underline;
+}
+.review-single .review-content .rating-review {
+  width: 35%;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  padding: 16px;
+}
+.review-single .review-content .rating-review h4 {
+  font-size: 16px;
+  color: #ef6c67;
+  margin-bottom: 10px;
+}
+.review-single .review-content .rating-review .rating-details .rating-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+.review-single .review-content .rating-review .rating-details .rating-item:last-child {
+  border-bottom: none;
+}
+.review-single .review-content .rating-review .rating-details .rating-item span:last-of-type {
+  color: #ef6c67;
+}
+.review-single .review-content .rating-review .rating-details .rating-item .icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  /* background: #ccc; */
+}
+.review-single .review-content .rating-review .rating-details .rating-item span {
+  color: #646464;
+}
+.review-single .review-content .rating-review .rating-details .rating-item span:nth-child(2) {
   flex-grow: 1;
   text-align: left;
   padding: 0 10px;
