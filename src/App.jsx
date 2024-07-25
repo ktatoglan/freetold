@@ -13,6 +13,7 @@ import WriteReview3 from './Components/WriteReview/WriteReview3';
 import WriteReview4 from './Components/WriteReview/WriteReview4';
 import WriteReview5 from './Components/WriteReview/WriteReview5';
 import PropertyProfile from './Pages/PropertyProfile';
+import ReviewProfile from './Pages/ReviewProfile';
 
 
 function App() {
@@ -76,6 +77,11 @@ function App() {
 							path='/property-profile/:postalCode'
 							exact
 							element={<PropertyProfile />}
+						/>
+						<Route
+							path='/property-profile/review/:reviewID'
+							exact
+							element={<ReviewProfile />}
 						/>
 
 
