@@ -12,12 +12,12 @@ const AppProvider = ({ children }) => {
   const [country, setCountry] = useState('');
   const [postCode, setPostCode] = useState('');
   const [moveInDate, setMoveInDate] = useState('');
-  const [tenancyPeriod, setTenancyPeriod] = useState('');
+  const [tenancyPeriod, setTenancyPeriod] = useState({"number":"1","period":"month"});
   const [isItSharingFlat, setIsItSharingFlat] = useState(false);
   const [peopleNumberLivingAtHome, setPeopleNumberLivingAtHome] = useState(0);
   const [futureRentersContactMe, setFutureRentersContactMe] = useState(false);
   const [rentAmount, setRentAmount] = useState(0.0);
-  const [rentPeriod, setRentPeriod] = useState('');
+  const [rentPeriod, setRentPeriod] = useState('per-month');
   const [isBillsIncluded, setIsBillsIncluded] = useState(false);
   const [billsPerPerson, setBillsPerPerson] = useState(false);
   const [billsWholeHouse, setBillsWholeHouse] = useState(false);
@@ -90,13 +90,14 @@ const AppProvider = ({ children }) => {
 
   return (
     <MyContext.Provider
-      value={{sendReview, mode, setMode, userId, setUserId,
+      value={{sendReview, mode, setMode, userId, setUserId,serverUrl,
         addressLine1, setAddressLine1, addressLine2, setAddressLine2, townCity, setTownCity, country, setCountry, postCode, setPostCode,
         moveInDate, setMoveInDate, tenancyPeriod, setTenancyPeriod, isItSharingFlat, setIsItSharingFlat, peopleNumberLivingAtHome, setPeopleNumberLivingAtHome, futureRentersContactMe, setFutureRentersContactMe,
         rentAmount, setRentAmount, rentPeriod, setRentPeriod, isBillsIncluded, setIsBillsIncluded, billsPerPerson, setBillsPerPerson, billsWholeHouse, setBillsWholeHouse, electricBill, setElectricBill, waterBill, setWaterBill, gasBill, setGasBill, internetBill, setInternetBill,
         reviewScore, setReviewScore, reviewHeadline, setReviewHeadline, reviewPros, setReviewPros, reviewCons, setReviewCons,
         heatUpLevel, setHeatUpLevel, wellLitLevel, setWellLitLevel, internetConnectionLevel, setInternetConnectionLevel, isItPetFriendly, setIsItPetFriendly, anythingToBeFixed, setAnythingToBeFixed, ownerRespondScore, setOwnerRespondScore, healthConcerns, setHealthConcerns,
         perceptionNeighborsLevel, setPerceptionNeighborsLevel, noiseNeighborsLevel, setNoiseNeighborsLevel, parkingScore, setParkingScore, trafficScore, setTrafficScore, safetyConcerns, setSafetyConcerns, agreeCheckbox, setAgreeCheckbox}}
+
     >
       {children}
     </MyContext.Provider>
