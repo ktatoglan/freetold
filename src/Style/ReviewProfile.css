@@ -1,1 +1,410 @@
-/*# sourceMappingURL=ReviewProfile.css.map */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Geologica", sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 16px;
+  margin-left: 16px;
+}
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+}
+
+.col {
+  flex: 1 0 0;
+  padding: 0 16px;
+}
+@media (max-width: 768px) {
+  .col {
+    flex: none;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+}
+
+h1 {
+  font-family: Geologica;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 80px;
+  text-align: left;
+}
+
+h2 {
+  font-family: Geologica;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 53px;
+  text-align: left;
+}
+
+h3 {
+  font-family: Geologica;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 40px;
+  text-align: left;
+}
+
+h4 {
+  font-family: Geologica;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+  text-align: left;
+}
+
+p {
+  font-family: Geologica;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: left;
+}
+
+.small-text {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 16px;
+  text-align: left;
+}
+
+.review-page {
+  display: flex;
+  flex-direction: column;
+}
+.review-page .main-content {
+  display: flex;
+  flex-direction: row;
+  margin: 24px auto;
+  width: 90%;
+}
+
+.header-section {
+  padding: 16px 24px;
+}
+.header-section .back-link {
+  margin-bottom: 24px;
+}
+.header-section .back-link a {
+  text-decoration: none;
+  color: #646464;
+  font-size: 14px;
+}
+.header-section .back-link a:hover {
+  text-decoration: underline;
+}
+.header-section .user-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  width: 90%;
+  margin: auto;
+}
+.header-section .user-info .left-section {
+  display: flex;
+  align-items: center;
+}
+.header-section .user-info .left-section .user-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+.header-section .user-info .left-section .user-details {
+  display: flex;
+  flex-direction: column;
+}
+.header-section .user-info .left-section .user-details .username {
+  color: #646464;
+  font-weight: bold;
+  font-size: 14px;
+}
+.header-section .user-info .left-section .user-details .stay-duration {
+  font-size: 12px;
+  color: #646464;
+}
+.header-section .user-info .right-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.header-section .user-info .right-section span {
+  font-size: 12px;
+  color: #919191;
+}
+.header-section .user-info .right-section span svg {
+  margin-right: 5px;
+}
+.header-section .user-info .right-section .last-updated {
+  display: flex;
+  align-items: center;
+}
+.header-section .user-info .right-section .likes {
+  display: flex;
+  align-items: center;
+}
+.header-section .user-info .right-section .favorites {
+  display: flex;
+  align-items: center;
+}
+.header-section .user-info .right-section .more-options {
+  display: inline-flex;
+}
+
+.property-info {
+  flex: 3;
+  padding: 0px 16px;
+}
+.property-info h3 {
+  color: #0a2446;
+  margin-bottom: 16px;
+}
+.property-info .address {
+  color: #646464;
+  margin-bottom: 8px;
+  display: inline-flex;
+  margin-bottom: 16px;
+}
+.property-info .address svg {
+  margin-right: 5px;
+}
+.property-info .address .show-map {
+  display: inline-flex;
+  color: #ef6c67;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.property-info input[type=radio] {
+  display: none;
+}
+.property-info label {
+  display: inline-block;
+  width: 25px;
+  height: 24px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 8px;
+}
+.property-info .stars {
+  display: flex;
+}
+.property-info .stars .review-count {
+  color: #646464;
+  margin-left: 16px;
+}
+.property-info .stars label {
+  background-image: url("../assets/img/star-default.png");
+  margin-bottom: 24px;
+}
+.property-info .stars input[type=radio]:checked ~ label,
+.property-info .stars input[type=radio]:checked ~ label ~ input[type=radio] + label,
+.property-info .stars input[type=radio]:checked ~ label ~ label {
+  background-image: url("../assets/img/star-selected.png");
+}
+.property-info .pros-cons {
+  margin-bottom: 20px;
+}
+.property-info .pros-cons .pros,
+.property-info .pros-cons .cons {
+  margin-bottom: 20px;
+}
+.property-info .pros-cons .pros h4,
+.property-info .pros-cons .cons h4 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  line-height: 14px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+.property-info .pros-cons .pros h4 .icon,
+.property-info .pros-cons .cons h4 .icon {
+  margin-right: 10px;
+}
+.property-info .pros-cons .pros p,
+.property-info .pros-cons .cons p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+.property-info .fixes,
+.property-info .safety,
+.property-info .health {
+  margin-bottom: 20px;
+}
+.property-info .fixes h4,
+.property-info .safety h4,
+.property-info .health h4 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  line-height: 14px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+.property-info .fixes h4 .icon,
+.property-info .safety h4 .icon,
+.property-info .health h4 .icon {
+  margin-right: 10px;
+}
+.property-info .fixes p,
+.property-info .safety p,
+.property-info .health p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+.property-info .helpful {
+  margin: 24px 0px;
+  display: flex;
+  justify-content: end;
+}
+.property-info .helpful button {
+  background-color: transparent;
+  color: #919191;
+  border: 1px solid #919191;
+  border-radius: 24px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.property-info .helpful button svg {
+  margin-right: 5px;
+}
+.property-info .comment-section {
+  margin-bottom: 20px;
+}
+.property-info .comment-section .comment-title {
+  color: #0a2446;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+.property-info .comment-section textarea {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #d9d9d9;
+  color: #919191;
+  border-radius: 8px;
+}
+.property-info .comment-section .button-holder {
+  display: flex;
+  justify-content: end;
+}
+.property-info .comment-section .button-holder button {
+  background-color: #ef6c67;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.property-info .comments .comment {
+  padding-top: 8px;
+  margin-top: 8px;
+}
+.property-info .comments .comment:not(.reply) {
+  border-bottom: 1px solid #d9d9d9;
+}
+.property-info .comments .comment .date {
+  color: #919191;
+  font-size: 14px;
+  margin-left: auto;
+}
+.property-info .comments .comment p {
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  color: #646464;
+}
+.property-info .comments .comment p strong {
+  color: #0a2446;
+}
+.property-info .comments .comment p svg {
+  margin-right: 5px;
+}
+.property-info .comments .comment p:nth-of-type(2) {
+  margin: 16px 0px;
+}
+.property-info .comments .comment strong {
+  display: inline-block;
+  margin-right: 10px;
+}
+.property-info .comments .comment .likes {
+  display: flex;
+  align-items: center;
+  color: #919191;
+}
+.property-info .comments .comment .likes .like-icon {
+  margin-right: 5px;
+}
+.property-info .comments .comment .likes .reply-link {
+  margin-left: auto;
+  color: #919191;
+  cursor: pointer;
+}
+.property-info .comments .reply {
+  padding-left: 20px;
+  margin-top: 16px;
+  border-left: 1px solid #d9d9d9;
+}
+
+.review-sidebar {
+  flex: 1;
+  border-left: 1px solid #ddd;
+  padding-left: 20px;
+}
+.review-sidebar .cost,
+.review-sidebar .rating {
+  margin-bottom: 20px;
+}
+.review-sidebar .cost h3,
+.review-sidebar .rating h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.review-sidebar .cost .cost-item,
+.review-sidebar .cost .rating-item,
+.review-sidebar .rating .cost-item,
+.review-sidebar .rating .rating-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.review-sidebar .cost .cost-item .label,
+.review-sidebar .cost .rating-item .label,
+.review-sidebar .rating .cost-item .label,
+.review-sidebar .rating .rating-item .label {
+  font-weight: bold;
+}
+.review-sidebar .cost .cost-item .value,
+.review-sidebar .cost .cost-item .stars,
+.review-sidebar .cost .rating-item .value,
+.review-sidebar .cost .rating-item .stars,
+.review-sidebar .rating .cost-item .value,
+.review-sidebar .rating .cost-item .stars,
+.review-sidebar .rating .rating-item .value,
+.review-sidebar .rating .rating-item .stars {
+  font-size: 14px;
+}
+.review-sidebar .cost .stars,
+.review-sidebar .rating .stars {
+  color: gold;
+}
+.review-sidebar .cost .value,
+.review-sidebar .rating .value {
+  font-size: 14px;
+}/*# sourceMappingURL=ReviewProfile.css.map */

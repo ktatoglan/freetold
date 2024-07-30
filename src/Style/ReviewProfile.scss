@@ -1,0 +1,367 @@
+@import "vars";
+
+.review-page {
+  display: flex;
+  flex-direction: column;
+
+  .main-content {
+    display: flex;
+    flex-direction: row;
+    margin: $large-spacing auto;
+    width: 90%;
+
+    // @media (max-width: 768px) {
+    //   flex-direction: column;
+    // }
+  }
+}
+
+.header-section {
+  padding: $medium-spacing $large-spacing;
+
+  .back-link {
+    margin-bottom: $large-spacing;
+
+    a {
+      text-decoration: none;
+      color: $gray-text;
+      font-size: 14px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $small-spacing 0;
+    width: 90%;
+    margin: auto;
+
+    .left-section {
+      display: flex;
+      align-items: center;
+
+      .user-icon {
+        font-size: 24px;
+        margin-right: 10px;
+      }
+
+      .user-details {
+        display: flex;
+        flex-direction: column;
+
+        .username {
+          color: $gray-text;
+          font-weight: bold;
+          font-size: 14px;
+        }
+
+        .stay-duration {
+          font-size: 12px;
+          color: $gray-text;
+        }
+      }
+    }
+
+    .right-section {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+
+      span {
+        font-size: 12px;
+        color: $light-text;
+
+        svg {
+          margin-right: 5px;
+        }
+      }
+
+      .last-updated {
+        display: flex;
+        align-items: center;
+      }
+
+      .likes {
+        display: flex;
+        align-items: center;
+      }
+
+      .favorites {
+        display: flex;
+        align-items: center;
+      }
+
+      .more-options {
+        display: inline-flex;
+      }
+    }
+  }
+}
+
+.property-info {
+  flex: 3;
+  padding: 0px $medium-spacing;
+
+  h3 {
+    color: $primary-color;
+    margin-bottom: $medium-spacing;
+  }
+  .address {
+    color: $gray-text;
+    margin-bottom: $small-spacing;
+    display: inline-flex;
+    margin-bottom: $medium-spacing;
+
+    svg {
+      margin-right: 5px;
+    }
+
+    .show-map {
+      display: inline-flex;
+      color: $secondary-color;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
+  label {
+    display: inline-block;
+    width: 25px;
+    height: 24px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: $small-spacing;
+  }
+  .stars {
+    display: flex;
+    .review-count {
+      // @extend p;
+      color: $gray-text;
+      margin-left: $medium-spacing;
+    }
+    label {
+      background-image: url("../assets/img/star-default.png");
+      margin-bottom: $large-spacing;
+    }
+    input[type="radio"]:checked ~ label,
+    input[type="radio"]:checked ~ label ~ input[type="radio"] + label,
+    input[type="radio"]:checked ~ label ~ label {
+      background-image: url("../assets/img/star-selected.png");
+    }
+  }
+
+  .pros-cons {
+    margin-bottom: 20px;
+
+    .pros,
+    .cons {
+      margin-bottom: 20px;
+
+      h4 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 18px;
+        line-height: 14px;
+        margin-bottom: 10px;
+        width: 100%;
+
+        .icon {
+          margin-right: 10px;
+        }
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  .fixes,
+  .safety,
+  .health {
+    margin-bottom: 20px;
+
+    h4 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
+      line-height: 14px;
+      margin-bottom: 10px;
+      width: 100%;
+
+      .icon {
+        margin-right: 10px;
+      }
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  }
+
+  .helpful {
+    margin: $large-spacing 0px;
+    display: flex;
+    justify-content: end;
+
+    button {
+      background-color: transparent;
+      color: $light-text;
+      border: 1px solid $light-text;
+      border-radius: $large-spacing;
+      padding: 10px 20px;
+      cursor: pointer;
+
+      svg {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .comment-section {
+    margin-bottom: 20px;
+
+    .comment-title {
+      color: $primary-color;
+      margin-bottom: $small-spacing;
+      font-weight: bold;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100px;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid $light-border;
+      color: $light-text;
+      border-radius: $small-spacing;
+    }
+
+    .button-holder {
+      display: flex;
+      justify-content: end;
+      button {
+        background-color: $secondary-color;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: $small-spacing;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .comments {
+    .comment {
+      padding-top: $small-spacing;
+      margin-top: $small-spacing;
+      &:not(.reply) {
+        border-bottom: 1px solid $light-border;
+      }
+
+      .date {
+        color: $light-text;
+        font-size: 14px;
+        margin-left: auto;
+      }
+
+      p {
+        margin: $small-spacing 0;
+        display: flex;
+        align-items: center;
+        color: $gray-text;
+
+        strong {
+          color: $primary-color;
+        }
+
+        svg {
+          margin-right: 5px;
+        }
+
+        &:nth-of-type(2) {
+          margin: $medium-spacing 0px;
+        }
+      }
+
+      strong {
+        display: inline-block;
+        margin-right: 10px;
+      }
+
+      .likes {
+        display: flex;
+        align-items: center;
+        color: $light-text;
+
+        .like-icon {
+          margin-right: 5px;
+        }
+
+        .reply-link {
+          margin-left: auto;
+          color: $light-text;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .reply {
+      padding-left: 20px;
+      margin-top: $medium-spacing;
+      border-left: 1px solid $light-border;
+    }
+  }
+}
+
+.review-sidebar {
+  flex: 1;
+  border-left: 1px solid #ddd;
+  padding-left: 20px;
+
+  .cost,
+  .rating {
+    margin-bottom: 20px;
+
+    h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .cost-item,
+    .rating-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+
+      .label {
+        font-weight: bold;
+      }
+
+      .value,
+      .stars {
+        font-size: 14px;
+      }
+    }
+
+    .stars {
+      color: gold;
+    }
+
+    .value {
+      font-size: 14px;
+    }
+  }
+}
