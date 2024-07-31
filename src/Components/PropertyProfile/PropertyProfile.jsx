@@ -12,6 +12,7 @@ import { useAppProvider } from '../../Contexts/AppContext';
 
 const PropertyProfile = ({postalCode}) => {
    const { serverUrl } = useAppProvider();
+   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
 
@@ -20,11 +21,12 @@ const PropertyProfile = ({postalCode}) => {
     axios.get(url)
       .then(response => {
         console.log('response', response.data);
+        setReviews(response.data);
       })
       .catch(error => {
         console.log('error', error);
       });
-  }, []);
+  }, [postalCode, serverUrl]);
 
 
 
@@ -45,7 +47,7 @@ const PropertyProfile = ({postalCode}) => {
         <ReviewScore />
         <LocationMap />
         <LocationDetails />
-        <Reviews />
+        <Reviews reviews={reviews} />
       </section>
     </section>
     </>
