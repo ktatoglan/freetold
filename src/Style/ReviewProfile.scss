@@ -104,7 +104,7 @@
 }
 
 .property-info {
-  flex: 3;
+  flex: 2;
   padding: 0px $medium-spacing;
 
   h3 {
@@ -328,31 +328,97 @@
 
 .review-sidebar {
   flex: 1;
-  border-left: 1px solid #ddd;
-  padding-left: 20px;
+  padding-left: $large-spacing;
 
   .cost,
   .rating {
-    margin-bottom: 20px;
+    margin-bottom: $large-spacing;
+    border: 1px solid $light-border;
+    padding: $large-spacing;
+    border-radius: $small-spacing;
 
-    h3 {
-      font-size: 18px;
-      margin-bottom: 10px;
+    &:not(.rating) {
+      background-color: #f5f5f5;
+    }
+
+    h4 {
+      color: $primary-color;
+      margin-bottom: $large-spacing;
+    }
+
+    .items-title {
+      padding: 0px 0px $medium-spacing;
+      border-bottom: 1px solid $light-border;
+      margin-bottom: $medium-spacing;
+
+      &:not(:first-of-type) {
+        margin-top: $large-spacing;
+      }
+
+      .title {
+        color: $secondary-color;
+        font-weight: 600;
+      }
     }
 
     .cost-item,
     .rating-item {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 10px;
+      margin-bottom: $medium-spacing;
+
+      &.rent,
+      &.bills-title {
+        flex-direction: column;
+        margin-bottom: $medium-spacing;
+        span.label {
+          color: $secondary-color;
+          font-weight: 600;
+          margin-bottom: $small-spacing;
+        }
+        span:nth-of-type(2) {
+          color: $gray-text;
+          font-size: 14px;
+          font-weight: 300;
+          margin-bottom: $small-spacing;
+        }
+        span.value {
+          @extend h3;
+          color: $primary-color;
+          margin-bottom: $small-spacing;
+        }
+      }
 
       .label {
         font-weight: bold;
+        display: flex;
+        align-items: center;
+        color: $primary-color;
+
+        svg {
+          margin-right: $small-spacing;
+        }
       }
 
       .value,
       .stars {
+        color: $gray-text;
         font-size: 14px;
+      }
+    }
+
+    .rating-item {
+      .label {
+        color: $gray-text !important;
+      }
+
+      &.pet-friendly {
+        margin-top: $large-spacing;
+
+        .value{
+          color: $secondary-color;
+          font-weight: 600;
+        }
       }
     }
 
