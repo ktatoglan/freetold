@@ -1,12 +1,18 @@
 import React from "react";
 
+const getTenancyPeriodText = (tenancyPeriod) => {
+  const { number, period } = JSON.parse(tenancyPeriod);
+  const periodText = number === 1 ? period : period + "s";
+  return `Stayed in this property for ${number} ${periodText}`;
+};
+
 const ReviewSingle = ({ review }) => (
   <div className="review-single">
     <div className="user-info">
       <div className="avatar-placeholder"></div>
       <div>
-        <div className="user-name">{review.user.name}</div>
-        <div className="user-duration">{review.user.duration}</div>
+        <div className="user-name">{review.user_id}</div>
+        <div className="user-duration">{getTenancyPeriodText(review.tenancy_period)}</div>
       </div>
       <button className="save-favorites">
         <svg
@@ -26,7 +32,7 @@ const ReviewSingle = ({ review }) => (
     </div>
     <div className="review-content">
       <div className="review-details">
-        <h4 className="review-title">{review.title}</h4>
+        <h4 className="review-title">{review.review_headline}</h4>
         <div className="review-rating">
           <div className="stars">
             {Array.from({ length: 5 }, (_, index) => (
@@ -36,25 +42,21 @@ const ReviewSingle = ({ review }) => (
                   id={`star${index + 1}`}
                   name="rating"
                   value={index + 1}
-                  checked={index < 1}
+                  checked={index < review.review_score}
                 />
                 <label htmlFor={`star${index + 1}`}></label>
               </React.Fragment>
             ))}
-            <span className="review-date">{review.date}</span>
+            <span className="review-date">{review.move_in_date}</span>
           </div>
-          {/* {[...Array(5)].map((_, i) => (
-          <span key={i} className={`star ${i < review.rating ? 'filled' : ''}`}></span>
-        ))}
-         */}
         </div>
         <div className="pros">
           <strong>Pros</strong>
-          <p>{review.pros}</p>
+          <p>{review.review_pros}</p>
         </div>
         <div className="cons">
           <strong>Cons</strong>
-          <p>{review.cons}</p>
+          <p>{review.review_cons}</p>
         </div>
         <div className="review-footer">
           <div className="likes">
@@ -72,9 +74,9 @@ const ReviewSingle = ({ review }) => (
                 />
               </svg>
             </span>
-            <span>{review.likes} likes</span>
+            <span>{review.likes || 0} likes</span>
           </div>
-          <a href={review.fullReviewLink} className="full-review-link">
+          <a href={review.fullReviewLink || "#"} className="full-review-link">
             Read full review
           </a>
         </div>
@@ -98,7 +100,7 @@ const ReviewSingle = ({ review }) => (
               </svg>
             </span>
             <span>Heating</span>
-            <span>{review.ratingReview.heating}</span>
+            <span>{review.heat_up_level}</span>
           </div>
           <div className="rating-item">
             <span className="icon internet-icon">
@@ -116,7 +118,7 @@ const ReviewSingle = ({ review }) => (
               </svg>
             </span>
             <span>Internet connection</span>
-            <span>{review.ratingReview.internet}</span>
+            <span>{review.internet_connection_level}</span>
           </div>
           <div className="rating-item">
             <span className="icon noise-icon">
@@ -140,7 +142,7 @@ const ReviewSingle = ({ review }) => (
               </svg>
             </span>
             <span>Noise level</span>
-            <span>{review.ratingReview.noise}</span>
+            <span>{review.noise_neighbors_level}</span>
           </div>
           <div className="rating-item">
             <span className="icon traffic-icon">
@@ -158,7 +160,7 @@ const ReviewSingle = ({ review }) => (
               </svg>
             </span>
             <span>Traffic</span>
-            <span>{review.ratingReview.traffic}</span>
+            <span>{review.traffic_score}</span>
           </div>
           <div className="rating-item">
             <span className="icon owner-icon">
@@ -176,7 +178,7 @@ const ReviewSingle = ({ review }) => (
               </svg>
             </span>
             <span>Owner's respond</span>
-            <span>{review.ratingReview.ownerResponse}</span>
+            <span>{review.owner_respond_score}</span>
           </div>
           <div className="rating-item">
             <span className="icon neighbors-icon">
@@ -194,7 +196,7 @@ const ReviewSingle = ({ review }) => (
               </svg>
             </span>
             <span>Neighbors</span>
-            <span>{review.ratingReview.neighbors}</span>
+            <span>{review.perception_neighbors_level}</span>
           </div>
         </div>
       </div>
