@@ -283,6 +283,7 @@ button {
       }
 
       .epc-summary {
+        flex-basis: 70%;
         background-color: $white;
         margin: 0 auto;
         padding: 0 $medium-spacing;
@@ -294,6 +295,7 @@ button {
         transition: all 0.3s ease-out;
 
         &.show {
+          flex-basis: 70%;
           margin: $medium-spacing auto;
           padding: $small-spacing $medium-spacing;
           border: 1px solid $light-border;
@@ -303,6 +305,7 @@ button {
 
         .summary-text{
           font-weight: 600;
+          text-align: center; 
         }
       }
     }
