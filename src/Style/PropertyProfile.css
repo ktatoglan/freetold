@@ -325,6 +325,7 @@ button {
   color: #646464;
 }
 .property-details .property-info .stats .epc-summary {
+  flex-basis: 70%;
   background-color: #fff;
   margin: 0 auto;
   padding: 0 16px;
@@ -336,6 +337,7 @@ button {
   transition: all 0.3s ease-out;
 }
 .property-details .property-info .stats .epc-summary.show {
+  flex-basis: 70%;
   margin: 16px auto;
   padding: 8px 16px;
   border: 1px solid #d9d9d9;
@@ -344,6 +346,7 @@ button {
 }
 .property-details .property-info .stats .epc-summary .summary-text {
   font-weight: 600;
+  text-align: center;
 }
 .property-details .write-review {
   background-color: #ef6c67;

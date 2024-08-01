@@ -6,6 +6,7 @@ const PropertyDetails = () => {
   const breakdownRef = useRef(null);
   const infoRef = useRef(null);
 
+  // Dış tıklama olayını dinlemek için tek bir işlev
   const handleClickOutside = (event) => {
     if (
       breakdownRef.current &&
@@ -14,33 +15,21 @@ const PropertyDetails = () => {
       !infoRef.current.contains(event.target)
     ) {
       setShowBreakdown(false);
+      setSummaryVisible(false);
     }
   };
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   const handleInfoClick = () => {
     setShowBreakdown((prev) => !prev);
   };
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (event.target.closest(".epc-summary") === null) {
-        setSummaryVisible(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
   const toggleSummary = () => {
-    setSummaryVisible(!isSummaryVisible);
+    setSummaryVisible((prev) => !prev);
   };
 
   return (
