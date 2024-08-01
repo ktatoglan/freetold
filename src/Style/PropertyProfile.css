@@ -127,6 +127,7 @@ button {
 .sidebar ul li a {
   text-decoration: none;
   color: #0a2446;
+  cursor: pointer;
 }
 .sidebar ul li a.active {
   font-weight: 600;
@@ -170,6 +171,30 @@ button {
   display: inline-flex;
   align-content: center;
   flex-wrap: wrap;
+}
+.content-header .actions .more-actions-menu {
+  position: absolute;
+  top: 160px;
+  border: 1px solid #d9d9d9;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 8px 16px;
+  background-color: #fff;
+}
+.content-header .actions .more-actions-menu p, .content-header .actions .more-actions-menu .review-score .review-summary .overall-rating .rating-details .details-title, .review-score .review-summary .overall-rating .rating-details .content-header .actions .more-actions-menu .details-title, .content-header .actions .more-actions-menu .review-score .review-summary .overall-rating .overall-title, .review-score .review-summary .overall-rating .content-header .actions .more-actions-menu .overall-title, .content-header .actions .more-actions-menu .property-details .property-info .stats .stat-item .stat-text .stat-label, .property-details .property-info .stats .stat-item .stat-text .content-header .actions .more-actions-menu .stat-label, .content-header .actions .more-actions-menu .sidebar .back a, .sidebar .back .content-header .actions .more-actions-menu a, .content-header .actions .more-actions-menu .sidebar ul li a, .sidebar ul li .content-header .actions .more-actions-menu a, .content-header .actions .more-actions-menu .update-date, .content-header .actions .more-actions-menu .save-to-favorites {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #646464;
+}
+.content-header .actions .more-actions-menu p svg, .content-header .actions .more-actions-menu .review-score .review-summary .overall-rating .rating-details .details-title svg, .review-score .review-summary .overall-rating .rating-details .content-header .actions .more-actions-menu .details-title svg, .content-header .actions .more-actions-menu .review-score .review-summary .overall-rating .overall-title svg, .review-score .review-summary .overall-rating .content-header .actions .more-actions-menu .overall-title svg, .content-header .actions .more-actions-menu .property-details .property-info .stats .stat-item .stat-text .stat-label svg, .property-details .property-info .stats .stat-item .stat-text .content-header .actions .more-actions-menu .stat-label svg, .content-header .actions .more-actions-menu .sidebar .back a svg, .sidebar .back .content-header .actions .more-actions-menu a svg, .content-header .actions .more-actions-menu .sidebar ul li a svg, .sidebar ul li .content-header .actions .more-actions-menu a svg, .content-header .actions .more-actions-menu .update-date svg, .content-header .actions .more-actions-menu .save-to-favorites svg {
+  margin-right: 5px;
+}
+.content-header .actions .more-actions-menu p:first-of-type, .content-header .actions .more-actions-menu .review-score .review-summary .overall-rating .rating-details .details-title:first-of-type, .review-score .review-summary .overall-rating .rating-details .content-header .actions .more-actions-menu .details-title:first-of-type, .content-header .actions .more-actions-menu .review-score .review-summary .overall-rating .overall-title:first-of-type, .review-score .review-summary .overall-rating .content-header .actions .more-actions-menu .overall-title:first-of-type, .content-header .actions .more-actions-menu .property-details .property-info .stats .stat-item .stat-text .stat-label:first-of-type, .property-details .property-info .stats .stat-item .stat-text .content-header .actions .more-actions-menu .stat-label:first-of-type, .content-header .actions .more-actions-menu .sidebar .back a:first-of-type, .sidebar .back .content-header .actions .more-actions-menu a:first-of-type, .content-header .actions .more-actions-menu .sidebar ul li a:first-of-type, .sidebar ul li .content-header .actions .more-actions-menu a:first-of-type, .content-header .actions .more-actions-menu .update-date:first-of-type, .content-header .actions .more-actions-menu .save-to-favorites:first-of-type {
+  margin-bottom: 8px;
+}
+.content-header .actions .more-actions-menu p:hover, .content-header .actions .more-actions-menu .review-score .review-summary .overall-rating .rating-details .details-title:hover, .review-score .review-summary .overall-rating .rating-details .content-header .actions .more-actions-menu .details-title:hover, .content-header .actions .more-actions-menu .review-score .review-summary .overall-rating .overall-title:hover, .review-score .review-summary .overall-rating .content-header .actions .more-actions-menu .overall-title:hover, .content-header .actions .more-actions-menu .property-details .property-info .stats .stat-item .stat-text .stat-label:hover, .property-details .property-info .stats .stat-item .stat-text .content-header .actions .more-actions-menu .stat-label:hover, .content-header .actions .more-actions-menu .sidebar .back a:hover, .sidebar .back .content-header .actions .more-actions-menu a:hover, .content-header .actions .more-actions-menu .sidebar ul li a:hover, .sidebar ul li .content-header .actions .more-actions-menu a:hover, .content-header .actions .more-actions-menu .update-date:hover, .content-header .actions .more-actions-menu .save-to-favorites:hover {
+  text-decoration: underline;
 }
 
 .property-details {
@@ -233,6 +258,7 @@ button {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  flex-wrap: wrap;
 }
 .property-details .property-info .stats .stat-item .class-icon {
   width: 60px;
@@ -256,6 +282,68 @@ button {
 }
 .property-details .property-info .stats .stat-item .stat-text .stat-value .info.red, .property-details .property-info .stats .stat-item .stat-text p .info.red, .property-details .property-info .stats .stat-item .stat-text .review-score .review-summary .overall-rating .rating-details .details-title .info.red, .review-score .review-summary .overall-rating .rating-details .property-details .property-info .stats .stat-item .stat-text .details-title .info.red, .property-details .property-info .stats .stat-item .stat-text .review-score .review-summary .overall-rating .overall-title .info.red, .review-score .review-summary .overall-rating .property-details .property-info .stats .stat-item .stat-text .overall-title .info.red, .property-details .property-info .stats .stat-item .stat-text .sidebar .back a .info.red, .sidebar .back .property-details .property-info .stats .stat-item .stat-text a .info.red, .property-details .property-info .stats .stat-item .stat-text .sidebar ul li a .info.red, .sidebar ul li .property-details .property-info .stats .stat-item .stat-text a .info.red, .property-details .property-info .stats .stat-item .stat-text .content-header .update-date .info.red, .content-header .property-details .property-info .stats .stat-item .stat-text .update-date .info.red, .property-details .property-info .stats .stat-item .stat-text .content-header .actions .save-to-favorites .info.red, .content-header .actions .property-details .property-info .stats .stat-item .stat-text .save-to-favorites .info.red, .property-details .property-info .stats .stat-item .stat-text .stat-label .info.red {
   color: #ef6c67;
+}
+.property-details .property-info .stats .bills-breakdown {
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+}
+.property-details .property-info .stats .bills-breakdown.show {
+  margin: 16px auto;
+  padding: 16px;
+  border: 1px solid #d9d9d9;
+  max-height: 250px;
+  transition: all 0.3s ease-in;
+}
+.property-details .property-info .stats .bills-breakdown .breakdown-title {
+  color: #ef6c67;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.property-details .property-info .stats .bills-breakdown .breakdown-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.property-details .property-info .stats .bills-breakdown .breakdown-item p, .property-details .property-info .stats .bills-breakdown .breakdown-item .review-score .review-summary .overall-rating .rating-details .details-title, .review-score .review-summary .overall-rating .rating-details .property-details .property-info .stats .bills-breakdown .breakdown-item .details-title, .property-details .property-info .stats .bills-breakdown .breakdown-item .review-score .review-summary .overall-rating .overall-title, .review-score .review-summary .overall-rating .property-details .property-info .stats .bills-breakdown .breakdown-item .overall-title, .property-details .property-info .stats .bills-breakdown .breakdown-item .sidebar .back a, .sidebar .back .property-details .property-info .stats .bills-breakdown .breakdown-item a, .property-details .property-info .stats .bills-breakdown .breakdown-item .sidebar ul li a, .sidebar ul li .property-details .property-info .stats .bills-breakdown .breakdown-item a, .property-details .property-info .stats .bills-breakdown .breakdown-item .content-header .update-date, .content-header .property-details .property-info .stats .bills-breakdown .breakdown-item .update-date, .property-details .property-info .stats .bills-breakdown .breakdown-item .content-header .actions .save-to-favorites, .content-header .actions .property-details .property-info .stats .bills-breakdown .breakdown-item .save-to-favorites, .property-details .property-info .stats .bills-breakdown .breakdown-item .stat-item .stat-text .stat-label, .property-details .property-info .stats .stat-item .stat-text .bills-breakdown .breakdown-item .stat-label {
+  display: inherit;
+  align-items: inherit;
+}
+.property-details .property-info .stats .bills-breakdown .breakdown-item p svg, .property-details .property-info .stats .bills-breakdown .breakdown-item .review-score .review-summary .overall-rating .rating-details .details-title svg, .review-score .review-summary .overall-rating .rating-details .property-details .property-info .stats .bills-breakdown .breakdown-item .details-title svg, .property-details .property-info .stats .bills-breakdown .breakdown-item .review-score .review-summary .overall-rating .overall-title svg, .review-score .review-summary .overall-rating .property-details .property-info .stats .bills-breakdown .breakdown-item .overall-title svg, .property-details .property-info .stats .bills-breakdown .breakdown-item .sidebar .back a svg, .sidebar .back .property-details .property-info .stats .bills-breakdown .breakdown-item a svg, .property-details .property-info .stats .bills-breakdown .breakdown-item .sidebar ul li a svg, .sidebar ul li .property-details .property-info .stats .bills-breakdown .breakdown-item a svg, .property-details .property-info .stats .bills-breakdown .breakdown-item .content-header .update-date svg, .content-header .property-details .property-info .stats .bills-breakdown .breakdown-item .update-date svg, .property-details .property-info .stats .bills-breakdown .breakdown-item .content-header .actions .save-to-favorites svg, .content-header .actions .property-details .property-info .stats .bills-breakdown .breakdown-item .save-to-favorites svg, .property-details .property-info .stats .bills-breakdown .breakdown-item .stat-item .stat-text .stat-label svg, .property-details .property-info .stats .stat-item .stat-text .bills-breakdown .breakdown-item .stat-label svg {
+  margin-right: 5px;
+}
+.property-details .property-info .stats .bills-breakdown .breakdown-text {
+  margin-top: 16px;
+  font-weight: 300;
+  color: #646464;
+}
+.property-details .property-info .stats .epc-summary {
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+}
+.property-details .property-info .stats .epc-summary.show {
+  margin: 16px auto;
+  padding: 8px 16px;
+  border: 1px solid #d9d9d9;
+  max-height: 250px;
+  transition: all 0.3s ease-in;
+}
+.property-details .property-info .stats .epc-summary .summary-text {
+  font-weight: 600;
 }
 .property-details .write-review {
   background-color: #ef6c67;
@@ -326,6 +414,11 @@ button {
   height: 10px; /* Kalınlık */
   border-radius: 8px;
   margin-right: 16px;
+}
+@media screen and (max-width: 1740px) {
+  .review-score .review-summary .overall-rating .rating-details .distribution progress {
+    width: 80%;
+  }
 }
 .review-score .review-summary .overall-rating .rating-details .distribution progress::-webkit-progress-value {
   background-color: #0a2446; /* Dolu kısmın rengi */
