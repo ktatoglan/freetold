@@ -47,6 +47,7 @@ button {
         @extend p;
         text-decoration: none;
         color: $primary-color;
+        cursor: pointer;
         &.active {
           font-weight: 600;
         }
@@ -98,6 +99,32 @@ button {
       display: inline-flex;
       align-content: center;
       flex-wrap: wrap;
+    }
+
+    .more-actions-menu {
+      position: absolute;
+      top: 160px;
+      border: 1px solid $light-border;
+      box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2);
+      border-radius: $small-spacing;
+      padding: $small-spacing $medium-spacing;
+      background-color: $white;
+
+      p {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        color: $gray-text;
+        svg {
+          margin-right: 5px;
+        }
+        &:first-of-type {
+          margin-bottom: $small-spacing;
+        }
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
   }
 }
@@ -169,6 +196,7 @@ button {
         display: flex;
         align-items: center;
         margin-bottom: 10px;
+        flex-wrap: wrap;
 
         .class-icon {
           width: 60px;
@@ -204,6 +232,77 @@ button {
               color: $secondary-color;
             }
           }
+        }
+      }
+
+      .bills-breakdown {
+        background-color: $white;
+        margin: 0 auto;
+        padding: 0 $medium-spacing;
+        border: 0;
+        border-radius: $small-spacing;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease-out;
+
+        &.show {
+          margin: $medium-spacing auto;
+          padding: $medium-spacing;
+          border: 1px solid $light-border;
+          max-height: 250px;
+          transition: all 0.3s ease-in;
+        }
+
+        .breakdown-title {
+          color: $secondary-color;
+          font-weight: 600;
+          margin-bottom: $medium-spacing;
+        }
+
+        .breakdown-item {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: $small-spacing;
+          p {
+            display: inherit;
+            align-items: inherit;
+
+            svg {
+              margin-right: 5px;
+            }
+          }
+        }
+
+        .breakdown-text {
+          margin-top: $medium-spacing;
+          font-weight: 300;
+          color: $gray-text;
+        }
+      }
+
+      .epc-summary {
+        background-color: $white;
+        margin: 0 auto;
+        padding: 0 $medium-spacing;
+        border: 0;
+        border-radius: $small-spacing;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease-out;
+
+        &.show {
+          margin: $medium-spacing auto;
+          padding: $small-spacing $medium-spacing;
+          border: 1px solid $light-border;
+          max-height: 250px;
+          transition: all 0.3s ease-in;
+        }
+
+        .summary-text{
+          font-weight: 600;
         }
       }
     }
@@ -287,6 +386,9 @@ button {
             height: 10px; /* Kalınlık */
             border-radius: $small-spacing;
             margin-right: $medium-spacing;
+            @media screen and (max-width: 1740px) {
+              width: 80%;
+            }
           }
 
           /* progress elementinin içindeki dolu kısmın stili */
@@ -707,9 +809,8 @@ button {
           padding: $small-spacing 0;
           &:last-child {
             border-bottom: none;
-            
           }
-          span:last-of-type{
+          span:last-of-type {
             color: $secondary-color;
           }
           .icon {
