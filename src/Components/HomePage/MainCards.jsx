@@ -9,8 +9,8 @@ export const MainCards = () => {
   return (
     <section className="main-cards">
     <div className="container">
-        <h3 className="title">Find your perfect property</h3>
         <div className="subtitle">Benefits & Outcomes</div>
+        <h3 className="title">Find your perfect property</h3>
         <div className="cards-holder">
             <MainCardSingle 
                 image={img1} 

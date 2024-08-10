@@ -14,6 +14,8 @@ import WriteReview4 from './Components/WriteReview/WriteReview4';
 import WriteReview5 from './Components/WriteReview/WriteReview5';
 import PropertyProfile from './Pages/PropertyProfile';
 import ReviewProfile from './Pages/ReviewProfile';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 
 function App() {

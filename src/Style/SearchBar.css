@@ -84,14 +84,19 @@ p, .home-search button {
 
 .home-search {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin: 20px auto;
   gap: 16px;
 }
+.home-search .search-line {
+  display: inline-flex;
+  align-items: center;
+}
 .home-search .search-icon svg {
   position: relative;
-  top: 27%;
-  left: 40px;
+  left: 28px;
 }
 .home-search input {
   width: 40%;
