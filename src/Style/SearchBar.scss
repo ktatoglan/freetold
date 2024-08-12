@@ -1,13 +1,18 @@
 @import "vars";
 .home-search {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin: 20px auto;
   gap: $medium-spacing;
+  .search-line{
+    display: inline-flex;
+    align-items: center;
+  }
   .search-icon svg {
     position: relative;
-    top: 27%;
-    left: 40px;
+    left: 28px;
   }
   input {
     width: 40%;

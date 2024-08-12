@@ -12,6 +12,11 @@
   padding: 0 16px;
 }
 
+.container-fluid {
+  margin: 0;
+  padding: 0;
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;
