@@ -11,6 +11,11 @@
   padding: 0 16px;
 }
 
+.container-fluid {
+  margin: 0;
+  padding: 0;
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -96,9 +101,22 @@ p, .contact-us .container .form button, .testimonials .subtitle, .main-cards .su
     background-position: center 200%;
   }
 }
+@media screen and (max-width: 768px) {
+  .main-banner {
+    height: 75vh;
+    background-image: url(../assets/img/mbl-main-banner.svg);
+    background-size: 200%;
+    background-position: center -30%;
+  }
+}
 .main-banner .homepage-text {
   text-align: center;
   padding-top: 30%;
+}
+@media screen and (max-width: 768px) {
+  .main-banner .homepage-text {
+    padding-top: 70%;
+  }
 }
 .main-banner .homepage-text .badge {
   text-align: inherit;
@@ -185,6 +203,7 @@ p, .contact-us .container .form button, .testimonials .subtitle, .main-cards .su
   text-align: inherit;
   color: #0a2446;
   margin-bottom: 24px;
+  padding: 0 16px;
 }
 .latest-reviews .reviews-holder {
   padding-top: 16px;
@@ -195,6 +214,7 @@ p, .contact-us .container .form button, .testimonials .subtitle, .main-cards .su
   border-radius: 8px;
   margin: 0px 16px;
   padding: 24px;
+  width: 320px;
 }
 .latest-reviews .reviews-holder .review-single .review-user {
   display: flex;
@@ -209,15 +229,7 @@ p, .contact-us .container .form button, .testimonials .subtitle, .main-cards .su
 .latest-reviews .reviews-holder .review-single .review-title h4 {
   color: #0a2446;
   margin-bottom: 24px;
-  width: 310px;
-  height: 115px;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
-  text-overflow: ellipsis;
-  white-space: normal;
+  height: 80px;
 }
 .latest-reviews .reviews-holder .review-single .review-stars input[type=radio] {
   display: none;
@@ -360,6 +372,12 @@ p, .contact-us .container .form button, .testimonials .subtitle, .main-cards .su
 .blog .blog-card .blog-content-container {
   display: flex;
 }
+@media screen and (max-width: 1100px) {
+  .blog .blog-card .blog-content-container {
+    flex-direction: column-reverse;
+    gap: 24px;
+  }
+}
 .blog .blog-card .blog-content-container .blog-title {
   font-size: 28px !important;
   color: #0a2446;
@@ -376,12 +394,18 @@ p, .contact-us .container .form button, .testimonials .subtitle, .main-cards .su
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
 }
 .blog .blog-card .blog-content-container .tags .tag {
   padding: 8px;
   background-color: #FAFAFA;
   color: #919191;
   border-radius: 8px;
+}
+.blog .blog-card .blog-content-container img {
+  max-width: 100%;
+  height: auto;
 }
 .blog .blog-card .blog-footer {
   display: flex;
@@ -420,6 +444,11 @@ p, .contact-us .container .form button, .testimonials .subtitle, .main-cards .su
   justify-content: space-evenly;
   align-items: center;
 }
+@media screen and (max-width: 1100px) {
+  .contact-us .container {
+    flex-direction: column;
+  }
+}
 .contact-us .container .heading {
   color: #ef6c67;
   margin-bottom: 16px;
@@ -438,6 +467,11 @@ p, .contact-us .container .form button, .testimonials .subtitle, .main-cards .su
   display: flex;
   align-items: center;
   gap: 8px;
+}
+@media screen and (max-width: 1100px) {
+  .contact-us .container .form {
+    flex-direction: column;
+  }
 }
 .contact-us .container .form .formGroup {
   width: 100%;

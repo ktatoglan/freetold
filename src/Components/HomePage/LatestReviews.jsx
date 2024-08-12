@@ -9,11 +9,11 @@ export const LatestReviews = () => {
     infinite: true,
     arrows: false,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToShow: 5,
+    slidesToScroll: 5,
     responsive: [
         {
-          breakpoint: 1281,
+          breakpoint: 1600,
           settings: {
             slidesToShow: 3,
             slidesToScroll: 3,
@@ -22,7 +22,7 @@ export const LatestReviews = () => {
           }
         },
         {
-          breakpoint: 600,
+          breakpoint: 1200,
           settings: {
             slidesToShow: 2,
             slidesToScroll: 2,
@@ -30,20 +30,23 @@ export const LatestReviews = () => {
           }
         },
         {
-          breakpoint: 480,
+          breakpoint: 900,
           settings: {
             slidesToShow: 1,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            infinite: false
           }
         }
       ]
   };
   return (
     <section className="latest-reviews">
-      <div className="container">
+      <div className="container-fluid">
         <h3 className="title">Latest reviews from our users</h3>
         <div className="reviews-holder">
           <Slider {...settings}>
+            <ReviewCard ReviewID={141414} />
+            <ReviewCard ReviewID={232323} />
             <ReviewCard ReviewID={141414} />
             <ReviewCard ReviewID={232323} />
             <ReviewCard ReviewID={141414} />
