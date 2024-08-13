@@ -214,6 +214,7 @@ button {
         color: $light-text;
         margin: $medium-spacing 0;
         gap: $medium-spacing;
+        justify-content: unset;
 
         span {
           display: flex;
