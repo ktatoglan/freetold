@@ -1,0 +1,275 @@
+@import "vars";
+
+.main {
+  display: flex;
+  margin-left: 200px; /* Adjust according to sidebar width */
+  min-height: 100vh; // need to fix later
+  padding-top: 50px;
+}
+
+.content {
+  flex: 1;
+  padding: 0px 20px;
+  margin-right: 8%;
+}
+
+button {
+  cursor: pointer;
+}
+
+.sidebar {
+  width: 200px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 90px $large-spacing 20px;
+  border-right: none;
+  box-shadow: none;
+  overflow-y: auto;
+  z-index: 1;
+  margin-top: 63px;
+
+  .profile-side-menu {
+    border: 1px solid $light-border;
+    border-radius: $small-spacing;
+    padding: $large-spacing $medium-spacing;
+
+    .my-reviews {
+      margin-bottom: $medium-spacing;
+      padding-bottom: $medium-spacing;
+      border-bottom: 1px solid $light-border;
+      a {
+        font-weight: 700;
+        text-decoration: none;
+        color: $primary-color;
+      }
+    }
+
+    .fav-reviews,
+    .fav-properties {
+      margin-bottom: $medium-spacing;
+      a {
+        font-weight: 300;
+        color: $primary-color;
+      }
+    }
+
+    p:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.user-profile {
+  .user-info {
+    margin-bottom: 20px;
+
+    h2 {
+      color: $primary-color;
+      font-weight: 700;
+      margin-bottom: $small-spacing;
+    }
+
+    .user-info-line {
+      display: flex;
+      gap: $medium-spacing;
+      align-items: center;
+      p {
+        display: flex;
+        align-items: center;
+        gap: $small-spacing;
+        color: $light-text;
+        font-weight: 600;
+
+        &:last-of-type {
+          color: $secondary-color;
+        }
+      }
+    }
+  }
+
+  .invite-friends {
+    margin-bottom: 30px;
+    padding: $large-spacing $medium-spacing;
+    background-color: $gray-background;
+    border-radius: 10px;
+    width: fit-content;
+
+    h4 {
+      color: $gray-text;
+      margin-bottom: $large-spacing;
+      width: inherit;
+    }
+
+    .invite-button {
+      background-color: $primary-color;
+      color: white;
+      font-weight: 600;
+      padding: $small-spacing $medium-spacing;
+      border: none;
+      border-radius: $small-spacing;
+      cursor: pointer;
+    }
+  }
+}
+
+.reviews-section {
+  h3 {
+    color: $primary-color;
+    margin-bottom: $large-spacing;
+  }
+
+  .write-review-button {
+    background-color: $secondary-color;
+    color: white;
+    padding: $small-spacing $medium-spacing;
+    border: none;
+    border-radius: $small-spacing;
+    cursor: pointer;
+  }
+
+  .user-review-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $large-spacing;
+
+    .address,
+    .edit-del-buttons {
+      display: flex;
+      gap: $medium-spacing;
+      p {
+        display: inherit;
+        align-items: center;
+        gap: $small-spacing;
+        color: $light-text;
+        font-weight: 600;
+
+        &:last-of-type {
+          color: $secondary-color;
+        }
+      }
+    }
+  }
+}
+
+.saved-properties {
+  h3 {
+    color: $primary-color;
+    margin-bottom: $large-spacing;
+  }
+
+  .property-card {
+    background-color: $white;
+    padding: $large-spacing;
+    border: 1px solid $light-border;
+    border-radius: $small-spacing;
+    margin-bottom: $large-spacing;
+
+    .property-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+
+      h4 {
+        margin: 0;
+        color: $primary-color;
+      }
+
+      .show-on-map {
+        display: flex;
+        align-items: center;
+        gap: $small-spacing;
+        color: $secondary-color;
+        text-decoration: none;
+        font-weight: 500;
+      }
+    }
+
+    .property-details {
+      margin-bottom: $medium-spacing;
+
+      .property-rating {
+        margin-bottom: $small-spacing;
+        p {
+          display: flex;
+          align-items: center;
+          gap: $small-spacing;
+          font-weight: 600;
+          color: $light-text;
+        }
+        span {
+          display: flex;
+          align-items: center;
+          gap: $small-spacing;
+          font-size: $large-font-size;
+          font-weight: 700;
+          color: $primary-color;
+        }
+      }
+      .property-info {
+        padding: 0;
+        color: $light-text;
+        margin: $medium-spacing 0;
+        gap: $medium-spacing;
+
+        span {
+          display: flex;
+          align-items: center;
+          gap: $small-spacing;
+        }
+      }
+
+      .property-description {
+        color: $gray-text;
+      }
+    }
+
+    .property-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      p {
+        margin: 0;
+      }
+
+      .footer-review-info {
+        display: flex;
+        gap: $medium-spacing;
+        p {
+          display: flex;
+          align-items: center;
+          color: $primary-color;
+          font-weight: 600;
+        }
+        .write-review {
+          display: flex;
+          align-items: center;
+          gap: $small-spacing;
+          color: $primary-color;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 21px;
+        }
+        .first {
+          color: $secondary-color;
+        }
+      }
+
+      .favorite-button {
+        display: flex;
+        align-items: center;
+        gap: $small-spacing;
+        background: none;
+        border: none;
+        font-weight: 300;
+        cursor: pointer;
+        color: $light-text;
+      }
+    }
+  }
+}
