@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import "../../Style/WriteReview.css";
 import { useAppProvider } from "../../Contexts/AppContext";
 import { useNavigate } from "react-router-dom";
@@ -25,6 +25,21 @@ function WriteReview2() {
     setInternetBill,
   } = useAppProvider();
   const navigate = useNavigate();
+  const [formattedRentAmount, setFormattedRentAmount] = useState('');
+
+  const handleRentAmountChange = (e) => {
+    const value = e.target.value.replace(/\./g, ''); // Remove existing dots
+    const numberValue = parseInt(value, 10);
+
+    if (!isNaN(numberValue)) {
+      const formattedValue = new Intl.NumberFormat('en-US').format(numberValue);
+      setRentAmount(value);
+      setFormattedRentAmount(formattedValue);
+    } else {
+      setRentAmount('');
+      setFormattedRentAmount('');
+    }
+  };
 
   return (
     <div className="container">
@@ -83,8 +98,8 @@ function WriteReview2() {
               <div className="row mt-small">
                 <input
                   type="text"
-                  value={rentAmount}
-                  onChange={(e) => setRentAmount(e.target.value)}
+                  value={formattedRentAmount}
+                  onChange={handleRentAmountChange}
                 />
                 <select
                   name="year"
