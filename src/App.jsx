@@ -23,79 +23,79 @@ function App() {
 	return (
 		<AppProvider>
 			<div className='main-content'>
-        <Header />
-				<Router>
-					<Routes>
-						<Route
-							path='/'
-							exact
-							element={<HomePage />}
-						/>
-						<Route
-							path='/home'
-							exact
-							element={<HomePage />}
-						/>
-						<Route
-							path='/login'
-							exact
-							element={<LoginPage />}
-						/>
-						<Route
-							path='/register'
-							exact
-							element={<RegisterPage />}
-						/>
-						<Route
-							path='/write-a-review-0'
-							exact
-							element={<WriteReview0 />}
-						/>
-						<Route
-							path='/write-a-review-1'
-							exact
-							element={<WriteReview1 />}
-						/>
-						<Route
-							path='/write-a-review-2'
-							exact
-							element={<WriteReview2 />}
-						/>
-						<Route
-							path='/write-a-review-3'
-							exact
-							element={<WriteReview3 />}
-						/>
-						<Route
-							path='/write-a-review-4'
-							exact
-							element={<WriteReview4 />}
-						/>
-						<Route
-							path='/write-a-review-5'
-							exact
-							element={<WriteReview5 />}
-						/>
-						<Route
-							path='/property-profile/:postalCode'
-							exact
-							element={<PropertyProfile />}
-						/>
-						<Route
-							path='/property-profile/review/:reviewID'
-							exact
-							element={<ReviewProfile />}
-						/>
-						<Route
-							path='/user-profile/'
-							exact
-							element={<UserProfile />}
-						/>
+        {window.location.pathname.slice(1, 15) !== 'write-a-review' ? <Header /> : <></>}
+			<Router>
+				<Routes>
+					<Route
+						path='/'
+						exact
+						element={<HomePage />}
+					/>
+					<Route
+						path='/home'
+						exact
+						element={<HomePage />}
+					/>
+					<Route
+						path='/login'
+						exact
+						element={<LoginPage />}
+					/>
+					<Route
+						path='/register'
+						exact
+						element={<RegisterPage />}
+					/>
+					<Route
+						path='/write-a-review-0'
+						exact
+						element={<WriteReview0 />}
+					/>
+					<Route
+						path='/write-a-review-1'
+						exact
+						element={<WriteReview1 />}
+					/>
+					<Route
+						path='/write-a-review-2'
+						exact
+						element={<WriteReview2 />}
+					/>
+					<Route
+						path='/write-a-review-3'
+						exact
+						element={<WriteReview3 />}
+					/>
+					<Route
+						path='/write-a-review-4'
+						exact
+						element={<WriteReview4 />}
+					/>
+					<Route
+						path='/write-a-review-5'
+						exact
+						element={<WriteReview5 />}
+					/>
+					<Route
+						path='/property-profile/:postalCode'
+						exact
+						element={<PropertyProfile />}
+					/>
+					<Route
+						path='/property-profile/review/:reviewID'
+						exact
+						element={<ReviewProfile />}
+					/>
+					<Route
+						path='/user-profile/'
+						exact
+						element={<UserProfile />}
+					/>
 
 
 
-					</Routes>
-				</Router>
+				</Routes>
+			</Router>
         <Footer />
 			</div>
 		</AppProvider>
