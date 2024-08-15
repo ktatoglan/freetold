@@ -184,7 +184,7 @@ function WriteReview5() {
 
           <div className="row">
             <div className="buttons">
-              <button className="pre-step" onClick={() => { navigate('write-a-review-4') }}>Previous step</button>
+              <button className="pre-step" onClick={() => { navigate('/write-a-review-4') }}>Previous step</button>
               <button className="next-step" onClick={async () => {
                   const response = await sendReview();
                   if(response){
