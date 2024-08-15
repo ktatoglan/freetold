@@ -185,7 +185,15 @@ function WriteReview5() {
           <div className="row">
             <div className="buttons">
               <button className="pre-step" onClick={() => { navigate('write-a-review-4') }}>Previous step</button>
-              <button className="next-step" onClick={() => { /*</div>window.location.href = '/';*/ sendReview(); }}>Submit the review</button>
+              <button className="next-step" onClick={async () => {
+                  const response = await sendReview();
+                  if(response){
+                    window.location.href = '/';
+                  }
+                  else{
+                    alert('There was an error while submitting the review, Please fill all the fields and try again');
+                  }
+                }}>Submit the review</button>
             </div>
           </div>
         </div>

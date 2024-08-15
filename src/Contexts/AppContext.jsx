@@ -45,47 +45,55 @@ const AppProvider = ({ children }) => {
   const serverUrl = 'https://freetold-backend.vercel.app';
 
   const sendReview = async() => {
-    console.log('sendReview');
+    //console.log('sendReview');
     console.log(mode,  userId,  addressLine1,  addressLine2,  townCity,  country,  postCode,  moveInDate,  tenancyPeriod,  isItSharingFlat,  peopleNumberLivingAtHome,  futureRentersContactMe,  rentAmount,  rentPeriod,  isBillsIncluded,  billsPerPerson,  billsWholeHouse,  electricBill,  waterBill,  gasBill,  internetBill,  reviewScore,  reviewHeadline,  reviewPros,  reviewCons,  heatUpLevel,  wellLitLevel,  internetConnectionLevel, isItPetFriendly, anythingToBeFixed, ownerRespondScore,  healthConcerns, perceptionNeighborsLevel, noiseNeighborsLevel,  parkingScore,  trafficScore,  safetyConcerns,  agreeCheckbox);
-    axios.post(`${serverUrl}/review/addReview`, {
-      user_id: userId,
-      address_line_1: addressLine1,
-      address_line_2: addressLine2,
-      town_city: townCity,
-      country: country,
-      post_code: postCode,
-      move_in_date: moveInDate,
-      tenancy_period: tenancyPeriod,
-      is_it_sharing_flat: isItSharingFlat,
-      people_number_leaving_at_home: peopleNumberLivingAtHome,
-      future_renters_contact_me: futureRentersContactMe,
-      rent_amount: rentAmount,
-      rent_period: rentPeriod,
-      is_bills_included: isBillsIncluded,
-      bills_per_person: billsPerPerson,
-      bills_whole_house: billsWholeHouse,
-      electric_bill: electricBill,
-      water_bill: waterBill,
-      gas_bill: gasBill,
-      internet_bill: internetBill,
-      review_score: reviewScore,
-      review_headline: reviewHeadline,
-      review_pros: reviewPros,
-      review_cons: reviewCons,
-      heat_up_level: heatUpLevel,
-      well_lit_level: wellLitLevel,
-      internet_connection_level: internetConnectionLevel,
-      is_it_pet_friendly: isItPetFriendly,
-      anything_to_be_fixed: anythingToBeFixed,
-      owner_respond_score: ownerRespondScore,
-      health_concerns: healthConcerns,
-      perception_neighbors_level: perceptionNeighborsLevel,
-      noise_neighbors_level: noiseNeighborsLevel,
-      parking_score: parkingScore,
-      traffic_score: trafficScore,
-      safety_concerns: safetyConcerns,
-      agree_checkbox: agreeCheckbox
-    })
+    try {
+      const response = await axios.post(`${serverUrl}/review/addReview`, {
+        user_id: userId,
+        address_line_1: addressLine1,
+        address_line_2: addressLine2,
+        town_city: townCity,
+        country: country,
+        post_code: postCode,
+        move_in_date: moveInDate,
+        tenancy_period: tenancyPeriod,
+        is_it_sharing_flat: isItSharingFlat,
+        people_number_leaving_at_home: peopleNumberLivingAtHome,
+        future_renters_contact_me: futureRentersContactMe,
+        rent_amount: rentAmount,
+        rent_period: rentPeriod,
+        is_bills_included: isBillsIncluded,
+        bills_per_person: billsPerPerson,
+        bills_whole_house: billsWholeHouse,
+        electric_bill: electricBill,
+        water_bill: waterBill,
+        gas_bill: gasBill,
+        internet_bill: internetBill,
+        review_score: reviewScore,
+        review_headline: reviewHeadline,
+        review_pros: reviewPros,
+        review_cons: reviewCons,
+        heat_up_level: heatUpLevel,
+        well_lit_level: wellLitLevel,
+        internet_connection_level: internetConnectionLevel,
+        is_it_pet_friendly: isItPetFriendly,
+        anything_to_be_fixed: anythingToBeFixed,
+        owner_respond_score: ownerRespondScore,
+        health_concerns: healthConcerns,
+        perception_neighbors_level: perceptionNeighborsLevel,
+        noise_neighbors_level: noiseNeighborsLevel,
+        parking_score: parkingScore,
+        traffic_score: trafficScore,
+        safety_concerns: safetyConcerns,
+        agree_checkbox: agreeCheckbox
+      });
+
+      console.log(response);
+      return true; // Return true if the request is successful
+    } catch (error) {
+      console.log(error);
+      return false; // Return false if there's an error
+    }
   }
 
   return (
