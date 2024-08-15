@@ -160,7 +160,7 @@ function WriteReview5() {
               <div className="input-container">
                 <textarea
                   className="custom-textarea"
-                  placeholder="Whatever"
+                  placeholder="Theft, poor street lighting, speeding etc."
                   rows={4}
                   value={safetyConcerns}
                   onChange={(e) => setSafetyConcerns(e.target.value)}
