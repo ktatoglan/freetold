@@ -1,8 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
 
-const PropertyDetails = () => {
+const PropertyDetails = ({reviews}) => {
   const [isSummaryVisible, setSummaryVisible] = useState(false);
   const [showBreakdown, setShowBreakdown] = useState(false);
+  const [totalEstimatedBills, setTotalEstimatedBills] = useState('-');
+  const [lastPrice, setLastPrice] = useState('-');
+  const [totalFloorArea, setTotalFloorArea] = useState('-');
+  const [Electricity, setElectricity] = useState('-');
+  const [Gas, setGas] = useState('-');
+  const [Water, setWater] = useState('-');
+  const [internet, setInternet] = useState('-');
   const breakdownRef = useRef(null);
   const infoRef = useRef(null);
 
@@ -23,6 +30,20 @@ const PropertyDetails = () => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  useEffect(() => {
+    let totalElectricity = reviews.reduce((acc, review) => acc + Number(review.electric_bill), 0);
+    let totalGas = reviews.reduce((acc, review) => acc + Number(review.gas_bill), 0);
+    let totalWater = reviews.reduce((acc, review) => acc + Number(review.water_bill), 0);
+    let totalInternet = reviews.reduce((acc, review) => acc + Number(review.internet_bill), 0);
+    setElectricity(totalElectricity/reviews.length);
+    setGas(totalGas/reviews.length);
+    setWater(totalWater/reviews.length);
+    setInternet(totalInternet/reviews.length);
+    setTotalEstimatedBills((totalElectricity + totalGas + totalWater + totalInternet) / reviews.length);
+    setLastPrice(reviews[0].rent_amount /*+ " " + reviews[0].rent_period*/);
+  }, []);
+
 
   const handleInfoClick = () => {
     setShowBreakdown((prev) => !prev);
@@ -78,7 +99,7 @@ const PropertyDetails = () => {
             </div>
             <div className="stat-text">
               <div className="stat-label">Last price</div>
-              <div className="stat-value">£1,100</div>
+              <div className="stat-value">£{lastPrice}</div>
             </div>
           </div>
           <div className="stat-item">
@@ -100,7 +121,7 @@ const PropertyDetails = () => {
             </div>
             <div className="stat-text">
               <div className="stat-label">Total floor area</div>
-              <div className="stat-value">73 sq m</div>
+              <div className="stat-value">{totalFloorArea} sq m</div>
             </div>
           </div>
           <div className="stat-item">
@@ -122,7 +143,7 @@ const PropertyDetails = () => {
               <div className="stat-label">Total estimated bills</div>
               <div className="stat-value">
                 <p>
-                  356 £{" "}
+                 £{totalEstimatedBills} {" "}
                   <span
                     className="info"
                     onClick={handleInfoClick}
@@ -169,7 +190,7 @@ const PropertyDetails = () => {
                   </svg>
                   Electricity
                 </p>
-                <p className="breakdown-value">213 £</p>
+                <p className="breakdown-value">{Electricity} £</p>
               </div>
               <div className="breakdown-item">
                 <p className="breakdown-label">
@@ -187,7 +208,7 @@ const PropertyDetails = () => {
                   </svg>
                   Gas
                 </p>
-                <p className="breakdown-value">324 £</p>
+                <p className="breakdown-value">{Gas} £</p>
               </div>
               <div className="breakdown-item">
                 <p className="breakdown-label">
@@ -205,7 +226,7 @@ const PropertyDetails = () => {
                   </svg>
                   Water
                 </p>
-                <p className="breakdown-value">45 £</p>
+                <p className="breakdown-value">{Water} £</p>
               </div>
               <div className="breakdown-item">
                 <p className="breakdown-label">
@@ -223,7 +244,7 @@ const PropertyDetails = () => {
                   </svg>
                   Internet
                 </p>
-                <p className="breakdown-value">59 £</p>
+                <p className="breakdown-value">{internet} £</p>
               </div>
               <p className="breakdown-text">
                 Per whole household, based on 2 reviews{" "}

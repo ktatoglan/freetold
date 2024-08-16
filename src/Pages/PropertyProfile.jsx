@@ -5,7 +5,6 @@ import '../Style/PropertyProfile.css';
 
 function PropertyProfilePage() {
    const { postalCode } = useParams();
-   console.log("Postal code:", postalCode);
   return (
     <div>
       <PropertyProfile postalCode = {postalCode} />
