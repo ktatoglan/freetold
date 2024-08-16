@@ -1,34 +1,132 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
 
-function ReviewScore() {
+function ReviewScore({reviews}) {
+  const [reviewScore, setReviewScore] = useState('-');
+  const [Heating, setHeating] = useState('-');
+  const [Litting, setLitting] = useState('-');
+  const [InternetConnection, setInternetConnection] = useState('-');
+  const [PetFriendly, setPetFriendly] = useState('No');
+  const [NoiseLevel, setNoiseLevel] = useState('-');
+  const [Traffic, setTraffic] = useState('-');
+  const [Parking, setParking] = useState('-');
+  const [Neighbors, setNeighbors] = useState('-');
+  const [fiveStar, setFiveStar] = useState(0);
+  const [fourStar, setFourStar] = useState(0);
+  const [threeStar, setThreeStar] = useState(0);
+  const [twoStar, setTwoStar] = useState(0);
+  const [oneStar, setOneStar] = useState(0);
+
+  useEffect(() => {
+    //is_it_pet_friendly
+    reviews.map((review) => {
+      if (review.is_it_pet_friendly == true) {
+        setPetFriendly('Yes');
+      }
+    });
+    //heating
+    let totalHeating = 0;
+    reviews.map((review) => {
+      totalHeating += review.heat_up_level;
+    });
+    setHeating((totalHeating / reviews.length).toFixed(1));
+    //litting
+    let totalLitting = 0;
+    reviews.map((review) => {
+      totalLitting += review.well_lit_level;
+    });
+    setLitting((totalLitting / reviews.length).toFixed(1));
+
+    //internet connection
+    let totalInternetConnection = 0;
+    reviews.map((review) => {
+      totalInternetConnection += review.internet_connection_level;
+    });
+    setInternetConnection((totalInternetConnection / reviews.length).toFixed(1));
+
+    //noise level
+    let totalNoiseLevel = 0;
+    reviews.map((review) => {
+      totalNoiseLevel += review.noise_neighbors_level;
+    });
+    setNoiseLevel((totalNoiseLevel / reviews.length).toFixed(1));
+    //traffic
+    let totalTraffic = 0;
+    reviews.map((review) => {
+      totalTraffic += review.traffic_score;
+    });
+    setTraffic((totalTraffic / reviews.length).toFixed(1));
+    //parking
+    let totalParking = 0;
+    reviews.map((review) => {
+      totalParking += review.parking_score;
+    });
+    setParking((totalParking / reviews.length).toFixed(1));
+    //neighbors
+    let totalNeighbors = 0;
+    reviews.map((review) => {
+      totalNeighbors += review.owner_respond_score;//To be changed neighbors_score
+    });
+    setNeighbors((totalNeighbors / reviews.length).toFixed(1));
+    //review score
+    let totalReviewScore = 0;
+    reviews.map((review) => {
+      totalReviewScore += review.review_score;
+    });
+    setReviewScore((totalReviewScore / reviews.length).toFixed(1));
+
+    //review distribution
+    let totalFiveStar = 0;
+    let totalFourStar = 0;
+    let totalThreeStar = 0;
+    let totalTwoStar = 0;
+    let totalOneStar = 0;
+    reviews.map((review) => {
+      if (review.review_score == 5) {
+        totalFiveStar += 1;
+      } else if (review.review_score == 4) {
+        totalFourStar += 1;
+      } else if (review.review_score == 3) {
+        totalThreeStar += 1;
+      } else if (review.review_score == 2) {
+        totalTwoStar += 1;
+      } else if (review.review_score == 1) {
+        totalOneStar += 1;
+      }
+    });
+    setFiveStar(totalFiveStar);
+    setFourStar(totalFourStar);
+    setThreeStar(totalThreeStar);
+    setTwoStar(totalTwoStar);
+    setOneStar(totalOneStar);
+  }, [reviews]);
   return (
     <div className="review-score">
       <h4>Review Score</h4>
-      <p className="based-on">Based on 12 reviews</p>
+      <p className="based-on">Based on {reviews.length} reviews</p>
       <div className="review-summary">
         <div className="overall-rating">
           <div className="overall-title-container">
             <p className="overall-title">Overall rating</p>
           </div>
           <div className="overall-values">
-            <div className="rating-value">4.2</div>
+            <div className="rating-value">{reviewScore}</div>
             <div className="rating-details">
               <p className="details-title">Reviews distribution</p>
               <div className="distribution">
                 <div>
-                  <progress id="review1" value="32" max="100"></progress> 2
+                  <progress id="review1" value={fiveStar/reviews.length * 100} max="100"></progress> {fiveStar}
                 </div>
                 <div>
-                  <progress id="review2" value="56" max="100"></progress> 7
+                  <progress id="review2" value={fourStar/reviews.length * 100} max="100"></progress> {fourStar}
                 </div>
                 <div>
-                  <progress id="review3" value="73" max="100"></progress> 6
+                  <progress id="review3" value={threeStar/reviews.length * 100} max="100"></progress> {threeStar}
                 </div>
                 <div>
-                  <progress id="review4" value="12" max="100"></progress> 1
+                  <progress id="review4" value={twoStar/reviews.length * 100} max="100"></progress> {twoStar}
                 </div>
                 <div>
-                  <progress id="review5" value="24" max="100"></progress> 1
+                  <progress id="review5" value={oneStar/reviews.length * 100} max="100"></progress> {oneStar}
                 </div>
               </div>
             </div>
@@ -52,7 +150,7 @@ function ReviewScore() {
               </svg>
               Heating
             </span>
-            <span className="value">4.6</span>
+            <span className="value">{Heating}</span>
           </div>
           <div className="detail-item">
             <span>
@@ -70,7 +168,7 @@ function ReviewScore() {
               </svg>
               Litting
             </span>
-            <span className="value">5.0</span>
+            <span className="value">{Litting}</span>
           </div>
           <div className="detail-item">
             <span>
@@ -88,7 +186,7 @@ function ReviewScore() {
               </svg>
               Internet connection
             </span>
-            <span className="value">3.6</span>
+            <span className="value">{InternetConnection}</span>
           </div>
           <div className="detail-item">
             <span>
@@ -106,7 +204,7 @@ function ReviewScore() {
               </svg>
               Pet-friendly
             </span>
-            <span className="value">No</span>
+            <span className="value">{PetFriendly}</span>
           </div>
         </div>
         <div className="neighborhood-details">
@@ -133,7 +231,7 @@ function ReviewScore() {
               </svg>
               Noise level
             </span>
-            <span className="value">4.6</span>
+            <span className="value">{NoiseLevel}</span>
           </div>
           <div className="detail-item">
             <span>
@@ -151,7 +249,7 @@ function ReviewScore() {
               </svg>
               Traffic
             </span>
-            <span className="value">5.0</span>
+            <span className="value">{Traffic}</span>
           </div>
           <div className="detail-item">
             <span>
@@ -169,7 +267,7 @@ function ReviewScore() {
               </svg>
               Parking
             </span>
-            <span className="value">3.6</span>
+            <span className="value">{Parking}</span>
           </div>
           <div className="detail-item">
             <span>
@@ -187,7 +285,7 @@ function ReviewScore() {
               </svg>
               Neighbors
             </span>
-            <span className="value">5.0</span>
+            <span className="value">{Neighbors}</span>
           </div>
         </div>
       </div>

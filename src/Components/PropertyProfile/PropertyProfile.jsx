@@ -39,7 +39,7 @@ const PropertyProfile = ({postalCode}) => {
       <section className="content">
         <ContentHeader lastUpdate={"23 Sep 2024"}/>
         <PropertyDetails reviews={reviews}/>
-        <ReviewScore />
+        <ReviewScore reviews={reviews}/>
         <LocationMap />
         <LocationDetails />
         <Reviews reviews={reviews} />
