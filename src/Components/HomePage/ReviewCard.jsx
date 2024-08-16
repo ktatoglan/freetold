@@ -89,8 +89,8 @@ const ReviewCard = ({ ReviewID }) => {
                 <path
                   d="M11.5361 4.46475C12.4692 5.39774 12.9956 6.66172 13.0006 7.98119C13.0057 9.30066 12.489 10.5686 11.5631 11.5088M15.6571 2.34375C17.15 3.83642 17.9923 5.85864 18.0005 7.96969C18.0088 10.0807 17.1823 12.1095 15.7011 13.6138"
                   stroke="black"
-                  stroke-width="2"
-                  stroke-linecap="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
                 />
               </svg>
             </span>

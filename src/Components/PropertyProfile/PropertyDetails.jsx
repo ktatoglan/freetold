@@ -71,7 +71,7 @@ const PropertyDetails = ({reviews}) => {
                 <label htmlFor={`star${index + 1}`}></label>
               </React.Fragment>
             ))}
-            <p className="review-count">12 Reviews</p>
+            <p className="review-count">{reviews.length} Reviews</p>
           </div>
           <p>
             I think we can make a short description here by combining the
@@ -263,16 +263,16 @@ const PropertyDetails = ({reviews}) => {
                 <path
                   d="M28 21V16M20 21V16M24 44C35.046 44 44 35.046 44 24C44 12.954 35.046 4 24 4C12.954 4 4 12.954 4 24C4 35.046 12.954 44 24 44Z"
                   stroke="#D9D9D9"
-                  stroke-width="4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
                 <path
                   d="M24 32C26.1217 32 28.1566 31.1571 29.6569 29.6569C31.1571 28.1566 32 26.1217 32 24V21H16V24C16 26.1217 16.8429 28.1566 18.3431 29.6569C19.8434 31.1571 21.8783 32 24 32ZM24 32V44"
                   stroke="#D9D9D9"
-                  stroke-width="4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </div>

@@ -5,7 +5,6 @@ const LocationMap = ({addressDetails}) => {
   const [longitude, setLongitude] = useState(0);
 
   useEffect(() => {
-    console.log('Address Details:', addressDetails);
     if (addressDetails && addressDetails.latitude && addressDetails.longitude) {
       setLatitude(addressDetails.latitude);
       setLongitude(addressDetails.longitude);

@@ -225,8 +225,8 @@ function ReviewScore({reviews}) {
                 <path
                   d="M11.5361 4.46377C12.4692 5.39677 12.9956 6.66074 13.0006 7.98021C13.0057 9.29968 12.489 10.5677 11.5631 11.5078M15.6571 2.34277C17.15 3.83544 17.9923 5.85766 18.0005 7.96871C18.0088 10.0798 17.1823 12.1085 15.7011 13.6128"
                   stroke="black"
-                  stroke-width="2"
-                  stroke-linecap="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
                 />
               </svg>
               Noise level
