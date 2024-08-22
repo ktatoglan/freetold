@@ -17,6 +17,7 @@ import ReviewProfile from './Pages/ReviewProfile';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import UserProfile from './Pages/UserProfile';
+import PropertyListing from './Pages/PropertyListing';
 
 
 function App() {
@@ -90,6 +91,11 @@ function App() {
 						path='/user-profile/'
 						exact
 						element={<UserProfile />}
+					/>
+					<Route
+						path='/property-listing/'
+						exact
+						element={<PropertyListing/>}
 					/>
 
 
