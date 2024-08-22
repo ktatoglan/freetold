@@ -1,0 +1,333 @@
+@import "vars";
+
+// General Styles
+.property-listing {
+  padding: $large-spacing;
+
+  .property-results {
+    display: flex;
+    transition: all 0.5s ease; /* gpt: Genel geçiş süresi biraz uzatıldı */
+
+    .property-cards {
+      flex: 1;
+      margin-right: 20px;
+      transition: all 0.5s ease; /* gpt: Kartların kaybolma animasyonu */
+    }
+
+    .property-map {
+      width: 400px;
+      position: relative;
+      transition: width 0.5s ease; /* gpt: Haritanın genişleme animasyonu */
+
+      .map-container {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        background-color: #f0f0f0;
+
+        .fullscreen-map-btn {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          padding: 8px 12px;
+          background-color: #f35b5d;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+
+          &:hover {
+            background-color: #e14a4a;
+          }
+        }
+      }
+    }
+
+    &.fullscreen-map-active {
+      /* gpt: Tam ekran harita için durum */
+      .property-cards {
+        flex: 0;
+        opacity: 0; /* gpt: Kartlar yavaşça kaybolur */
+        pointer-events: none; /* gpt: Kartlar gizliyken tıklanamaz hale gelir */
+        transition: opacity 0.5s ease; /* gpt: Opaklık geçişi ile kaybolma animasyonu */
+      }
+
+      .property-map {
+        width: 100%; /* gpt: Harita tam genişliğe yavaşça genişler */
+      }
+    }
+  }
+}
+
+// Property Search Bar Styles
+.property-search-bar-container {
+  position: relative;
+  margin-bottom: -$small-spacing;
+
+  .property-search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: $large-spacing;
+
+    .search-input {
+      flex: 1;
+      padding: $small-spacing;
+      margin-right: $medium-spacing;
+      border-radius: $small-spacing;
+      border: 1px solid $light-border;
+      line-height: $large-spacing;
+      color: $primary-color;
+    }
+
+    .filter-menu-btn,
+    .find-reviews-btn {
+      padding: $small-spacing $medium-spacing;
+      background-color: $primary-color;
+      color: white;
+      border: none;
+      border-radius: $small-spacing;
+      cursor: pointer;
+      line-height: $large-spacing;
+
+      &:hover {
+        background-color: $secondary-color;
+      }
+    }
+
+    .filter-menu-btn {
+      display: flex;
+      align-items: center;
+      gap: $small-spacing;
+      margin-left: $medium-spacing;
+      background-color: $secondary-color;
+      &:hover {
+        background-color: $primary-color;
+      }
+    }
+  }
+
+  .selected-filters {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+
+    .selected-filter-btn {
+      background-color: #f5f5f5;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px 10px;
+      cursor: default;
+    }
+  }
+}
+
+.filters-and-sort {
+  display: flex;
+  align-items: center;
+  margin-bottom: $medium-spacing;
+
+  .active-filters {
+    flex: 1;
+
+    span{
+      display: inline-flex;
+      gap: $small-spacing;
+      align-items: center;
+      margin-right:$medium-spacing;
+      background-color: rgba(16, 24, 40, 0.05);
+      padding: 5px 8px;
+      border-radius: $small-spacing;
+      color: $primary-color;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 21px;
+    }
+  }
+  .sort{
+    .sort-options{
+      padding: 5px 8px;
+      border: 1px solid $light-border;
+      border-radius: $small-spacing;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 21px;
+      color: $light-text;
+
+      select{
+        border: none;
+      }
+    }
+  }
+}
+
+// Filter Menu Styles
+.filter-menu {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 450px;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid $light-border;
+  border-radius: $small-spacing;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+
+  .filter-section {
+    margin-bottom: 20px;
+    border-bottom: 1px solid $light-border;
+    padding-bottom: $medium-spacing;
+
+    &:first-of-type {
+      border: 0;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .filter-option {
+      margin-bottom: $small-spacing;
+
+      .filter-title {
+        display: flex;
+        align-items: center;
+        gap: $small-spacing;
+        color: $gray-text;
+        font-weight: 600;
+        margin: $small-spacing auto;
+      }
+
+      .input-line {
+        margin-top: $small-spacing;
+        display: flex;
+        gap: $large-spacing;
+        border-bottom: 1px solid $light-border;
+        padding-bottom: $medium-spacing;
+
+        .input-holder {
+          display: flex;
+          align-items: center;
+          gap: $small-spacing;
+          border: 1px solid $light-border;
+          padding: 5px 8px;
+          border-radius: 8px;
+
+          label {
+            font-size: $small-font-size;
+            color: $light-text;
+            font-weight: 400;
+            line-height: 21px;
+            margin: auto;
+          }
+        }
+
+        input[type="text"] {
+          width: 60px;
+          line-height: 21px;
+          border: 0;
+        }
+      }
+      // Toggle switch
+      .toggle-group {
+        color: $gray-text;
+        display: flex;
+        margin-top: $medium-spacing;
+        border-bottom: 1px solid $light-border;
+        padding-bottom: $medium-spacing;
+
+        input[type="checkbox"] {
+          height: 0;
+          width: 0;
+          visibility: hidden;
+        }
+        label {
+          cursor: pointer;
+          text-indent: -9999px;
+          width: 36px;
+          height: 20px;
+          background: $light-text;
+          display: block;
+          border-radius: 100px;
+          position: relative;
+          margin-right: $medium-spacing;
+        }
+        label:after {
+          content: "";
+          position: absolute;
+          top: 2px;
+          left: 2px;
+          width: 16px;
+          height: 16px;
+          background: #fff;
+          border-radius: 9px;
+          transition: 0.3s;
+        }
+        input:checked + label {
+          background: $primary-color;
+        }
+        input:checked + label:after {
+          left: calc(100% - 2px);
+          transform: translateX(-100%);
+        }
+        label:active:after {
+          width: 36px;
+        }
+      }
+      // Toggle switch ----
+    }
+    .score-list {
+      list-style: none;
+      display: flex;
+      gap: $small-spacing;
+
+      li {
+        background-color: #f5f5f5;
+        color: $light-text;
+        padding: 5px 8px;
+        border-radius: $small-spacing;
+        cursor: pointer;
+
+        &.active {
+          background-color: $gray-text;
+          color: $white;
+        }
+      }
+    }
+  }
+
+  .btn-line {
+    display: flex;
+    gap: $medium-spacing;
+
+    .apply-filters-btn {
+      width: 50%;
+      padding: 10px;
+      background-color: $secondary-color;
+      color: white;
+      border: none;
+      border-radius: $small-spacing;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $primary-color;
+      }
+    }
+    .reset-filters-btn {
+      width: 50%;
+      padding: 10px;
+      background-color: $white;
+      color: $light-text;
+      border: none;
+      border-radius: $small-spacing;
+      cursor: pointer;
+      text-align: left;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
