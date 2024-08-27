@@ -178,11 +178,20 @@ button {
 
 /* BlogCard */
 .blog-card {
-  padding: 20px;
+  // padding: 20px;
+  // background-color: $white;
+  // border-radius: $small-spacing;
+  // border: 1px solid $light-border;
+  // margin-bottom: 20px;
   background-color: $white;
   border-radius: $small-spacing;
-  border: 1px solid $light-border;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: inline-block;
   margin-bottom: 20px;
+  width: 100%; /* Kartın sütun genişliğine uyum sağlaması için */
+  break-inside: avoid; /* Kartların sütunlar arasında bölünmesini engeller */
+  padding: $medium-spacing;
+  transition: transform 0.3s ease;
 
   .cat-and-date {
     display: flex;
@@ -240,7 +249,7 @@ button {
 }
 /* AllBlogs */
 .all-blogs {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 sütunlu grid yapısı */
-  gap: 20px; /* Grid elemanları arasında boşluk */
+  column-count: 3; 
+  column-gap: 20px; 
+  padding: 20px;
 }

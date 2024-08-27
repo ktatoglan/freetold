@@ -256,11 +256,16 @@ button {
 
 /* BlogCard */
 .blog-card {
-  padding: 20px;
   background-color: #fff;
   border-radius: 8px;
-  border: 1px solid #d9d9d9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: inline-block;
   margin-bottom: 20px;
+  width: 100%; /* Kartın sütun genişliğine uyum sağlaması için */
+  -moz-column-break-inside: avoid;
+       break-inside: avoid; /* Kartların sütunlar arasında bölünmesini engeller */
+  padding: 16px;
+  transition: transform 0.3s ease;
 }
 .blog-card .cat-and-date {
   display: flex;
@@ -311,7 +316,9 @@ button {
 
 /* AllBlogs */
 .all-blogs {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 sütunlu grid yapısı */
-  gap: 20px; /* Grid elemanları arasında boşluk */
+  -moz-column-count: 3;
+       column-count: 3;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  padding: 20px;
 }/*# sourceMappingURL=Blogs.css.map */
