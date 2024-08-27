@@ -18,6 +18,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import UserProfile from './Pages/UserProfile';
 import PropertyListing from './Pages/PropertyListing';
+import BlogsPage from './Pages/Blogspage';
 
 
 function App() {
@@ -96,6 +97,11 @@ function App() {
 						path='/property-listing/'
 						exact
 						element={<PropertyListing/>}
+					/>
+					<Route
+						path='/blog/'
+						exact
+						element={<BlogsPage/>}
 					/>
 
 

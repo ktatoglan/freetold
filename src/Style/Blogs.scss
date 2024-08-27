@@ -1,0 +1,246 @@
+@import "vars";
+
+.blogs-page {
+  display: flex;
+  margin-left: 300px; /* Adjust according to sidebar width */
+  min-height: 100vh; // need to fix later
+  padding-top: 50px;
+}
+
+.content {
+  flex: 1;
+  padding: 0px 20px;
+  margin: $medium-spacing auto !important;
+}
+
+button {
+  cursor: pointer;
+}
+
+.blogs-sidebar {
+  margin-top: 63px;
+  width: 300px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 60px 30px 20px;
+  overflow-y: hidden;
+  z-index: 2;
+  background: $white;
+
+  .back a {
+    @extend p;
+    color: $gray-text;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: $large-spacing;
+
+    li {
+      margin-top: $small-spacing;
+      color: $primary-color;
+      font-weight: 300;
+
+      a {
+        @extend p;
+        text-decoration: none;
+        color: $primary-color;
+        cursor: pointer;
+        &.active {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+.categories h3,
+.tags h3 {
+  color: $primary-color;
+  margin-bottom: $medium-spacing;
+  font-weight: bold;
+}
+
+.categories ul {
+  list-style: none;
+  padding: 0;
+}
+
+.categories li {
+  margin-bottom: $small-spacing;
+  cursor: pointer;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: $large-spacing;
+}
+
+.tag {
+  background-color: rgba(16, 24, 40, 0.05);
+  color: $light-text;
+  padding: 4px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Content */
+.content {
+  width: 75%; /* Yan yana dizilimde genişlik belirliyoruz */
+  padding-left: 20px;
+  box-sizing: border-box; /* Padding'in genişlik hesaplamasına dahil edilmesi */
+}
+
+/* BlogSearch */
+.blog-search {
+  margin-bottom: 20px;
+}
+
+.blog-search input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* FeaturedBlog */
+.featured-blog {
+  padding: 20px;
+  background-color: #f5f7fa;
+  border-radius: 10px;
+  margin-bottom: 20px;
+
+  .cat-and-date {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .blog-category {
+      color: $secondary-color;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    .blog-date {
+      font-weight: 300;
+      color: $light-text;
+    }
+  }
+  .blog-content-container {
+    display: flex;
+    .content {
+      width: 50%;
+      padding: $large-spacing 0;
+      h3 {
+        color: $primary-color;
+        margin-bottom: $medium-spacing;
+      }
+      .blog-tags {
+        display: flex;
+        gap: $small-spacing;
+        span {
+          background-color: rgba(16, 24, 40, 0.05);
+          color: $light-text;
+          padding: 4px 10px;
+          border-radius: 5px;
+          cursor: pointer;
+          font-weight: 600;
+          font-size: 14px;
+        }
+      }
+
+      .blog-meta {
+        .blog-footer {
+          display: flex;
+          gap: $medium-spacing;
+          margin-top: $large-spacing;
+          div {
+            display: inherit;
+            align-items: center;
+            gap: $small-spacing;
+          }
+        }
+      }
+    }
+    .blog-image {
+      width: 50%;
+      text-align: center;
+    }
+  }
+}
+
+/* BlogCard */
+.blog-card {
+  padding: 20px;
+  background-color: $white;
+  border-radius: $small-spacing;
+  border: 1px solid $light-border;
+  margin-bottom: 20px;
+
+  .cat-and-date {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .blog-category {
+      color: $secondary-color;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    .blog-date {
+      font-weight: 300;
+      color: $light-text;
+    }
+  }
+
+  .blog-img{
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  h4 {
+    color: $primary-color;
+  }
+
+  .blog-content {
+    margin-top: $medium-spacing;
+    color: $gray-text;
+  }
+
+  .blog-meta {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: $large-spacing;
+    color: #adb5bd;
+    font-size: 14px;
+    .blog-footer {
+      display: flex;
+      gap: $medium-spacing;
+      margin-top: $large-spacing;
+      div {
+        display: inherit;
+        align-items: center;
+        gap: $small-spacing;
+      }
+    }
+  }
+
+  .blog-actions span {
+    margin-right: 10px;
+  }
+}
+/* AllBlogs */
+.all-blogs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 sütunlu grid yapısı */
+  gap: 20px; /* Grid elemanları arasında boşluk */
+}
