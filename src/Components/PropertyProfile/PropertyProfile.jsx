@@ -30,24 +30,6 @@ const PropertyProfile = ({postalCode}) => {
 
       const fetchPropertyDetails = async () => {
         try {
-          const options = {
-            method: 'POST',
-            url: 'https://uk-property-data.p.rapidapi.com/propertytools.api.v1.Public/SearchProperties',
-            headers: {
-              'x-rapidapi-key': '904432ac32msh3a5553a36e68d92p18c5cbjsn34e1d0d9eafb',
-              'x-rapidapi-host': 'uk-property-data.p.rapidapi.com',
-              'Content-Type': 'application/json'
-            },
-            data: {postcode: postalCode}
-          };
-
-          try {
-            const response = await axios.request(options);
-            console.log("Address: ", response.data);
-          } catch (error) {
-            console.error(error);
-          }
-
           // You can process the data as needed
         } catch (error) {
           console.error('Error fetching property details:', error);
