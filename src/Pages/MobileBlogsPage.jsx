@@ -1,12 +1,11 @@
 import React from 'react';
-import '../Style/Blogs.css';
-import Blogs from '../Components/Blogs/Blogs';
+import '../Style/BlogsMobile.css';
+import BlogsMobile from '../Components/Blogs/BlogsMobile';
+
 
 const BlogsPage = () => {
   return (
-    <>
-      MOBILEBLOOOOOG
-    </>
+    <BlogsMobile />
   );
 };
 

@@ -1,0 +1,197 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Geologica", sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.container-fluid {
+  margin: 0;
+  padding: 0;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 16px;
+  margin-left: 16px;
+}
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+}
+
+.col {
+  flex: 1 0 0;
+  padding: 0 16px;
+}
+@media (max-width: 768px) {
+  .col {
+    flex: none;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+}
+
+h1 {
+  font-family: Geologica;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 80px;
+  text-align: left;
+}
+
+h2 {
+  font-family: Geologica;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 53px;
+  text-align: left;
+}
+
+h3 {
+  font-family: Geologica;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 40px;
+  text-align: left;
+}
+
+h4 {
+  font-family: Geologica;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+  text-align: left;
+}
+
+p {
+  font-family: Geologica;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: left;
+}
+
+.small-text {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 16px;
+  text-align: left;
+}
+
+.app-container {
+  padding: 24px;
+}
+
+.blogs-mbl-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-direction: column;
+  gap: 16px;
+}
+.blogs-mbl-header .search-bar {
+  flex-grow: 1;
+}
+.blogs-mbl-header .search-bar .search-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+.blogs-mbl-header .button-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.blogs-mbl-header .button-container .toggle-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  background-color: #fff;
+}
+.blogs-mbl-header .button-container .tags-button {
+  color: #0a2446;
+}
+.blogs-mbl-header .button-container .cats-button {
+  color: #ef6c67;
+}
+
+.dropdown {
+  padding: 0px 16px;
+  background-color: #fff;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.dropdown .dropdown-header {
+  display: flex;
+  justify-content: space-between;
+}
+.dropdown .dropdown-header span {
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 700;
+  color: #646464;
+}
+.dropdown .dropdown-header .categories ul li {
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+  color: #0a2446;
+}
+.dropdown .close-button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #555;
+  cursor: pointer;
+}
+
+.blog-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.blog-container .blog-card {
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.blog-container .blog-card .blog-category {
+  color: #ef6c67;
+  font-size: 14px;
+}
+.blog-container .blog-card .blog-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+.blog-container .blog-card .blog-tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.blog-container .blog-card .blog-tags .blog-tag {
+  background-color: rgba(16, 24, 40, 0.05);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #919191;
+}/*# sourceMappingURL=BlogsMobile.css.map */
