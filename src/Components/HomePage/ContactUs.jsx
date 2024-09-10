@@ -1,16 +1,39 @@
 import React, { useState } from "react";
 import contactImg from "../../assets/img/contact.png";
+import axios from "axios";
+import { useAppProvider } from "../../Contexts/AppContext";
+import { ToastContainer, toast } from 'react-toastify';
 
 export const ContactUs = () => {
   const [email, setEmail] = useState("");
-
+  const { serverUrl } = useAppProvider();
   const handleSubmit = (e) => {
     e.preventDefault();
     // Add send form data
     console.log("Email:", email);
+    axios
+      .post(`${serverUrl}/subscribe`, {
+        e_mail: email,
+      })
+      .then((res) => {
+        toast('Subscribed to newsletter');
+        setTimeout(() => {
+          //refresh page
+          window.location.reload();
+        }, 500);
+      })
+      .catch((err) => {
+        console.log(err);
+        toast('Error subscribing to newsletter');
+        setTimeout(() => {
+          //refresh page
+          window.location.reload();
+        }, 500);
+      });
   };
   return (
     <section className="contact-us">
+      <ToastContainer />
       <div className="container">
         <div className="contact-img">
           <img src={contactImg} alt="" />

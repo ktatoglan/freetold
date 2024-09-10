@@ -30,7 +30,6 @@ function App() {
 	const[isMobile, setIsMobile] = useState(false);
 
 	useEffect(() => {
-		console.log("Deneme");
 		console.log(window.innerWidth);
 		if (window.innerWidth <= 768) {
 			setIsMobile(true);

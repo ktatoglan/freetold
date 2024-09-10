@@ -137,6 +137,29 @@ p, .contact-us .container .form button, .testimonials .subtitle, .main-cards .su
   width: 72%;
 }
 
+.homepage-text-welcome {
+  text-align: center;
+  padding-top: 5%;
+}
+.homepage-text-welcome .badge {
+  text-align: inherit;
+  color: #ef6c67;
+  margin-bottom: 16px;
+}
+.homepage-text-welcome .title {
+  color: #0a2446;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 53px;
+  text-align: inherit;
+}
+.homepage-text-welcome .subtitle {
+  margin: 24px auto 0;
+  color: #0a2446;
+  text-align: inherit;
+  width: 72%;
+}
+
 .main-cards {
   background-color: #FAFAFA;
   text-align: center;
@@ -504,4 +527,4 @@ p, .contact-us .container .form button, .testimonials .subtitle, .main-cards .su
   line-height: 18px;
   font-weight: 700;
   color: #646464;
-}/*# sourceMappingURL=HomePage.css.map */
+}

@@ -44,6 +44,30 @@
   }
 }
 
+.homepage-text-welcome {
+  text-align: center;
+  padding-top: 5%;
+
+  .badge {
+    text-align: inherit;
+    color: $secondary-color;
+    margin-bottom: $medium-spacing;
+  }
+  .title {
+    color: $primary-color;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 53px;
+    text-align: inherit;
+  }
+  .subtitle {
+    margin: $large-spacing auto 0;
+    color: $primary-color;
+    text-align: inherit;
+    width: 72%;
+  }
+}
+
 .main-cards {
   background-color: $gray-background;
   text-align: center;

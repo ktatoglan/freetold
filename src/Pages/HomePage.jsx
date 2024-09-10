@@ -1,5 +1,6 @@
 import React from 'react';
 import HomePageText from '../Components/HomePage/HomePageText';
+import HomePageTextWelcome from '../Components/HomePage/HomePageTextWelcome';
 import SearchBar from '../Components/HomePage/SearchBar';
 import '../Style/HomePage.css';
 import { MainBanner } from '../Components/HomePage/MainBanner';
@@ -13,12 +14,12 @@ const HomePage = () => {
 
   return (
     <div>
-        {/* <HomePageText />
-        <SearchBar /> */}
+        <HomePageTextWelcome />
+        {/*<SearchBar />
         <MainBanner/>
         <MainCards />
-        {/* <Testimonials /> */}
-        <LatestReviews />
+         <Testimonials />
+        <LatestReviews />*/}
         <BlogSection />
         <ContactUs />
 
