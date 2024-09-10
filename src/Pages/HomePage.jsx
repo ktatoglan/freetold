@@ -15,13 +15,14 @@ const HomePage = () => {
   return (
     <div>
         <HomePageTextWelcome />
+        <ContactUs />
+
         {/*<SearchBar />
         <MainBanner/>
-        <MainCards />
          <Testimonials />
         <LatestReviews />*/}
+        <MainCards />
         <BlogSection />
-        <ContactUs />
 
     </div>
   );

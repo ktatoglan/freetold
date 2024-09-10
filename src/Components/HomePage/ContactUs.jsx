@@ -32,7 +32,7 @@ export const ContactUs = () => {
       });
   };
   return (
-    <section className="contact-us">
+    <section className="contact-us-temp">
       <ToastContainer />
       <div className="container">
         <div className="contact-img">

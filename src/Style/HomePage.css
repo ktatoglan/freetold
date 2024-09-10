@@ -72,7 +72,7 @@ h4 {
   text-align: left;
 }
 
-p, .contact-us .container .form button, .testimonials .subtitle, .main-cards .subtitle {
+p, .contact-us-temp .container .form button, .contact-us .container .form button, .testimonials .subtitle, .main-cards .subtitle {
   font-family: Geologica;
   font-size: 14px;
   font-weight: 400;
@@ -194,7 +194,7 @@ p, .contact-us .container .form button, .testimonials .subtitle, .main-cards .su
   margin: 16px;
   min-height: 120px;
 }
-.main-cards .cards-holder .card-single p, .main-cards .cards-holder .card-single .contact-us .container .form button, .contact-us .container .form .main-cards .cards-holder .card-single button, .main-cards .cards-holder .card-single .subtitle {
+.main-cards .cards-holder .card-single p, .main-cards .cards-holder .card-single .contact-us-temp .container .form button, .contact-us-temp .container .form .main-cards .cards-holder .card-single button, .main-cards .cards-holder .card-single .contact-us .container .form button, .contact-us .container .form .main-cards .cards-holder .card-single button, .main-cards .cards-holder .card-single .subtitle {
   color: #0a2446;
   text-align: center;
   margin: 16px;
@@ -292,7 +292,7 @@ p, .contact-us .container .form button, .testimonials .subtitle, .main-cards .su
   border-radius: 10px;
   padding: 16px 24px;
 }
-.latest-reviews .reviews-holder .review-single .review-rating .rating-title p, .latest-reviews .reviews-holder .review-single .review-rating .rating-title .contact-us .container .form button, .contact-us .container .form .latest-reviews .reviews-holder .review-single .review-rating .rating-title button, .latest-reviews .reviews-holder .review-single .review-rating .rating-title .main-cards .subtitle, .main-cards .latest-reviews .reviews-holder .review-single .review-rating .rating-title .subtitle, .latest-reviews .reviews-holder .review-single .review-rating .rating-title .testimonials .subtitle, .testimonials .latest-reviews .reviews-holder .review-single .review-rating .rating-title .subtitle {
+.latest-reviews .reviews-holder .review-single .review-rating .rating-title p, .latest-reviews .reviews-holder .review-single .review-rating .rating-title .contact-us-temp .container .form button, .contact-us-temp .container .form .latest-reviews .reviews-holder .review-single .review-rating .rating-title button, .latest-reviews .reviews-holder .review-single .review-rating .rating-title .contact-us .container .form button, .contact-us .container .form .latest-reviews .reviews-holder .review-single .review-rating .rating-title button, .latest-reviews .reviews-holder .review-single .review-rating .rating-title .main-cards .subtitle, .main-cards .latest-reviews .reviews-holder .review-single .review-rating .rating-title .subtitle, .latest-reviews .reviews-holder .review-single .review-rating .rating-title .testimonials .subtitle, .testimonials .latest-reviews .reviews-holder .review-single .review-rating .rating-title .subtitle {
   font-weight: 600;
   color: #ef6c67;
   margin-bottom: 16px;
@@ -448,7 +448,7 @@ p, .contact-us .container .form button, .testimonials .subtitle, .main-cards .su
   margin: 24px 0px;
   gap: 8px;
 }
-.blog .more-blogs p, .blog .more-blogs .contact-us .container .form button, .contact-us .container .form .blog .more-blogs button, .blog .more-blogs .main-cards .subtitle, .main-cards .blog .more-blogs .subtitle, .blog .more-blogs .testimonials .subtitle, .testimonials .blog .more-blogs .subtitle {
+.blog .more-blogs p, .blog .more-blogs .contact-us-temp .container .form button, .contact-us-temp .container .form .blog .more-blogs button, .blog .more-blogs .contact-us .container .form button, .contact-us .container .form .blog .more-blogs button, .blog .more-blogs .main-cards .subtitle, .main-cards .blog .more-blogs .subtitle, .blog .more-blogs .testimonials .subtitle, .testimonials .blog .more-blogs .subtitle {
   font-size: 16px;
   text-align: right;
   text-decoration: underline;
@@ -523,6 +523,82 @@ p, .contact-us .container .form button, .testimonials .subtitle, .main-cards .su
   align-self: center;
 }
 .contact-us .container .warn {
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 700;
+  color: #646464;
+}
+
+.contact-us-temp {
+  background-color: #FAFAFA;
+  color: #fff;
+  padding-top: 4em;
+  margin-top: 5.25em;
+}
+.contact-us-temp .container {
+  display: flex;
+  background-color: #fff;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+@media screen and (max-width: 1100px) {
+  .contact-us-temp .container {
+    flex-direction: column;
+  }
+}
+.contact-us-temp .container .heading {
+  display: none;
+  color: #ef6c67;
+  margin-bottom: 16px;
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 700;
+}
+.contact-us-temp .container .subheading {
+  margin-bottom: 16px;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 700;
+  color: #0a2446;
+}
+.contact-us-temp .container .form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+@media screen and (max-width: 1100px) {
+  .contact-us-temp .container .form {
+    flex-direction: column;
+  }
+}
+.contact-us-temp .container .form .formGroup {
+  width: 100%;
+  margin-bottom: 8px;
+}
+.contact-us-temp .container .form .formGroup input {
+  width: 100%;
+  color: rgba(245, 245, 245, 0.5019607843);
+  border-radius: 8px;
+  border: 1px solid #646464;
+  padding: 10px 14px 10px 14px;
+  margin-right: 5px;
+  /*background-color: #223956;*/
+}
+.contact-us-temp .container .form button {
+  padding: 8px;
+  margin: 16px 0 24px;
+  width: 200px;
+  border-radius: 8px;
+  border: 1px solid #ef6c67;
+  cursor: pointer;
+  background-color: #ef6c67;
+  color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-align: center;
+  align-self: center;
+}
+.contact-us-temp .container .warn {
   font-size: 12px;
   line-height: 18px;
   font-weight: 700;
