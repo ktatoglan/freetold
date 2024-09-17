@@ -1,36 +1,43 @@
 import React from "react";
 import blogImg from "../../assets/img/blog-default.png";
+import { useNavigate } from "react-router-dom";
 
 
-function BlogCard({ title, category, date, content }) {
-  const tags = [
-    "#AvoidScams",
-    "#LegalAdvice",
-    "#RentingTips",
-    "#TenantRights",
-    "#NeighborhoodGuide",
-  ];
+
+function BlogCard({ title, category, date_gmt, excerpt, tag, featuredmedia, slug} ) {
+  const navigate = useNavigate();
+  const tags = tag;
   return (
-    <div className="blog-card">
+    <div className="blog-card" onClick={()=>{navigate(`/blog/${slug}`)}}>
       <div className="blog-img">
-        <img src={blogImg} alt="" />
+        <img src={featuredmedia} alt="" />
       </div>
       <div className="cat-and-date">
-        <div className="blog-category">{category}</div>
-        <div className="blog-date">{date}</div>
+        {category.map((cat, index) => (
+          <div key={index} className="blog-category">
+            {cat.name}
+          </div>
+        ))}
+        <div className="blog-date">
+          {new Date(date_gmt).toLocaleDateString("en-US", {
+            month: "long",
+            day: "numeric",
+            year: "numeric",
+          })}
+        </div>
       </div>
       <h4>{title}</h4>
-      <p className="blog-content">{content}</p>
+      <p className="blog-content" dangerouslySetInnerHTML={{ __html: excerpt }}></p>
       <div className="blog-meta">
         <div className="tags">
           <div className="tags-container">
             {tags.map((tag, index) => (
               <span key={index} className="tag">
-                {tag}
+                #{tag.name}
               </span>
             ))}
           </div>
-
+          {/*
           <div className="blog-footer">
             <div className="like">
               <svg
@@ -88,6 +95,7 @@ function BlogCard({ title, category, date, content }) {
               </svg>
             </div>
           </div>
+          */}
         </div>
       </div>
     </div>

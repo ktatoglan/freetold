@@ -1,8 +1,9 @@
 import React from 'react'
 
-const BlogContent = () => {
+const BlogContent = ({blog}) => {
   return (
-    <div>BlogContent</div>
+    <p className="blog-content" dangerouslySetInnerHTML={{ __html: blog.content.rendered }}></p>
+
   )
 }
 
