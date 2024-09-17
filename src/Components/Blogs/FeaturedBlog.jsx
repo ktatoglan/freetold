@@ -1,24 +1,51 @@
 import React from "react";
 import blogImg from "../../assets/img/home-blog.png";
 
-const FeaturedBlog = () => {
+const FeaturedBlog = ({blog}) => {
   return (
     <div className="featured-blog">
       <div className="cat-and-date">
-        <div className="blog-category">Budgeting and Costs</div>
-        <div className="blog-date">23 Sep 2024</div>
+        <div className="blog-category">
+          {blog && blog["category"].map((cat) => {
+            return cat["name"];
+          })}
+        </div>
+        <div className="blog-date">
+          {new Date(blog && blog["date_gmt"]).toLocaleDateString("en-US", {
+            month: "long",
+            day: "numeric",
+            year: "numeric",
+          })}
+        </div>
       </div>
       <div className="blog-content-container">
         <div className="content">
           <h3>
-            The Most Common Hidden Costs in Renting and How to Budget for Them
+            {blog && blog["title"]}
           </h3>
+          <p className="blog-content" dangerouslySetInnerHTML={{ __html: blog && blog["excerpt"] }}></p>{/**SEN BUNU FIXLERSIN */}
           <div className="blog-tags">
-            <span>#HiddenCosts</span>
-            <span>#Budgeting</span>
-            <span>#RentingExpenses</span>
-            <span>#TenantFinance</span>
+            {blog && blog["tag"].map((tag, index) => (
+              <span key={index} className="tag">
+                #{tag["name"]}
+              </span>
+            ))}
           </div>
+
+        </div>
+        <div className="blog-image">
+          <img src={/*blog && blog.featuredmedia*/ blogImg} alt="" />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default FeaturedBlog;
+
+/*
+
+
           <div className="blog-meta">
             <div className="blog-footer">
               <div className="like">
@@ -82,13 +109,4 @@ const FeaturedBlog = () => {
               </div>
             </div>
           </div>
-        </div>
-        <div className="blog-image">
-          <img src={blogImg} alt="" />
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default FeaturedBlog;
+*/
