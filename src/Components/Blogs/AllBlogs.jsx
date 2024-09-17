@@ -1,7 +1,17 @@
-import React from "react";
+import {useEffect,useState} from "react";
+import  axios  from "axios";
 import BlogCard from "./BlogCard";
 
 const AllBlogs = () => {
+  useEffect(() => {
+    axios.get()
+    first
+  
+    return () => {
+      second
+    }
+  }, [third])
+  
   const blogs = [
     {
       title: "Understanding Your Lease Agreement: Key Clauses to Look Out For",
