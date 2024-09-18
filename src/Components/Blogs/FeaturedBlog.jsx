@@ -34,7 +34,7 @@ const FeaturedBlog = ({blog}) => {
 
         </div>
         <div className="blog-image">
-          <img src={/*blog && blog.featuredmedia*/ blogImg} alt="" />
+          <img src={blog && blog.featuredmedia} alt="" />
         </div>
       </div>
     </div>
