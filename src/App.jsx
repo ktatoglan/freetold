@@ -202,7 +202,7 @@ function App() {
 						element={<BlogsPage/>}
 					/>
 					<Route
-						path='/blog/:id'
+						path='/blog/:slug'
 						exact
 						element={<BlogSingle/>}
 					/>
