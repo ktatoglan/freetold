@@ -3,7 +3,7 @@ import React from "react";
 function BlogCardMobile({ category, title, tags }) {
   return (
     <div className="blog-card">
-      <h2 className="blog-category">{category ? category : "Unknown Category"}</h2>
+      <h2 className="blog-category">{category && category[0] && category[0].description ? category[0].description : "Unknown Category"}</h2>
       <h3 className="blog-title">{title}</h3>
       <div className="blog-tags">
         {tags && tags.length > 0 ? (
