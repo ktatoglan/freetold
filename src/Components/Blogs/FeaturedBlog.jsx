@@ -1,9 +1,11 @@
 import React from "react";
 import blogImg from "../../assets/img/home-blog.png";
+import { useNavigate } from "react-router-dom";
 
 const FeaturedBlog = ({blog}) => {
+  const navigate = useNavigate();
   return (
-    <div className="featured-blog">
+    <div className="featured-blog" onClick={()=>{navigate(`/blog/${blog["slug"]}`)}}>
       <div className="cat-and-date">
         <div className="blog-category">
           {blog && blog["category"].map((cat) => {

@@ -5,6 +5,7 @@
   margin-left: 300px; /* Adjust according to sidebar width */
   min-height: 100vh; // need to fix later
   padding-top: 50px;
+  background-color: #64646420;
 }
 
 .content {
@@ -18,16 +19,17 @@ button {
 }
 
 .blogs-sidebar {
-  margin-top: 63px;
+  background-color: #64646420;
+  // margin-top: 63px;
   width: 300px;
-  height: calc(100vh - 110px);
+  height: 100vh;
+  // height: calc(100vh - 110px);
   position: fixed;
   top: 0;
   left: 0;
-  padding: 60px 30px 20px;
+  padding: 123px 30px 20px;
   overflow-y: hidden;
   z-index: 2;
-  background: $white;
 
   .back a {
     @extend p;
@@ -118,9 +120,10 @@ button {
 /* FeaturedBlog */
 .featured-blog {
   padding: 20px;
-  background-color: #f5f7fa;
+  background-color: $white;
   border-radius: 10px;
   margin-bottom: 20px;
+  cursor: pointer;
 
   .cat-and-date {
     display: flex;
@@ -268,6 +271,9 @@ button {
 // Blog Single
 .blog-single-main {
   margin-bottom: $large-spacing;
+  background: $white;
+  padding: $large-spacing;
+  border-radius: $small-spacing;
   .blog-single-header {
     display: flex;
     gap: $medium-spacing;
@@ -307,6 +313,27 @@ button {
       cursor: pointer;
       font-weight: 600;
       font-size: 14px;
+    }
+  }
+  .blog-content {
+    h2 {
+      font-family: Geologica;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 30px;
+      text-align: left;
+      color: $primary-color;
+    }
+    p {
+      margin-bottom: $small-spacing;
+    }
+    ul,
+    ol {
+      margin: $medium-spacing 0;
+      padding-left: $medium-spacing;
+      li {
+        margin-bottom: $small-spacing;
+      }
     }
   }
 }

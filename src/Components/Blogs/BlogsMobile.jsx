@@ -179,6 +179,8 @@ function BlogsMobile() {
                 category={blog.category}
                 title={blog.title}
                 tags={blog.tags}
+                img={blog.featuredmedia}
+                slug={blog.slug}
               />
             ))
           ) : (
