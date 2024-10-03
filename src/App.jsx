@@ -24,6 +24,7 @@ import BlogSingle from './Components/Blogs/BlogSingle';
 import MobileBlogPage from './Pages/MobileBlogsPage';
 import MobilePropertyProfile from './Pages/MobilePropertyProfile';
 import MobilePropertyListing from './Pages/MobilePropertyListing';
+import BlogSingleMobile from './Components/Blogs/BlogSingleMobile';
 
 
 function App() {
@@ -119,9 +120,9 @@ function App() {
 						element={<MobileBlogPage/>}
 					/>
 					<Route
-						path='/blog/:id'
+						path='/blog/:slug'
 						exact
-						element={<BlogSingle/>}
+						element={<BlogSingleMobile />}
 					/>
 				</Routes>
 				:
