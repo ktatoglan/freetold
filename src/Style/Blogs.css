@@ -160,6 +160,10 @@ button {
   margin-bottom: 8px;
   cursor: pointer;
 }
+.categories li img {
+  width: 22px;
+  height: auto;
+}
 
 .tags-container {
   display: flex;
@@ -369,6 +373,7 @@ button {
   display: flex;
   gap: 16px;
   margin: 16px 0px;
+  flex-wrap: wrap;
 }
 .blog-single-main .blog-tags span {
   background-color: rgba(16, 24, 40, 0.05);
@@ -389,6 +394,13 @@ button {
 }
 .blog-single-main .blog-content p, .blog-single-main .blog-content .blogs-sidebar .back a, .blogs-sidebar .back .blog-single-main .blog-content a, .blog-single-main .blog-content .blogs-sidebar ul li a, .blogs-sidebar ul li .blog-single-main .blog-content a {
   margin-bottom: 8px;
+}
+.blog-single-main .blog-content img.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height: auto;
 }
 .blog-single-main .blog-content ul,
 .blog-single-main .blog-content ol {

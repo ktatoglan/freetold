@@ -149,11 +149,14 @@ p {
   font-weight: 700;
   color: #646464;
 }
-.dropdown .dropdown-header .categories ul li {
+.dropdown .categories ul li {
   font-size: 14px;
   line-height: 21px;
   font-weight: 600;
   color: #0a2446;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .dropdown .close-button {
   background: none;
@@ -186,6 +189,7 @@ p {
   font-size: 18px;
   font-weight: bold;
   margin: 10px 0;
+  line-height: 1.2em;
 }
 .blog-container .blog-card .blog-tags {
   display: flex;
