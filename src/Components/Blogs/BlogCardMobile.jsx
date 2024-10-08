@@ -1,18 +1,19 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function BlogCardMobile({ category, title, tags, slug, img }) {
+function BlogCardMobile({ category, title, tag, slug, img }) {
   const navigate = useNavigate();
+  console.log(tag);
   return (
     <div className="blog-card" onClick={()=>{navigate(`/blog/${slug}`)}}>
-      <img className="blog-img" src={img} alt={title} />
-      <h2 className="blog-category">{category && category[0] && category[0].description ? category[0].description : "Unknown Category"}</h2>
+      {img && <img className="blog-img" src={img} alt={title} />}
+      <h2 className="blog-category">{category && category[0] && category[0].name ? category[0].name : "Unknown Category"}</h2>
       <h3 className="blog-title">{title}</h3>
       <div className="blog-tags">
-        {tags && tags.length > 0 ? (
-          tags.map((tag, index) => (
+        {tag && tag.length > 0 ? (
+          tag.map((tagItem, index) => (
             <span key={index} className="blog-tag">
-              {tag}
+              #{tagItem.name}
             </span>
           ))
         ) : (
