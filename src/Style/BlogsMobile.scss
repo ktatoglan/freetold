@@ -74,15 +74,17 @@ $box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       font-weight: 700;
       color: $gray-text;
     }
-
-    .categories {
-      ul {
-        li {
-          font-size: 14px;
-          line-height: 21px;
-          font-weight: 600;
-          color: $primary-color;
-        }
+  }
+  .categories {
+    ul {
+      li {
+        font-size: 14px;
+        line-height: 21px;
+        font-weight: 600;
+        color: $primary-color;
+        display: flex;
+        align-items: center;
+        gap: $small-spacing;
       }
     }
   }
@@ -108,6 +110,11 @@ $box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     border-radius: $small-spacing;
     box-shadow: $box-shadow;
 
+    .blog-img {
+      width: inherit;
+      height: auto;
+    }
+
     .blog-category {
       color: $secondary-color;
       font-size: 14px;
@@ -117,6 +124,7 @@ $box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       font-size: 18px;
       font-weight: bold;
       margin: 10px 0;
+      line-height: 1.2em;
     }
 
     .blog-tags {
@@ -125,12 +133,48 @@ $box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       flex-wrap: wrap;
 
       .blog-tag {
-        background-color: rgba(16, 24, 40, 0.05);;
+        background-color: rgba(16, 24, 40, 0.05);
         padding: 5px 10px;
         border-radius: 5px;
         font-size: 14px;
         color: $light-text;
       }
+    }
+  }
+}
+
+.blog-content-mobile {
+  .blog-single-main {
+    padding: $medium-spacing $large-spacing;
+    .blog-single-header {
+      padding: 0;
+      .blog-cat p {
+        span {
+          color: $light-text;
+        }
+        font-family: Geologica;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 15px;
+        text-align: left;
+      }
+    }
+    h1 {
+      font-family: Geologica;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 21.6px;
+      text-align: left;
+      padding: 0;
+      margin: $large-spacing 0 $medium-spacing;
+    }
+    .blog-date {
+      font-family: Geologica;
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 18px;
+      text-align: left;
+      color: $light-text;
     }
   }
 }

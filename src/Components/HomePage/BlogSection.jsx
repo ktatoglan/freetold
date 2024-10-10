@@ -1,7 +1,54 @@
-import React from "react";
-import blogImg from "../../assets/img/home-blog.png";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import blogImg from "../../assets/img/home-blog.png"; // Default blog image
 
 const BlogSection = () => {
+  const navigate = useNavigate();
+  const [blog, setBlog] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchBlog = async () => {
+      try {
+        const response = await axios.get(
+          "https://blog.freetold.com/wp-json/custom/v1/get-latest-post"
+        );
+        setBlog(response.data);
+        setLoading(false);
+      } catch (err) {
+        setError("Unable to fetch blog posts. Please try again later.");
+        setLoading(false);
+      }
+    };
+
+    fetchBlog();
+  }, []);
+
+  // Safely accessing blog data
+  const blogSlug = blog?.slug || "default-slug";
+
+  const handleNavigation = () => {
+    // Checking if blogSlug exists and is valid
+    if (blogSlug) {
+      navigate(`/blog/${blogSlug}`);
+    } else {
+      console.error("Blog slug is not available for navigation.");
+    }
+  };
+
+  if (loading) {
+    return <div>Loading blog posts...</div>; // Loading state
+  }
+
+  if (error) {
+    return <div>{error}</div>; // Error message
+  }
+
+  console.log(
+    blog.tags_data);
+
   return (
     <section className="blog">
       <div className="container">
@@ -9,39 +56,55 @@ const BlogSection = () => {
         <div className="blog-card">
           <div className="blog-header">
             <span className="category">
-              <p>Budgeting and Costs</p>
+              <p>
+                {blog &&
+                  blog.categories_data.map((cat) => {
+                    return cat["name"];
+                  })}
+              </p>
             </span>
             <span className="date">
-              <p>23 Sep 2024</p>
+              <p>
+                {new Date(blog && blog["date_gmt"]).toLocaleDateString(
+                  "en-US",
+                  {
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric",
+                  }
+                )}
+              </p>
             </span>
           </div>
           <div className="blog-content-container">
             <div className="blog-content">
-              <div className="blog-title">
-                <h4>
-                  The Most Common Hidden Costs in Renting and How to Budget for
-                  Them
-                </h4>
+              <div className="blog-title" onClick={handleNavigation}>
+                <h4>{blog?.title?.rendered || "Blog title not available"}</h4>
               </div>
-              <div className="blog-subtitle">
-                <p>
-                  Comprehensive guide to help you identify and prepare for those
-                  hidden costs
-                </p>
+              <div className="blog-subtitle" onClick={handleNavigation}>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      blog?.excerpt?.rendered ||
+                      "No description available for this blog post.",
+                  }}
+                ></p>
               </div>
               <div className="tags">
-                <span className="tag">#HiddenCosts</span>
-                <span className="tag">#Budgeting</span>
-                <span className="tag">#RentingExpenses</span>
-                <span className="tag">#TenantFinance</span>
+                {blog &&
+                  blog.tags_data.map((tag, index) => (
+                    <span key={index} className="tag">
+                      #{tag["name"]}
+                    </span>
+                  ))}
               </div>
             </div>
             <div className="blog-img">
-              <img src={blogImg} alt="" />
+              <img src={blog?.featured_image || blogImg} alt="" />
             </div>
           </div>
           <div className="blog-footer">
-            <div className="like">
+            {/* <div className="like">
               <svg
                 width="24"
                 height="24"
@@ -85,7 +148,7 @@ const BlogSection = () => {
                 />
               </svg>
               2
-            </div>
+            </div> */}
             <div className="share">
               <svg
                 width="24"
@@ -103,7 +166,7 @@ const BlogSection = () => {
             </div>
           </div>
         </div>
-        <div className="more-blogs">
+        <div className="more-blogs" onClick={()=>{navigate(`/blog`)}}>
           <p>Find out more useful posts in our blog</p>
           <svg
             width="24"
