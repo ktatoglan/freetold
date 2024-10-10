@@ -90,16 +90,14 @@ p, .blogs-sidebar ul li a, .blogs-sidebar .back a {
 
 .blogs-page {
   display: flex;
-  margin-left: 300px; /* Adjust according to sidebar width */
   min-height: 100vh;
-  padding-top: 50px;
   background-color: rgba(100, 100, 100, 0.1254901961);
 }
 
 .content {
   flex: 1;
   padding: 0px 20px;
-  margin: 16px auto !important;
+  margin: 48px auto !important;
 }
 
 button {
@@ -110,10 +108,10 @@ button {
   background-color: rgba(100, 100, 100, 0.1254901961);
   width: 300px;
   height: 100vh;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
-  padding: 123px 30px 20px;
+  padding: 48px 30px 20px;
   overflow-y: hidden;
   z-index: 2;
 }

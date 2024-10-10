@@ -2,16 +2,15 @@
 
 .blogs-page {
   display: flex;
-  margin-left: 300px; /* Adjust according to sidebar width */
+  // margin-left: 300px; /* Adjust according to sidebar width */
   min-height: 100vh; // need to fix later
-  padding-top: 50px;
   background-color: #64646420;
 }
 
 .content {
   flex: 1;
   padding: 0px 20px;
-  margin: $medium-spacing auto !important;
+  margin: $medium-spacing*3 auto !important;
 }
 
 button {
@@ -24,10 +23,10 @@ button {
   width: 300px;
   height: 100vh;
   // height: calc(100vh - 110px);
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
-  padding: 123px 30px 20px;
+  padding: $medium-spacing*3 30px 20px;
   overflow-y: hidden;
   z-index: 2;
 
