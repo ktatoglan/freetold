@@ -15,7 +15,7 @@ const HomePage = () => {
   return (
     <div>
         <HomePageTextWelcome />
-        <ContactUs />
+        {/* <ContactUs /> */}
 
         {/*<SearchBar />
         <MainBanner/>
