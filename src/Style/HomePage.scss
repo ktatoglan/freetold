@@ -86,7 +86,7 @@
         border: 1px solid $gray-text;
         padding: 10px 14px 10px 14px;
         margin-right: 5px;
-        color: $light-text
+        color: $light-text;
       }
     }
     button {
@@ -511,34 +511,39 @@
 }
 
 .contact-us-temp {
-  background-color: $gray-background;
+  background-color: $primary-color;
   color: $white;
-  padding-top: 4em;
+  padding: 4em 2em;
   margin-top: 5.25em;
 
   .container {
+    color: $white;
     display: flex;
-    background-color: $white;
     justify-content: space-evenly;
     align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     @media screen and (max-width: 1100px) {
       flex-direction: column;
     }
+    .contact-img {
+      text-align: center;
+      margin: $medium-spacing;
+    }
     .heading {
-      display: none;
       color: $secondary-color;
+      text-align: center;
       margin-bottom: $medium-spacing;
       font-size: 12px;
       line-height: 15px;
       font-weight: 700;
     }
     .subheading {
+      color: $white;
+      text-align: center;
+      line-height: 1.5!important;
       margin-bottom: $medium-spacing;
       font-size: 18px;
       line-height: 22px;
       font-weight: 700;
-      color: $primary-color;
     }
     .form {
       display: flex;
@@ -557,14 +562,14 @@
           border: 1px solid $gray-text;
           padding: 10px 14px 10px 14px;
           margin-right: 5px;
-          /*background-color: #223956;*/
+          background-color: #223956;
         }
       }
       button {
         @extend p;
         padding: 8px;
-        margin: $medium-spacing 0 $large-spacing;
-        width: 200px;
+        margin: 0 0 $large-spacing;
+        width: 100%;
         border-radius: 8px;
         border: 1px solid $secondary-color;
         cursor: pointer;
@@ -576,9 +581,10 @@
       }
     }
     .warn {
+      text-align: center;
       font-size: 12px;
       line-height: 18px;
-      font-weight: 700;
+      font-weight: 300;
       color: $gray-text;
     }
   }

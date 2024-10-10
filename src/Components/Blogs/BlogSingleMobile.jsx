@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { ContactUs } from "../HomePage/ContactUs";
+import Loading from "./Loading";
 
 function BlogSingleMobile() {
   const { slug } = useParams();
@@ -26,7 +27,9 @@ function BlogSingleMobile() {
 
   // Conditional rendering based on loading and error states
   if (loading) {
-    return <div className="loading">Loading blogs...</div>;
+    return <>
+    <Loading/>
+    </>;
   }
 
   return (

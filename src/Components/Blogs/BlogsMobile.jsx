@@ -3,6 +3,7 @@ import axios from "axios";
 import BlogCard from "./BlogCardMobile";
 import BlogSearch from "./BlogSearch";
 import { ContactUs } from "../HomePage/ContactUs";
+import Loading from "./Loading";
 
 function BlogsMobile() {
   const [blogs, setBlogs] = useState([]);
@@ -76,7 +77,7 @@ function BlogsMobile() {
 
   // Conditional rendering based on loading and error states
   if (loading) {
-    return <div className="loading">Loading blogs...</div>;
+    return <><Loading/></>;
   }
 
   if (error) {

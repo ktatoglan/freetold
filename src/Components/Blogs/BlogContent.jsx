@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Loading from "./Loading";
 
 const BlogContent = ({ slug }) => {
   const [blog, setBlog] = useState(null);
@@ -22,7 +23,9 @@ const BlogContent = ({ slug }) => {
   }, [slug]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <>
+    <Loading/>
+    </>;
   }
 
   if (!blog) {

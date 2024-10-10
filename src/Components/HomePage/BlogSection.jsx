@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import blogImg from "../../assets/img/home-blog.png"; // Default blog image
+import Loading from "../Blogs/Loading";
 
 const BlogSection = () => {
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ const BlogSection = () => {
   };
 
   if (loading) {
-    return <div>Loading blog posts...</div>; // Loading state
+    return <><Loading/></> // Loading state
   }
 
   if (error) {

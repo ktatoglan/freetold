@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import contactImg from "../../assets/img/contact.png";
 import axios from "axios";
 import { useAppProvider } from "../../Contexts/AppContext";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 
 export const ContactUs = () => {
   const [email, setEmail] = useState("");
@@ -16,7 +16,7 @@ export const ContactUs = () => {
         e_mail: email,
       })
       .then((res) => {
-        toast('Subscribed to newsletter');
+        toast("Subscribed to newsletter");
         setTimeout(() => {
           //refresh page
           window.location.reload();
@@ -24,7 +24,7 @@ export const ContactUs = () => {
       })
       .catch((err) => {
         console.log(err);
-        toast('Error subscribing to newsletter');
+        toast("Error subscribing to newsletter");
         setTimeout(() => {
           //refresh page
           window.location.reload();
@@ -35,11 +35,11 @@ export const ContactUs = () => {
     <section className="contact-us-temp">
       <ToastContainer />
       <div className="container">
-        <div className="contact-img">
-          <img src={contactImg} alt="" />
-        </div>
         <div className="contact-content">
           <p className="heading">Get in touch with us</p>
+          <div className="contact-img">
+            <img src={contactImg} alt="" />
+          </div>
           <p className="subheading">
             Receive an occasional newsletter with our last posts and pro tips
             about accomodation
