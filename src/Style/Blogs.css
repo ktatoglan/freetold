@@ -408,4 +408,7 @@ button {
 .blog-single-main .blog-content ul li,
 .blog-single-main .blog-content ol li {
   margin-bottom: 8px;
+}
+.blog-single-main .blog-content figure.wp-caption {
+  width: 100% !important;
 }/*# sourceMappingURL=Blogs.css.map */

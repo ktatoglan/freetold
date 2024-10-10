@@ -346,5 +346,8 @@ button {
         margin-bottom: $small-spacing;
       }
     }
+    figure.wp-caption {
+      width: 100%!important;
+    }
   }
 }
