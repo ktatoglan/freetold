@@ -26,7 +26,7 @@ const Blogs = () => {
 
   return (
     <div className="blogs-page">
-      <Sidebar />
+      <Sidebar allBlog = {allBlog} setBlogs = {setBlogs} />
       <div className="content">
         <BlogSearch allBlog = {allBlog} setBlogs = {setBlogs}/>
         <FeaturedBlog blog={blogs[0]}/>

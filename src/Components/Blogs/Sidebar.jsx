@@ -3,11 +3,11 @@ import Categories from './Categories';
 import Tags from './Tags';
 
 
-const Sidebar = () => {
+const Sidebar = ({allBlog, setBlogs}) => {
   return (
     <div className="blogs-sidebar">
-      <Categories />
-      <Tags />
+      <Categories allBlog = {allBlog} setBlogs = {setBlogs}/>
+      <Tags allBlog = {allBlog} setBlogs = {setBlogs}/>
     </div>
   );
 };

@@ -1,11 +1,10 @@
 import {useState,useEffect}from 'react';
 import  axios  from "axios";
 
-const Tags = () => {
+const Tags = ({allBlog, setBlogs}) => {
   const [tags, setTags] = useState([]);
   useEffect(() => {
    axios.get('https://blog.freetold.com/wp-json/custom/v1/get-tags').then((response) => {
-     console.log(response.data);
      setTags(response.data);
    })
    .catch((error) => {
@@ -19,7 +18,12 @@ const Tags = () => {
       <h3>Popular tags</h3>
       <div className="tags-container">
         {tags.map((tag) => (
-          <span key={tag.id} className="tag">#{tag.name}</span>
+          <span key={tag.id} className="tag"
+            onClick={() => {
+              const filteredBlogs = allBlog.filter(blog => blog.tag.some(t => t.name === tag.name));
+              setBlogs(filteredBlogs);
+            }}
+          >#{tag.name}</span>
         ))}
       </div>
     </div>
