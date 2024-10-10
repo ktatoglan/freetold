@@ -11,7 +11,6 @@ const Blogs = () => {
   const [allBlog, setAllBlog] = useState([]);
   useEffect(() => {
     axios.get('https://blog.freetold.com/wp-json/custom/v1/get-all-posts').then((response) => {
-      console.log(response.data);
       setAllBlog(response.data);
 
     });
@@ -29,7 +28,7 @@ const Blogs = () => {
     <div className="blogs-page">
       <Sidebar />
       <div className="content">
-        <BlogSearch allBlog = {allBlog} setAllBlog = {setBlogs}/>
+        <BlogSearch allBlog = {allBlog} setBlogs = {setBlogs}/>
         <FeaturedBlog blog={blogs[0]}/>
         <AllBlogs blogs={blogs.slice(1)} />
       </div>
