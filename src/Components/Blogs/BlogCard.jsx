@@ -13,11 +13,14 @@ function BlogCard({ title, category, date_gmt, excerpt, tag, featuredmedia, slug
         <img src={featuredmedia} alt="" />
       </div>
       <div className="cat-and-date">
-        {category.map((cat, index) => (
+        {/* {category.map((cat, index) => (
           <div key={index} className="blog-category">
             {cat.name}
           </div>
-        ))}
+        ))} */}
+          <div key={category[0].index} className="blog-category">
+            {category[0].name}
+          </div>
         <div className="blog-date">
           {new Date(date_gmt).toLocaleDateString("en-US", {
             month: "long",

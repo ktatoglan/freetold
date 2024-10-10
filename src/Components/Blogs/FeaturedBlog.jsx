@@ -2,15 +2,21 @@ import React from "react";
 import blogImg from "../../assets/img/home-blog.png";
 import { useNavigate } from "react-router-dom";
 
-const FeaturedBlog = ({blog}) => {
+const FeaturedBlog = ({ blog }) => {
   const navigate = useNavigate();
   return (
-    <div className="featured-blog" onClick={()=>{navigate(`/blog/${blog["slug"]}`)}}>
+    <div
+      className="featured-blog"
+      onClick={() => {
+        navigate(`/blog/${blog["slug"]}`);
+      }}
+    >
       <div className="cat-and-date">
         <div className="blog-category">
-          {blog && blog["category"].map((cat) => {
-            return cat["name"];
-          })}
+          {blog &&
+            blog["category"].map((cat) => {
+              return cat["name"];
+            })}
         </div>
         <div className="blog-date">
           {new Date(blog && blog["date_gmt"]).toLocaleDateString("en-US", {
@@ -22,22 +28,25 @@ const FeaturedBlog = ({blog}) => {
       </div>
       <div className="blog-content-container">
         <div className="content">
-          <h3>
-            {blog && blog["title"]}
-          </h3>
-          <p className="blog-content" dangerouslySetInnerHTML={{ __html: blog && blog["excerpt"] }}></p>{/**SEN BUNU FIXLERSIN */}
+          <h3>{blog && blog["title"]}</h3>
+          <p
+            className="blog-content"
+            dangerouslySetInnerHTML={{ __html: blog && blog["excerpt"] }}
+          ></p>
           <div className="blog-tags">
-            {blog && blog["tag"].map((tag, index) => (
-              <span key={index} className="tag">
-                #{tag["name"]}
-              </span>
-            ))}
+            {blog &&
+              blog["tag"].map((tag, index) => (
+                <span key={index} className="tag">
+                  #{tag["name"]}
+                </span>
+              ))}
           </div>
-
         </div>
-        <div className="blog-image">
-          <img src={blog && blog.featuredmedia} alt="" />
-        </div>
+        {blog?.featuredmedia && (
+          <div className="blog-image">
+            <img src={blog.featuredmedia} alt="Blog Featured" />
+          </div>
+        )}
       </div>
     </div>
   );

@@ -72,7 +72,7 @@ h4 {
   text-align: left;
 }
 
-p, .contact-us-temp .container .form button, .contact-us .container .form button, .testimonials .subtitle, .main-cards .subtitle {
+p, .contact-us-temp .container .form button, .contact-us .container .form button, .testimonials .subtitle, .main-cards .subtitle, .homepage-text-welcome .form button {
   font-family: Geologica;
   font-size: 14px;
   font-weight: 400;
@@ -139,7 +139,12 @@ p, .contact-us-temp .container .form button, .contact-us .container .form button
 
 .homepage-text-welcome {
   text-align: center;
-  padding-top: 5%;
+  padding-top: 30%;
+}
+@media screen and (max-width: 768px) {
+  .homepage-text-welcome {
+    padding-top: 70%;
+  }
 }
 .homepage-text-welcome .badge {
   text-align: inherit;
@@ -154,10 +159,46 @@ p, .contact-us-temp .container .form button, .contact-us .container .form button
   text-align: inherit;
 }
 .homepage-text-welcome .subtitle {
-  margin: 24px auto 0;
+  margin: 24px auto;
   color: #0a2446;
   text-align: inherit;
   width: 72%;
+}
+.homepage-text-welcome .form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+@media screen and (max-width: 1100px) {
+  .homepage-text-welcome .form {
+    flex-direction: column;
+  }
+}
+.homepage-text-welcome .form .formGroup {
+  width: 100%;
+  margin-bottom: 8px;
+}
+.homepage-text-welcome .form .formGroup input {
+  width: 100%;
+  background-color: rgba(245, 245, 245, 0.5019607843);
+  border-radius: 8px;
+  border: 1px solid #646464;
+  padding: 10px 14px 10px 14px;
+  margin-right: 5px;
+  color: #919191;
+}
+.homepage-text-welcome .form button {
+  padding: 8px;
+  margin: 16px 0 24px;
+  width: 200px;
+  border-radius: 8px;
+  border: 1px solid #ef6c67;
+  cursor: pointer;
+  background-color: #ef6c67;
+  color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-align: center;
+  align-self: center;
 }
 
 .main-cards {
@@ -194,7 +235,7 @@ p, .contact-us-temp .container .form button, .contact-us .container .form button
   margin: 16px;
   min-height: 120px;
 }
-.main-cards .cards-holder .card-single p, .main-cards .cards-holder .card-single .contact-us-temp .container .form button, .contact-us-temp .container .form .main-cards .cards-holder .card-single button, .main-cards .cards-holder .card-single .contact-us .container .form button, .contact-us .container .form .main-cards .cards-holder .card-single button, .main-cards .cards-holder .card-single .subtitle {
+.main-cards .cards-holder .card-single p, .main-cards .cards-holder .card-single .contact-us-temp .container .form button, .contact-us-temp .container .form .main-cards .cards-holder .card-single button, .main-cards .cards-holder .card-single .contact-us .container .form button, .contact-us .container .form .main-cards .cards-holder .card-single button, .main-cards .cards-holder .card-single .homepage-text-welcome .form button, .homepage-text-welcome .form .main-cards .cards-holder .card-single button, .main-cards .cards-holder .card-single .subtitle {
   color: #0a2446;
   text-align: center;
   margin: 16px;
@@ -292,7 +333,7 @@ p, .contact-us-temp .container .form button, .contact-us .container .form button
   border-radius: 10px;
   padding: 16px 24px;
 }
-.latest-reviews .reviews-holder .review-single .review-rating .rating-title p, .latest-reviews .reviews-holder .review-single .review-rating .rating-title .contact-us-temp .container .form button, .contact-us-temp .container .form .latest-reviews .reviews-holder .review-single .review-rating .rating-title button, .latest-reviews .reviews-holder .review-single .review-rating .rating-title .contact-us .container .form button, .contact-us .container .form .latest-reviews .reviews-holder .review-single .review-rating .rating-title button, .latest-reviews .reviews-holder .review-single .review-rating .rating-title .main-cards .subtitle, .main-cards .latest-reviews .reviews-holder .review-single .review-rating .rating-title .subtitle, .latest-reviews .reviews-holder .review-single .review-rating .rating-title .testimonials .subtitle, .testimonials .latest-reviews .reviews-holder .review-single .review-rating .rating-title .subtitle {
+.latest-reviews .reviews-holder .review-single .review-rating .rating-title p, .latest-reviews .reviews-holder .review-single .review-rating .rating-title .contact-us-temp .container .form button, .contact-us-temp .container .form .latest-reviews .reviews-holder .review-single .review-rating .rating-title button, .latest-reviews .reviews-holder .review-single .review-rating .rating-title .contact-us .container .form button, .contact-us .container .form .latest-reviews .reviews-holder .review-single .review-rating .rating-title button, .latest-reviews .reviews-holder .review-single .review-rating .rating-title .homepage-text-welcome .form button, .homepage-text-welcome .form .latest-reviews .reviews-holder .review-single .review-rating .rating-title button, .latest-reviews .reviews-holder .review-single .review-rating .rating-title .main-cards .subtitle, .main-cards .latest-reviews .reviews-holder .review-single .review-rating .rating-title .subtitle, .latest-reviews .reviews-holder .review-single .review-rating .rating-title .testimonials .subtitle, .testimonials .latest-reviews .reviews-holder .review-single .review-rating .rating-title .subtitle {
   font-weight: 600;
   color: #ef6c67;
   margin-bottom: 16px;
@@ -426,8 +467,14 @@ p, .contact-us-temp .container .form button, .contact-us .container .form button
   border-radius: 8px;
 }
 .blog .blog-card .blog-content-container img {
-  max-width: 100%;
+  width: inherit;
   height: auto;
+}
+@media screen and (max-width: 768px) {
+  .blog .blog-card .blog-content-container img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 .blog .blog-card .blog-footer {
   display: flex;
@@ -447,7 +494,7 @@ p, .contact-us-temp .container .form button, .contact-us .container .form button
   margin: 24px 0px;
   gap: 8px;
 }
-.blog .more-blogs p, .blog .more-blogs .contact-us-temp .container .form button, .contact-us-temp .container .form .blog .more-blogs button, .blog .more-blogs .contact-us .container .form button, .contact-us .container .form .blog .more-blogs button, .blog .more-blogs .main-cards .subtitle, .main-cards .blog .more-blogs .subtitle, .blog .more-blogs .testimonials .subtitle, .testimonials .blog .more-blogs .subtitle {
+.blog .more-blogs p, .blog .more-blogs .contact-us-temp .container .form button, .contact-us-temp .container .form .blog .more-blogs button, .blog .more-blogs .contact-us .container .form button, .contact-us .container .form .blog .more-blogs button, .blog .more-blogs .homepage-text-welcome .form button, .homepage-text-welcome .form .blog .more-blogs button, .blog .more-blogs .main-cards .subtitle, .main-cards .blog .more-blogs .subtitle, .blog .more-blogs .testimonials .subtitle, .testimonials .blog .more-blogs .subtitle {
   font-size: 16px;
   text-align: right;
   text-decoration: underline;
@@ -529,37 +576,42 @@ p, .contact-us-temp .container .form button, .contact-us .container .form button
 }
 
 .contact-us-temp {
-  background-color: #FAFAFA;
+  background-color: #0a2446;
   color: #fff;
-  padding-top: 4em;
+  padding: 4em 2em;
   margin-top: 5.25em;
 }
 .contact-us-temp .container {
+  color: #fff;
   display: flex;
-  background-color: #fff;
   justify-content: space-evenly;
   align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 @media screen and (max-width: 1100px) {
   .contact-us-temp .container {
     flex-direction: column;
   }
 }
+.contact-us-temp .container .contact-img {
+  text-align: center;
+  margin: 16px;
+}
 .contact-us-temp .container .heading {
-  display: none;
   color: #ef6c67;
+  text-align: center;
   margin-bottom: 16px;
   font-size: 12px;
   line-height: 15px;
   font-weight: 700;
 }
 .contact-us-temp .container .subheading {
+  color: #fff;
+  text-align: center;
+  line-height: 1.5 !important;
   margin-bottom: 16px;
   font-size: 18px;
   line-height: 22px;
   font-weight: 700;
-  color: #0a2446;
 }
 .contact-us-temp .container .form {
   display: flex;
@@ -582,12 +634,12 @@ p, .contact-us-temp .container .form button, .contact-us .container .form button
   border: 1px solid #646464;
   padding: 10px 14px 10px 14px;
   margin-right: 5px;
-  /*background-color: #223956;*/
+  background-color: #223956;
 }
 .contact-us-temp .container .form button {
   padding: 8px;
-  margin: 16px 0 24px;
-  width: 200px;
+  margin: 0 0 24px;
+  width: 100%;
   border-radius: 8px;
   border: 1px solid #ef6c67;
   cursor: pointer;
@@ -598,8 +650,9 @@ p, .contact-us-temp .container .form button, .contact-us .container .form button
   align-self: center;
 }
 .contact-us-temp .container .warn {
+  text-align: center;
   font-size: 12px;
   line-height: 18px;
-  font-weight: 700;
+  font-weight: 300;
   color: #646464;
 }/*# sourceMappingURL=HomePage.css.map */

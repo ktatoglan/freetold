@@ -33,9 +33,12 @@ const Header = () => {
         <nav className="menu">
           <ul>
             <li>
-              <a href="#">About</a>
+              <a href="/about">About</a>
             </li>
             <li>
+              <a href="/blog">Blog</a>
+            </li>
+            {/* <li>
               <a href="#">Properties</a>
             </li>
             <li>
@@ -76,7 +79,7 @@ const Header = () => {
                   Write a review
                 </button>
               </li>
-            )}
+            )} */}
           </ul>
         </nav>
         <button

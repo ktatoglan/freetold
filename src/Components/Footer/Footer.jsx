@@ -1,4 +1,5 @@
 import {useEffect} from "react";
+import FooterSocials from "./FooterSocials";
 
 const Footer = () => {
   useEffect(() => {
@@ -27,9 +28,7 @@ const Footer = () => {
         </div>
         <div className="col">
           <span className="copyright"> Copyright © {new Date().getFullYear()}</span>
-          <ul className="footer-social">
-            {/* Social links */}
-          </ul>
+          <FooterSocials />
         </div>
       </div>
     </footer>
