@@ -6,6 +6,7 @@
   padding: 12px 40px;
   background-color: $primary-color;
   color: $white;
+  z-index: 1000;
 
   @media (max-width: 768px) {
     padding: 30px 20px 12px;
@@ -165,7 +166,7 @@
     margin: 0;
     display: flex;
     gap: $large-spacing;
-  
+
 
     a {
       @extend p;

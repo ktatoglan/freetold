@@ -93,6 +93,7 @@ p, .footer ul.footer-socials a, .footer ul.footer-links a, .footer .copyright, .
   padding: 12px 40px;
   background-color: #0a2446;
   color: #fff;
+  z-index: 1000;
 }
 @media (max-width: 768px) {
   .header {
@@ -268,4 +269,4 @@ p, .footer ul.footer-socials a, .footer ul.footer-links a, .footer .copyright, .
   .footer ul.footer-socials {
     justify-content: center;
   }
-}/*# sourceMappingURL=root.css.map */
+}
