@@ -72,7 +72,7 @@ h4 {
   text-align: left;
 }
 
-p, .footer ul a, .footer .copyright, .header .menu ul li button {
+p, .footer ul.footer-socials a, .footer ul.footer-links a, .footer .copyright, .header .menu ul li button {
   font-family: Geologica;
   font-size: 14px;
   font-weight: 400;
@@ -209,6 +209,7 @@ p, .footer ul a, .footer .copyright, .header .menu ul li button {
   margin-left: 0;
   margin-right: 0;
   width: 100%;
+  padding: 40px 0 30px;
 }
 .footer .row .col {
   padding: 0;
@@ -219,27 +220,52 @@ p, .footer ul a, .footer .copyright, .header .menu ul li button {
 }
 .footer .copyright {
   color: #fff;
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
 }
 @media (max-width: 768px) {
   .footer .copyright {
     margin: auto;
   }
 }
-.footer ul {
+.footer ul.footer-links {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   gap: 24px;
 }
-.footer ul a {
+.footer ul.footer-links a {
   color: #fff;
 }
-.footer ul a:hover {
+.footer ul.footer-links a:hover {
   text-decoration: none;
 }
 @media (max-width: 768px) {
-  .footer ul {
+  .footer ul.footer-links {
+    justify-content: center;
+  }
+}
+.footer ul.footer-socials {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.footer ul.footer-socials li {
+  margin: 0 4px;
+}
+.footer ul.footer-socials a {
+  color: #fff;
+}
+.footer ul.footer-socials a:hover {
+  text-decoration: none;
+}
+@media (max-width: 768px) {
+  .footer ul.footer-socials {
     justify-content: center;
   }
 }/*# sourceMappingURL=root.css.map */

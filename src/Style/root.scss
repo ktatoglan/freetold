@@ -136,6 +136,7 @@
     margin-left: 0;
     margin-right: 0;
     width: 100%;
+    padding: 40px 0 30px;
     .col {
       padding: 0;
 
@@ -150,17 +151,21 @@
     @extend p;
     // color: $light-text;
     color: $white;
+    display: flex;
+    align-items: center;
+    margin-right: $medium-spacing;
     @media (max-width: 768px) {
       margin: auto;
     }
   }
 
-  ul {
+  ul.footer-links {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     gap: $large-spacing;
+  
 
     a {
       @extend p;
@@ -174,5 +179,32 @@
       justify-content: center;
     }
   }
+
+  ul.footer-socials {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    li{
+      margin: 0 $small-spacing/2
+    }
+
+    a {
+      @extend p;
+      // color: $light-text;
+      color: $white;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    @media (max-width: 768px) {
+      justify-content: center;
+    }
+  }
+
+
 }
 // Footer END
