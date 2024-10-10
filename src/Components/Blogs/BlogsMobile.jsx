@@ -87,7 +87,7 @@ function BlogsMobile() {
     <>
       <div className="app-container">
         <header className="blogs-mbl-header">
-          <BlogSearch allBlog={allBlog} setAllBlog={setBlogs} />
+          <BlogSearch allBlog={allBlog} setBlogs={setBlogs} />
           <div className="button-container">
             <button
               onClick={toggleCategories}
@@ -172,7 +172,14 @@ function BlogsMobile() {
               <ul>
                 {categories.length > 0 ? (
                   categories.map((category) => (
-                    <li key={category.id}>
+                    <li key={category.id}
+                      onClick={() => {
+                        const filteredBlogs = allBlog.filter((blog) =>
+                          blog.category.some((cat) => cat.name === category.name)
+                        );
+                        setBlogs(filteredBlogs);
+                      }}
+                    >
                       <img src={category.image} alt={category.name} />
                       {category.name}
                     </li>
@@ -197,7 +204,14 @@ function BlogsMobile() {
             <div className="tags-container">
               {tags.length > 0 ? (
                 tags.map((tag) => (
-                  <span key={tag.id} className="tag">
+                  <span key={tag.id} className="tag"
+                    onClick={() => {
+                      const filteredBlogs = allBlog.filter((blog) =>
+                        blog.tag.some((t) => t.name === tag.name)
+                      );
+                      setBlogs(filteredBlogs);
+                    }}
+                  >
                     #{tag.name}
                   </span>
                 ))
