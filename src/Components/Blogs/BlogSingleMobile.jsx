@@ -18,6 +18,12 @@ function BlogSingleMobile() {
       .then((response) => {
         setBlog(response.data);
         setLoading(false);
+        //update head tag with the yoast_head from the response
+        const head = document.querySelector("head");
+        const tempDiv = document.createElement("div");
+        tempDiv.innerHTML = response.data.excerpt;
+        const descriptionContent = tempDiv.textContent || tempDiv.innerText || "";
+        head.innerHTML += `<meta name="description" content="${descriptionContent}" />`;
       })
       .catch((error) => {
         console.error("Veri çekme hatası:", error);
