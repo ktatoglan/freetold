@@ -1,8 +1,8 @@
 import React from 'react'
 import { MainCardSingle } from './MainCardSingle'
-import img1 from '../../assets/img/card1.png';
-import img2 from '../../assets/img/card2.png';
-import img3 from '../../assets/img/card3.png';
+import img1 from '../../assets/img/card1.svg';
+import img2 from '../../assets/img/card2.svg';
+import img3 from '../../assets/img/card3.svg';
 
 
 export const MainCards = () => {
