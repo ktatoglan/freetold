@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/img/logo-white.svg";
 import User from "../../assets/img/user.png";
@@ -10,13 +10,34 @@ const Header = () => {
   const [openModal, setOpenModal] = useState(false);
   const [openLoginModal, setOpenLoginModal] = useState(false);
   const [openRegisterModal, setOpenRegisterModal] = useState(false);
-  const handleLogin = () => {
-    // Handle login logic here
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Ref for detecting clicks outside the menu
+  const menuRef = useRef(null);
+
+  // Toggle mobile menu visibility
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen((prev) => !prev);
   };
 
-  const handleRegister = () => {
-    // Handle register logic here
-  };
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMobileMenuOpen]);
 
   return (
     <>
@@ -28,9 +49,19 @@ const Header = () => {
             onClick={() => {
               window.location.href = "/";
             }}
-          ></img>
+          />
         </div>
-        <nav className="menu">
+        <nav
+          ref={menuRef}
+          className={`menu ${isMobileMenuOpen ? "open" : ""}`}
+        >
+          {/* Close button for mobile menu */}
+          <button
+            className="close-menu"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            &times;
+          </button>
           <ul>
             <li>
               <a href="/about">About</a>
@@ -38,21 +69,17 @@ const Header = () => {
             <li>
               <a href="/blog">Blog</a>
             </li>
-            {/* <li>
-              <a href="#">Properties</a>
-            </li>
-            <li>
-              <a href="#">Contact Us</a>
-            </li>
+            {/*  
             <li>
               <a
                 href="#"
                 className="log-in"
                 onClick={() => {
                   setOpenLoginModal(true);
+                  setIsMobileMenuOpen(false);
                 }}
               >
-                <img src={User} alt="user"></img>Log In
+                <img src={User} alt="user" /> Log In
               </a>
             </li>
             <li>
@@ -60,37 +87,37 @@ const Header = () => {
                 className="sign-up"
                 onClick={() => {
                   setOpenRegisterModal(true);
+                  setIsMobileMenuOpen(false);
                 }}
               >
                 Sign Up
               </button>
             </li>
-            {window.location.href.includes("write-a-review") ? (
-              <></>
-            ) : (
+            {window.location.href.includes("write-a-review") ? null : (
               <li>
                 <button
                   className="write-a-review"
                   onClick={() => {
-                    //setOpenModal(true);
                     window.location.href = "/write-a-review-0";
+                    setIsMobileMenuOpen(false);
                   }}
                 >
                   Write a review
                 </button>
               </li>
-            )} */}
+            )}
+              */}
           </ul>
         </nav>
-        <button
+        {/* <button
           className="online-login"
           onClick={() => {
             setOpenLoginModal(true);
           }}
         >
-          <img src={User} alt="user"></img>
-        </button>
-        <button className="hamburger-menu">
+          <img src={User} alt="user" />
+        </button> */}
+        <button className="hamburger-menu" onClick={toggleMobileMenu}>
           <span className="line"></span>
           <span className="line"></span>
           <span className="line"></span>
