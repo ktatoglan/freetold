@@ -239,6 +239,7 @@ button {
 .featured-blog .blog-content-container .content .blog-tags {
   display: flex;
   gap: 8px;
+  flex-wrap: wrap;
 }
 .featured-blog .blog-content-container .content .blog-tags span {
   background-color: rgba(16, 24, 40, 0.05);
