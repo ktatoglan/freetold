@@ -321,6 +321,9 @@ button {
     }
   }
   .blog-content {
+    hr{
+      margin: $small-spacing 0;
+    }
     h2 {
       font-family: Geologica;
       font-size: 24px;

@@ -383,6 +383,9 @@ button {
   font-weight: 600;
   font-size: 14px;
 }
+.blog-single-main .blog-content hr {
+  margin: 8px 0;
+}
 .blog-single-main .blog-content h2 {
   font-family: Geologica;
   font-size: 24px;
