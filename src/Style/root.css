@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -72,7 +73,7 @@ h4 {
   text-align: left;
 }
 
-p, .footer ul.footer-socials a, .footer ul.footer-links a, .footer .copyright, .header .menu ul li button {
+p, .footer ul.footer-socials a, .footer ul.footer-links a, .footer .copyright {
   font-family: Geologica;
   font-size: 14px;
   font-weight: 400;
@@ -112,6 +113,7 @@ p, .footer ul.footer-socials a, .footer ul.footer-links a, .footer .copyright, .
 }
 .header .menu {
   flex: 2;
+  /* Mobil menü */
 }
 .header .menu ul {
   list-style: none;
@@ -137,7 +139,7 @@ p, .footer ul.footer-socials a, .footer ul.footer-links a, .footer .copyright, .
   gap: 8px;
 }
 .header .menu ul li button {
-  padding: 8px 16px 8px 16px;
+  padding: 8px 16px;
   gap: 8px;
   border-radius: 8px;
   border: 1px solid #ef6c67;
@@ -161,9 +163,48 @@ p, .footer ul.footer-socials a, .footer ul.footer-links a, .footer .copyright, .
   background-color: transparent;
   color: #fff;
 }
+.header .menu .close-menu {
+  display: none;
+}
 @media (max-width: 768px) {
   .header .menu {
-    display: none;
+    position: fixed;
+    top: 0;
+    right: -100%; /* Menü gizli durumda */
+    height: 100vh;
+    width: 250px;
+    background-color: #0a2446;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    padding: 20px;
+    transition: right 0.3s ease;
+    /* Kapatma butonu */
+  }
+  .header .menu.open {
+    right: 0; /* Menü açılır */
+  }
+  .header .menu .close-menu {
+    display: block;
+    font-size: 36px;
+    color: #fff;
+    background: none;
+    border: none;
+    margin-left: auto;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  .header .menu ul {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .header .menu ul li {
+    width: 100%;
+  }
+  .header .menu ul li a,
+  .header .menu ul li button {
+    width: 100%;
+    text-align: left;
   }
 }
 .header .online-login {
@@ -269,4 +310,4 @@ p, .footer ul.footer-socials a, .footer ul.footer-links a, .footer .copyright, .
   .footer ul.footer-socials {
     justify-content: center;
   }
-}
+}/*# sourceMappingURL=root.css.map */

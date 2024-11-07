@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import contactImg from "../../assets/img/contact.png";
+import contactImg from "../../assets/img/contact.svg";
 import axios from "axios";
 import { useAppProvider } from "../../Contexts/AppContext";
 import { ToastContainer, toast } from "react-toastify";
