@@ -615,7 +615,7 @@ p, .contact-us-temp .container .form button, .contact-us .container .form button
 }
 .contact-us-temp .container .form {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
 }
 @media screen and (max-width: 1100px) {

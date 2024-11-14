@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import BlogSearch from './BlogSearch';
 import BlogContent from './BlogContent';
+import { ContactUs } from '../HomePage/ContactUs';
 
 
 const BlogSingle = () => {
@@ -14,7 +15,9 @@ const BlogSingle = () => {
       <div className="content">
         <BlogSearch />
         <BlogContent slug={slug}/>
+        <ContactUs />
       </div>
+      
     </div>
   );
 };
