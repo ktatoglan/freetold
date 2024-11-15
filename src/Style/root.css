@@ -310,4 +310,8 @@ p, .footer ul.footer-socials a, .footer ul.footer-links a, .footer .copyright {
   .footer ul.footer-socials {
     justify-content: center;
   }
-}/*# sourceMappingURL=root.css.map */
+}
+
+.hover-cursor:hover {
+  cursor: pointer;
+}

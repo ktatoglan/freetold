@@ -54,7 +54,7 @@ const BlogSection = () => {
     <section className="blog">
       <div className="container">
         <h3 className="title">Tips, guides & checklists in our blog</h3>
-        <div className="blog-card">
+        <div className="blog-card hover-cursor" onClick={handleNavigation}>
           <div className="blog-header">
             <span className="category">
               <p>

@@ -250,3 +250,9 @@
   }
 }
 // Footer END
+
+.hover-cursor{
+  &:hover {
+    cursor: pointer;
+  }
+}
