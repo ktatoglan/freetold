@@ -26,7 +26,6 @@ import MobilePropertyProfile from './Pages/MobilePropertyProfile';
 import MobilePropertyListing from './Pages/MobilePropertyListing';
 import BlogSingleMobile from './Components/Blogs/BlogSingleMobile';
 
-
 function App() {
 	const[isMobile, setIsMobile] = useState(false);
 
