@@ -76,7 +76,7 @@ const ReviewSingle = ({ review }) => (
             </span>
             <span>{review.likes || 0} likes</span>
           </div>
-          <a href={review.fullReviewLink || "#"} className="full-review-link">
+          <a href={"/property-profile/review/" + review.review_id} className="full-review-link">
             Read full review
           </a>
         </div>
