@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useAppProvider } from "../../Contexts/AppContext";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const HomePageTextWelcome = () => {
@@ -34,7 +34,6 @@ export const HomePageTextWelcome = () => {
   };
   return (
     <section className="main-banner">
-      <ToastContainer />
       <div className="container ">
         <div className="homepage-text-welcome">
           <p className="badge">Unlock Property Insights</p>

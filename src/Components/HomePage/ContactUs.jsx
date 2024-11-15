@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import contactImg from "../../assets/img/contact.svg";
 import axios from "axios";
 import { useAppProvider } from "../../Contexts/AppContext";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 export const ContactUs = () => {
   const [email, setEmail] = useState("");
@@ -27,7 +26,6 @@ export const ContactUs = () => {
   };
   return (
     <section className="contact-us-temp">
-      <ToastContainer />
       <div className="container">
         <div className="contact-content">
           <p className="heading">Get in touch with us</p>

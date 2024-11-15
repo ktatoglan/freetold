@@ -1,10 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useAppProvider } from "../../Contexts/AppContext";
+import { toast } from "react-toastify";
 
 const ContentHeader = ({ lastUpdate }) => {
   const handleSaveToFavorites = () => {
-    alert("Added to favorites");
+    if(!userId) {
+      toast.error("Please login to save properties to favorites");
+      return;
+    }
   };
-
+  const { userId } = useAppProvider();
   const [menuVisible, setMenuVisible] = useState(false);
   const menuRef = useRef(null);
   const buttonRef = useRef(null);

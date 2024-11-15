@@ -25,6 +25,8 @@ import MobileBlogPage from './Pages/MobileBlogsPage';
 import MobilePropertyProfile from './Pages/MobilePropertyProfile';
 import MobilePropertyListing from './Pages/MobilePropertyListing';
 import BlogSingleMobile from './Components/Blogs/BlogSingleMobile';
+import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
 	const[isMobile, setIsMobile] = useState(false);
@@ -38,7 +40,8 @@ function App() {
 	return (
 		<AppProvider>
 			<div className='main-content'>
-        {window.location.pathname.slice(1, 15) !== 'write-a-review' ? <Header /> : <></>}
+			<ToastContainer />
+        	{window.location.pathname.slice(1, 15) !== 'write-a-review' ? <Header /> : <></>}
 			<Router>
 				{isMobile ?
 					<Routes>
