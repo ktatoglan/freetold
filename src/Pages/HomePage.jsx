@@ -14,15 +14,15 @@ const HomePage = () => {
 
   return (
     <div>
-        <HomePageTextWelcome />
-        {/* <ContactUs /> */}
 
+        <MainBanner />
         {/*<SearchBar />
-        <MainBanner/>
+        <HomePageTextWelcome />
          <Testimonials />
         <LatestReviews />*/}
         <MainCards />
         <BlogSection />
+        <ContactUs />
 
     </div>
   );

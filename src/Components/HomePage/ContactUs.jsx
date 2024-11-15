@@ -3,33 +3,27 @@ import contactImg from "../../assets/img/contact.svg";
 import axios from "axios";
 import { useAppProvider } from "../../Contexts/AppContext";
 import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const ContactUs = () => {
   const [email, setEmail] = useState("");
   const { serverUrl } = useAppProvider();
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Add send form data
-    console.log("Email:", email);
-    axios
+    await axios
       .post(`${serverUrl}/subscribe`, {
         e_mail: email,
       })
       .then((res) => {
-        toast("Subscribed to newsletter");
-        setTimeout(() => {
-          //refresh page
-          window.location.reload();
-        }, 500);
+        toast.success("Subscribed to newsletter");
       })
       .catch((err) => {
         console.log(err);
-        toast("Error subscribing to newsletter");
-        setTimeout(() => {
-          //refresh page
-          window.location.reload();
-        }, 500);
+        toast.error("Error subscribing to newsletter");
       });
+
+      setEmail("");
   };
   return (
     <section className="contact-us-temp">
