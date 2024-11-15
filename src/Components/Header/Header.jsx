@@ -69,7 +69,7 @@ const Header = () => {
             <li>
               <a href="/blog">Blog</a>
             </li>
-            {/*
+
             <li>
               <a
                 href="#"
@@ -106,17 +106,17 @@ const Header = () => {
                 </button>
               </li>
             )}
-              */}
+
           </ul>
         </nav>
-        {/* <button
+        { <button
           className="online-login"
           onClick={() => {
             setOpenLoginModal(true);
           }}
         >
           <img src={User} alt="user" />
-        </button> */}
+        </button> }
         <button className="hamburger-menu" onClick={toggleMobileMenu}>
           <span className="line"></span>
           <span className="line"></span>
