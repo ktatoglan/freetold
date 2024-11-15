@@ -167,7 +167,7 @@ const BlogSection = () => {
             </div>
           </div>
         </div>
-        <div className="more-blogs" onClick={()=>{navigate(`/blog`)}}>
+        <div className="more-blogs hover-cursor" onClick={()=>{navigate(`/blog`)}}>
           <p>Find out more useful posts in our blog</p>
           <svg
             width="24"
