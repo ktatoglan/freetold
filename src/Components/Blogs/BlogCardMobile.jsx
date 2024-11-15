@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 function BlogCardMobile({ category, title, tag, slug, img }) {
   const navigate = useNavigate();
-  console.log(tag);
   return (
     <div className="blog-card" onClick={()=>{navigate(`/blog/${slug}`)}}>
       {img && <img className="blog-img" src={img} alt={title} />}

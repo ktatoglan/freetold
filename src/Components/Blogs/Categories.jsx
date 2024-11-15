@@ -6,7 +6,6 @@ const Categories = ({allBlog, setBlogs}) => {
  const [categories, setCategories] = useState([]);
  useEffect(() => {
   axios.get('https://blog.freetold.com/wp-json/custom/v1/get-categories').then((response) => {
-    // console.log(response.data);
     setCategories(response.data);
   })
   .catch((error) => {

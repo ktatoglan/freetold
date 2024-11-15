@@ -46,7 +46,6 @@ const AppProvider = ({ children }) => {
 
   const sendReview = async() => {
     //console.log('sendReview');
-    console.log(mode,  userId,  addressLine1,  addressLine2,  townCity,  country,  postCode,  moveInDate,  tenancyPeriod,  isItSharingFlat,  peopleNumberLivingAtHome,  futureRentersContactMe,  rentAmount,  rentPeriod,  isBillsIncluded,  billsPerPerson,  billsWholeHouse,  electricBill,  waterBill,  gasBill,  internetBill,  reviewScore,  reviewHeadline,  reviewPros,  reviewCons,  heatUpLevel,  wellLitLevel,  internetConnectionLevel, isItPetFriendly, anythingToBeFixed, ownerRespondScore,  healthConcerns, perceptionNeighborsLevel, noiseNeighborsLevel,  parkingScore,  trafficScore,  safetyConcerns,  agreeCheckbox);
     try {
       const response = await axios.post(`${serverUrl}/review/addReview`, {
         user_id: userId,
@@ -88,7 +87,6 @@ const AppProvider = ({ children }) => {
         agree_checkbox: agreeCheckbox
       });
 
-      console.log(response);
       return true; // Return true if the request is successful
     } catch (error) {
       console.log(error);
