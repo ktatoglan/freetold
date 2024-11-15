@@ -10,7 +10,6 @@ export const HomePageTextWelcome = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Add send form data
-    console.log("Email:", email);
     await axios
       .post(`${serverUrl}/subscribe`, {
         e_mail: email,
