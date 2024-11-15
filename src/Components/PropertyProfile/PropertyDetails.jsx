@@ -281,7 +281,7 @@ const PropertyDetails = ({reviews}) => {
               <div className="stat-value">
                 <p>
                   B{" "}
-                  <span className="info" onClick={toggleSummary}>
+                  <span className="info" onClick={toggleSummary} ref={infoRef}>
                     <svg
                       width="15"
                       height="15"
