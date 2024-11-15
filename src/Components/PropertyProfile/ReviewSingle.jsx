@@ -47,7 +47,14 @@ const ReviewSingle = ({ review }) => (
                 <label htmlFor={`star${index + 1}`}></label>
               </React.Fragment>
             ))}
-            <span className="review-date">{review.move_in_date}</span>
+            <span className="review-date">
+              {new Date(review.move_in_date).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}
+            </span>
+
           </div>
         </div>
         <div className="pros">
