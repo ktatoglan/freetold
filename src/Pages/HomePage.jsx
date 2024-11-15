@@ -19,7 +19,8 @@ const HomePage = () => {
         {/*<SearchBar />
         <HomePageTextWelcome />
          <Testimonials />
-        <LatestReviews />*/}
+        */}
+        <LatestReviews />
         <MainCards />
         <BlogSection />
         <ContactUs />
