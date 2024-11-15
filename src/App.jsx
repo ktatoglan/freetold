@@ -210,7 +210,7 @@ function App() {
 
 				}
 			</Router>
-        <Footer />
+			{window.location.pathname.slice(1, 15) !== 'write-a-review' ? <Footer /> : <></>}
 			</div>
 		</AppProvider>
 	);
