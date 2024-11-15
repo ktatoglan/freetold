@@ -46,7 +46,7 @@ function BlogSingleMobile() {
           <div className="blog-single-main">
             <div className="blog-single-header">
               <div className="blog-cat">
-                <p><span>Blog &#62;</span>  {blog.categories_data && blog.categories_data[0]?.name}</p>
+                <p><span onClick={()=>{window.location.href= "/blog"}}>Blog &#62;</span>  {blog.categories_data && blog.categories_data[0]?.name}</p>
               </div>
             </div>
             <h1 className="blog-title">{blog.title?.rendered}</h1>
