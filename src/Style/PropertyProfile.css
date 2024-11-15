@@ -88,6 +88,11 @@ p, .review-score .review-summary .overall-rating .rating-details .details-title,
   text-align: left;
 }
 
+.property-profile-header {
+  position: fixed;
+  width: 100vw;
+}
+
 .main {
   display: flex;
   margin-left: 200px; /* Adjust according to sidebar width */
@@ -918,4 +923,4 @@ button {
   flex-grow: 1;
   text-align: left;
   padding: 0 10px;
-}/*# sourceMappingURL=PropertyProfile.css.map */
+}

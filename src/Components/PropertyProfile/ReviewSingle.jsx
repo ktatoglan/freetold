@@ -43,6 +43,7 @@ const ReviewSingle = ({ review }) => (
                   name="rating"
                   value={index + 1}
                   checked={index < review.review_score}
+                  onChange={() => {}}
                 />
                 <label htmlFor={`star${index + 1}`}></label>
               </React.Fragment>

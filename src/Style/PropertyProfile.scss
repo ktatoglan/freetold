@@ -1,5 +1,10 @@
 @import "vars";
 
+.property-profile-header{
+  position: fixed;
+  width: 100vw;
+}
+
 .main {
   display: flex;
   margin-left: 200px; /* Adjust according to sidebar width */
@@ -305,7 +310,7 @@ button {
 
         .summary-text{
           font-weight: 600;
-          text-align: center; 
+          text-align: center;
         }
       }
     }

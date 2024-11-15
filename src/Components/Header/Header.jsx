@@ -11,6 +11,7 @@ const Header = () => {
   const [openLoginModal, setOpenLoginModal] = useState(false);
   const [openRegisterModal, setOpenRegisterModal] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [specialClass, setSpecialClass] = useState("");
 
   // Ref for detecting clicks outside the menu
   const menuRef = useRef(null);
@@ -39,9 +40,18 @@ const Header = () => {
     };
   }, [isMobileMenuOpen]);
 
+
+  useEffect(() => {
+    if (window.location.pathname.substring(0, 17) == "/property-profile" && window.location.pathname.substring(0, 24) != "/property-profile/review") {
+      setSpecialClass("property-profile-header");
+    } else {
+      setSpecialClass("");
+    }
+  }, [window.location.pathname]);
+
   return (
     <>
-      <header className="header">
+      <header className={"header " + specialClass}>
         <div className="logo">
           <img
             src={Logo}

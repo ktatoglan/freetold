@@ -30,7 +30,6 @@ function App() {
 	const[isMobile, setIsMobile] = useState(false);
 
 	useEffect(() => {
-		console.log(window.screen.width);
 		if (window.screen.width <= 768) {
 			setIsMobile(true);
 		}

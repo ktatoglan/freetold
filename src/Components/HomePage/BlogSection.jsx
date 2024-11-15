@@ -47,9 +47,6 @@ const BlogSection = () => {
     return <div>{error}</div>; // Error message
   }
 
-  console.log(
-    blog.tags_data);
-
   return (
     <section className="blog">
       <div className="container">
