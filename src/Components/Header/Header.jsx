@@ -64,12 +64,12 @@ const Header = () => {
           </button>
           <ul>
             <li>
-              <a href="/about">About</a>
+              <a href="/blog/meet-freetold-a-new-era-of-openness-in-the-housing-market">About</a>
             </li>
             <li>
               <a href="/blog">Blog</a>
             </li>
-            {/*  
+            {/*
             <li>
               <a
                 href="#"
