@@ -87,6 +87,11 @@ p {
   text-align: left;
 }
 
+.loading-page {
+  width: 100vw;
+  height: 100vh;
+}
+
 .page {
   font-family: Arial, sans-serif;
 }
