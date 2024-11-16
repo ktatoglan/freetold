@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import ReviewProfile from "../Components/ReviewProfile/ReviewProfile";
 import "../Style/ReviewProfile.css";
@@ -10,11 +10,12 @@ import axios from "axios";
 function ReviewProfilePage() {
   const { reviewID } = useParams();
   const {serverUrl} = useAppProvider();
+  const[review, setReview] = useState({});
   console.log("reviewID" , reviewID);
   useEffect(() => {
     axios.get(`${serverUrl}/review/getReview/${reviewID}`)
     .then((response) => {
-
+      setReview(response.data);
     })
     .catch((error) => {
       console.log(error);
@@ -28,7 +29,7 @@ function ReviewProfilePage() {
 
   return (
     <>
-      <ReviewProfile reviewID={reviewID} />
+      <ReviewProfile reviewID={reviewID} review={review} />
     </>
   );
 }

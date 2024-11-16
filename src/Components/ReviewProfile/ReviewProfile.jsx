@@ -3,14 +3,14 @@ import HeaderSection from './HeaderSection';
 import PropertyInfo from './PropertyInfo';
 import Sidebar from './Sidebar';
 
-function ReviewProfile({reviewID}) {
+function ReviewProfile({reviewID, review}) {
 
     return (
       <div className="review-page">
-        <HeaderSection />
+        <HeaderSection review={review}/>
         <div className="main-content">
-          <PropertyInfo />
-          <Sidebar />
+          <PropertyInfo review={review}/>
+          <Sidebar review={review}/>
         </div>
       </div>
     );

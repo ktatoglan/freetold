@@ -1,6 +1,10 @@
-import React from "react";
+import React, {useEffect} from "react";
 
-const PropertyInfo = () => {
+const PropertyInfo = ({review}) => {
+  useEffect(() => {
+    // You can process the data as needed
+    console.log("review", review);
+  }, [review]);
   return (
     <div className="property-info">
       <h3>Horrible place, stay away from there</h3>
@@ -43,6 +47,7 @@ const PropertyInfo = () => {
               name="rating"
               value={index + 1}
               checked={index < 1}
+              onChange={() => {}}
             />
             <label htmlFor={`star${index + 1}`}></label>
           </React.Fragment>
@@ -70,11 +75,7 @@ const PropertyInfo = () => {
             </div>
           </h4>
           <p>
-            Newly Refurbished Spacious 2 bedroom mid terraced property
-            Conveniently Located Near the Center of Town, a short distance to
-            Shops, Amenities and Transport Links. The property comprises of 2
-            Reception Rooms, Breakfast Room, and kitchen. To the first floor,
-            Bathroom and 2 Double Bedrooms. EPC D
+            {review.review_pros}
           </p>
         </div>
         <div className="cons">
@@ -98,9 +99,7 @@ const PropertyInfo = () => {
             </div>
           </h4>
           <p>
-            Newly Refurbished Spacious 2 bedroom mid terraced property
-            Conveniently Located Near the Center of Town, a short distance to
-            Shops, Amenities and Transport Links.
+            {review.review_cons}
           </p>
         </div>
       </div>
@@ -123,11 +122,7 @@ const PropertyInfo = () => {
           </div>
         </h4>
         <p>
-          Newly Refurbished Spacious 2 bedroom mid terraced property
-          Conveniently Located Near the Center of Town, a short distance to
-          Shops, Amenities and Transport Links. The property comprises of 2
-          Reception Rooms, Breakfast Room, and kitchen. To the first floor,
-          Bathroom and 2 Double Bedrooms. EPC D
+          {review.anything_to_be_fixed}
         </p>
       </div>
       <div className="safety">
@@ -151,11 +146,7 @@ const PropertyInfo = () => {
           </div>
         </h4>
         <p>
-          Newly Refurbished Spacious 2 bedroom mid terraced property
-          Conveniently Located Near the Center of Town, a short distance to
-          Shops, Amenities and Transport Links. The property comprises of 2
-          Reception Rooms, Breakfast Room, and kitchen. To the first floor,
-          Bathroom and 2 Double Bedrooms. EPC D
+          {review.safety_concerns}
         </p>
       </div>
       <div className="health">
@@ -177,11 +168,7 @@ const PropertyInfo = () => {
           </div>
         </h4>
         <p>
-          Newly Refurbished Spacious 2 bedroom mid terraced property
-          Conveniently Located Near the Center of Town, a short distance to
-          Shops, Amenities and Transport Links. The property comprises of 2
-          Reception Rooms, Breakfast Room, and kitchen. To the first floor,
-          Bathroom and 2 Double Bedrooms. EPC D
+          {review.health_concerns}
         </p>
       </div>
       <div className="helpful">

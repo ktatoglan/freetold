@@ -1,6 +1,11 @@
 import React from "react";
 
-const Sidebar = () => {
+const Sidebar = ({review}) => {
+  function createStar(times) {
+    var char = "⭐";
+    return char.repeat(times);
+  }
+
   return (
     <div className="review-sidebar">
       <div className="cost">
@@ -94,15 +99,17 @@ const Sidebar = () => {
         </div>
         <div className="rating-item">
           <span className="label">Heating</span>{" "}
-          <span className="stars">⭐⭐⭐⭐</span>
+          <span className="stars">{createStar(review.heat_up_level)}</span>
         </div>
         <div className="rating-item">
           <span className="label">Lighting</span>{" "}
-          <span className="stars">⭐⭐⭐</span>
+          <span className="stars">{createStar(review.well_lit_level)}</span>
         </div>
         <div className="rating-item">
           <span className="label">Internet connection</span>{" "}
-          <span className="stars">⭐⭐⭐⭐</span>
+          <span className="stars">
+            {createStar(review.internet_connection_level)}
+            </span>
         </div>
         <div className="items-title">
           <p className="title">Around the neigborhood</p>
@@ -146,7 +153,7 @@ const Sidebar = () => {
             </svg>
             Pet-friendly
           </span>{" "}
-          <span className="value">No</span>
+          <span className="value">{review.is_it_pet_friendly ? "Yes" : "No"}</span>
         </div>
       </div>
     </div>
