@@ -12,12 +12,16 @@ const Sidebar = ({review}) => {
         <h4>How much it costs to live here</h4>
         <div className="cost-item rent">
           <span className="label">Monthly rent</span>
-          <span>Per person / 5 people staying there</span>{" "}
-          <span className="value">1,100 £</span>
+          { review.is_it_sharing_flat ?
+            <span>Per person / {review.people_number_leaving_at_home} people staying there</span>
+            :
+            <span>Per whole household</span>
+          }
+          <span className="value">{review.rent_amount} £</span>
         </div>
         <div className="cost-item bills-title">
           <span className="label">Monthly bills breakdown</span>{" "}
-          <span>Per whole household</span>
+          <span>{review.bills_per_person ? "Per person" : "Per whole household"}</span>
         </div>
         <div className="cost-item">
           <span className="label">
@@ -35,7 +39,7 @@ const Sidebar = ({review}) => {
             </svg>
             Electricity
           </span>{" "}
-          <span className="value">213 £</span>
+          <span className="value">{review.electric_bill} £</span>
         </div>
         <div className="cost-item">
           <span className="label">
@@ -53,7 +57,7 @@ const Sidebar = ({review}) => {
             </svg>
             Gas
           </span>{" "}
-          <span className="value">324 £</span>
+          <span className="value">{review.gas_bill} £</span>
         </div>
         <div className="cost-item">
           <span className="label">
@@ -71,7 +75,7 @@ const Sidebar = ({review}) => {
             </svg>
             Water
           </span>{" "}
-          <span className="value">45 £</span>
+          <span className="value">{review.water_bill} £</span>
         </div>
         <div className="cost-item">
           <span className="label">
@@ -89,7 +93,7 @@ const Sidebar = ({review}) => {
             </svg>
             Internet
           </span>{" "}
-          <span className="value">59 £</span>
+          <span className="value">{review.internet_bill} £</span>
         </div>
       </div>
       <div className="rating">
@@ -116,26 +120,26 @@ const Sidebar = ({review}) => {
         </div>
         <div className="rating-item">
           <span className="label">Noise level</span>{" "}
-          <span className="stars">⭐⭐</span>
+          <span className="stars">{createStar(review.noise_neighbors_level)}</span>
         </div>
         <div className="rating-item">
           <span className="label">Parking</span>{" "}
-          <span className="stars">⭐⭐⭐⭐</span>
+          <span className="stars">{createStar(review.parking_score)}</span>
         </div>
         <div className="rating-item">
           <span className="label">Traffic</span>{" "}
-          <span className="stars">⭐⭐⭐</span>
+          <span className="stars">{createStar(review.traffic_score)}</span>
         </div>
         <div className="rating-item">
           <span className="label">Neighbors</span>{" "}
-          <span className="stars">⭐⭐⭐</span>
+          <span className="stars">{createStar(review.perception_neighbors_level)}</span>
         </div>
         <div className="items-title">
           <p className="title">Last but not least</p>
         </div>
         <div className="rating-item">
           <span className="label">Owner's respond</span>{" "}
-          <span className="stars">⭐⭐⭐</span>
+          <span className="stars">{createStar(review.owner_respond_score)}</span>
         </div>
         <div className="rating-item pet-friendly">
           <span className="label">

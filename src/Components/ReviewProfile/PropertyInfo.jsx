@@ -1,13 +1,38 @@
-import React, {useEffect} from "react";
-
+import React, {useEffect, useState} from "react";
+import axios from "axios";
 const PropertyInfo = ({review}) => {
   useEffect(() => {
     // You can process the data as needed
-    console.log("review", review);
+    getAddressFromPostcode(review.post_code);
   }, [review]);
+  const [addressDetails, setAddressDetails] = useState({});
+  const getAddressFromPostcode = async (postcode) => {
+    try {
+      const response = await axios.get(`https://api.postcodes.io/postcodes/${postcode}`);
+      const data = response.data;
+      if (data.status === 200) {
+        // You can process the data as needed
+        setAddressDetails(data.result);
+      } else {
+        console.log('Postcode not found');
+      }
+    } catch (error) {
+      console.error('Error fetching address:', error);
+    }
+  };
+
+  const showOnTheMap = () => {
+    // You can process the data as needed
+    const { latitude, longitude } = addressDetails;
+    if (latitude && longitude) {
+      window.open(`https://www.google.com/maps?q=${latitude},${longitude}&hl=es;z=14&output=embed`, '_blank');
+    } else {
+      console.log('Address details are not available');
+    }
+  };
   return (
     <div className="property-info">
-      <h3>Horrible place, stay away from there</h3>
+      <h3>{review.review_headline}</h3>
       <p className="address">
         <svg
           width="20"
@@ -21,8 +46,8 @@ const PropertyInfo = ({review}) => {
             fill="#646464"
           />
         </svg>
-        Glan Yr Afon Road, Swansea SA2{" "}
-        <span className="show-map">
+        {review.address_line_1 + " " + review.address_line_2 + " " + review.town_city + " " + review.post_code+ " " + review.country + " "}
+        <span className="show-map" onClick={showOnTheMap}>
           <svg
             width="14"
             height="20"
@@ -171,6 +196,8 @@ const PropertyInfo = ({review}) => {
           {review.health_concerns}
         </p>
       </div>
+      {/*
+
       <div className="helpful">
         <button>
           <svg
@@ -188,6 +215,10 @@ const PropertyInfo = ({review}) => {
           Was this review helpful?
         </button>
       </div>
+
+      */}
+      {/*
+
       <div className="comment-section">
         <p className="comment-title">Comment this review or ask questions</p>
         <textarea placeholder="Enter a text..."></textarea>
@@ -278,6 +309,8 @@ const PropertyInfo = ({review}) => {
           </p>
         </div>
       </div>
+
+      */}
     </div>
   );
 };

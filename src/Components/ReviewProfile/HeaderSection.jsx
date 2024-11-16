@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 
-const HeaderSection = () => {
+const HeaderSection = ({review}) => {
+  const formattedDate = new Date(review.date).toLocaleDateString();
+
   return (
     <div className="header-section">
       <div className="back-link">
-        <a href="/properties">← Back to Glan Yr Afon Road, Swansea SA2</a>
+        <a href={`/property-profile/${review.post_code}`}>← Back</a>
       </div>
       <div className="user-info">
         <div className="left-section">
@@ -25,7 +27,7 @@ const HeaderSection = () => {
           <div className="user-details">
             <span className="username">M. J., student</span>
             <span className="stay-duration">
-              Stayed in this property for 6 months
+              Stayed in this property for {review.rent_duration}  {" " + review.rent_period == 'per-month' ? 'months' : 'years'}
             </span>
           </div>
         </div>
@@ -43,8 +45,10 @@ const HeaderSection = () => {
                 fill="#919191"
               />
             </svg>
-            Last update 23 Sep 2024
+            {formattedDate}
           </span>
+          {/*
+
           <span className="likes">
             <svg
               width="24"
@@ -60,6 +64,10 @@ const HeaderSection = () => {
             </svg>
             14
           </span>
+
+          */}
+          {/*
+
           <span className="favorites">
             <svg
               width="24"
@@ -75,6 +83,10 @@ const HeaderSection = () => {
             </svg>
             Save to favorites
           </span>
+
+          */}
+          {/*
+
           <span className="more-options">
             <svg
               width="30"
@@ -97,6 +109,8 @@ const HeaderSection = () => {
               />
             </svg>
           </span>
+
+          */}
         </div>
       </div>
     </div>
