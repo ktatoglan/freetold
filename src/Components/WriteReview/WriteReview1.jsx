@@ -22,7 +22,7 @@ function WriteReview1() {
     <div className="container">
       <div className="review-flow">
         <div className="review-header">
-          <p className="header-text">Your are creating review for</p>
+          <p className="header-text">You are writing a review for</p>
           <div className="header-address">
             <p>
               <span className="address-icon">
