@@ -4,7 +4,7 @@ import UserReviewSingle from "./UserReviewSingle";
 const UserReviews = () => {
   return (
     <div className="reviews-section">
-      <h3>Ooops! You don't have any reviews yet!</h3>
+      <h3>You don’t have any reviews yet.</h3>
       <button className="write-review-button">Write your first review</button>
 
       {/* OR */}
