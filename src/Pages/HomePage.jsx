@@ -20,8 +20,8 @@ const HomePage = () => {
         <HomePageTextWelcome />
          <Testimonials />
         */}
-        <LatestReviews />
         <MainCards />
+        <LatestReviews />
         <BlogSection />
         <ContactUs />
 
