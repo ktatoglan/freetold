@@ -233,12 +233,12 @@ p, .contact-us-temp .container .form button, .contact-us .container .form button
   text-align: center;
   color: #0a2446;
   margin: 16px;
-  min-height: 120px;
+  min-height: 90px;
 }
 .main-cards .cards-holder .card-single p, .main-cards .cards-holder .card-single .contact-us-temp .container .form button, .contact-us-temp .container .form .main-cards .cards-holder .card-single button, .main-cards .cards-holder .card-single .contact-us .container .form button, .contact-us .container .form .main-cards .cards-holder .card-single button, .main-cards .cards-holder .card-single .homepage-text-welcome .form button, .homepage-text-welcome .form .main-cards .cards-holder .card-single button, .main-cards .cards-holder .card-single .subtitle {
   color: #0a2446;
   text-align: center;
-  margin: 16px;
+  margin: 16px 16px 24px 16px;
 }
 
 .testimonials {
