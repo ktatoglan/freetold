@@ -17,6 +17,7 @@
     align-items: center;
     justify-content: center;
     color: #fff;
+    background-color: $primary-color;
 
     @media (max-width: 768px) {
       background-size: cover;

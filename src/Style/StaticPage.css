@@ -106,6 +106,7 @@ p {
   align-items: center;
   justify-content: center;
   color: #fff;
+  background-color: #0a2446;
 }
 @media (max-width: 768px) {
   .page .hero-section {
