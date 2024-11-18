@@ -5,7 +5,7 @@ function FooterSocials() {
     <>
       <ul className="footer-socials">
         <li className="x">
-          <a href="#" target="_blank" rel="noopener noreferrer">
+          <a href="https://x.com/freetoldhq" target="_blank" rel="noopener noreferrer">
             <svg
               width="25"
               height="29"
@@ -21,7 +21,7 @@ function FooterSocials() {
           </a>
         </li>
         <li className="reddit">
-          <a href="#" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.reddit.com/user/freetold/" target="_blank" rel="noopener noreferrer">
             <svg
               width="26"
               height="27"
@@ -37,7 +37,7 @@ function FooterSocials() {
           </a>
         </li>
         <li className="instagram">
-          <a href="#" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/freetoldhq/" target="_blank" rel="noopener noreferrer">
             <svg
               width="26"
               height="26"
@@ -53,7 +53,7 @@ function FooterSocials() {
           </a>
         </li>
         <li className="tiktok">
-          <a href="#" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.tiktok.com/@freetold0" target="_blank" rel="noopener noreferrer">
             <svg
               width="26"
               height="26"
@@ -71,7 +71,7 @@ function FooterSocials() {
           </a>
         </li>
         <li className="facebook">
-          <a href="#" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/freetold" target="_blank" rel="noopener noreferrer">
             <svg
               width="26"
               height="26"
