@@ -15,7 +15,7 @@ const AppProvider = ({ children }) => {
   const [tenancyPeriod, setTenancyPeriod] = useState({"number":"1","period":"month"});
   const [isItSharingFlat, setIsItSharingFlat] = useState(false);
   const [peopleNumberLivingAtHome, setPeopleNumberLivingAtHome] = useState(0);
-  const [futureRentersContactMe, setFutureRentersContactMe] = useState(false);
+  const [futureRentersContactMe, setFutureRentersContactMe] = useState(true);
   const [rentAmount, setRentAmount] = useState(0.0);
   const [rentPeriod, setRentPeriod] = useState('per-month');
   const [isBillsIncluded, setIsBillsIncluded] = useState(false);
