@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.freetold.com/</loc>
+    <priority>1.0</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://www.freetold.com/blog/the-ultimate-moving-checklist-from-packing-to-settling-in</loc>
+    <lastmod>2024-11-01</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.freetold.com/blog/meet-freetold-a-new-era-of-openness-in-the-housing-market</loc>
+    <lastmod>2024-10-25</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.freetold.com/blog/understanding-your-lease-agreement-key-clauses-to-look-out-for</loc>
+    <lastmod>2024-10-18</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.freetold.com/blog/how-to-negotiate-rent-like-a-pro-with-example-negotiation-template</loc>
+    <lastmod>2024-10-10</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.freetold.com/blog/tips-for-students-finding-affordable-and-comfortable-accommodation</loc>
+    <lastmod>2024-09-30</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.freetold.com/blog/the-benefits-of-using-property-review-platforms-like-freetold</loc>
+    <lastmod>2024-09-20</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.freetold.com/blog/how-to-identify-hidden-costs-in-renting-a-property</loc>
+    <lastmod>2024-09-15</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Static Pages -->
+  <url>
+    <loc>https://www.freetold.com/page/privacy-policy/</loc>
+    <priority>0.5</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.freetold.com/page/faq/</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+</urlset>
