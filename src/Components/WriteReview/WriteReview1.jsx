@@ -9,6 +9,8 @@ function WriteReview1() {
     setMoveInDate,
     tenancyPeriod,
     setTenancyPeriod,
+    rentDuration,
+    setRentDuration,
     isItSharingFlat,
     setIsItSharingFlat,
     peopleNumberLivingAtHome,
@@ -122,12 +124,9 @@ function WriteReview1() {
               <div className="row mt-small">
                 <input
                   type="text"
-                  value={tenancyPeriod.month}
+                  value={rentDuration}
                   onChange={(e) =>
-                    setTenancyPeriod({
-                      ...tenancyPeriod,
-                      number: e.target.value,
-                    })
+                    setRentDuration(e.target.value)
                   }
                 />
                 <select

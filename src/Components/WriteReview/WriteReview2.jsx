@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import "../../Style/WriteReview.css";
 import { useAppProvider } from "../../Contexts/AppContext";
 import { useNavigate } from "react-router-dom";
@@ -26,6 +26,13 @@ function WriteReview2() {
   } = useAppProvider();
   const navigate = useNavigate();
   const [formattedRentAmount, setFormattedRentAmount] = useState('');
+
+  useEffect(() => {
+    if (rentAmount) {
+      const formattedValue = new Intl.NumberFormat('en-US').format(parseInt(rentAmount, 10));
+      setFormattedRentAmount(formattedValue);
+    }
+  }, []);
 
   const handleRentAmountChange = (e) => {
     const value = e.target.value.replace(/\./g, ''); // Remove existing dots

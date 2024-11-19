@@ -18,6 +18,7 @@ const AppProvider = ({ children }) => {
   const [futureRentersContactMe, setFutureRentersContactMe] = useState(true);
   const [rentAmount, setRentAmount] = useState(0.0);
   const [rentPeriod, setRentPeriod] = useState('per-month');
+  const [rentDuration, setRentDuration] = useState(0);
   const [isBillsIncluded, setIsBillsIncluded] = useState(false);
   const [billsPerPerson, setBillsPerPerson] = useState(false);
   const [billsWholeHouse, setBillsWholeHouse] = useState(false);
@@ -61,6 +62,7 @@ const AppProvider = ({ children }) => {
         future_renters_contact_me: futureRentersContactMe,
         rent_amount: rentAmount,
         rent_period: rentPeriod,
+        rent_duration: rentDuration,
         is_bills_included: isBillsIncluded,
         bills_per_person: billsPerPerson,
         bills_whole_house: billsWholeHouse,
@@ -99,7 +101,7 @@ const AppProvider = ({ children }) => {
       value={{sendReview, mode, setMode, userId, setUserId,serverUrl,
         addressLine1, setAddressLine1, addressLine2, setAddressLine2, townCity, setTownCity, country, setCountry, postCode, setPostCode,
         moveInDate, setMoveInDate, tenancyPeriod, setTenancyPeriod, isItSharingFlat, setIsItSharingFlat, peopleNumberLivingAtHome, setPeopleNumberLivingAtHome, futureRentersContactMe, setFutureRentersContactMe,
-        rentAmount, setRentAmount, rentPeriod, setRentPeriod, isBillsIncluded, setIsBillsIncluded, billsPerPerson, setBillsPerPerson, billsWholeHouse, setBillsWholeHouse, electricBill, setElectricBill, waterBill, setWaterBill, gasBill, setGasBill, internetBill, setInternetBill,
+        rentAmount, setRentAmount, rentPeriod, setRentPeriod, rentDuration, setRentDuration, isBillsIncluded, setIsBillsIncluded, billsPerPerson, setBillsPerPerson, billsWholeHouse, setBillsWholeHouse, electricBill, setElectricBill, waterBill, setWaterBill, gasBill, setGasBill, internetBill, setInternetBill,
         reviewScore, setReviewScore, reviewHeadline, setReviewHeadline, reviewPros, setReviewPros, reviewCons, setReviewCons,
         heatUpLevel, setHeatUpLevel, wellLitLevel, setWellLitLevel, internetConnectionLevel, setInternetConnectionLevel, isItPetFriendly, setIsItPetFriendly, anythingToBeFixed, setAnythingToBeFixed, ownerRespondScore, setOwnerRespondScore, healthConcerns, setHealthConcerns,
         perceptionNeighborsLevel, setPerceptionNeighborsLevel, noiseNeighborsLevel, setNoiseNeighborsLevel, parkingScore, setParkingScore, trafficScore, setTrafficScore, safetyConcerns, setSafetyConcerns, agreeCheckbox, setAgreeCheckbox}}
