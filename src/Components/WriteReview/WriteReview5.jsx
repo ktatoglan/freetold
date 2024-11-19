@@ -10,7 +10,7 @@ function WriteReview5() {
     <div className="container">
       <div className="review-flow">
         <div className="review-header">
-          <p className="header-text">Your are creating review for</p>
+          <p className="header-text">You are writing a review for</p>
           <div className="header-address">
             <p>
               <span className="address-icon">
@@ -175,7 +175,7 @@ function WriteReview5() {
                   checked={agreeCheckbox}
                   onChange={(e) => setAgreeCheckbox(e.target.checked)}
                 />
-                I agree to .... and that this review is an honest and accurate account of my experience ....
+                I agree to <a href="/page/terms-and-conditions" target="_blank" rel="noopener noreferrer">Terms and Conditions</a> and that this review is an honest and accurate account of my experience ....
               </p>
             </div>
           </div>

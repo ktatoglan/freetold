@@ -14,18 +14,18 @@ export const MainCards = () => {
         <div className="cards-holder">
             <MainCardSingle 
                 image={img1} 
-                title="Read Real Reviews from Previous Tenants" 
-                text="Find everything about properties, shared freely by others" 
+                title="Read Real Reviews You Can Trust" 
+                text="Discover honest feedback from previous tenants on properties, landlords, and agents." 
             />
             <MainCardSingle 
                 image={img2} 
-                title="Know the Neighborhood: Traffic, Safety, and Amenities" 
-                text="EPC, real data and logistic insights about properties" 
+                title="Explore the Neighbourhood Before You Move" 
+                text="Traffic, safety, amenities, and more — get the real insights on your next neighbourhood." 
             />
             <MainCardSingle 
                 image={img3}
-                title="Learn about living conditions and costs" 
-                text="EPC, real data and logistic insights about properties" 
+                title="Understand the True Cost of Living" 
+                text="Get insights on energy efficiency, utility costs, and property conditions to avoid hidden surprises." 
             />
 
         </div>

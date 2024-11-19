@@ -13,16 +13,19 @@ const Footer = () => {
         <div className="col">
           <ul className="footer-links">
             <li>
-              <a href="#">Privacy</a>
+              <a href="/page/privacy-policy">Privacy</a>
             </li>
-            <li>
+            {/* <li>
               <a href="#">Cookies</a>
-            </li>
+            </li> 
             <li>
               <a href="#">Contact us</a>
+            </li>*/}
+            <li>
+              <a href="/page/faq">FAQ</a>
             </li>
             <li>
-              <a href="#">About</a>
+              <a href="/blog/meet-freetold-a-new-era-of-openness-in-the-housing-market">About</a>
             </li>
           </ul>{" "}
         </div>
