@@ -104,7 +104,7 @@ const SearchBar = () => {
       </div>
       <button onClick={handleSearch}>Find Properties & reviews</button>
 
-      <ul>
+      <ul className="search-results">
         {searchResults.map((result, index) => (
           <li key={index} onClick={() => window.location.href = `/property-profile/${result}`}>
             {result}

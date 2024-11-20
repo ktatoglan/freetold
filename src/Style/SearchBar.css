@@ -141,4 +141,14 @@ p, .home-search button {
     padding: 12px 16px 12px 16px;
     text-align: center;
   }
+}
+.home-search .search-results {
+  background: white;
+  padding: 8px;
+  border-radius: 16px;
+  list-style: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1019607843);
+}
+.home-search .search-results li {
+  margin: 8px 0px;
 }/*# sourceMappingURL=SearchBar.css.map */

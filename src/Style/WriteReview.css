@@ -135,11 +135,21 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
 .container .review-flow .review-content .row {
   margin: 24px 0px;
 }
+@media (max-width: 768px) {
+  .container .review-flow .review-content .row {
+    margin: 0px 0px 8px 0px;
+  }
+}
 .container .review-flow .review-content .mt-small {
   margin-top: 8px !important;
 }
 .container .review-flow .review-content .mb-small {
   margin-bottom: 8px !important;
+}
+@media (max-width: 768px) {
+  .container .review-flow .review-content .mbl-bottom-gap-small {
+    margin-bottom: 8px;
+  }
 }
 .container .review-flow .review-content .p-0 {
   padding: 0 !important;
@@ -162,6 +172,20 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
   border: 1px solid #d9d9d9;
   padding: 10px 14px 10px 14px;
   margin-right: 5px;
+}
+@media (max-width: 768px) {
+  .container .review-flow .review-content input,
+  .container .review-flow .review-content select,
+  .container .review-flow .review-content textarea {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+@media (max-width: 768px) {
+  .container .review-flow .review-content input[type=checkbox] {
+    width: unset;
+    margin-right: 8px;
+  }
 }
 .container .review-flow .review-content .sharing {
   border: 1px solid #d9d9d9;
@@ -186,6 +210,15 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
 .container .review-flow .review-content .sharing .counter-group a {
   color: #ef6c67;
   margin-left: 16px;
+}
+@media (max-width: 768px) {
+  .container .review-flow .review-content .sharing .is-sharing-text {
+    width: 70%;
+  }
+  .container .review-flow .review-content .sharing .is-sharing-text a {
+    display: block;
+    margin: 0;
+  }
 }
 .container .review-flow .review-content .sharing .counter-group {
   padding-left: 21px;
@@ -216,6 +249,11 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
   gap: 16px;
   margin-top: 16px;
   margin-bottom: 24px;
+}
+@media (max-width: 768px) {
+  .container .review-flow .review-content .future-contact input[type=radio] {
+    margin: 0 !important;
+  }
 }
 .container .review-flow .review-content .buttons {
   display: flex;
@@ -334,6 +372,11 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
   display: flex;
   flex-direction: row-reverse;
 }
+@media (max-width: 768px) {
+  .container .review-flow .review-content .rating-container {
+    justify-content: left;
+  }
+}
 .container .review-flow .review-content .rating-container input[type=radio] {
   display: none;
 }
@@ -347,41 +390,124 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
   margin-right: 8px;
 }
 .container .review-flow .review-content .rating-container.stars label {
-  background-image: url("../assets/img/star-default.png");
+  background-image: url("../assets/img/star-default.svg");
 }
 .container .review-flow .review-content .rating-container.stars input[type=radio]:checked ~ label, .container .review-flow .review-content .rating-container.stars input[type=radio]:checked ~ label ~ input[type=radio] + label, .container .review-flow .review-content .rating-container.stars input[type=radio]:checked ~ label ~ label {
-  background-image: url("../assets/img/star-selected.png");
+  background-image: url("../assets/img/star-selected.svg");
 }
 .container .review-flow .review-content .rating-container.heat label {
-  background-image: url("../assets/img/heat-default.png");
+  background-image: url("../assets/img/heat-default.svg");
 }
 .container .review-flow .review-content .rating-container.heat input[type=radio]:checked ~ label, .container .review-flow .review-content .rating-container.heat input[type=radio]:checked ~ label ~ input[type=radio] + label, .container .review-flow .review-content .rating-container.heat input[type=radio]:checked ~ label ~ label {
-  background-image: url("../assets/img/heat-selected.png");
+  background-image: url("../assets/img/heat-selected.svg");
 }
 .container .review-flow .review-content .rating-container.lit label {
-  background-image: url("../assets/img/lit-default.png");
+  background-image: url("../assets/img/lit-default.svg");
 }
 .container .review-flow .review-content .rating-container.lit input[type=radio]:checked ~ label, .container .review-flow .review-content .rating-container.lit input[type=radio]:checked ~ label ~ input[type=radio] + label, .container .review-flow .review-content .rating-container.lit input[type=radio]:checked ~ label ~ label {
-  background-image: url("../assets/img/lit-selected.png");
+  background-image: url("../assets/img/lit-selected.svg");
 }
 .container .review-flow .review-content .rating-container.web label {
-  background-image: url("../assets/img/web-default.png");
+  background-image: url("../assets/img/web-default.svg");
 }
 .container .review-flow .review-content .rating-container.web input[type=radio]:checked ~ label, .container .review-flow .review-content .rating-container.web input[type=radio]:checked ~ label ~ input[type=radio] + label, .container .review-flow .review-content .rating-container.web input[type=radio]:checked ~ label ~ label {
-  background-image: url("../assets/img/web-selected.png");
+  background-image: url("../assets/img/web-selected.svg");
 }
 .container .review-flow .review-content .rating-container.mail label {
-  background-image: url("../assets/img/mail-default.png");
+  background-image: url("../assets/img/mail-default.svg");
 }
 .container .review-flow .review-content .rating-container.mail input[type=radio]:checked ~ label, .container .review-flow .review-content .rating-container.mail input[type=radio]:checked ~ label ~ input[type=radio] + label, .container .review-flow .review-content .rating-container.mail input[type=radio]:checked ~ label ~ label {
-  background-image: url("../assets/img/mail-selected.png");
+  background-image: url("../assets/img/mail-selected.svg");
+}
+.container .review-flow .review-content .rating-container.neighbor label.neighbor-5 {
+  background-image: url("../assets/img/neighbor-5-default.svg");
+}
+.container .review-flow .review-content .rating-container.neighbor input[type=radio]:checked ~ label.neighbor-5, .container .review-flow .review-content .rating-container.neighbor input[type=radio]:checked ~ label.neighbor-5 ~ input[type=radio] + label.neighbor-5, .container .review-flow .review-content .rating-container.neighbor input[type=radio]:checked ~ label.neighbor-5 ~ label.neighbor-5 {
+  background-image: url("../assets/img/neighbor-5-selected.svg");
+}
+.container .review-flow .review-content .rating-container.neighbor label.neighbor-4 {
+  background-image: url("../assets/img/neighbor-4-default.svg");
+}
+.container .review-flow .review-content .rating-container.neighbor input[type=radio]:checked ~ label.neighbor-4, .container .review-flow .review-content .rating-container.neighbor input[type=radio]:checked ~ label.neighbor-4 ~ input[type=radio] + label.neighbor-4, .container .review-flow .review-content .rating-container.neighbor input[type=radio]:checked ~ label.neighbor-4 ~ label.neighbor-4 {
+  background-image: url("../assets/img/neighbor-4-selected.svg");
+}
+.container .review-flow .review-content .rating-container.neighbor label.neighbor-3 {
+  background-image: url("../assets/img/neighbor-3-default.svg");
+}
+.container .review-flow .review-content .rating-container.neighbor input[type=radio]:checked ~ label.neighbor-3, .container .review-flow .review-content .rating-container.neighbor input[type=radio]:checked ~ label.neighbor-3 ~ input[type=radio] + label.neighbor-3, .container .review-flow .review-content .rating-container.neighbor input[type=radio]:checked ~ label.neighbor-3 ~ label.neighbor-3 {
+  background-image: url("../assets/img/neighbor-3-selected.svg");
+}
+.container .review-flow .review-content .rating-container.neighbor label.neighbor-2 {
+  background-image: url("../assets/img/neighbor-2-default.svg");
+}
+.container .review-flow .review-content .rating-container.neighbor input[type=radio]:checked ~ label.neighbor-2, .container .review-flow .review-content .rating-container.neighbor input[type=radio]:checked ~ label.neighbor-2 ~ input[type=radio] + label.neighbor-2, .container .review-flow .review-content .rating-container.neighbor input[type=radio]:checked ~ label.neighbor-2 ~ label.neighbor-2 {
+  background-image: url("../assets/img/neighbor-2-selected.svg");
+}
+.container .review-flow .review-content .rating-container.neighbor label.neighbor-1 {
+  background-image: url("../assets/img/neighbor-1-default.svg");
+}
+.container .review-flow .review-content .rating-container.neighbor input[type=radio]:checked ~ label.neighbor-1, .container .review-flow .review-content .rating-container.neighbor input[type=radio]:checked ~ label.neighbor-1 ~ input[type=radio] + label.neighbor-1, .container .review-flow .review-content .rating-container.neighbor input[type=radio]:checked ~ label.neighbor-1 ~ label.neighbor-1 {
+  background-image: url("../assets/img/neighbor-1-selected.svg");
+}
+.container .review-flow .review-content .rating-container.sound label.sound-5 {
+  background-image: url("../assets/img/sound-5-default.svg");
+}
+.container .review-flow .review-content .rating-container.sound input[type=radio]:checked ~ label.sound-5, .container .review-flow .review-content .rating-container.sound input[type=radio]:checked ~ label.sound-5 ~ input[type=radio] + label.sound-5, .container .review-flow .review-content .rating-container.sound input[type=radio]:checked ~ label.sound-5 ~ label.sound-5 {
+  background-image: url("../assets/img/sound-5-selected.svg");
+}
+.container .review-flow .review-content .rating-container.sound label.sound-4 {
+  background-image: url("../assets/img/sound-4-default.svg");
+}
+.container .review-flow .review-content .rating-container.sound input[type=radio]:checked ~ label.sound-4, .container .review-flow .review-content .rating-container.sound input[type=radio]:checked ~ label.sound-4 ~ input[type=radio] + label.sound-4, .container .review-flow .review-content .rating-container.sound input[type=radio]:checked ~ label.sound-4 ~ label.sound-4 {
+  background-image: url("../assets/img/sound-4-selected.svg");
+}
+.container .review-flow .review-content .rating-container.sound label.sound-3 {
+  background-image: url("../assets/img/sound-3-default.svg");
+}
+.container .review-flow .review-content .rating-container.sound input[type=radio]:checked ~ label.sound-3, .container .review-flow .review-content .rating-container.sound input[type=radio]:checked ~ label.sound-3 ~ input[type=radio] + label.sound-3, .container .review-flow .review-content .rating-container.sound input[type=radio]:checked ~ label.sound-3 ~ label.sound-3 {
+  background-image: url("../assets/img/sound-3-selected.svg");
+}
+.container .review-flow .review-content .rating-container.sound label.sound-2 {
+  background-image: url("../assets/img/sound-2-default.svg");
+}
+.container .review-flow .review-content .rating-container.sound input[type=radio]:checked ~ label.sound-2, .container .review-flow .review-content .rating-container.sound input[type=radio]:checked ~ label.sound-2 ~ input[type=radio] + label.sound-2, .container .review-flow .review-content .rating-container.sound input[type=radio]:checked ~ label.sound-2 ~ label.sound-2 {
+  background-image: url("../assets/img/sound-2-selected.svg");
+}
+.container .review-flow .review-content .rating-container.sound label.sound-1 {
+  background-image: url("../assets/img/sound-1-default.svg");
+}
+.container .review-flow .review-content .rating-container.sound input[type=radio]:checked ~ label.sound-1, .container .review-flow .review-content .rating-container.sound input[type=radio]:checked ~ label.sound-1 ~ input[type=radio] + label.sound-1, .container .review-flow .review-content .rating-container.sound input[type=radio]:checked ~ label.sound-1 ~ label.sound-1 {
+  background-image: url("../assets/img/sound-1-selected.svg");
+}
+.container .review-flow .review-content .rating-container.parking label {
+  background-image: url("../assets/img/parking-default.svg");
+}
+.container .review-flow .review-content .rating-container.parking input[type=radio]:checked ~ label, .container .review-flow .review-content .rating-container.parking input[type=radio]:checked ~ label ~ input[type=radio] + label, .container .review-flow .review-content .rating-container.parking input[type=radio]:checked ~ label ~ label {
+  background-image: url("../assets/img/parking-selected.svg");
+}
+.container .review-flow .review-content .rating-container.traffic label {
+  background-image: url("../assets/img/traffic-default.svg");
+}
+.container .review-flow .review-content .rating-container.traffic input[type=radio]:checked ~ label, .container .review-flow .review-content .rating-container.traffic input[type=radio]:checked ~ label ~ input[type=radio] + label, .container .review-flow .review-content .rating-container.traffic input[type=radio]:checked ~ label ~ label {
+  background-image: url("../assets/img/traffic-selected.svg");
 }
 .container .review-flow .review-content .content {
   width: 100%;
 }
+@media (max-width: 768px) {
+  .container .review-flow .review-content .content {
+    margin: 0px auto !important;
+    padding: 0;
+  }
+}
 .container .review-flow .review-content .content .input-container {
   display: flex;
   align-items: center;
+}
+@media (max-width: 768px) {
+  .container .review-flow .review-content .content .input-container {
+    flex-direction: column;
+  }
 }
 .container .review-flow .review-content .content input[type=text] {
   color: #919191;
@@ -397,8 +523,20 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
   position: relative;
   left: -4.5rem;
 }
+@media (max-width: 768px) {
+  .container .review-flow .review-content .content .character-counter {
+    left: unset;
+    right: -40%;
+    top: -1.9rem;
+  }
+}
 .container .review-flow .review-content .content .hidden {
   visibility: hidden;
+}
+@media (max-width: 768px) {
+  .container .review-flow .review-content .content .hidden {
+    display: none;
+  }
 }
 .container .review-flow .review-content .content textarea {
   width: 100%;
@@ -409,4 +547,10 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
 }
 .container .review-flow .review-content .approval input[type=checkbox] {
   accent-color: #0a2446;
+}
+.container .review-flow .review-content .approval a {
+  color: #ef6c67;
+}
+.container .review-flow .review-content .approval a:hover {
+  color: #0a2446;
 }/*# sourceMappingURL=WriteReview.css.map */

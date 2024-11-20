@@ -1,4 +1,4 @@
-@import "vars"; 
+@import "vars";
 $color_1: white;
 $background-color_1: rgba(200, 200, 200);
 $background-color_2: white;
@@ -13,6 +13,11 @@ $background-color_3: transparent;
   justify-content: center;
   align-items: center;
   z-index: 1;
+  @media (max-width: 768px) {
+    justify-content: center;
+    align-items: start;
+    padding: calc($large-spacing * 2);
+  }
 }
 .modalContainer {
   width: 45%;
@@ -23,11 +28,19 @@ $background-color_3: transparent;
   display: flex;
   flex-direction: column;
   padding: 25px;
+  @media (max-width: 768px) {
+    width: 100%;
+    height: unset;
+    padding: $small-spacing;
+  }
   .title {
     display: inline-block;
     text-align: center;
     margin-top: 2rem;
     color: $primary-color;
+    @media (max-width: 768px) {
+      margin-top: $small-spacing;
+    }
     h3 {
       text-align: inherit;
     }
@@ -43,12 +56,18 @@ $background-color_3: transparent;
     flex-direction: column;
     .search-bar {
       padding: 0px 3rem !important;
+      @media (max-width: 768px) {
+        padding: 0px 16px!important;
+      }
     }
     .row {
       width: 100%;
       justify-content: center;
       padding: 0px 2rem;
       margin: 1rem auto;
+      @media (max-width: 768px) {
+        padding: 0;
+      }
     }
     label {
       font-family: Geologica;

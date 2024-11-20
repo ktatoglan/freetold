@@ -54,12 +54,20 @@
     .review-content {
       .row {
         margin: $large-spacing 0px;
+        @media (max-width: 768px) {
+          margin: 0px 0px $small-spacing 0px;
+        }
       }
       .mt-small {
         margin-top: $small-spacing !important;
       }
       .mb-small {
         margin-bottom: $small-spacing !important;
+      }
+      .mbl-bottom-gap-small {
+        @media (max-width: 768px) {
+          margin-bottom: $small-spacing;
+        }
       }
       .p-0 {
         padding: 0 !important;
@@ -82,6 +90,16 @@
         border: 1px solid $light-border;
         padding: 10px 14px 10px 14px;
         margin-right: 5px;
+        @media (max-width: 768px) {
+          width: 100%;
+          margin-right: 0;
+        }
+      }
+      input[type="checkbox"] {
+        @media (max-width: 768px) {
+          width: unset;
+          margin-right: $small-spacing;
+        }
       }
       .sharing {
         border: 1px solid $light-border;
@@ -103,6 +121,15 @@
           a {
             color: $secondary-color;
             margin-left: $medium-spacing;
+          }
+        }
+        .is-sharing-text {
+          @media (max-width: 768px) {
+            width: 70%;
+            a {
+              display: block;
+              margin: 0;
+            }
           }
         }
         .counter-group {
@@ -134,6 +161,11 @@
           gap: $medium-spacing;
           margin-top: $medium-spacing;
           margin-bottom: $large-spacing;
+        }
+        input[type="radio"] {
+          @media (max-width: 768px) {
+            margin: 0 !important;
+          }
         }
       }
 
@@ -247,7 +279,7 @@
           display: flex;
           justify-content: flex-start;
           align-items: center;
-          gap: $small-spacing/2;
+          gap: calc($small-spacing / 2);
           margin-bottom: $small-spacing;
         }
         .bill-input-group {
@@ -266,6 +298,10 @@
         display: flex;
         flex-direction: row-reverse;
 
+        @media (max-width: 768px) {
+          justify-content: left;
+        }
+
         input[type="radio"] {
           display: none;
         }
@@ -282,7 +318,7 @@
 
         // Step-3 stars
         &.stars label {
-          background-image: url("../assets/img/star-default.png");
+          background-image: url("../assets/img/star-default.svg");
         }
         &.stars input[type="radio"]:checked ~ label,
         &.stars
@@ -291,12 +327,12 @@
           ~ input[type="radio"]
           + label,
         &.stars input[type="radio"]:checked ~ label ~ label {
-          background-image: url("../assets/img/star-selected.png");
+          background-image: url("../assets/img/star-selected.svg");
         }
 
         // Step-4 Heat
         &.heat label {
-          background-image: url("../assets/img/heat-default.png");
+          background-image: url("../assets/img/heat-default.svg");
         }
         &.heat input[type="radio"]:checked ~ label,
         &.heat
@@ -305,32 +341,32 @@
           ~ input[type="radio"]
           + label,
         &.heat input[type="radio"]:checked ~ label ~ label {
-          background-image: url("../assets/img/heat-selected.png");
+          background-image: url("../assets/img/heat-selected.svg");
         }
 
         // Step-4 Lit
         &.lit label {
-          background-image: url("../assets/img/lit-default.png");
+          background-image: url("../assets/img/lit-default.svg");
         }
         &.lit input[type="radio"]:checked ~ label,
         &.lit input[type="radio"]:checked ~ label ~ input[type="radio"] + label,
         &.lit input[type="radio"]:checked ~ label ~ label {
-          background-image: url("../assets/img/lit-selected.png");
+          background-image: url("../assets/img/lit-selected.svg");
         }
 
         // Step-4 Web
         &.web label {
-          background-image: url("../assets/img/web-default.png");
+          background-image: url("../assets/img/web-default.svg");
         }
         &.web input[type="radio"]:checked ~ label,
         &.web input[type="radio"]:checked ~ label ~ input[type="radio"] + label,
         &.web input[type="radio"]:checked ~ label ~ label {
-          background-image: url("../assets/img/web-selected.png");
+          background-image: url("../assets/img/web-selected.svg");
         }
 
         // Step-4 Mail
         &.mail label {
-          background-image: url("../assets/img/mail-default.png");
+          background-image: url("../assets/img/mail-default.svg");
         }
         &.mail input[type="radio"]:checked ~ label,
         &.mail
@@ -339,7 +375,71 @@
           ~ input[type="radio"]
           + label,
         &.mail input[type="radio"]:checked ~ label ~ label {
-          background-image: url("../assets/img/mail-selected.png");
+          background-image: url("../assets/img/mail-selected.svg");
+        }
+        // Step-5 Neighbor
+        @for $i from 5 through 1 {
+          &.neighbor label.neighbor-#{$i} {
+            background-image: url("../assets/img/neighbor-#{$i}-default.svg");
+          }
+          &.neighbor input[type="radio"]:checked ~ label.neighbor-#{$i},
+          &.neighbor
+            input[type="radio"]:checked
+            ~ label.neighbor-#{$i}
+            ~ input[type="radio"]
+            + label.neighbor-#{$i},
+          &.neighbor
+            input[type="radio"]:checked
+            ~ label.neighbor-#{$i}
+            ~ label.neighbor-#{$i} {
+            background-image: url("../assets/img/neighbor-#{$i}-selected.svg");
+          }
+        }
+        // Step-5 Noise
+        @for $i from 5 through 1 {
+          &.sound label.sound-#{$i} {
+            background-image: url("../assets/img/sound-#{$i}-default.svg");
+          }
+          &.sound input[type="radio"]:checked ~ label.sound-#{$i},
+          &.sound
+            input[type="radio"]:checked
+            ~ label.sound-#{$i}
+            ~ input[type="radio"]
+            + label.sound-#{$i},
+          &.sound
+            input[type="radio"]:checked
+            ~ label.sound-#{$i}
+            ~ label.sound-#{$i} {
+            background-image: url("../assets/img/sound-#{$i}-selected.svg");
+          }
+        }
+
+        // Step-5 Parking
+        &.parking label {
+          background-image: url("../assets/img/parking-default.svg");
+        }
+        &.parking input[type="radio"]:checked ~ label,
+        &.parking
+          input[type="radio"]:checked
+          ~ label
+          ~ input[type="radio"]
+          + label,
+        &.parking input[type="radio"]:checked ~ label ~ label {
+          background-image: url("../assets/img/parking-selected.svg");
+        }
+
+        // Step-5 Traffic
+        &.traffic label {
+          background-image: url("../assets/img/traffic-default.svg");
+        }
+        &.traffic input[type="radio"]:checked ~ label,
+        &.traffic
+          input[type="radio"]:checked
+          ~ label
+          ~ input[type="radio"]
+          + label,
+        &.traffic input[type="radio"]:checked ~ label ~ label {
+          background-image: url("../assets/img/traffic-selected.svg");
         }
       }
 
@@ -355,28 +455,35 @@
       //     display: inline-block;
       //     width: 25px;
       //     height: 24px;
-      //     background-image: url("../assets/img/star-default.png");
+      //     background-image: url("../assets/img/star-default.svg");
       //     background-size: cover;
       //     cursor: pointer;
       //     margin-right: $small-spacing;
       //   }
 
       //   input[type="radio"]:checked ~ label {
-      //     background-image: url("../assets/img/star-selected.png");
+      //     background-image: url("../assets/img/star-selected.svg");
       //   }
       //   input[type="radio"]:checked ~ label ~ input[type="radio"] + label {
-      //     background-image: url("../assets/img/star-selected.png");
+      //     background-image: url("../assets/img/star-selected.svg");
       //   }
       //   input[type="radio"]:checked ~ label ~ label {
-      //     background-image: url("../assets/img/star-selected.png");
+      //     background-image: url("../assets/img/star-selected.svg");
       //   }
       // }
       // 3rd Step
       .content {
         width: 100%;
+        @media (max-width: 768px) {
+          margin: 0px auto !important;
+          padding: 0;
+        }
         .input-container {
           display: flex;
           align-items: center;
+          @media (max-width: 768px) {
+            flex-direction: column;
+          }
         }
 
         input[type="text"] {
@@ -393,9 +500,17 @@
           color: $light-text;
           position: relative;
           left: -4.5rem;
+          @media (max-width: 768px) {
+            left: unset;
+            right: -40%;
+            top: -1.9rem;
+          }
         }
         .hidden {
           visibility: hidden;
+          @media (max-width: 768px) {
+            display: none;
+          }
         }
         textarea {
           width: 100%;
@@ -407,6 +522,12 @@
         color: $gray-text;
         input[type="checkbox"] {
           accent-color: $primary-color;
+        }
+        a {
+          color: $secondary-color;
+        }
+        a:hover {
+          color: $primary-color;
         }
       }
     }

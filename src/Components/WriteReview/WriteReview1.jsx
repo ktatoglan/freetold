@@ -77,6 +77,7 @@ function WriteReview1() {
               <div className="row mt-small">
                 <select
                   name="month"
+                  className="mbl-bottom-gap-small"
                   value={moveInDate.month}
                   onChange={(e) =>
                     setMoveInDate({ ...moveInDate, month: e.target.value })
@@ -124,6 +125,7 @@ function WriteReview1() {
               <div className="row mt-small">
                 <input
                   type="text"
+                  className="mbl-bottom-gap-small"
                   value={rentDuration}
                   onChange={(e) =>
                     setRentDuration(e.target.value)
@@ -156,7 +158,7 @@ function WriteReview1() {
                   onChange={(e) => setIsItSharingFlat(e.target.checked)}
                 />
                 <label htmlFor="is-sharing">Toggle</label>
-                <p>
+                <p className="is-sharing-text">
                   Yes, It's a sharing flat{" "}
                   <a href="#">Invite your flat mate to share a review!</a>
                 </p>

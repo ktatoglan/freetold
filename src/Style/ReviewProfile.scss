@@ -148,13 +148,13 @@
       margin-left: $medium-spacing;
     }
     label {
-      background-image: url("../assets/img/star-default.png");
+      background-image: url("../assets/img/star-default.svg");
       margin-bottom: $large-spacing;
     }
     input[type="radio"]:checked ~ label,
     input[type="radio"]:checked ~ label ~ input[type="radio"] + label,
     input[type="radio"]:checked ~ label ~ label {
-      background-image: url("../assets/img/star-selected.png");
+      background-image: url("../assets/img/star-selected.svg");
     }
   }
 
