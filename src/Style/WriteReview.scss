@@ -87,6 +87,10 @@
         border: 1px solid $light-border;
         padding: 10px 14px 10px 14px;
         margin-right: 5px;
+        @media (max-width: 768px) {
+          width: 100%;
+          margin-right: 0;
+        }
       }
       .sharing {
         border: 1px solid $light-border;
@@ -148,6 +152,11 @@
           gap: $medium-spacing;
           margin-top: $medium-spacing;
           margin-bottom: $large-spacing;
+        }
+        input[type="radio"] {
+          @media (max-width: 768px) {
+            margin: 0 !important;
+          }
         }
       }
 

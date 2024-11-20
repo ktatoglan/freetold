@@ -105,11 +105,13 @@ function WriteReview2() {
               <div className="row mt-small">
                 <input
                   type="text"
+                  className="mbl-bottom-gap-small"
                   value={formattedRentAmount}
                   onChange={handleRentAmountChange}
                 />
                 <select
                   name="year"
+                  className="mbl-bottom-gap-small"
                   value={rentPeriod}
                   onChange={(e) => setRentPeriod(e.target.value)}
                 >

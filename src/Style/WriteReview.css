@@ -168,6 +168,14 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
   padding: 10px 14px 10px 14px;
   margin-right: 5px;
 }
+@media (max-width: 768px) {
+  .container .review-flow .review-content input,
+  .container .review-flow .review-content select,
+  .container .review-flow .review-content textarea {
+    width: 100%;
+    margin-right: 0;
+  }
+}
 .container .review-flow .review-content .sharing {
   border: 1px solid #d9d9d9;
   padding: 24px 16px;
@@ -230,6 +238,11 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
   gap: 16px;
   margin-top: 16px;
   margin-bottom: 24px;
+}
+@media (max-width: 768px) {
+  .container .review-flow .review-content .future-contact input[type=radio] {
+    margin: 0 !important;
+  }
 }
 .container .review-flow .review-content .buttons {
   display: flex;
