@@ -5,10 +5,67 @@ const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
+  const token = "ZG9ndWNhbmJhc2tpbkBnbWFpbC5jb206NzljMDc5YjllOTNmMGQ3MWQ3MjIyY2MwYjAyNWM1NDI2NjEwMjg3OA==";
+  const headers = {
+    'Accept': 'text/csv',
+    'Authorization': `Basic ${token}`
+  };
+  // Define base URL and query parameters separately
+  const baseUrl = 'https://epc.opendatacommunities.org/api/v1/domestic/search';
+
+  async function searchProperties(postcode) {
+    const queryParams = { postcode };
+    // Encode query parameters
+    const encodedParams = new URLSearchParams(queryParams).toString();
+    // Append parameters to the base URL
+    const fullUrl = `${baseUrl}?${encodedParams}`;
+
+    // Now make the request
+    await fetch(fullUrl, {
+      method: 'GET',
+      headers: headers,
+    })
+      .then(async response => {
+        const responseText = await response.text();
+        const formattedData = csvToKeyValueArray(responseText);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        setSearchResults(formattedData.map(createAddressString));
+      })
+      .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+      });
+  }
+
+  function csvToKeyValueArray(csv) {
+    const lines = csv.split('\n');
+    const headers = lines[0].split(',');
+    return lines.slice(1).map(line => {
+      const values = line.split(',');
+      return headers.reduce((obj, header, index) => {
+        obj[header] = values[index];
+        return obj;
+      }, {});
+    });
+  }
+
+
+  function createAddressString(data) {
+    const addressParts = [
+      data['address1'],
+      data['address2'],
+      data['address3'],
+      data['posttown'],
+      data['postcode']
+    ].filter(part => part && part.trim() !== '');
+    return addressParts.join(', ');
+  }
+
+
   const handleSearch = () => {
     // Perform search logic here
     // Replace the following line with your actual search implementation
-    const results = ["Result 1", "Result 2", "Result 3"];
 
     window.location.href = "/property-profile/" + searchTerm;
 
@@ -38,7 +95,10 @@ const SearchBar = () => {
         <input
           type="text"
           value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          onChange={(e) => {
+            setSearchTerm(e.target.value)
+            searchProperties(e.target.value);
+          }}
           placeholder="Search property by postcode"
         />
       </div>
@@ -46,7 +106,9 @@ const SearchBar = () => {
 
       <ul>
         {searchResults.map((result, index) => (
-          <li key={index}>{result}</li>
+          <li key={index} onClick={() => window.location.href = `/property-profile/${result}`}>
+            {result}
+          </li>
         ))}
       </ul>
     </div>
