@@ -229,13 +229,13 @@ p {
   margin-left: 16px;
 }
 .property-info .stars label {
-  background-image: url("../assets/img/star-default.png");
+  background-image: url("../assets/img/star-default.svg");
   margin-bottom: 24px;
 }
 .property-info .stars input[type=radio]:checked ~ label,
 .property-info .stars input[type=radio]:checked ~ label ~ input[type=radio] + label,
 .property-info .stars input[type=radio]:checked ~ label ~ label {
-  background-image: url("../assets/img/star-selected.png");
+  background-image: url("../assets/img/star-selected.svg");
 }
 .property-info .pros-cons {
   margin-bottom: 20px;

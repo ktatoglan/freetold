@@ -314,13 +314,13 @@ p, .contact-us-temp .container .form button, .contact-us .container .form button
   margin-left: 16px;
 }
 .latest-reviews .reviews-holder .review-single .review-stars .stars label {
-  background-image: url("../assets/img/star-default.png");
+  background-image: url("../assets/img/star-default.svg");
   margin-bottom: 24px;
 }
 .latest-reviews .reviews-holder .review-single .review-stars .stars input[type=radio]:checked ~ label,
 .latest-reviews .reviews-holder .review-single .review-stars .stars input[type=radio]:checked ~ label ~ input[type=radio] + label,
 .latest-reviews .reviews-holder .review-single .review-stars .stars input[type=radio]:checked ~ label ~ label {
-  background-image: url("../assets/img/star-selected.png");
+  background-image: url("../assets/img/star-selected.svg");
 }
 .latest-reviews .reviews-holder .review-single .review-stars .stars .review-date {
   font-size: 14px;
