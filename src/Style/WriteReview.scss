@@ -296,7 +296,7 @@
 
         // Step-4 Heat
         &.heat label {
-          background-image: url("../assets/img/heat-default.png");
+          background-image: url("../assets/img/heat-default.svg");
         }
         &.heat input[type="radio"]:checked ~ label,
         &.heat
@@ -305,32 +305,32 @@
           ~ input[type="radio"]
           + label,
         &.heat input[type="radio"]:checked ~ label ~ label {
-          background-image: url("../assets/img/heat-selected.png");
+          background-image: url("../assets/img/heat-selected.svg");
         }
 
         // Step-4 Lit
         &.lit label {
-          background-image: url("../assets/img/lit-default.png");
+          background-image: url("../assets/img/lit-default.svg");
         }
         &.lit input[type="radio"]:checked ~ label,
         &.lit input[type="radio"]:checked ~ label ~ input[type="radio"] + label,
         &.lit input[type="radio"]:checked ~ label ~ label {
-          background-image: url("../assets/img/lit-selected.png");
+          background-image: url("../assets/img/lit-selected.svg");
         }
 
         // Step-4 Web
         &.web label {
-          background-image: url("../assets/img/web-default.png");
+          background-image: url("../assets/img/web-default.svg");
         }
         &.web input[type="radio"]:checked ~ label,
         &.web input[type="radio"]:checked ~ label ~ input[type="radio"] + label,
         &.web input[type="radio"]:checked ~ label ~ label {
-          background-image: url("../assets/img/web-selected.png");
+          background-image: url("../assets/img/web-selected.svg");
         }
 
         // Step-4 Mail
         &.mail label {
-          background-image: url("../assets/img/mail-default.png");
+          background-image: url("../assets/img/mail-default.svg");
         }
         &.mail input[type="radio"]:checked ~ label,
         &.mail
@@ -339,7 +339,7 @@
           ~ input[type="radio"]
           + label,
         &.mail input[type="radio"]:checked ~ label ~ label {
-          background-image: url("../assets/img/mail-selected.png");
+          background-image: url("../assets/img/mail-selected.svg");
         }
       }
 

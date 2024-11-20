@@ -353,28 +353,28 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
   background-image: url("../assets/img/star-selected.svg");
 }
 .container .review-flow .review-content .rating-container.heat label {
-  background-image: url("../assets/img/heat-default.png");
+  background-image: url("../assets/img/heat-default.svg");
 }
 .container .review-flow .review-content .rating-container.heat input[type=radio]:checked ~ label, .container .review-flow .review-content .rating-container.heat input[type=radio]:checked ~ label ~ input[type=radio] + label, .container .review-flow .review-content .rating-container.heat input[type=radio]:checked ~ label ~ label {
-  background-image: url("../assets/img/heat-selected.png");
+  background-image: url("../assets/img/heat-selected.svg");
 }
 .container .review-flow .review-content .rating-container.lit label {
-  background-image: url("../assets/img/lit-default.png");
+  background-image: url("../assets/img/lit-default.svg");
 }
 .container .review-flow .review-content .rating-container.lit input[type=radio]:checked ~ label, .container .review-flow .review-content .rating-container.lit input[type=radio]:checked ~ label ~ input[type=radio] + label, .container .review-flow .review-content .rating-container.lit input[type=radio]:checked ~ label ~ label {
-  background-image: url("../assets/img/lit-selected.png");
+  background-image: url("../assets/img/lit-selected.svg");
 }
 .container .review-flow .review-content .rating-container.web label {
-  background-image: url("../assets/img/web-default.png");
+  background-image: url("../assets/img/web-default.svg");
 }
 .container .review-flow .review-content .rating-container.web input[type=radio]:checked ~ label, .container .review-flow .review-content .rating-container.web input[type=radio]:checked ~ label ~ input[type=radio] + label, .container .review-flow .review-content .rating-container.web input[type=radio]:checked ~ label ~ label {
-  background-image: url("../assets/img/web-selected.png");
+  background-image: url("../assets/img/web-selected.svg");
 }
 .container .review-flow .review-content .rating-container.mail label {
-  background-image: url("../assets/img/mail-default.png");
+  background-image: url("../assets/img/mail-default.svg");
 }
 .container .review-flow .review-content .rating-container.mail input[type=radio]:checked ~ label, .container .review-flow .review-content .rating-container.mail input[type=radio]:checked ~ label ~ input[type=radio] + label, .container .review-flow .review-content .rating-container.mail input[type=radio]:checked ~ label ~ label {
-  background-image: url("../assets/img/mail-selected.png");
+  background-image: url("../assets/img/mail-selected.svg");
 }
 .container .review-flow .review-content .content {
   width: 100%;
