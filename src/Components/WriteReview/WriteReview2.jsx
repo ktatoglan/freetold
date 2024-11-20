@@ -101,7 +101,7 @@ function WriteReview2() {
           </div>
           <div className="row">
             <div className="col">
-              <p className="input-title">What is your current rent?</p>
+              <p className="input-title">What’s the rent?</p>
               <div className="row mt-small">
                 <input
                   type="text"
@@ -141,7 +141,7 @@ function WriteReview2() {
           <div className="row">
             <div className="future-contact">
               <p className="contact-title input-title">
-                How much do you currently pay for bills?
+                How much were the bills?
               </p>
               <p className="contact-text">
                 This will help others to get a better understanding of the total

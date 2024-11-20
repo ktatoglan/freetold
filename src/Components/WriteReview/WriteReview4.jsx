@@ -121,7 +121,7 @@ function WriteReview4() {
           </div>
           <div className="row">
             <div className="col">
-              <p className="input-title">How is your internet connection?</p>
+              <p className="input-title">How is the internet connection? </p>
               <div className="row mt-small mb-small">
                 <div className="rating-container web">
                   {Array.from({ length: 5 }, (_, index) => (
