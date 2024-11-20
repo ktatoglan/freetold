@@ -12,7 +12,7 @@ const SearchBar = () => {
 
     window.location.href = "/property-profile/" + searchTerm;
 
-    setSearchResults(results);
+    //setSearchResults(results);
   };
 
   return (
