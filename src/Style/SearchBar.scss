@@ -52,4 +52,15 @@
       text-align: center;
     }
   }
+
+  .search-results{
+    background: white;
+    padding: $small-spacing;
+    border-radius: $medium-spacing;
+    list-style: none;
+    box-shadow: 0 4px 8px #0000001a;
+    li{
+      margin: $small-spacing 0px;
+    }
+  }
 }
