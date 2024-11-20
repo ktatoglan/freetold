@@ -347,10 +347,10 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
   margin-right: 8px;
 }
 .container .review-flow .review-content .rating-container.stars label {
-  background-image: url("../assets/img/star-default.png");
+  background-image: url("../assets/img/star-default.svg");
 }
 .container .review-flow .review-content .rating-container.stars input[type=radio]:checked ~ label, .container .review-flow .review-content .rating-container.stars input[type=radio]:checked ~ label ~ input[type=radio] + label, .container .review-flow .review-content .rating-container.stars input[type=radio]:checked ~ label ~ label {
-  background-image: url("../assets/img/star-selected.png");
+  background-image: url("../assets/img/star-selected.svg");
 }
 .container .review-flow .review-content .rating-container.heat label {
   background-image: url("../assets/img/heat-default.png");

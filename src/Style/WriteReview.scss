@@ -282,7 +282,7 @@
 
         // Step-3 stars
         &.stars label {
-          background-image: url("../assets/img/star-default.png");
+          background-image: url("../assets/img/star-default.svg");
         }
         &.stars input[type="radio"]:checked ~ label,
         &.stars
@@ -291,7 +291,7 @@
           ~ input[type="radio"]
           + label,
         &.stars input[type="radio"]:checked ~ label ~ label {
-          background-image: url("../assets/img/star-selected.png");
+          background-image: url("../assets/img/star-selected.svg");
         }
 
         // Step-4 Heat
@@ -355,20 +355,20 @@
       //     display: inline-block;
       //     width: 25px;
       //     height: 24px;
-      //     background-image: url("../assets/img/star-default.png");
+      //     background-image: url("../assets/img/star-default.svg");
       //     background-size: cover;
       //     cursor: pointer;
       //     margin-right: $small-spacing;
       //   }
 
       //   input[type="radio"]:checked ~ label {
-      //     background-image: url("../assets/img/star-selected.png");
+      //     background-image: url("../assets/img/star-selected.svg");
       //   }
       //   input[type="radio"]:checked ~ label ~ input[type="radio"] + label {
-      //     background-image: url("../assets/img/star-selected.png");
+      //     background-image: url("../assets/img/star-selected.svg");
       //   }
       //   input[type="radio"]:checked ~ label ~ label {
-      //     background-image: url("../assets/img/star-selected.png");
+      //     background-image: url("../assets/img/star-selected.svg");
       //   }
       // }
       // 3rd Step
