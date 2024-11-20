@@ -13,6 +13,9 @@ const Blogs = () => {
   const [error, setError] = useState(null); // Error state
 
   useEffect(() => {
+    //scroll to top
+    window.scrollTo(0, 0);
+
     const fetchBlogs = async () => {
       try {
         const response = await axios.get(
