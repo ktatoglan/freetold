@@ -1,25 +1,16 @@
 import {useState,useEffect}from 'react';
 import  axios  from "axios";
-import {useParams} from 'react-router-dom';
 
 const Tags = ({allBlog, setBlogs}) => {
   const [tags, setTags] = useState([]);
-  const { tag } = useParams();
   useEffect(() => {
    axios.get('https://blog.freetold.com/wp-json/custom/v1/get-tags').then((response) => {
      setTags(response.data);
-      //there is a bug right now not getting the tag from the url
-      //console.log(tag);
-      if(tag) {
-        const filteredBlogs = allBlog.filter(blog => blog.tag.some(t => t.name === tag));
-        setBlogs(filteredBlogs);
-      }
    })
    .catch((error) => {
      console.error("There was an error fetching the tags!", error);
    });
   }, []);
-
 
   return (
     <div className="tags">

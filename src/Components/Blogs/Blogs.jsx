@@ -33,8 +33,38 @@ const Blogs = () => {
   }, []);
 
   useEffect(() => {
-    setBlogs(allBlog);
+    //setBlogs(allBlog);
+    const urlParams = new URLSearchParams(window.location.search);
+      const tag = urlParams.get('tag');
+      if(tag && allBlog.length > 0) {
+        const filteredBlogs = allBlog.filter(blog => blog.tag.some(t => t.name === tag));
+        setBlogs(filteredBlogs);
+        //remove parameter from url
+        window.history.replaceState({}, document.title, window.location.pathname);
+
+        //add active-blog class to the selected tag
+        const tags = document.querySelectorAll('.tag');
+        tags.forEach(tag => tag.classList.remove('active-blog'));
+        const selectedTag = Array.from(document.querySelectorAll('.tag')).find(el => el.textContent.includes(`#${tag}`));
+        selectedTag.classList.add('active-blog');
+      }
+      const category = urlParams.get('category');
+      if(category && allBlog.length > 0) {
+        const filteredBlogs = allBlog.filter(blog => blog.category.some(cat => cat.name === category));
+        setBlogs(filteredBlogs);
+        //remove parameter from url
+        window.history.replaceState({}, document.title, window.location.pathname);
+
+        //add active-category class to the selected category
+        const categories = document.querySelectorAll('.category');
+        categories.forEach(category => category.classList.remove('active-category'));
+        const selectedCategory = Array.from(document.querySelectorAll('.category')).find(el => el.textContent.includes(category));
+        selectedCategory.classList.add('active-category');
+      }
+
   }, [allBlog]);
+
+
 
   // Conditionally rendering loading or error state
   // if (loading) {
