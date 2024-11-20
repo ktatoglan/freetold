@@ -61,6 +61,12 @@
     box-shadow: 0 4px 8px #0000001a;
     li{
       margin: $small-spacing 0px;
+      cursor: pointer;
+      padding: calc($small-spacing / 2);
+      border-radius: $small-spacing;
+    }
+    li:hover{
+      background-color: #0000001a;
     }
   }
 }

@@ -5,15 +5,20 @@ const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
-  const token = "ZG9ndWNhbmJhc2tpbkBnbWFpbC5jb206NzljMDc5YjllOTNmMGQ3MWQ3MjIyY2MwYjAyNWM1NDI2NjEwMjg3OA==";
+  const token =
+    "ZG9ndWNhbmJhc2tpbkBnbWFpbC5jb206NzljMDc5YjllOTNmMGQ3MWQ3MjIyY2MwYjAyNWM1NDI2NjEwMjg3OA==";
   const headers = {
-    'Accept': 'text/csv',
-    'Authorization': `Basic ${token}`
+    Accept: "text/csv",
+    Authorization: `Basic ${token}`,
   };
   // Define base URL and query parameters separately
-  const baseUrl = 'https://epc.opendatacommunities.org/api/v1/domestic/search';
+  const baseUrl = "https://epc.opendatacommunities.org/api/v1/domestic/search";
 
   async function searchProperties(postcode) {
+    if (!postcode.trim()) {
+      setSearchResults([]); // Boş girişlerde sonuçları sıfırla
+      return;
+    }
     const queryParams = { postcode };
     // Encode query parameters
     const encodedParams = new URLSearchParams(queryParams).toString();
@@ -22,27 +27,28 @@ const SearchBar = () => {
 
     // Now make the request
     await fetch(fullUrl, {
-      method: 'GET',
+      method: "GET",
       headers: headers,
     })
-      .then(async response => {
+      .then(async (response) => {
         const responseText = await response.text();
         const formattedData = csvToKeyValueArray(responseText);
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error("Network response was not ok");
         }
         setSearchResults(formattedData.map(createAddressString));
       })
-      .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
+      .catch((error) => {
+        console.error("There was a problem with the fetch operation:", error);
+        setSearchResults([]);
       });
   }
 
   function csvToKeyValueArray(csv) {
-    const lines = csv.split('\n');
-    const headers = lines[0].split(',');
-    return lines.slice(1).map(line => {
-      const values = line.split(',');
+    const lines = csv.split("\n");
+    const headers = lines[0].split(",");
+    return lines.slice(1).map((line) => {
+      const values = line.split(",");
       return headers.reduce((obj, header, index) => {
         obj[header] = values[index];
         return obj;
@@ -50,18 +56,16 @@ const SearchBar = () => {
     });
   }
 
-
   function createAddressString(data) {
     const addressParts = [
-      data['address1'],
-      data['address2'],
-      data['address3'],
-      data['posttown'],
-      data['postcode']
-    ].filter(part => part && part.trim() !== '');
-    return addressParts.join(', ');
+      data["address1"],
+      data["address2"],
+      data["address3"],
+      data["posttown"],
+      data["postcode"],
+    ].filter((part) => part && part.trim() !== "");
+    return addressParts.join(", ");
   }
-
 
   const handleSearch = () => {
     // Perform search logic here
@@ -96,21 +100,27 @@ const SearchBar = () => {
           type="text"
           value={searchTerm}
           onChange={(e) => {
-            setSearchTerm(e.target.value)
+            setSearchTerm(e.target.value);
             searchProperties(e.target.value);
           }}
           placeholder="Search property by postcode"
         />
       </div>
       <button onClick={handleSearch}>Find Properties & reviews</button>
-
-      <ul className="search-results">
-        {searchResults.map((result, index) => (
-          <li key={index} onClick={() => window.location.href = `/property-profile/${result}`}>
-            {result}
-          </li>
-        ))}
-      </ul>
+      {searchTerm.trim() && searchResults.length > 0 && (
+        <ul className="search-results">
+          {searchResults.slice(0, 5).map((result, index) => (
+            <li
+              key={index}
+              onClick={() =>
+                (window.location.href = `/property-profile/${result}`)
+              }
+            >
+              {result}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

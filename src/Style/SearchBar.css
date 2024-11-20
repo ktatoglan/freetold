@@ -151,4 +151,10 @@ p, .home-search button {
 }
 .home-search .search-results li {
   margin: 8px 0px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 8px;
+}
+.home-search .search-results li:hover {
+  background-color: rgba(0, 0, 0, 0.1019607843);
 }/*# sourceMappingURL=SearchBar.css.map */
