@@ -61,6 +61,11 @@
       .mb-small {
         margin-bottom: $small-spacing !important;
       }
+      .mbl-bottom-gap-small {
+        @media (max-width: 768px) {
+          margin-bottom: $small-spacing;
+        }
+      }
       .p-0 {
         padding: 0 !important;
       }
@@ -103,6 +108,15 @@
           a {
             color: $secondary-color;
             margin-left: $medium-spacing;
+          }
+        }
+        .is-sharing-text {
+          @media (max-width: 768px) {
+            width: 70%;
+            a {
+              display: block;
+              margin: 0;
+            }
           }
         }
         .counter-group {
@@ -352,7 +366,10 @@
             ~ label.neighbor-#{$i}
             ~ input[type="radio"]
             + label.neighbor-#{$i},
-          &.neighbor input[type="radio"]:checked ~ label.neighbor-#{$i} ~ label.neighbor-#{$i} {
+          &.neighbor
+            input[type="radio"]:checked
+            ~ label.neighbor-#{$i}
+            ~ label.neighbor-#{$i} {
             background-image: url("../assets/img/neighbor-#{$i}-selected.svg");
           }
         }
@@ -367,7 +384,10 @@
             ~ label.sound-#{$i}
             ~ input[type="radio"]
             + label.sound-#{$i},
-          &.sound input[type="radio"]:checked ~ label.sound-#{$i} ~ label.sound-#{$i} {
+          &.sound
+            input[type="radio"]:checked
+            ~ label.sound-#{$i}
+            ~ label.sound-#{$i} {
             background-image: url("../assets/img/sound-#{$i}-selected.svg");
           }
         }
@@ -466,10 +486,10 @@
         input[type="checkbox"] {
           accent-color: $primary-color;
         }
-        a{
+        a {
           color: $secondary-color;
         }
-        a:hover{
+        a:hover {
           color: $primary-color;
         }
       }

@@ -141,6 +141,11 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
 .container .review-flow .review-content .mb-small {
   margin-bottom: 8px !important;
 }
+@media (max-width: 768px) {
+  .container .review-flow .review-content .mbl-bottom-gap-small {
+    margin-bottom: 8px;
+  }
+}
 .container .review-flow .review-content .p-0 {
   padding: 0 !important;
 }
@@ -186,6 +191,15 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
 .container .review-flow .review-content .sharing .counter-group a {
   color: #ef6c67;
   margin-left: 16px;
+}
+@media (max-width: 768px) {
+  .container .review-flow .review-content .sharing .is-sharing-text {
+    width: 70%;
+  }
+  .container .review-flow .review-content .sharing .is-sharing-text a {
+    display: block;
+    margin: 0;
+  }
 }
 .container .review-flow .review-content .sharing .counter-group {
   padding-left: 21px;
