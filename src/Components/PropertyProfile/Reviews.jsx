@@ -31,9 +31,26 @@ const Reviews = ({ reviews }) => {
           </select>
         </div>
       </div>
-      {sortedReviews.map((review) => (
+      {
+      reviews.length === 0 ?
+      <div>
+        <p>No reviews available, Do you want add one?</p>
+        <button
+          className="write-a-review-btn"
+          onClick={() => {
+            window.location.href = "/write-a-review-0";
+          }}
+        >
+          Write a review
+        </button>
+      </div>
+
+      :
+      sortedReviews.map((review) => (
         <ReviewSingle key={review.review_id} review={review} />
-      ))}
+      ))
+
+      }
     </div>
   );
 };

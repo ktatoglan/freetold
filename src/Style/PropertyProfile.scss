@@ -639,6 +639,19 @@ button {
     color: #00263e;
     margin-bottom: $medium-spacing;
   }
+  .write-a-review-btn{
+    background-color: $secondary-color;
+    color: $white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #e04a4e;
+    }
+  }
 
   .reviews-header {
     display: flex;

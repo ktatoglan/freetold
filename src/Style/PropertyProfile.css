@@ -732,6 +732,18 @@ button {
   color: #00263e;
   margin-bottom: 16px;
 }
+.reviews-container .write-a-review-btn {
+  background-color: #ef6c67;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.reviews-container .write-a-review-btn:hover {
+  background-color: #e04a4e;
+}
 .reviews-container .reviews-header {
   display: flex;
   justify-content: space-between;
@@ -923,4 +935,4 @@ button {
   flex-grow: 1;
   text-align: left;
   padding: 0 10px;
-}/*# sourceMappingURL=PropertyProfile.css.map */
+}
