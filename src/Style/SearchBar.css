@@ -148,6 +148,7 @@ p, .home-search button {
   border-radius: 16px;
   list-style: none;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1019607843);
+  z-index: 2;
 }
 .home-search .search-results li {
   margin: 8px 0px;
