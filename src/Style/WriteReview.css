@@ -135,6 +135,11 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
 .container .review-flow .review-content .row {
   margin: 24px 0px;
 }
+@media (max-width: 768px) {
+  .container .review-flow .review-content .row {
+    margin: 0px 0px 8px 0px;
+  }
+}
 .container .review-flow .review-content .mt-small {
   margin-top: 8px !important;
 }
@@ -174,6 +179,12 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
   .container .review-flow .review-content textarea {
     width: 100%;
     margin-right: 0;
+  }
+}
+@media (max-width: 768px) {
+  .container .review-flow .review-content input[type=checkbox] {
+    width: unset;
+    margin-right: 8px;
   }
 }
 .container .review-flow .review-content .sharing {

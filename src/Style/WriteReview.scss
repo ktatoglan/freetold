@@ -54,6 +54,9 @@
     .review-content {
       .row {
         margin: $large-spacing 0px;
+        @media (max-width: 768px) {
+          margin: 0px 0px $small-spacing 0px;
+        }
       }
       .mt-small {
         margin-top: $small-spacing !important;
@@ -90,6 +93,12 @@
         @media (max-width: 768px) {
           width: 100%;
           margin-right: 0;
+        }
+      }
+      input[type="checkbox"] {
+        @media (max-width: 768px) {
+          width: unset;
+          margin-right: $small-spacing;
         }
       }
       .sharing {
