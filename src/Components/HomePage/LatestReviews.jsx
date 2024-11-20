@@ -1,8 +1,30 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import ReviewCard from "./ReviewCard";
 import Slider from "react-slick";
 
 export const LatestReviews = () => {
+  const[reviews, setReviews] = useState([]);
+  const[loading, setLoading] = useState(true);
+  const[error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const response = await axios.get(
+          "https://api.freetold.com/latest-reviews"
+        );
+        setReviews(response.data);
+        setLoading(false);
+      } catch (err) {
+        setError("Failed to fetch reviews. Please try again later.");
+        setLoading(false);
+      }
+    };
+
+    //fetchReviews();
+  }, []);
+
+
   var settings = {
     centerMode: true,
     dots: true,
