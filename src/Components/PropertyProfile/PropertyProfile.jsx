@@ -61,7 +61,7 @@ const PropertyProfile = ({postalCode}) => {
         <Sidebar/>
       </aside>
       <section className="content">
-        <ContentHeader lastUpdate={"23 Sep 2024"}/>
+        <ContentHeader lastUpdate={reviews.length > 0 ? new Date(reviews[reviews.length-1].date).toLocaleDateString() : "-"}/>
         <PropertyDetails reviews={reviews}/>
         <ReviewScore reviews={reviews}/>
         <LocationMap addressDetails={addressDetails}/>
