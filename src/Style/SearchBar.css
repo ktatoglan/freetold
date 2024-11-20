@@ -148,6 +148,9 @@ p, .home-search button {
   border-radius: 16px;
   list-style: none;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1019607843);
+  max-height: 350px;
+  overflow-y: scroll;
+  overflow-x: hidden;
   z-index: 2;
 }
 .home-search .search-results li {

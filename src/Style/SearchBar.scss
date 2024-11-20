@@ -59,6 +59,9 @@
     border-radius: $medium-spacing;
     list-style: none;
     box-shadow: 0 4px 8px #0000001a;
+    max-height: 350px;
+    overflow-y: scroll;
+    overflow-x: hidden;
     z-index: 2;
     li{
       margin: $small-spacing 0px;

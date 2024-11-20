@@ -109,7 +109,7 @@ const SearchBar = () => {
       <button onClick={handleSearch}>Find Properties & reviews</button>
       {searchTerm.trim() && searchResults.length > 0 && (
         <ul className="search-results">
-          {searchResults.slice(0, 5).map((result, index) => (
+          {searchResults.map((result, index) => (
             <li
               key={index}
               onClick={() =>
