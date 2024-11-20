@@ -247,7 +247,7 @@
           display: flex;
           justify-content: flex-start;
           align-items: center;
-          gap: $small-spacing/2;
+          gap: calc($small-spacing / 2);
           margin-bottom: $small-spacing;
         }
         .bill-input-group {
@@ -341,6 +341,64 @@
         &.mail input[type="radio"]:checked ~ label ~ label {
           background-image: url("../assets/img/mail-selected.svg");
         }
+        // Step-5 Neighbor
+        @for $i from 5 through 1 {
+          &.neighbor label.neighbor-#{$i} {
+            background-image: url("../assets/img/neighbor-#{$i}-default.svg");
+          }
+          &.neighbor input[type="radio"]:checked ~ label.neighbor-#{$i},
+          &.neighbor
+            input[type="radio"]:checked
+            ~ label.neighbor-#{$i}
+            ~ input[type="radio"]
+            + label.neighbor-#{$i},
+          &.neighbor input[type="radio"]:checked ~ label.neighbor-#{$i} ~ label.neighbor-#{$i} {
+            background-image: url("../assets/img/neighbor-#{$i}-selected.svg");
+          }
+        }
+        // Step-5 Noise
+        @for $i from 5 through 1 {
+          &.sound label.sound-#{$i} {
+            background-image: url("../assets/img/sound-#{$i}-default.svg");
+          }
+          &.sound input[type="radio"]:checked ~ label.sound-#{$i},
+          &.sound
+            input[type="radio"]:checked
+            ~ label.sound-#{$i}
+            ~ input[type="radio"]
+            + label.sound-#{$i},
+          &.sound input[type="radio"]:checked ~ label.sound-#{$i} ~ label.sound-#{$i} {
+            background-image: url("../assets/img/sound-#{$i}-selected.svg");
+          }
+        }
+
+        // Step-5 Parking
+        &.parking label {
+          background-image: url("../assets/img/parking-default.svg");
+        }
+        &.parking input[type="radio"]:checked ~ label,
+        &.parking
+          input[type="radio"]:checked
+          ~ label
+          ~ input[type="radio"]
+          + label,
+        &.parking input[type="radio"]:checked ~ label ~ label {
+          background-image: url("../assets/img/parking-selected.svg");
+        }
+
+        // Step-5 Traffic
+        &.traffic label {
+          background-image: url("../assets/img/traffic-default.svg");
+        }
+        &.traffic input[type="radio"]:checked ~ label,
+        &.traffic
+          input[type="radio"]:checked
+          ~ label
+          ~ input[type="radio"]
+          + label,
+        &.traffic input[type="radio"]:checked ~ label ~ label {
+          background-image: url("../assets/img/traffic-selected.svg");
+        }
       }
 
       // .rating-container {
@@ -407,6 +465,12 @@
         color: $gray-text;
         input[type="checkbox"] {
           accent-color: $primary-color;
+        }
+        a{
+          color: $secondary-color;
+        }
+        a:hover{
+          color: $primary-color;
         }
       }
     }

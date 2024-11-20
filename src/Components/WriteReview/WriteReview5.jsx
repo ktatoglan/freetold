@@ -63,19 +63,19 @@ function WriteReview5() {
                 What’s your perception about the neighbors?
               </p>
               <div className="row mt-small mb-small">
-                <div className="rating-container heat">
+                <div className="rating-container neighbor">
                   {Array.from({ length: 5 }, (_, index) => (
                     <React.Fragment key={index}>
                       <input
                         type="radio"
-                        id={`heat${index + 1}`}
-                        name="heat-container"
+                        id={`neighbor${index + 1}`}
+                        name="neighbor-container"
                         value={index + 1}
                         checked={perceptionNeighborsLevel === 5 - index}
                         onClick={() => setPerceptionNeighborsLevel(5 - index)}
                         onChange={() => {}}
                       />
-                      <label htmlFor={`heat${index + 1}`}></label>
+                      <label htmlFor={`neighbor${index + 1}`} className={`neighbor-${index+1}`}></label>
                     </React.Fragment>
                   ))}
                 </div>
@@ -86,19 +86,19 @@ function WriteReview5() {
                 How would you describe the noise level in the neighborhood?
               </p>
               <div className="row mt-small mb-small">
-                <div className="rating-container lit">
+                <div className="rating-container sound">
                   {Array.from({ length: 5 }, (_, index) => (
                     <React.Fragment key={index}>
                       <input
                         type="radio"
-                        id={`lit${index + 1}`}
-                        name="lit-container"
+                        id={`sound${index + 1}`}
+                        name="sound-container"
                         value={index + 1}
                         checked={noiseNeighborsLevel === 5 - index}
                         onClick={() => setNoiseNeighborsLevel(5 - index)}
                         onChange={() => {}}
                       />
-                      <label htmlFor={`lit${index + 1}`}></label>
+                      <label htmlFor={`sound${index + 1}`} className={`sound-${index+1}`}></label>
                     </React.Fragment>
                   ))}
                 </div>
@@ -109,7 +109,7 @@ function WriteReview5() {
             <div className="col">
               <p className="input-title">How easy is it to find parking?</p>
               <div className="row mt-small mb-small">
-                <div className="rating-container web">
+                <div className="rating-container parking">
                   {Array.from({ length: 5 }, (_, index) => (
                     <React.Fragment key={index}>
                       <input
@@ -132,7 +132,7 @@ function WriteReview5() {
                 How’s the traffic around the property?
               </p>
               <div className="row mt-small mb-small">
-                <div className="rating-container web">
+                <div className="rating-container traffic">
                   {Array.from({ length: 5 }, (_, index) => (
                     <React.Fragment key={index}>
                       <input
