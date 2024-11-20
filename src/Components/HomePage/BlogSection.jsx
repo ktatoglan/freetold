@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import blogImg from "../../assets/img/home-blog.png"; // Default blog image
 import Loading from "../Blogs/Loading";
+import { toast } from "react-toastify";
 
 const BlogSection = () => {
   const navigate = useNavigate();
@@ -30,7 +31,12 @@ const BlogSection = () => {
   // Safely accessing blog data
   const blogSlug = blog?.slug || "default-slug";
 
-  const handleNavigation = () => {
+  const handleNavigation = (e) => {
+
+    //check if the click event is from the share button
+    if(e.target.classList.contains("share")){
+      return;
+    }
     // Checking if blogSlug exists and is valid
     if (blogSlug) {
       navigate(`/blog/${blogSlug}`);
@@ -147,7 +153,11 @@ const BlogSection = () => {
               </svg>
               2
             </div> */}
-            <div className="share">
+            <div className="share" onClick={()=>{
+              //copy the current URL to the clipboard
+              navigator.clipboard.writeText(`${window.location.origin}/blog/${blogSlug}`);
+              toast.success("Link copied to clipboard");
+            }}>
               <svg
                 width="24"
                 height="24"
