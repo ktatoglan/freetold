@@ -20,9 +20,19 @@ const Categories = ({allBlog, setBlogs}) => {
       <ul>
         {categories.map((category) => (
           <li key={category.id}
-          onClick={() => {
+          className="category"
+          onClick={(event) => {
+            if(event.target.classList.contains('active-category')) {
+              event.target.classList.remove('active-category');
+              setBlogs(allBlog);
+              return;
+            }
             const filteredBlogs = allBlog.filter(blog => blog.category.some(cat => cat.name === category.name));
             setBlogs(filteredBlogs);
+            //add active-category class to the selected category
+            const categories = document.querySelectorAll('.category');
+            categories.forEach(category => category.classList.remove('active-category'));
+            event.target.classList.add('active-category');
           }}
           >
             <img src={category.image} alt={category.name} />

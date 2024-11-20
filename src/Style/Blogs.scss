@@ -373,3 +373,12 @@ button {
     margin: auto;
   }
 }
+
+
+.active-blog{
+  background-color: $secondary-color;
+}
+
+.active-category{
+  color: $secondary-color !important; ;
+}

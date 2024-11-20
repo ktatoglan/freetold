@@ -435,4 +435,12 @@ button {
   width: 8vw;
   height: auto;
   margin: auto;
-}/*# sourceMappingURL=Blogs.css.map */
+}
+
+.active-blog {
+  background-color: #ef6c67;
+}
+
+.active-category {
+  color: #ef6c67 !important;
+}
