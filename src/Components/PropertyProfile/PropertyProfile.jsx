@@ -18,7 +18,7 @@ const PropertyProfile = ({postalCode,address}) => {
 
   useEffect(() => {
 
-    const url = `${serverUrl}/review/getReviewsByPostalCode/${postalCode}`;
+    const url = `${serverUrl}/review/getReviewsByPostalCodeAndAddress/${postalCode}/${address}`;
     axios.get(url)
       .then(response => {
         setReviews(response.data);
@@ -28,15 +28,6 @@ const PropertyProfile = ({postalCode,address}) => {
       });
 
       getAddressFromPostcode(postalCode);
-
-      const fetchPropertyDetails = async () => {
-        try {
-          // You can process the data as needed
-        } catch (error) {
-          console.error('Error fetching property details:', error);
-        }
-      };
-      fetchPropertyDetails();
       getPropertyInfo();
   }, [postalCode, serverUrl]);
 

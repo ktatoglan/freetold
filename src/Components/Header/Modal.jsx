@@ -140,7 +140,11 @@ const Modal = ({ closeModal }) => {
                         setTownCity(searchFullResults[index].county);
                         setCountry("United Kingdom");
                         setPostCode(searchFullResults[index].postcode);
-                        setAddressLine1(searchFullResults[index]['address1'] + " " + searchFullResults[index]['address2'] + " " + searchFullResults[index]['address3']);
+                        let address = searchFullResults[index]['address1'] + " " + searchFullResults[index]['address2'] + " " + searchFullResults[index]['address3'];
+                        //delete spaces at the end and beginning
+                        address = address.trim();
+
+                        setAddressLine1(address);
                         setSearchResults([]);
                         setSearchText("");
                       }}
