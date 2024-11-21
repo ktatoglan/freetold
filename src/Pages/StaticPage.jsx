@@ -46,10 +46,10 @@ const Page = ({ match }) => {
   if (error) {
     return (
       <div className="page">
-        <div className="error-message">
-          <h1>Sayfa Bulunamadı</h1>
-          <p>Aradığınız sayfa mevcut değil ya da URL yanlış olabilir.</p>
-        </div>
+      <div className="error-message">
+        <h1>Page Not Found</h1>
+        <p>The page you are looking for does not exist or the URL might be incorrect.</p>
+      </div>
       </div>
     );
   }
