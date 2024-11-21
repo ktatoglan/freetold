@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
-
+import { useAppProvider } from "../../Contexts/AppContext";
+import { toast } from "react-toastify";
 const PropertyDetails = ({reviews, selectedProperty}) => {
   const [isSummaryVisible, setSummaryVisible] = useState(false);
   const [showBreakdown, setShowBreakdown] = useState(false);
@@ -12,6 +13,7 @@ const PropertyDetails = ({reviews, selectedProperty}) => {
   const [internet, setInternet] = useState('-');
   const breakdownRef = useRef(null);
   const infoRef = useRef(null);
+  const { serverUrl, userId } = useAppProvider();
 
   // Dış tıklama olayını dinlemek için tek bir işlev
   const handleClickOutside = (event) => {
@@ -64,6 +66,13 @@ const PropertyDetails = ({reviews, selectedProperty}) => {
     return addressParts.join(", ");
   }
 
+  function handleWriteReviewClick (){
+    if (!userId){
+      toast.error("Please login to write a review");
+      return;
+    }
+    window.location.href = `/write-review-0`;
+  }
 
   return (
     <div className="property-details">
@@ -320,7 +329,7 @@ const PropertyDetails = ({reviews, selectedProperty}) => {
           </div>
         </div>
       </div>
-      <button className="write-review">Write a review for this property</button>
+        <button className="write-review" onClick={handleWriteReviewClick}>Write a review for this property</button>
     </div>
   );
 };
