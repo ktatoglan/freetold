@@ -133,7 +133,7 @@ const PropertyDetails = ({reviews, selectedProperty}) => {
             </div>
             <div className="stat-text">
               <div className="stat-label">Total floor area</div>
-              <div className="stat-value">{totalFloorArea} sq m</div>
+              <div className="stat-value">{selectedProperty["total-floor-area"]} sq m</div>
             </div>
           </div>
           <div className="stat-item">
