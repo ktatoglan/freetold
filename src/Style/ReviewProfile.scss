@@ -10,9 +10,10 @@
     margin: $large-spacing auto;
     width: 90%;
 
-    // @media (max-width: 768px) {
-    //   flex-direction: column;
-    // }
+    @media (max-width: 768px) {
+      flex-direction: column;
+      margin-top: 0;
+    }
   }
 }
 
@@ -40,6 +41,11 @@
     padding: $small-spacing 0;
     width: 90%;
     margin: auto;
+    @media (max-width: 768px) {
+      margin: 0;
+      gap: 8px;
+      width: unset;
+    }
 
     .left-section {
       display: flex;
@@ -48,6 +54,7 @@
       .user-icon {
         font-size: 24px;
         margin-right: 10px;
+        display: none;
       }
 
       .user-details {
@@ -106,6 +113,9 @@
 .property-info {
   flex: 2;
   padding: 0px $medium-spacing;
+  @media (max-width: 768px) {
+    padding: 0;
+  }
 
   h3 {
     color: $primary-color;
@@ -116,6 +126,10 @@
     margin-bottom: $small-spacing;
     display: inline-flex;
     margin-bottom: $medium-spacing;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
 
     svg {
       margin-right: 5px;
@@ -126,6 +140,10 @@
       color: $secondary-color;
       cursor: pointer;
       margin-left: 10px;
+      @media (max-width: 768px) {
+        margin-left: 0;
+        margin-top: $small-spacing;
+      }
     }
   }
 
@@ -166,6 +184,7 @@
       margin-bottom: 20px;
 
       h4 {
+        color: $primary-color;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -173,6 +192,9 @@
         line-height: 14px;
         margin-bottom: 10px;
         width: 100%;
+        @media (max-width: 768px) {
+          line-height: 20px!important;
+        }
 
         .icon {
           margin-right: 10px;
@@ -192,6 +214,7 @@
     margin-bottom: 20px;
 
     h4 {
+      color: $primary-color;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -199,6 +222,9 @@
       line-height: 14px;
       margin-bottom: 10px;
       width: 100%;
+      @media (max-width: 768px) {
+        line-height: 20px!important;
+      }
 
       .icon {
         margin-right: 10px;
@@ -329,6 +355,9 @@
 .review-sidebar {
   flex: 1;
   padding-left: $large-spacing;
+  @media (max-width: 768px) {
+    padding-left: 0;
+  }
 
   .cost,
   .rating {
@@ -405,6 +434,7 @@
         color: $gray-text;
         font-size: 14px;
       }
+
     }
 
     .rating-item {
@@ -415,7 +445,7 @@
       &.pet-friendly {
         margin-top: $large-spacing;
 
-        .value{
+        .value {
           color: $secondary-color;
           font-weight: 600;
         }
