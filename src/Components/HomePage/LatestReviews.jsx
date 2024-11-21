@@ -1,27 +1,30 @@
 import React, {useState, useEffect} from "react";
 import ReviewCard from "./ReviewCard";
 import Slider from "react-slick";
+import { useAppProvider } from "../../Contexts/AppContext";
+import axios from "axios";
 
 export const LatestReviews = () => {
   const[reviews, setReviews] = useState([]);
   const[loading, setLoading] = useState(true);
   const[error, setError] = useState(null);
-
+  const { serverUrl } = useAppProvider();
   useEffect(() => {
     const fetchReviews = async () => {
       try {
         const response = await axios.get(
-          "https://api.freetold.com/latest-reviews"
+          `${serverUrl}/review/latest-reviews`
         );
         setReviews(response.data);
         setLoading(false);
       } catch (err) {
         setError("Failed to fetch reviews. Please try again later.");
         setLoading(false);
+        console.error("Error fetching reviews:", err);
       }
     };
 
-    //fetchReviews();
+    fetchReviews();
   }, []);
 
 
@@ -67,12 +70,9 @@ export const LatestReviews = () => {
         <h3 className="title">Latest reviews from our users</h3>
         <div className="reviews-holder">
           <Slider {...settings}>
-            <ReviewCard ReviewID={141414} />
-            <ReviewCard ReviewID={232323} />
-            <ReviewCard ReviewID={141414} />
-            <ReviewCard ReviewID={232323} />
-            <ReviewCard ReviewID={141414} />
-            <ReviewCard ReviewID={232323} />
+            {reviews.map((review) => (
+              <ReviewCard key={review.review_id} review={review} />
+            ))}
           </Slider>
         </div>
       </div>

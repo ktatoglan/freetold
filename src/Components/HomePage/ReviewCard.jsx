@@ -6,7 +6,7 @@ import React from "react";
 //   return `Stayed in this property for ${number} ${periodText}`;
 // };
 
-const ReviewCard = ({ ReviewID }) => {
+const ReviewCard = ({ ReviewID, review }) => {
   return (
     <div className="review-single">
       <div className="review-user">
@@ -29,11 +29,11 @@ const ReviewCard = ({ ReviewID }) => {
         </div>
         {/* <div className="user-duration">{getTenancyPeriodText(review.tenancy_period)}</div> */}
         <div className="user-duration">
-          <p>Stayed in this property for 6 months</p>
+          <p>Stayed in this property for {review.rent_duration} {review.rent_period == 'per-month' ? "month" : "year"}</p>
         </div>
       </div>
       <div className="review-title">
-        <h4>Light apartment in very cozy and safe neighborhood</h4>
+        <h4>{review.review_headline}</h4>
       </div>
       <div className="review-stars">
         <div className="stars">
@@ -49,7 +49,7 @@ const ReviewCard = ({ ReviewID }) => {
               <label htmlFor={`star${index + 1}`}></label>
             </React.Fragment>
           ))}
-          <span className="review-date">2 weeks ago</span>
+          <span className="review-date">{new Date(review.date).toLocaleDateString()}</span>
         </div>
       </div>
       <div className="review-rating">
@@ -71,7 +71,7 @@ const ReviewCard = ({ ReviewID }) => {
               </svg>
             </span>
             <span>Heating</span>
-            <span>4.5</span>
+            <span>{review.heat_up_level}</span>
           </div>
           <div className="rating-item">
             <span className="icon noise-icon">
@@ -95,7 +95,7 @@ const ReviewCard = ({ ReviewID }) => {
               </svg>
             </span>
             <span>Noise level</span>
-            <span>4.2</span>
+            <span>{review.noise_neighbors_level}</span>
           </div>
           <div className="rating-item">
             <span className="icon traffic-icon">
@@ -113,44 +113,46 @@ const ReviewCard = ({ ReviewID }) => {
               </svg>
             </span>
             <span>Traffic</span>
-            <span>5.0</span>
+            <span>{review.traffic_score}</span>
           </div>
         </div>
       </div>
       <div className="review-footer">
-        <div className="fav">
-          <span>
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12.1 18.55L12 18.65L11.89 18.55C7.14 14.24 4 11.39 4 8.5C4 6.5 5.5 5 7.5 5C9.04 5 10.54 6 11.07 7.36H12.93C13.46 6 14.96 5 16.5 5C18.5 5 20 6.5 20 8.5C20 11.39 16.86 14.24 12.1 18.55ZM16.5 3C14.76 3 13.09 3.81 12 5.08C10.91 3.81 9.24 3 7.5 3C4.42 3 2 5.41 2 8.5C2 12.27 5.4 15.36 10.55 20.03L12 21.35L13.45 20.03C18.6 15.36 22 12.27 22 8.5C22 5.41 19.58 3 16.5 3Z"
-                fill="#919191"
-              />
-            </svg>
-          </span>
-          <span>
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M22 8.1C22 7.62261 21.818 7.16477 21.4941 6.82721C21.1702 6.48964 20.7308 6.3 20.2727 6.3H14.8145L15.6436 2.187C15.6609 2.097 15.6695 1.998 15.6695 1.899C15.6695 1.53 15.5227 1.188 15.2895 0.945L14.3741 0L8.69136 5.922C8.37182 6.255 8.18182 6.705 8.18182 7.2V16.2C8.18182 16.6774 8.3638 17.1352 8.68772 17.4728C9.01165 17.8104 9.45099 18 9.90909 18H17.6818C18.3986 18 19.0118 17.55 19.2709 16.902L21.8791 10.557C21.9568 10.35 22 10.134 22 9.9V8.1ZM3 18H6.45455V7.2H3V18Z"
-                fill="#646464"
-              />
-            </svg>
-            2 likes
-          </span>
-        </div>
+       {/*
+          <div className="fav">
+            <span>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12.1 18.55L12 18.65L11.89 18.55C7.14 14.24 4 11.39 4 8.5C4 6.5 5.5 5 7.5 5C9.04 5 10.54 6 11.07 7.36H12.93C13.46 6 14.96 5 16.5 5C18.5 5 20 6.5 20 8.5C20 11.39 16.86 14.24 12.1 18.55ZM16.5 3C14.76 3 13.09 3.81 12 5.08C10.91 3.81 9.24 3 7.5 3C4.42 3 2 5.41 2 8.5C2 12.27 5.4 15.36 10.55 20.03L12 21.35L13.45 20.03C18.6 15.36 22 12.27 22 8.5C22 5.41 19.58 3 16.5 3Z"
+                  fill="#919191"
+                />
+              </svg>
+            </span>
+            <span>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M22 8.1C22 7.62261 21.818 7.16477 21.4941 6.82721C21.1702 6.48964 20.7308 6.3 20.2727 6.3H14.8145L15.6436 2.187C15.6609 2.097 15.6695 1.998 15.6695 1.899C15.6695 1.53 15.5227 1.188 15.2895 0.945L14.3741 0L8.69136 5.922C8.37182 6.255 8.18182 6.705 8.18182 7.2V16.2C8.18182 16.6774 8.3638 17.1352 8.68772 17.4728C9.01165 17.8104 9.45099 18 9.90909 18H17.6818C18.3986 18 19.0118 17.55 19.2709 16.902L21.8791 10.557C21.9568 10.35 22 10.134 22 9.9V8.1ZM3 18H6.45455V7.2H3V18Z"
+                  fill="#646464"
+                />
+              </svg>
+              2 likes
+            </span>
+          </div>
+       */}
         <div className="link">
-          <a href="#">Read full review</a>
+          <a href={"/property-profile/review/"+review.review_id}>Read full review</a>
         </div>
       </div>
     </div>
