@@ -93,11 +93,37 @@ p {
   min-height: 100vh;
   padding-top: 50px;
 }
+@media (max-width: 768px) {
+  .main {
+    margin-left: unset;
+    padding-top: unset;
+  }
+}
+
+.hide-lg {
+  display: none;
+}
+@media (max-width: 768px) {
+  .hide-lg {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .hide-mbl {
+    display: none;
+  }
+}
 
 .content {
   flex: 1;
   padding: 0px 20px;
   margin-right: 8%;
+}
+@media (max-width: 768px) {
+  .content {
+    margin-top: 0 !important;
+  }
 }
 
 button {
@@ -191,6 +217,24 @@ button {
   cursor: pointer;
 }
 
+.profile-desktop-menu {
+  margin: 24px 0px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.profile-desktop-menu p a {
+  color: #0a2446;
+  text-decoration: none;
+  border: 1px solid #0a2446;
+  border-radius: 4px;
+  padding: 4px;
+}
+.profile-desktop-menu p a.active {
+  background-color: #0a2446;
+  color: #fff;
+}
+
 .reviews-section h3 {
   color: #0a2446;
   margin-bottom: 24px;
@@ -209,10 +253,22 @@ button {
   justify-content: space-between;
   margin-bottom: 24px;
 }
+@media (max-width: 768px) {
+  .reviews-section .user-review-header {
+    display: block;
+  }
+}
 .reviews-section .user-review-header .address,
 .reviews-section .user-review-header .edit-del-buttons {
   display: flex;
   gap: 16px;
+}
+@media (max-width: 768px) {
+  .reviews-section .user-review-header .address,
+  .reviews-section .user-review-header .edit-del-buttons {
+    margin-bottom: 8px;
+    justify-content: flex-end;
+  }
 }
 .reviews-section .user-review-header .address p,
 .reviews-section .user-review-header .edit-del-buttons p {
@@ -297,12 +353,22 @@ button {
   justify-content: space-between;
   align-items: center;
 }
+@media (max-width: 768px) {
+  .saved-properties .property-card .property-footer {
+    display: block;
+  }
+}
 .saved-properties .property-card .property-footer p {
   margin: 0;
 }
 .saved-properties .property-card .property-footer .footer-review-info {
   display: flex;
   gap: 16px;
+}
+@media (max-width: 768px) {
+  .saved-properties .property-card .property-footer .footer-review-info {
+    justify-content: flex-end;
+  }
 }
 .saved-properties .property-card .property-footer .footer-review-info p {
   display: flex;
@@ -332,4 +398,10 @@ button {
   font-weight: 300;
   cursor: pointer;
   color: #919191;
+}
+@media (max-width: 768px) {
+  .saved-properties .property-card .property-footer .favorite-button {
+    margin-left: auto;
+    margin-top: 8px;
+  }
 }/*# sourceMappingURL=UserProfile.css.map */
