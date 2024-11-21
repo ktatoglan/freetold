@@ -9,7 +9,7 @@ const getTenancyPeriodText = (tenancyPeriod) => {
 const ReviewSingle = ({ review }) => (
   <div className="review-single">
     <div className="user-info">
-      <div className="avatar-placeholder"></div>
+      {/* <div className="avatar-placeholder"></div> */}
       <div>
         <div className="user-name">{review.user_id}</div>
         <div className="user-duration">{getTenancyPeriodText(review.tenancy_period)}</div>

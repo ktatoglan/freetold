@@ -95,7 +95,7 @@ const PropertyProfile = ({postalCode,address}) => {
   return (
     <>
     <section className="main">
-      <aside className="sidebar">
+      <aside className="sidebar hide-mbl">
         <Sidebar/>
       </aside>
       <section className="content">
