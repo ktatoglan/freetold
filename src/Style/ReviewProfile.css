@@ -103,6 +103,12 @@ p {
   margin: 24px auto;
   width: 90%;
 }
+@media (max-width: 768px) {
+  .review-page .main-content {
+    flex-direction: column;
+    margin-top: 0;
+  }
+}
 
 .header-section {
   padding: 16px 24px;
@@ -126,6 +132,13 @@ p {
   width: 90%;
   margin: auto;
 }
+@media (max-width: 768px) {
+  .header-section .user-info {
+    margin: 0;
+    gap: 8px;
+    width: unset;
+  }
+}
 .header-section .user-info .left-section {
   display: flex;
   align-items: center;
@@ -133,6 +146,7 @@ p {
 .header-section .user-info .left-section .user-icon {
   font-size: 24px;
   margin-right: 10px;
+  display: none;
 }
 .header-section .user-info .left-section .user-details {
   display: flex;
@@ -179,6 +193,11 @@ p {
   flex: 2;
   padding: 0px 16px;
 }
+@media (max-width: 768px) {
+  .property-info {
+    padding: 0;
+  }
+}
 .property-info h3, .property-info .review-sidebar .cost .cost-item.rent span.value, .review-sidebar .cost .cost-item.rent .property-info span.value, .property-info .review-sidebar .cost .cost-item.bills-title span.value, .review-sidebar .cost .cost-item.bills-title .property-info span.value,
 .property-info .review-sidebar .cost .rating-item.rent span.value,
 .review-sidebar .cost .rating-item.rent .property-info span.value,
@@ -201,6 +220,12 @@ p {
   display: inline-flex;
   margin-bottom: 16px;
 }
+@media (max-width: 768px) {
+  .property-info .address {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 .property-info .address svg {
   margin-right: 5px;
 }
@@ -209,6 +234,12 @@ p {
   color: #ef6c67;
   cursor: pointer;
   margin-left: 10px;
+}
+@media (max-width: 768px) {
+  .property-info .address .show-map {
+    margin-left: 0;
+    margin-top: 8px;
+  }
 }
 .property-info input[type=radio] {
   display: none;
@@ -246,6 +277,7 @@ p {
 }
 .property-info .pros-cons .pros h4,
 .property-info .pros-cons .cons h4 {
+  color: #0a2446;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -253,6 +285,12 @@ p {
   line-height: 14px;
   margin-bottom: 10px;
   width: 100%;
+}
+@media (max-width: 768px) {
+  .property-info .pros-cons .pros h4,
+  .property-info .pros-cons .cons h4 {
+    line-height: 20px !important;
+  }
 }
 .property-info .pros-cons .pros h4 .icon,
 .property-info .pros-cons .cons h4 .icon {
@@ -271,6 +309,7 @@ p {
 .property-info .fixes h4,
 .property-info .safety h4,
 .property-info .health h4 {
+  color: #0a2446;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -278,6 +317,13 @@ p {
   line-height: 14px;
   margin-bottom: 10px;
   width: 100%;
+}
+@media (max-width: 768px) {
+  .property-info .fixes h4,
+  .property-info .safety h4,
+  .property-info .health h4 {
+    line-height: 20px !important;
+  }
 }
 .property-info .fixes h4 .icon,
 .property-info .safety h4 .icon,
@@ -388,6 +434,11 @@ p {
 .review-sidebar {
   flex: 1;
   padding-left: 24px;
+}
+@media (max-width: 768px) {
+  .review-sidebar {
+    padding-left: 0;
+  }
 }
 .review-sidebar .cost,
 .review-sidebar .rating {
