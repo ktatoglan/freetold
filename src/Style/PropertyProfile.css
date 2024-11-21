@@ -804,8 +804,18 @@ button {
   display: flex;
   justify-content: space-between;
 }
+@media (max-width: 768px) {
+  .review-single .review-content {
+    flex-direction: column;
+  }
+}
 .review-single .review-content .review-details {
   width: 60%;
+}
+@media (max-width: 768px) {
+  .review-single .review-content .review-details {
+    width: unset;
+  }
 }
 .review-single .review-content .review-details .review-title {
   font-size: 24px;
@@ -904,6 +914,11 @@ button {
   border: 1px solid #d9d9d9;
   border-radius: 10px;
   padding: 16px;
+}
+@media (max-width: 768px) {
+  .review-single .review-content .rating-review {
+    width: unset;
+  }
 }
 .review-single .review-content .rating-review h4 {
   font-size: 16px;

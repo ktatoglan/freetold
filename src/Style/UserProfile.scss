@@ -5,12 +5,33 @@
   margin-left: 200px; /* Adjust according to sidebar width */
   min-height: 100vh; // need to fix later
   padding-top: 50px;
+
+  @media (max-width: 768px) {
+    margin-left: unset;
+    padding-top: unset;
+  }
+}
+
+.hide-lg {
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+.hide-mbl {
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .content {
   flex: 1;
   padding: 0px 20px;
   margin-right: 8%;
+  @media (max-width: 768px) {
+    margin-top: 0 !important;
+  }
 }
 
 button {
@@ -114,6 +135,26 @@ button {
   }
 }
 
+.profile-desktop-menu {
+  margin: $large-spacing 0px;
+  display: flex;
+  gap: $small-spacing;
+  flex-wrap: wrap;
+  p {
+    a {
+      color: $primary-color;
+      text-decoration: none;
+      border: 1px solid $primary-color;
+      border-radius: calc($small-spacing / 2);
+      padding: calc($small-spacing / 2);
+    }
+    a.active {
+      background-color: $primary-color;
+      color: $white;
+    }
+  }
+}
+
 .reviews-section {
   h3 {
     color: $primary-color;
@@ -134,11 +175,18 @@ button {
     align-items: center;
     justify-content: space-between;
     margin-bottom: $large-spacing;
+    @media (max-width: 768px) {
+      display: block;
+    }
 
     .address,
     .edit-del-buttons {
       display: flex;
       gap: $medium-spacing;
+      @media (max-width: 768px) {
+        margin-bottom: $small-spacing;
+        justify-content: flex-end;
+      }
       p {
         display: inherit;
         align-items: center;
@@ -232,6 +280,9 @@ button {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      @media (max-width: 768px) {
+        display: block;
+      }
 
       p {
         margin: 0;
@@ -239,6 +290,9 @@ button {
       .footer-review-info {
         display: flex;
         gap: $medium-spacing;
+        @media (max-width: 768px) {
+          justify-content: flex-end;
+        }
         p {
           display: flex;
           align-items: center;
@@ -269,6 +323,10 @@ button {
         font-weight: 300;
         cursor: pointer;
         color: $light-text;
+        @media (max-width: 768px) {
+          margin-left: auto;
+          margin-top: $small-spacing;
+        }
       }
     }
   }
