@@ -683,7 +683,11 @@ button {
   border-bottom: 1px solid $light-border;
   margin: 0px 0px $large-spacing;
   padding-bottom: $medium-spacing;
-
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 16px;
+  }
   .user-info {
     display: flex;
     align-items: center;

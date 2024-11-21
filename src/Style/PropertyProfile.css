@@ -771,6 +771,13 @@ button {
   margin: 0px 0px 24px;
   padding-bottom: 16px;
 }
+@media (max-width: 768px) {
+  .review-single {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 16px;
+  }
+}
 .review-single .user-info {
   display: flex;
   align-items: center;
