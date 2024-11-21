@@ -85,9 +85,9 @@ function App() {
                 element={<WriteReview5 />}
               />
               <Route
-                path="/property-profile/:postalCode"
+                path="/property-profile/"
                 exact
-                element={<MobilePropertyProfile />}
+                element={<PropertyProfile />}
               />
               <Route
                 path="/property-profile/review/:reviewID"

@@ -99,6 +99,27 @@ p, .review-score .review-summary .overall-rating .rating-details .details-title,
   min-height: 100vh;
   padding-top: 50px;
 }
+@media (max-width: 768px) {
+  .main {
+    margin-left: unset;
+    padding-top: unset;
+  }
+}
+
+.hide-lg {
+  display: none !important;
+}
+@media (max-width: 768px) {
+  .hide-lg {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hide-mbl {
+    display: none;
+  }
+}
 
 .content {
   flex: 1;
@@ -147,6 +168,11 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+@media (max-width: 768px) {
+  .content-header {
+    margin-top: 48px;
+  }
 }
 .content-header .update-date {
   color: #646464;
@@ -216,8 +242,18 @@ button {
   display: flex;
   justify-content: space-between;
 }
+@media (max-width: 768px) {
+  .property-details .property-info {
+    flex-direction: column;
+  }
+}
 .property-details .property-info .details {
   max-width: 70%;
+}
+@media (max-width: 768px) {
+  .property-details .property-info .details {
+    max-width: unset;
+  }
 }
 .property-details .property-info .details h2 {
   margin-bottom: 24px;
@@ -263,6 +299,11 @@ button {
   border-radius: 10px;
   border: 1px solid #d9d9d9;
   color: #0a2446;
+}
+@media (max-width: 768px) {
+  .property-details .property-info .stats {
+    max-width: unset;
+  }
 }
 .property-details .property-info .stats .stat-item {
   display: flex;
@@ -367,6 +408,11 @@ button {
   cursor: pointer;
   transition: background-color 0.3s;
 }
+@media (max-width: 768px) {
+  .property-details .write-review {
+    margin: 24px auto;
+  }
+}
 .property-details .write-review:hover {
   background-color: #e04a4e;
 }
@@ -387,6 +433,7 @@ button {
   justify-content: space-between;
   gap: 24px;
   padding-top: 24px;
+  flex-wrap: wrap;
 }
 .review-score .review-summary .overall-rating,
 .review-score .review-summary .review-details,
@@ -512,6 +559,7 @@ button {
   margin-top: 24px;
   margin-bottom: 24px;
   border-radius: 8px;
+  flex-wrap: wrap;
 }
 .location-details .icon {
   height: 24px;
@@ -783,6 +831,12 @@ button {
   align-items: center;
   margin-bottom: 24px;
 }
+@media (max-width: 768px) {
+  .review-single .user-info {
+    display: block;
+    text-align: right;
+  }
+}
 .review-single .user-info .avatar-placeholder {
   width: 40px;
   height: 40px;
@@ -806,6 +860,11 @@ button {
   color: #919191;
   cursor: pointer;
   font-size: 14px;
+}
+@media (max-width: 768px) {
+  .review-single .user-info .save-favorites {
+    margin-top: 16px;
+  }
 }
 .review-single .review-content {
   display: flex;
