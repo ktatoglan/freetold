@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import ReviewSingle from "./ReviewSingle";
+import { useAppProvider } from "../../Contexts/AppContext";
+import { toast } from "react-toastify";
 
 const Reviews = ({ reviews }) => {
   const [sortedReviews, setSortedReviews] = useState([]);
   const [sortOption, setSortOption] = useState("rating");
-
+  const { userId } = useAppProvider();
   useEffect(() => {
     let sortedArray = [...reviews];
     if (sortOption === "rating") {
@@ -38,6 +40,10 @@ const Reviews = ({ reviews }) => {
         <button
           className="write-a-review-btn"
           onClick={() => {
+            if (!userId) {
+              toast.error("Please login to write a review");
+              return;
+            }
             window.location.href = "/write-a-review-0";
           }}
         >
