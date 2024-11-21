@@ -68,7 +68,7 @@ const SearchBar = () => {
   }
 
   const handleSearch = () => {
-    window.location.href = "/property-profile/" + searchTerm;
+    window.location.href = `/property-listing/?search=${searchTerm}&isItPostCode=${searchByPostcode}`;
   };
 
   return (

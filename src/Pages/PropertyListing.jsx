@@ -5,8 +5,12 @@ import PropertyListing from '../Components/PropertyListing/PropertyListing';
 
 
 const PropertyListingPage = () => {
+  //    window.location.href = `/property-listing/?search=${searchTerm}&isItPostCode=${searchByPostcode}`;
+  const url = new URL(window.location.href);
+  const searchTerm = url.searchParams.get('search').replace(/%20/g, ' ');
+  const searchByPostcode = url.searchParams.get('isItPostCode');
   return (
-    <PropertyListing />
+    <PropertyListing searchTerm={searchTerm} searchByPostcode={searchByPostcode}  />
   )
 }
 

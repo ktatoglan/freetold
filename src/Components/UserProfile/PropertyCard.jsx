@@ -1,10 +1,22 @@
 import React from "react";
 
 const PropertyCard = ({ property }) => {
+  function createAddressString(data) {
+    const addressParts = [
+      data["address1"],
+      data["address2"],
+      data["address3"],
+      data["posttown"],
+      data["postcode"],
+    ].filter((part) => part && part.trim() !== "");
+    return addressParts.join(", ");
+  }
   return (
-    <div className="property-card">
+    <div className="property-card" onClick={()=>{
+      window.location.href = `/property-profile/?postcode=${property.postcode}&address=${property.address1 + " " + property.address2 + " " + property.address3}`;
+    }}>
       <div className="property-header">
-        <h4>{property.address}</h4>
+        <h4>{createAddressString(property)}</h4>
         <a href="#" className="show-on-map">
           <svg
             width="24"
@@ -109,7 +121,7 @@ const PropertyCard = ({ property }) => {
                 fill="#919191"
               />
             </svg>
-            EPC rating: {property.epcRating}
+            EPC rating: {property['current-energy-rating']} ({property['current-energy-efficiency']})
           </span>
         </p>
         <p className="property-description">{property.description}</p>
