@@ -1,5 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import "../../Style/Modal.css";
+import { toast } from "react-toastify";
+import { useAppProvider } from "../../Contexts/AppContext";
+import axios from "axios";
 
 const RegisterModal = ({ closeRegisterModal }) => {
   const RegisterModalRef = useRef();
@@ -8,18 +11,25 @@ const RegisterModal = ({ closeRegisterModal }) => {
   const [staying, setStaying] = useState("");
   const [postcode, setPostcode] = useState("");
   const [password, setPassword] = useState("");
+  const { serverUrl, userId, setUserId } = useAppProvider();
 
   const handleRegister = () => {
-    fetch('https://freetold-backend.vercel.app/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, name, postcode , password }),
+    axios.post(`${serverUrl}/register`, {
+      email,
+      name,
+      postcode,
+      password
     })
-      .then(response => response.json())
-      .then(data => alert(data.message))
-      .catch(error => alert('Error:', error));
+    .then(response => {
+
+      toast.success(response.data.message);
+      setUserId(response.data.userId);
+      closeRegisterModal();
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      toast.error(error);
+    });
   };
 
   useEffect(() => {

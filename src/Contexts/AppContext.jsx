@@ -5,7 +5,7 @@ const MyContext = createContext();
 
 const AppProvider = ({ children }) => {
   const [mode, setMode] = useState('light');
-  const [userId, setUserId] = useState(1);
+  const [userId, setUserId] = useState(null);
   const [addressLine1, setAddressLine1] = useState('');
   const [addressLine2, setAddressLine2] = useState('');
   const [townCity, setTownCity] = useState('');

@@ -1,22 +1,27 @@
 import { useState, useEffect, useRef } from "react";
 import "../../Style/Modal.css";
+import { useAppProvider } from "../../Contexts/AppContext";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const LoginModal = ({ closeLoginModal }) => {
   const LoginModalRef = useRef();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { serverUrl, userId, setUserId } = useAppProvider();
 
-  const handleLogin = () => {
-    fetch('https://freetold-backend.vercel.app/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password }),
-    })
-      .then(response => response.json())
-      .then(data => alert(data.message))
-      .catch(error => console.error('Error:', error));
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post(`${serverUrl}/login`, {
+        email,
+        password,
+      });
+      setUserId(response.data.userId);
+      toast.success(response.data.message);
+      closeLoginModal;
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   useEffect(() => {

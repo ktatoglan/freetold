@@ -5,14 +5,15 @@ import User from "../../assets/img/user.png";
 import Modal from "./Modal";
 import LoginModal from "../Login/LoginModal";
 import RegisterModal from "../Register/RegisterModal";
-
+import { toast } from "react-toastify";
+import { useAppProvider } from "../../Contexts/AppContext";
 const Header = () => {
   const [openModal, setOpenModal] = useState(false);
   const [openLoginModal, setOpenLoginModal] = useState(false);
   const [openRegisterModal, setOpenRegisterModal] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [specialClass, setSpecialClass] = useState("");
-
+  const { userId, setUserId } = useAppProvider();
   // Ref for detecting clicks outside the menu
   const menuRef = useRef(null);
 
@@ -80,7 +81,9 @@ const Header = () => {
               <a href="/blog">Blog</a>
             </li>
 
-            <li>
+            {!userId ?
+            <>
+              <li>
               <a
                 href="#"
                 className="log-in"
@@ -103,11 +106,19 @@ const Header = () => {
                 Sign Up
               </button>
             </li>
+            </>
+            :
+            <></>
+          }
             {window.location.href.includes("write-a-review") ? null : (
               <li>
                 <button
                   className="write-a-review"
                   onClick={() => {
+                    if(!userId) {
+                      toast.error("Please login to write a review");
+                      return;
+                    }
                     window.location.href = "/write-a-review-0";
                     setIsMobileMenuOpen(false);
                   }}
