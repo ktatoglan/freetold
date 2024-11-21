@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../../Style/WriteReview.css";
 import { useAppProvider } from "../../Contexts/AppContext";
 import { useNavigate } from "react-router-dom";
-
+import { toast } from "react-toastify";
 function WriteReview5() {
   const { sendReview, perceptionNeighborsLevel, setPerceptionNeighborsLevel, noiseNeighborsLevel, setNoiseNeighborsLevel, parkingScore, setParkingScore, trafficScore, setTrafficScore, safetyConcerns, setSafetyConcerns, agreeCheckbox, setAgreeCheckbox } = useAppProvider();
   const navigate = useNavigate();
@@ -188,7 +188,9 @@ function WriteReview5() {
               <button className="next-step" onClick={async () => {
                   const response = await sendReview();
                   if(response){
-                    window.location.href = '/';
+                    toast.success('Review submitted successfully');
+                    //sleep(2000).then(() => { window.location.href = '/'; });
+                    sleep(2000).then(() => { window.location.href = '/'; });
                   }
                   else{
                     alert('There was an error while submitting the review, Please fill all the fields and try again');
