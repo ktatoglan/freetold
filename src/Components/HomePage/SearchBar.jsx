@@ -4,6 +4,8 @@ import "../../Style/SearchBar.css";
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [searchFullResults, setSearchFullResults] = useState([]);
+  const [searchByPostcode, setSearchByPostcode] = useState(true);
 
   const token =
     "ZG9ndWNhbmJhc2tpbkBnbWFpbC5jb206NzljMDc5YjllOTNmMGQ3MWQ3MjIyY2MwYjAyNWM1NDI2NjEwMjg3OA==";
@@ -11,21 +13,17 @@ const SearchBar = () => {
     Accept: "text/csv",
     Authorization: `Basic ${token}`,
   };
-  // Define base URL and query parameters separately
   const baseUrl = "https://epc.opendatacommunities.org/api/v1/domestic/search";
 
-  async function searchProperties(postcode) {
-    if (!postcode.trim()) {
-      setSearchResults([]); // Boş girişlerde sonuçları sıfırla
+  async function searchProperties(query) {
+    if (!query.trim()) {
+      setSearchResults([]);
       return;
     }
-    const queryParams = { postcode };
-    // Encode query parameters
+    const queryParams = searchByPostcode ? { "postcode": query } : { "address": query };
     const encodedParams = new URLSearchParams(queryParams).toString();
-    // Append parameters to the base URL
     const fullUrl = `${baseUrl}?${encodedParams}`;
 
-    // Now make the request
     await fetch(fullUrl, {
       method: "GET",
       headers: headers,
@@ -36,6 +34,8 @@ const SearchBar = () => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
+        //console.log(formattedData);
+        setSearchFullResults(formattedData);
         setSearchResults(formattedData.map(createAddressString));
       })
       .catch((error) => {
@@ -68,16 +68,21 @@ const SearchBar = () => {
   }
 
   const handleSearch = () => {
-    // Perform search logic here
-    // Replace the following line with your actual search implementation
-
     window.location.href = "/property-profile/" + searchTerm;
-
-    //setSearchResults(results);
   };
 
   return (
     <div className="home-search">
+      <div className="search-options">
+        <label>
+          <input
+            type="checkbox"
+            checked={searchByPostcode}
+            onChange={() => setSearchByPostcode(!searchByPostcode)}
+          />
+          Search by postcode
+        </label>
+      </div>
       <div className="search-line">
         <span className="search-icon">
           <svg
@@ -103,7 +108,7 @@ const SearchBar = () => {
             setSearchTerm(e.target.value);
             searchProperties(e.target.value);
           }}
-          placeholder="Search property by postcode"
+          placeholder={`Search property by ${searchByPostcode ? "postcode" : "address"}`}
         />
       </div>
       <button onClick={handleSearch}>Find Properties & reviews</button>
@@ -113,7 +118,7 @@ const SearchBar = () => {
             <li
               key={index}
               onClick={() =>
-                (window.location.href = `/property-profile/${result}`)
+                (window.location.href = `/property-profile?address=${searchFullResults[index]['address1'] + " " + searchFullResults[index]['address2'] + " " + searchFullResults[index]['address3']}&postcode=${searchFullResults[index]['postcode']}`)
               }
             >
               {result}
@@ -126,3 +131,5 @@ const SearchBar = () => {
 };
 
 export default SearchBar;
+//searchFullResults[index]["building-reference-number"]
+//searchFullResults[index]['address'] + " " +

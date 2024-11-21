@@ -1,13 +1,16 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 import PropertyProfile from '../Components/PropertyProfile/PropertyProfile';
 import '../Style/PropertyProfile.css';
 
 function PropertyProfilePage() {
-   const { postalCode } = useParams();
+  //get address and postal code from the URL
+  const url = new URL(window.location.href);
+  const postalCode = url.searchParams.get('postcode').replace(/%20/g, ' ');
+  const address = url.searchParams.get('address').replace(/%20/g, ' ');
+
   return (
     <div>
-      <PropertyProfile postalCode = {postalCode} />
+      <PropertyProfile postalCode = {postalCode} address={address} />
     </div>
   );
 }

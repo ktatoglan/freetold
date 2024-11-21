@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 
-const PropertyDetails = ({reviews}) => {
+const PropertyDetails = ({reviews, selectedProperty}) => {
   const [isSummaryVisible, setSummaryVisible] = useState(false);
   const [showBreakdown, setShowBreakdown] = useState(false);
   const [totalEstimatedBills, setTotalEstimatedBills] = useState('-');
@@ -53,11 +53,23 @@ const PropertyDetails = ({reviews}) => {
     setSummaryVisible((prev) => !prev);
   };
 
+  function createAddressString(data) {
+    const addressParts = [
+      data["address1"],
+      data["address2"],
+      data["address3"],
+      data["posttown"],
+      data["postcode"],
+    ].filter((part) => part && part.trim() !== "");
+    return addressParts.join(", ");
+  }
+
+
   return (
     <div className="property-details">
       <div className="property-info">
         <div className="details">
-          <h2>Eastland Road, Neath SA11</h2>
+          <h2>{createAddressString(selectedProperty)}</h2>
           <div className="stars">
             {Array.from({ length: 5 }, (_, index) => (
               <React.Fragment key={index}>
@@ -280,7 +292,7 @@ const PropertyDetails = ({reviews}) => {
               <div className="stat-label">EPC rating</div>
               <div className="stat-value">
                 <p>
-                  B{" "}
+                  {selectedProperty["current-energy-rating"]}{`(${selectedProperty["current-energy-efficiency"]})`}
                   <span className="info" onClick={toggleSummary} ref={infoRef}>
                     <svg
                       width="15"
