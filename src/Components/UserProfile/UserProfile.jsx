@@ -8,6 +8,7 @@ import { useAppProvider } from "../../Contexts/AppContext";
 
 const UserProfile = () => {
   const [reviews, setReviews] = useState([]);
+  const [user, setUser] = useState({});
   const { userId, serverUrl } = useAppProvider();
   useEffect(() => {
     axios
@@ -16,6 +17,15 @@ const UserProfile = () => {
         setReviews(response.data);
       })
       .catch((error) => {
+        console.log(error);
+      });
+
+      //fetch router.get('/getUserById/:userId', userController.getUserById);
+      axios.get(serverUrl + "/getUserById/" + userId)
+      .then(response => {
+        setUser(response.data);
+      })
+      .catch(error => {
         console.log(error);
       });
   }, [userId, serverUrl]);
@@ -28,7 +38,7 @@ const UserProfile = () => {
           <Sidebar />
         </aside>
         <section className="content">
-        <UserInfo />
+        <UserInfo user={user}/>
           <div className="profile-desktop-menu hide-lg">
             <p className="my-reviews">
               <a className="active" href="#">My reviews</a>
