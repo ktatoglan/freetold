@@ -18,7 +18,7 @@ const LoginModal = ({ closeLoginModal }) => {
       });
       setUserId(response.data.userId);
       toast.success(response.data.message);
-      closeLoginModal;
+      closeLoginModal();
     } catch (error) {
       console.error('Error:', error);
     }
