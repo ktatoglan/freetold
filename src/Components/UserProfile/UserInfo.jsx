@@ -44,8 +44,8 @@ const UserInfo = () => {
       </div>
 
       <div className="invite-friends">
-        <h4>Invite your friends to share their experience!</h4>
-        <button className="invite-button">Copy invitation link</button>
+        <h4>Got someone who wants to share their experience?</h4>
+        <button className="invite-button">Invite them!</button>
       </div>
     </div>
   );
