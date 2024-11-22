@@ -1,11 +1,15 @@
-import React, { useState, createContext, useContext } from 'react';
+import React, { useState, createContext, useContext, useEffect } from 'react';
 import axios from 'axios';
+import Cookies from 'universal-cookie';
 
 const MyContext = createContext();
+const cookies = new Cookies();
 
 const AppProvider = ({ children }) => {
+  const storedUserData = cookies.get('user');
+
   const [mode, setMode] = useState('light');
-  const [userId, setUserId] = useState(null);
+  const [userId, setUserId] = useState(storedUserData && storedUserData.userId ? storedUserData.userId : null);
   const [addressLine1, setAddressLine1] = useState('');
   const [addressLine2, setAddressLine2] = useState('');
   const [townCity, setTownCity] = useState('');
@@ -44,6 +48,11 @@ const AppProvider = ({ children }) => {
   const [safetyConcerns, setSafetyConcerns] = useState('');
   const [agreeCheckbox, setAgreeCheckbox] = useState(false);
   const serverUrl = 'https://freetold-backend.vercel.app';
+
+  useEffect(() => {
+    cookies.set('user', { userId});
+  }, [userId]);
+
 
   const sendReview = async() => {
     //console.log('sendReview');

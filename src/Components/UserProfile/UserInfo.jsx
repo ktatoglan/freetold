@@ -21,6 +21,8 @@ const UserInfo = () => {
             </svg>
             Joined at March 2024
           </p>
+          {/*
+
           <p>
             <svg
               width="24"
@@ -36,6 +38,8 @@ const UserInfo = () => {
             </svg>
             London, Bloomsberry
           </p>
+
+          */}
         </div>
       </div>
 

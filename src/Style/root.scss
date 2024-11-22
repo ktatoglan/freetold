@@ -11,7 +11,12 @@
   @media (max-width: 768px) {
     padding: 30px 20px 12px;
   }
-
+  .logged-in {
+    //hover
+    &:hover {
+      cursor: pointer;
+    }
+  }
   .logo {
     flex: 1;
     img {

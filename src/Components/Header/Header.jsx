@@ -108,7 +108,12 @@ const Header = () => {
             </li>
             </>
             :
-            <></>
+            <img className="logged-in" src={User} alt="user" onClick={
+              () => {
+                window.location.href = "/user-profile";
+                setIsMobileMenuOpen(false);
+              }
+            }/>
           }
             {window.location.href.includes("write-a-review") ? null : (
               <li>

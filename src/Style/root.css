@@ -101,6 +101,9 @@ p, .footer ul.footer-socials a, .footer ul.footer-links a, .footer .copyright {
     padding: 30px 20px 12px;
   }
 }
+.header .logged-in:hover {
+  cursor: pointer;
+}
 .header .logo {
   flex: 1;
 }
@@ -314,4 +317,4 @@ p, .footer ul.footer-socials a, .footer ul.footer-links a, .footer .copyright {
 
 .hover-cursor:hover {
   cursor: pointer;
-}/*# sourceMappingURL=root.css.map */
+}
