@@ -188,9 +188,12 @@
       background-color: $white;
       border: 0;
       border-radius: $small-spacing;
-      margin: 0px $medium-spacing;
+      margin: 0px 12px;
       padding: $large-spacing;
-      width: 320px;
+      // width: 320px;
+      @media (max-width: 768px) {
+        display: block !important;
+      }
       .review-user {
         display: flex;
         margin-bottom: $large-spacing;
@@ -539,7 +542,7 @@
     .subheading {
       color: $white;
       text-align: center;
-      line-height: 1.5!important;
+      line-height: 1.5 !important;
       margin-bottom: $medium-spacing;
       font-size: 18px;
       line-height: 22px;

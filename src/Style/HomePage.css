@@ -276,9 +276,13 @@ p, .contact-us-temp .container .form button, .contact-us .container .form button
   background-color: #fff;
   border: 0;
   border-radius: 8px;
-  margin: 0px 16px;
+  margin: 0px 12px;
   padding: 24px;
-  width: 320px;
+}
+@media (max-width: 768px) {
+  .latest-reviews .reviews-holder .review-single {
+    display: block !important;
+  }
 }
 .latest-reviews .reviews-holder .review-single .review-user {
   display: flex;
