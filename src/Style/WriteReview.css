@@ -493,6 +493,7 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
 }
 .container .review-flow .review-content .content {
   width: 100%;
+  padding-left: 0;
 }
 @media (max-width: 768px) {
   .container .review-flow .review-content .content {
