@@ -12,6 +12,128 @@
       flex: 1;
       margin-right: 20px;
       transition: all 0.5s ease; /* gpt: Kartların kaybolma animasyonu */
+      .property-card {
+        background-color: $white;
+        padding: $large-spacing;
+        border: 1px solid $light-border;
+        border-radius: $small-spacing;
+        margin-bottom: $large-spacing;
+
+        .property-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 10px;
+
+          h4 {
+            margin: 0;
+            color: $primary-color;
+          }
+
+          .show-on-map {
+            display: flex;
+            align-items: center;
+            gap: $small-spacing;
+            color: $secondary-color;
+            text-decoration: none;
+            font-weight: 500;
+          }
+        }
+
+        .property-details {
+          margin-bottom: $medium-spacing;
+
+          .property-rating {
+            margin-bottom: $small-spacing;
+            p {
+              display: flex;
+              align-items: center;
+              gap: $small-spacing;
+              font-weight: 600;
+              color: $light-text;
+            }
+            span {
+              display: flex;
+              align-items: center;
+              gap: $small-spacing;
+              font-size: $large-font-size;
+              font-weight: 700;
+              color: $primary-color;
+            }
+          }
+          .property-info {
+            padding: 0;
+            color: $light-text;
+            margin: $medium-spacing 0;
+            gap: $medium-spacing;
+            justify-content: unset;
+
+            span {
+              display: flex;
+              align-items: center;
+              gap: $small-spacing;
+            }
+          }
+
+          .property-description {
+            color: $gray-text;
+          }
+        }
+
+        .property-footer {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          @media (max-width: 768px) {
+            display: block;
+          }
+
+          p {
+            margin: 0;
+          }
+          .footer-review-info {
+            display: flex;
+            gap: $medium-spacing;
+            @media (max-width: 768px) {
+              justify-content: flex-end;
+            }
+            p {
+              display: flex;
+              align-items: center;
+              color: $primary-color;
+              font-weight: 600;
+            }
+            .write-review {
+              display: flex;
+              align-items: center;
+              gap: $small-spacing;
+              color: $primary-color;
+              text-decoration: none;
+              font-weight: 600;
+              font-size: 14px;
+              line-height: 21px;
+            }
+            .first {
+              color: $secondary-color;
+            }
+          }
+
+          .favorite-button {
+            display: flex;
+            align-items: center;
+            gap: $small-spacing;
+            background: none;
+            border: none;
+            font-weight: 300;
+            cursor: pointer;
+            color: $light-text;
+            @media (max-width: 768px) {
+              margin-left: auto;
+              margin-top: $small-spacing;
+            }
+          }
+        }
+      }
     }
 
     .property-map {
@@ -129,11 +251,11 @@
   .active-filters {
     flex: 1;
 
-    span{
+    span {
       display: inline-flex;
       gap: $small-spacing;
       align-items: center;
-      margin-right:$medium-spacing;
+      margin-right: $medium-spacing;
       background-color: rgba(16, 24, 40, 0.05);
       padding: 5px 8px;
       border-radius: $small-spacing;
@@ -143,8 +265,8 @@
       line-height: 21px;
     }
   }
-  .sort{
-    .sort-options{
+  .sort {
+    .sort-options {
       padding: 5px 8px;
       border: 1px solid $light-border;
       border-radius: $small-spacing;
@@ -153,7 +275,7 @@
       line-height: 21px;
       color: $light-text;
 
-      select{
+      select {
         border: none;
       }
     }
