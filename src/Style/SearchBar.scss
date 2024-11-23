@@ -5,11 +5,12 @@
   justify-content: center;
   align-items: center;
   margin: 20px auto;
+  position: relative;
   // gap: $medium-spacing;
-  .search-line{
+  .search-line {
     display: inline-flex;
     align-items: center;
-    margin: calc($small-spacing / 2 ) 0px $medium-spacing 0px;
+    margin: calc($small-spacing / 2) 0px $medium-spacing 0px;
   }
   .search-icon svg {
     position: relative;
@@ -22,12 +23,11 @@
     border: 1px solid $light-text;
     padding: 12px 16px 12px 32px;
   }
-  input[type=checkbox] {
+  input[type="checkbox"] {
     width: unset;
     min-width: unset;
     margin-right: $small-spacing;
     accent-color: $primary-color;
-
   }
   button {
     @extend p;
@@ -61,24 +61,26 @@
     }
   }
 
-  .search-results{
+  .search-results {
+    position: absolute;
+    top: 55%;
     background: white;
     padding: $small-spacing;
     border-radius: $medium-spacing;
     list-style: none;
-    box-shadow: 0 4px 8px #0000001a;
+    box-shadow: 0 4px 8px #00000041;
     max-height: 350px;
     overflow-y: scroll;
     overflow-x: hidden;
     z-index: 2;
-    li{
+    li {
       margin: $small-spacing 0px;
       cursor: pointer;
       padding: calc($small-spacing / 2);
       border-radius: $small-spacing;
     }
-    li:hover{
-      background-color: #0000001a;
+    li:hover {
+      background-color: #00000041;
     }
   }
 }

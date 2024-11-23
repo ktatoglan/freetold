@@ -55,9 +55,41 @@ $background-color_3: transparent;
     text-align: center;
     flex-direction: column;
     .search-bar {
+      position: relative;
       padding: 0px 3rem !important;
       @media (max-width: 768px) {
-        padding: 0px 16px!important;
+        padding: 0px 16px !important;
+      }
+      input[type="checkbox"] {
+        width: unset;
+        min-width: unset;
+        margin-right: $small-spacing;
+        accent-color: $primary-color;
+      }
+      .search-results {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: $small-spacing;
+        border-radius: $medium-spacing;
+        list-style: none;
+        box-shadow: 0 4px 8px #00000041;
+        max-height: 350px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        z-index: 2;
+        li {
+          margin: $small-spacing 0px;
+          cursor: pointer;
+          padding: calc($small-spacing / 2);
+          border-radius: $small-spacing;
+          font-size: 18px;
+        }
+        li:hover {
+          background-color: #00000041;
+        }
       }
     }
     .row {
