@@ -14,22 +14,22 @@ const RegisterModal = ({ closeRegisterModal }) => {
   const { serverUrl, userId, setUserId } = useAppProvider();
 
   const handleRegister = () => {
-    axios.post(`${serverUrl}/register`, {
-      email,
-      name,
-      postcode,
-      password
-    })
-    .then(response => {
-
-      toast.success(response.data.message);
-      setUserId(response.data.userId);
-      closeRegisterModal();
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      toast.error(error);
-    });
+    axios
+      .post(`${serverUrl}/register`, {
+        email,
+        name,
+        postcode,
+        password,
+      })
+      .then((response) => {
+        toast.success(response.data.message);
+        setUserId(response.data.userId);
+        closeRegisterModal();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        toast.error(error);
+      });
   };
 
   useEffect(() => {
@@ -63,6 +63,33 @@ const RegisterModal = ({ closeRegisterModal }) => {
         <div className="title">
           <h3>Create an account</h3>
         </div>
+        <div className="login-buttons row">
+          <div className="col">
+            <div className="login-google-div">
+              <button className="google-login">
+                <div className="logo">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M21.3503 11.1H12.1803V13.83H18.6903C18.3603 17.64 15.1903 19.27 12.1903 19.27C8.36027 19.27 5.00027 16.25 5.00027 12C5.00027 7.9 8.20027 4.73 12.2003 4.73C15.2903 4.73 17.1003 6.7 17.1003 6.7L19.0003 4.72C19.0003 4.72 16.5603 2 12.1003 2C6.42027 2 2.03027 6.8 2.03027 12C2.03027 17.05 6.16027 22 12.2503 22C17.6003 22 21.5003 18.33 21.5003 12.91C21.5003 11.76 21.3503 11.1 21.3503 11.1Z"
+                      fill="#0A2446"
+                    />
+                  </svg>
+                </div>
+                <p>Continue with Google</p>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="or">
+          <p>or</p>
+          <hr />
+        </div>
         <div className="form">
           <div className="row">
             <div className="col">
@@ -88,7 +115,7 @@ const RegisterModal = ({ closeRegisterModal }) => {
               />
             </div>
           </div>
-          <div className="row">
+          {/* <div className="row">
             <div className="col">
               <p htmlFor="">Your Current Postcode</p>
               <input
@@ -99,7 +126,7 @@ const RegisterModal = ({ closeRegisterModal }) => {
                 onChange={(e) => setPostcode(e.target.value)}
               />
             </div>
-          </div>
+          </div> */}
           <div className="row">
             <div className="col">
               <p htmlFor="">Password</p>
@@ -110,7 +137,7 @@ const RegisterModal = ({ closeRegisterModal }) => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <p>
+              <p className="pw-info">
                 Should include uppercase letter, number and 8 characters or more
               </p>
             </div>
@@ -126,7 +153,7 @@ const RegisterModal = ({ closeRegisterModal }) => {
           </div>
           <div className="row">
             <div className="col">
-              <p>
+              <p className="register-agree">
                 By proceeding, you agree to our Terms of Use and confirm you
                 have read our Privacy and Cookie Statement. This site is
                 protected by reCAPTCHA and the Google Privacy Policy and Terms
