@@ -187,10 +187,13 @@ function WriteReview5() {
               <button className="pre-step" onClick={() => { navigate('/write-a-review-4') }}>Previous step</button>
               <button className="next-step" onClick={async () => {
                   const response = await sendReview();
+                  console.log(response);
                   if(response){
                     toast.success('Review submitted successfully');
                     //sleep(2000).then(() => { window.location.href = '/'; });
-                    sleep(2000).then(() => { window.location.href = '/'; });
+                    setTimeout(() => {
+                      window.location.href = "/property-profile/review/" + response.review_id;
+                    }, 2000);
                   }
                   else{
                     alert('There was an error while submitting the review, Please fill all the fields and try again');

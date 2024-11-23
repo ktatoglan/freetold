@@ -98,7 +98,7 @@ const AppProvider = ({ children }) => {
         agree_checkbox: agreeCheckbox
       });
 
-      return true; // Return true if the request is successful
+      return response.data; // Return true if the request is successful
     } catch (error) {
       console.log(error);
       return false; // Return false if there's an error
