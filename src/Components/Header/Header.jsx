@@ -41,9 +41,11 @@ const Header = () => {
     };
   }, [isMobileMenuOpen]);
 
-
   useEffect(() => {
-    if (window.location.pathname.substring(0, 17) == "/property-profile" && window.location.pathname.substring(0, 24) != "/property-profile/review") {
+    if (
+      window.location.pathname.substring(0, 17) == "/property-profile" &&
+      window.location.pathname.substring(0, 24) != "/property-profile/review"
+    ) {
       setSpecialClass("property-profile-header");
     } else {
       setSpecialClass("");
@@ -62,10 +64,7 @@ const Header = () => {
             }}
           />
         </div>
-        <nav
-          ref={menuRef}
-          className={`menu ${isMobileMenuOpen ? "open" : ""}`}
-        >
+        <nav ref={menuRef} className={`menu ${isMobileMenuOpen ? "open" : ""}`}>
           {/* Close button for mobile menu */}
           <button
             className="close-menu"
@@ -75,52 +74,59 @@ const Header = () => {
           </button>
           <ul>
             <li>
-              <a href="/blog/meet-freetold-a-new-era-of-openness-in-the-housing-market">About</a>
+              <a href="/blog/meet-freetold-a-new-era-of-openness-in-the-housing-market">
+                About
+              </a>
             </li>
             <li>
               <a href="/blog">Blog</a>
             </li>
 
-            {!userId ?
-            <>
-              <li>
-              <a
-                href="#"
-                className="log-in"
-                onClick={() => {
-                  setOpenLoginModal(true);
-                  setIsMobileMenuOpen(false);
-                }}
-              >
-                <img src={User} alt="user" /> Log In
-              </a>
-            </li>
-            <li>
-              <button
-                className="sign-up"
-                onClick={() => {
-                  setOpenRegisterModal(true);
-                  setIsMobileMenuOpen(false);
-                }}
-              >
-                Sign Up
-              </button>
-            </li>
-            </>
-            :
-            <img className="logged-in" src={User} alt="user" onClick={
-              () => {
-                window.location.href = "/user-profile";
-                setIsMobileMenuOpen(false);
-              }
-            }/>
-          }
+            {!userId ? (
+              <>
+                <li>
+                  <a
+                    href="#"
+                    className="log-in"
+                    onClick={() => {
+                      setOpenLoginModal(true);
+                      setIsMobileMenuOpen(false);
+                    }}
+                  >
+                    <img src={User} alt="user" /> Log In
+                  </a>
+                </li>
+                <li>
+                  <button
+                    className="sign-up"
+                    onClick={() => {
+                      setOpenRegisterModal(true);
+                      setIsMobileMenuOpen(false);
+                    }}
+                  >
+                    Sign Up
+                  </button>
+                </li>
+              </>
+            ) : (
+              <li style={{display:"inline-flex"}}>
+                <img
+                  className="logged-in"
+                  src={User}
+                  alt="user"
+                  onClick={() => {
+                    window.location.href = "/user-profile";
+                    setIsMobileMenuOpen(false);
+                  }}
+                />
+              </li>
+            )}
             {window.location.href.includes("write-a-review") ? null : (
               <li>
                 <button
                   className="write-a-review"
                   onClick={() => {
-                    if(!userId) {
+                    if (!userId) {
                       toast.error("Please login to write a review");
                       return;
                     }
@@ -132,17 +138,18 @@ const Header = () => {
                 </button>
               </li>
             )}
-
           </ul>
         </nav>
-        { <button
-          className="online-login"
-          onClick={() => {
-            setOpenLoginModal(true);
-          }}
-        >
-          <img src={User} alt="user" />
-        </button> }
+        {
+          <button
+            className="online-login"
+            onClick={() => {
+              setOpenLoginModal(true);
+            }}
+          >
+            <img src={User} alt="user" />
+          </button>
+        }
         <button className="hamburger-menu" onClick={toggleMobileMenu}>
           <span className="line"></span>
           <span className="line"></span>
