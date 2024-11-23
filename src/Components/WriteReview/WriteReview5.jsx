@@ -187,7 +187,6 @@ function WriteReview5() {
               <button className="pre-step" onClick={() => { navigate('/write-a-review-4') }}>Previous step</button>
               <button className="next-step" onClick={async () => {
                   const response = await sendReview();
-                  console.log(response);
                   if(response){
                     toast.success('Review submitted successfully');
                     //sleep(2000).then(() => { window.location.href = '/'; });
