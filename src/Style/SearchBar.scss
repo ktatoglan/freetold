@@ -5,10 +5,11 @@
   justify-content: center;
   align-items: center;
   margin: 20px auto;
-  gap: $medium-spacing;
+  // gap: $medium-spacing;
   .search-line{
     display: inline-flex;
     align-items: center;
+    margin: calc($small-spacing / 2 ) 0px $medium-spacing 0px;
   }
   .search-icon svg {
     position: relative;
@@ -20,6 +21,13 @@
     border-radius: 8px;
     border: 1px solid $light-text;
     padding: 12px 16px 12px 32px;
+  }
+  input[type=checkbox] {
+    width: unset;
+    min-width: unset;
+    margin-right: $small-spacing;
+    accent-color: $primary-color;
+
   }
   button {
     @extend p;
