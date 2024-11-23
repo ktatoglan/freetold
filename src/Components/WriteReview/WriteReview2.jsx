@@ -48,6 +48,12 @@ function WriteReview2() {
     }
   };
 
+  const handleFocus = (setter) => (e) => {
+    if (e.target.value === "0") {
+      setter("");
+    }
+  };
+
   return (
     <div className="container">
       <div className="review-flow">
@@ -201,6 +207,7 @@ function WriteReview2() {
                     type="text"
                     value={electricBill}
                     onChange={(e) => setElectricBill(e.target.value)}
+                    onFocus={handleFocus(setElectricBill)}
                   />
                   <label htmlFor="" className="cur-symbol">
                     £
@@ -229,6 +236,7 @@ function WriteReview2() {
                     type="text"
                     value={waterBill}
                     onChange={(e) => setWaterBill(e.target.value)}
+                    onFocus={handleFocus(setWaterBill)}
                   />
                   <label htmlFor="" className="cur-symbol">
                     £
@@ -257,6 +265,7 @@ function WriteReview2() {
                     type="text"
                     value={gasBill}
                     onChange={(e) => setGasBill(e.target.value)}
+                    onFocus={handleFocus(setGasBill)}
                   />
                   <label htmlFor="" className="cur-symbol">
                     £
@@ -285,6 +294,7 @@ function WriteReview2() {
                     type="text"
                     value={internetBill}
                     onChange={(e) => setInternetBill(e.target.value)}
+                    onFocus={handleFocus(setInternetBill)}
                   />
                   <label htmlFor="" className="cur-symbol">
                     £

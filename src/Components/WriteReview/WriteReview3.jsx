@@ -16,6 +16,12 @@ function WriteReview3() {
     }
   };
 
+  const handleFocus = (setter) => (e) => {
+    if (e.target.value === "0") {
+      setter("");
+    }
+  };
+
   return (
     <div className="container">
       <div className="review-flow">
@@ -102,6 +108,7 @@ function WriteReview3() {
                   value={reviewHeadline}
                   onChange={(event) => setReviewHeadline(event.target.value)}
                   maxLength={maxLength}
+                  onFocus={handleFocus(setReviewHeadline)}
                 />
                 <div className="character-counter">
                   {maxLength - reviewHeadline.length}/{maxLength}

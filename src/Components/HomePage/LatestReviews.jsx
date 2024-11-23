@@ -55,11 +55,11 @@ export const LatestReviews = () => {
           }
         },
         {
-          breakpoint: 900,
+          breakpoint: 767,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
-            infinite: false
+            infinite: true,
           }
         }
       ]

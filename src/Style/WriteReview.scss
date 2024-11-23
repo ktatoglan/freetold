@@ -153,7 +153,7 @@
         align-items: flex-start;
         .contact-text {
           color: $primary-color;
-          margin-top: $small-spacing/2;
+          margin-top: calc($small-spacing/2);
         }
         .toggle-group {
           color: $gray-text;
@@ -474,6 +474,7 @@
       // 3rd Step
       .content {
         width: 100%;
+        padding-left: 0;
         @media (max-width: 768px) {
           margin: 0px auto !important;
           padding: 0;

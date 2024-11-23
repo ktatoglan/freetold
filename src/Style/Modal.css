@@ -107,7 +107,6 @@ p, .modalContainer .form button {
 
 .modalContainer {
   width: 45%;
-  height: 500px;
   border-radius: 12px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -126,6 +125,7 @@ p, .modalContainer .form button {
   display: inline-block;
   text-align: center;
   margin-top: 2rem;
+  margin-bottom: 1rem;
   color: #0a2446;
 }
 @media (max-width: 768px) {
@@ -140,19 +140,50 @@ p, .modalContainer .form button {
   margin-top: 1rem;
   flex: 50%;
   display: flex;
-  justify-content: center;
   align-items: center;
   font-size: 1.7rem;
   text-align: center;
   flex-direction: column;
 }
 .modalContainer .form .search-bar {
+  position: relative;
   padding: 0px 3rem !important;
 }
 @media (max-width: 768px) {
   .modalContainer .form .search-bar {
     padding: 0px 16px !important;
   }
+}
+.modalContainer .form .search-bar input[type=checkbox] {
+  width: unset;
+  min-width: unset;
+  margin-right: 8px;
+  accent-color: #0a2446;
+}
+.modalContainer .form .search-bar .search-results {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background: white;
+  padding: 8px;
+  border-radius: 16px;
+  list-style: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2549019608);
+  max-height: 350px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  z-index: 2;
+}
+.modalContainer .form .search-bar .search-results li {
+  margin: 8px 0px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 8px;
+  font-size: 18px;
+}
+.modalContainer .form .search-bar .search-results li:hover {
+  background-color: rgba(0, 0, 0, 0.2549019608);
 }
 .modalContainer .form .row {
   width: 100%;
@@ -185,6 +216,8 @@ p, .modalContainer .form button {
   border-radius: 8px;
   border: 1px solid #ef6c67;
   cursor: pointer;
+  width: 100%;
+  text-align: center;
 }
 .modalContainer .form button.write-a-review {
   background-color: #ef6c67;
@@ -194,6 +227,63 @@ p, .modalContainer .form button {
 .modalContainer.loginModal {
   width: 25%;
   min-width: 350px;
+}
+.modalContainer .login-buttons {
+  width: 100%;
+  justify-content: center;
+  padding: 0px 2rem;
+  margin: 1rem auto;
+}
+@media (max-width: 768px) {
+  .modalContainer .login-buttons {
+    padding: 0;
+  }
+}
+.modalContainer .login-buttons .google-login {
+  background: none;
+  border: 1px solid #0a2446;
+  border-radius: 8px;
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+  padding: 8px;
+  align-items: center;
+  gap: 4px;
+  color: #0a2446;
+}
+.modalContainer .or {
+  width: 90%;
+  justify-content: center;
+  padding: 0px 2rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+@media (max-width: 768px) {
+  .modalContainer .or {
+    padding: 0;
+  }
+}
+.modalContainer .or hr {
+  width: 100%;
+  color: #d9d9d9;
+}
+.modalContainer .register-agree {
+  font-family: Geologica;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 17.5px;
+  text-align: left;
+  color: #919191;
+}
+.modalContainer .pw-info {
+  font-family: Geologica;
+  font-size: 12px;
+  font-weight: 300;
+  text-align: left;
+  color: #0a2446;
 }
 .modalContainer .m-0 {
   margin: 0 !important;
@@ -245,5 +335,4 @@ p, .modalContainer .form button {
   width: 25%;
   min-width: 350px;
   overflow: auto;
-  height: 900px;
 }/*# sourceMappingURL=Modal.css.map */

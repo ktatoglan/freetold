@@ -128,7 +128,7 @@ const PropertyCard = ({ property }) => {
       </div>
       <div className="property-footer">
         <div className="footer-review-info">
-          <p>{property.reviews} reviews</p>
+          <p>{property.reviews > 0 ? property.reviews : "0"} Reviews</p>
           <a
             href="#"
             className={

@@ -21,7 +21,7 @@ $background-color_3: transparent;
 }
 .modalContainer {
   width: 45%;
-  height: 500px;
+  // height: 500px;
   border-radius: 12px;
   background-color: $background-color_2;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -37,6 +37,7 @@ $background-color_3: transparent;
     display: inline-block;
     text-align: center;
     margin-top: 2rem;
+    margin-bottom: 1rem;
     color: $primary-color;
     @media (max-width: 768px) {
       margin-top: $small-spacing;
@@ -49,15 +50,47 @@ $background-color_3: transparent;
     margin-top: 1rem;
     flex: 50%;
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
     font-size: 1.7rem;
     text-align: center;
     flex-direction: column;
     .search-bar {
+      position: relative;
       padding: 0px 3rem !important;
       @media (max-width: 768px) {
-        padding: 0px 16px!important;
+        padding: 0px 16px !important;
+      }
+      input[type="checkbox"] {
+        width: unset;
+        min-width: unset;
+        margin-right: $small-spacing;
+        accent-color: $primary-color;
+      }
+      .search-results {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: $small-spacing;
+        border-radius: $medium-spacing;
+        list-style: none;
+        box-shadow: 0 4px 8px #00000041;
+        max-height: 350px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        z-index: 2;
+        li {
+          margin: $small-spacing 0px;
+          cursor: pointer;
+          padding: calc($small-spacing / 2);
+          border-radius: $small-spacing;
+          font-size: 18px;
+        }
+        li:hover {
+          background-color: #00000041;
+        }
       }
     }
     .row {
@@ -90,6 +123,8 @@ $background-color_3: transparent;
       border-radius: 8px;
       border: 1px solid $secondary-color;
       cursor: pointer;
+      width: 100%;
+      text-align: center;
       &.write-a-review {
         background-color: $secondary-color;
         color: $white;
@@ -103,6 +138,60 @@ $background-color_3: transparent;
   &.loginModal {
     width: 25%;
     min-width: 350px;
+  }
+  .login-buttons {
+    width: 100%;
+    justify-content: center;
+    padding: 0px 2rem;
+    margin: 1rem auto;
+    @media (max-width: 768px) {
+      padding: 0;
+    }
+
+    .google-login {
+      background: none;
+      border: 1px solid $primary-color;
+      border-radius: $small-spacing;
+      display: inline-flex;
+      justify-content: center;
+      width: 100%;
+      padding: $small-spacing;
+      align-items: center;
+      gap: calc($small-spacing / 2);
+      color: $primary-color;
+    }
+  }
+  .or {
+    width: 90%;
+    justify-content: center;
+    padding: 0px 2rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    @media (max-width: 768px) {
+      padding: 0;
+    }
+    hr {
+      width: 100%;
+      color: #d9d9d9;
+    }
+  }
+  .register-agree {
+    font-family: Geologica;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 17.5px;
+    text-align: left;
+    color: #919191;
+  }
+  .pw-info {
+    font-family: Geologica;
+    font-size: 12px;
+    font-weight: 300;
+    text-align: left;
+    color: $primary-color;
   }
   .m-0 {
     margin: 0 !important;
@@ -159,6 +248,6 @@ $background-color_3: transparent;
     width: 25%;
     min-width: 350px;
     overflow: auto;
-    height: 900px;
+    // height: 900px;
   }
 }

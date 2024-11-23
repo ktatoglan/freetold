@@ -188,9 +188,12 @@
       background-color: $white;
       border: 0;
       border-radius: $small-spacing;
-      margin: 0px $medium-spacing;
+      margin: 0px 12px;
       padding: $large-spacing;
-      width: 320px;
+      // width: 320px;
+      @media (max-width: 768px) {
+        display: block !important;
+      }
       .review-user {
         display: flex;
         margin-bottom: $large-spacing;
@@ -521,8 +524,17 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    flex-direction: column;
     @media screen and (max-width: 1100px) {
       flex-direction: column;
+    }
+    .contact-content {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+      }
     }
     .contact-img {
       text-align: center;
@@ -530,16 +542,19 @@
     }
     .heading {
       color: $secondary-color;
-      text-align: center;
+      text-align: left;
       margin-bottom: $medium-spacing;
       font-size: 12px;
       line-height: 15px;
       font-weight: 700;
+      @media screen and (max-width: 768px) {
+        text-align: center;
+      }
     }
     .subheading {
       color: $white;
       text-align: center;
-      line-height: 1.5!important;
+      line-height: 1.5 !important;
       margin-bottom: $medium-spacing;
       font-size: 18px;
       line-height: 22px;
@@ -569,7 +584,7 @@
         @extend p;
         padding: 8px;
         margin: 0 0 $large-spacing;
-        width: 100%;
+        width: 20%;
         border-radius: 8px;
         border: 1px solid $secondary-color;
         cursor: pointer;
@@ -578,6 +593,9 @@
         transition: background-color 0.3s ease, color 0.3s ease;
         text-align: center;
         align-self: center;
+        @media screen and (max-width: 900px) {
+          width: 100%;
+        }
       }
     }
     .warn {
