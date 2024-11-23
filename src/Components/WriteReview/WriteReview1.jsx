@@ -20,6 +20,12 @@ function WriteReview1() {
   } = useAppProvider();
   const navigate = useNavigate();
 
+  const handleFocus = (setter) => (e) => {
+    if (e.target.value === "0") {
+      setter("");
+    }
+  };
+
   return (
     <div className="container">
       <div className="review-flow">
@@ -130,6 +136,7 @@ function WriteReview1() {
                   onChange={(e) =>
                     setRentDuration(e.target.value)
                   }
+                  onFocus={handleFocus(setRentDuration)}
                 />
                 <select
                   name="year"

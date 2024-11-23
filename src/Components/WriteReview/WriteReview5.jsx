@@ -4,8 +4,23 @@ import { useAppProvider } from "../../Contexts/AppContext";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 function WriteReview5() {
-  const { sendReview, perceptionNeighborsLevel, setPerceptionNeighborsLevel, noiseNeighborsLevel, setNoiseNeighborsLevel, parkingScore, setParkingScore, trafficScore, setTrafficScore, safetyConcerns, setSafetyConcerns, agreeCheckbox, setAgreeCheckbox } = useAppProvider();
+  const {
+    sendReview,
+    perceptionNeighborsLevel,
+    setPerceptionNeighborsLevel,
+    noiseNeighborsLevel,
+    setNoiseNeighborsLevel,
+    parkingScore,
+    setParkingScore,
+    trafficScore,
+    setTrafficScore,
+    safetyConcerns,
+    setSafetyConcerns,
+    agreeCheckbox,
+    setAgreeCheckbox,
+  } = useAppProvider();
   const navigate = useNavigate();
+
   return (
     <div className="container">
       <div className="review-flow">
@@ -75,7 +90,10 @@ function WriteReview5() {
                         onClick={() => setPerceptionNeighborsLevel(5 - index)}
                         onChange={() => {}}
                       />
-                      <label htmlFor={`neighbor${index + 1}`} className={`neighbor-${index+1}`}></label>
+                      <label
+                        htmlFor={`neighbor${index + 1}`}
+                        className={`neighbor-${index + 1}`}
+                      ></label>
                     </React.Fragment>
                   ))}
                 </div>
@@ -98,7 +116,10 @@ function WriteReview5() {
                         onClick={() => setNoiseNeighborsLevel(5 - index)}
                         onChange={() => {}}
                       />
-                      <label htmlFor={`sound${index + 1}`} className={`sound-${index+1}`}></label>
+                      <label
+                        htmlFor={`sound${index + 1}`}
+                        className={`sound-${index + 1}`}
+                      ></label>
                     </React.Fragment>
                   ))}
                 </div>
@@ -175,7 +196,16 @@ function WriteReview5() {
                   checked={agreeCheckbox}
                   onChange={(e) => setAgreeCheckbox(e.target.checked)}
                 />
-                I agree to <a href="/page/terms-and-conditions" target="_blank" rel="noopener noreferrer">Terms and Conditions</a> and that this review is an honest and accurate account of my experience ....
+                I agree to{" "}
+                <a
+                  href="/page/terms-and-conditions"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Terms and Conditions
+                </a>{" "}
+                and that this review is an honest and accurate account of my
+                experience ....
               </p>
             </div>
           </div>
@@ -184,20 +214,34 @@ function WriteReview5() {
 
           <div className="row">
             <div className="buttons">
-              <button className="pre-step" onClick={() => { navigate('/write-a-review-4') }}>Previous step</button>
-              <button className="next-step" onClick={async () => {
+              <button
+                className="pre-step"
+                onClick={() => {
+                  navigate("/write-a-review-4");
+                }}
+              >
+                Previous step
+              </button>
+              <button
+                className="next-step"
+                onClick={async () => {
                   const response = await sendReview();
-                  if(response){
-                    toast.success('Review submitted successfully');
+                  if (response) {
+                    toast.success("Review submitted successfully");
                     //sleep(2000).then(() => { window.location.href = '/'; });
                     setTimeout(() => {
-                      window.location.href = "/property-profile/review/" + response.review_id;
+                      window.location.href =
+                        "/property-profile/review/" + response.review_id;
                     }, 2000);
+                  } else {
+                    alert(
+                      "There was an error while submitting the review, Please fill all the fields and try again"
+                    );
                   }
-                  else{
-                    alert('There was an error while submitting the review, Please fill all the fields and try again');
-                  }
-                }}>Submit the review</button>
+                }}
+              >
+                Submit the review
+              </button>
             </div>
           </div>
         </div>
