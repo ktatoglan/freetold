@@ -93,12 +93,17 @@ p {
 }
 .property-listing .property-results {
   display: flex;
-  transition: all 0.5s ease; /* gpt: Genel geçiş süresi biraz uzatıldı */
+  transition: all 0.5s ease;
 }
 .property-listing .property-results .property-cards {
   flex: 1;
   margin-right: 20px;
-  transition: all 0.5s ease; /* gpt: Kartların kaybolma animasyonu */
+  transition: all 0.5s ease;
+}
+@media screen and (max-width: 768px) {
+  .property-listing .property-results .property-cards {
+    margin-right: unset;
+  }
 }
 .property-listing .property-results .property-cards .property-card {
   background-color: #fff;
@@ -112,6 +117,13 @@ p {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+}
+@media screen and (max-width: 768px) {
+  .property-listing .property-results .property-cards .property-card .property-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
 }
 .property-listing .property-results .property-cards .property-card .property-header h4 {
   margin: 0;
@@ -223,6 +235,11 @@ p {
   position: relative;
   transition: width 0.5s ease; /* gpt: Haritanın genişleme animasyonu */
 }
+@media screen and (max-width: 768px) {
+  .property-listing .property-results .property-map {
+    display: none;
+  }
+}
 .property-listing .property-results .property-map .map-container {
   position: relative;
   width: 100%;
@@ -264,6 +281,22 @@ p {
   display: flex;
   align-items: center;
   margin-bottom: 24px;
+}
+@media screen and (max-width: 768px) {
+  .property-search-bar-container .property-search-bar {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  .property-search-bar-container .property-search-bar > * {
+    flex: 1 1 auto;
+  }
+  .property-search-bar-container .property-search-bar > :nth-child(3) {
+    order: 2;
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 0 !important;
+  }
 }
 .property-search-bar-container .property-search-bar .search-input {
   flex: 1;
@@ -316,8 +349,22 @@ p {
   align-items: center;
   margin-bottom: 16px;
 }
+@media screen and (max-width: 768px) {
+  .filters-and-sort {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
 .filters-and-sort .active-filters {
   flex: 1;
+}
+@media screen and (max-width: 768px) {
+  .filters-and-sort .active-filters {
+    flex: 1;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    gap: 16px;
+  }
 }
 .filters-and-sort .active-filters span {
   display: inline-flex;
@@ -331,6 +378,11 @@ p {
   font-size: 14px;
   font-weight: 600;
   line-height: 21px;
+}
+@media screen and (max-width: 768px) {
+  .filters-and-sort .active-filters span {
+    margin-right: 0;
+  }
 }
 .filters-and-sort .sort .sort-options {
   padding: 5px 8px;
@@ -356,6 +408,14 @@ p {
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   z-index: 100;
+}
+@media screen and (max-width: 768px) {
+  .filter-menu {
+    width: 100vw !important;
+    box-sizing: border-box !important;
+    top: 100px;
+    left: -24px;
+  }
 }
 .filter-menu .filter-section {
   margin-bottom: 20px;
@@ -463,6 +523,12 @@ p {
   padding: 5px 8px;
   border-radius: 8px;
   cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .filter-menu .filter-section .score-list li {
+    display: inline-flex;
+    align-items: center;
+  }
 }
 .filter-menu .filter-section .score-list li.active {
   background-color: #646464;
