@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/img/logo-white.svg";
-import User from "../../assets/img/user.png";
+import User from "../../assets/img/user.svg";
 import Modal from "./Modal";
 import LoginModal from "../Login/LoginModal";
 import RegisterModal from "../Register/RegisterModal";

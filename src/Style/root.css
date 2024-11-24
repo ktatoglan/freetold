@@ -182,6 +182,7 @@ p, .footer ul.footer-socials a, .footer ul.footer-links a, .footer .copyright {
     align-items: flex-start;
     padding: 20px;
     transition: right 0.3s ease;
+    z-index: 99;
     /* Kapatma butonu */
   }
   .header .menu.open {
