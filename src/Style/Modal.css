@@ -234,6 +234,12 @@ p, .modalContainer .form button {
     max-height: 80vh;
   }
 }
+@media (max-width: 768px) {
+  .modalContainer.loginModal .row {
+    margin: 2px 0px !important;
+    width: 100%;
+  }
+}
 .modalContainer .login-buttons {
   width: 100%;
   justify-content: center;
@@ -356,4 +362,4 @@ p, .modalContainer .form button {
     margin: 2px 0px !important;
     width: 100%;
   }
-}
+}/*# sourceMappingURL=Modal.css.map */
