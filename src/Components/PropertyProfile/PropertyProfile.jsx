@@ -103,7 +103,7 @@ const PropertyProfile = ({postalCode,address}) => {
         <PropertyDetails selectedProperty={selectedProperty} reviews={reviews}/>
         <ReviewScore selectedProperty={selectedProperty} reviews={reviews}/>
         <LocationMap selectedProperty={selectedProperty} addressDetails={addressDetails}/>
-        <LocationDetails selectedProperty={selectedProperty} />
+        {/*<LocationDetails selectedProperty={selectedProperty} /> */}
         <Reviews selectedProperty={selectedProperty} reviews={reviews} />
       </section>
     </section>
