@@ -286,6 +286,9 @@ button {
 .property-details .property-info .details .stars input[type=radio]:checked ~ label ~ label {
   background-image: url("../assets/img/star-selected.svg");
 }
+.property-details .property-info .details .stars .checked-star {
+  background-image: url("../assets/img/star-selected.svg") !important;
+}
 .property-details .property-info .details p, .property-details .property-info .details .review-score .review-summary .overall-rating .rating-details .details-title, .review-score .review-summary .overall-rating .rating-details .property-details .property-info .details .details-title, .property-details .property-info .details .review-score .review-summary .overall-rating .overall-title, .review-score .review-summary .overall-rating .property-details .property-info .details .overall-title, .property-details .property-info .details .stats .stat-item .stat-text .stat-label, .property-details .property-info .stats .stat-item .stat-text .details .stat-label, .property-details .property-info .details .sidebar .back a, .sidebar .back .property-details .property-info .details a, .property-details .property-info .details .sidebar ul li a, .sidebar ul li .property-details .property-info .details a, .property-details .property-info .details .content-header .update-date, .content-header .property-details .property-info .details .update-date, .property-details .property-info .details .content-header .actions .save-to-favorites, .content-header .actions .property-details .property-info .details .save-to-favorites {
   color: #646464;
   margin-bottom: 24px;

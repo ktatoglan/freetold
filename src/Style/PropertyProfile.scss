@@ -206,6 +206,10 @@ button {
         input[type="radio"]:checked ~ label ~ label {
           background-image: url("../assets/img/star-selected.svg");
         }
+        .checked-star{
+          background-image: url("../assets/img/star-selected.svg") !important;
+        }
+
       }
       p {
         // @extend p;

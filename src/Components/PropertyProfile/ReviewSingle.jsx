@@ -44,6 +44,27 @@ const ReviewSingle = ({ review, type }) => {
     }
   };
 
+  function displayStars(score){
+    let stars = [];
+    for (let i = 0; i < Math.round(score); i++){
+      stars.push(
+        <div key={review.review_id + 's'+i}>
+          <input type="radio" id={`cstar${i+1}`} name="rating" value={i+1} checked={true} onChange={()=>{}} readOnly/>
+          <label className="checked-star" htmlFor={`star${i+1}`}></label>
+        </div>
+      );
+    }
+    for (let i = 0; i < 5 - Math.round(score); i++){
+      stars.push(
+        <div key={review.review_id + "u"+i}>
+          <input type="radio" id={`star${i+1}`} name="rating" value={i+1} onChange={()=>{}} readOnly/>
+          <label htmlFor={`star${i+1}`}></label>
+        </div>
+      );
+    }
+    return stars;
+  }
+
   return (
     <div className="review-single">
     <div className="user-info">
@@ -128,19 +149,9 @@ const ReviewSingle = ({ review, type }) => {
         <h4 className="review-title">{review.review_headline}</h4>
         <div className="review-rating">
           <div className="stars">
-            {Array.from({ length: 5 }, (_, index) => (
-              <React.Fragment key={index}>
-                <input
-                  type="radio"
-                  id={`star${index + 1}`}
-                  name="rating"
-                  value={index + 1}
-                  checked={index < review.review_score}
-                  onChange={() => {}}
-                />
-                <label htmlFor={`star${index + 1}`}></label>
-              </React.Fragment>
-            ))}
+
+            {displayStars(review.review_score)}
+
             <span className="review-date">
               {new Date(review.move_in_date).toLocaleDateString('en-US', {
                 year: 'numeric',

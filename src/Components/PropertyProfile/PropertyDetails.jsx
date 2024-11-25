@@ -16,6 +16,8 @@ const PropertyDetails = ({reviews, selectedProperty}) => {
   const breakdownRef = useRef(null);
   const infoRef = useRef(null);
   const { serverUrl, userId } = useAppProvider();
+  const [propertyScore , setPropertyScore] = useState(0);
+  const [displayStarsHTML, setDisplayStarsHTML] = useState('');
   const navigate = useNavigate();
 
   // Dış tıklama olayını dinlemek için tek bir işlev
@@ -47,6 +49,10 @@ const PropertyDetails = ({reviews, selectedProperty}) => {
     setInternet(totalInternet/reviews.length);
     setTotalEstimatedBills(((totalElectricity + totalGas + totalWater + totalInternet) / reviews.length).toFixed(2));
     setLastPrice(reviews.length > 0 ? parseInt(reviews[0].rent_amount, 10) : '-');
+    const totalScore = reviews.reduce((acc, review) => acc + Number(review.review_score), 0);
+    setPropertyScore(reviews.length > 0 ? (totalScore / reviews.length).toFixed(2) : 0);
+    displayStars((totalScore / reviews.length).toFixed(0));
+
   }, [reviews]);
 
 
@@ -79,32 +85,42 @@ const PropertyDetails = ({reviews, selectedProperty}) => {
     //window.location.href = `/write-a-review-1`;
   }
 
+  function displayStars(score){
+    let stars = [];
+    for (let i = 0; i < Math.round(score); i++){
+      stars.push(
+        <div key={'s'+i}>
+          <input type="radio" id={`general-review-star-checked${i+1}`} name="rating" value={i+1} checked={true} onChange={()=>{}}/>
+          <label className="checked-star" htmlFor={`general-review-star-checked${i+1}`}></label>
+        </div>
+      );
+    }
+    for (let i = 0; i < 5 - Math.round(score); i++){
+      stars.push(
+        <div key={"u"+i}>
+          <input type="radio" id={`general-review-star${i+1}`} name="rating" value={i+1} onChange={()=>{}}/>
+          <label htmlFor={`general-review-star${i+1}`}></label>
+        </div>
+      );
+    }
+    setDisplayStarsHTML(stars);
+    return stars;
+  }
+
   return (
     <div className="property-details">
       <div className="property-info">
         <div className="details">
           <h2>{createAddressString(selectedProperty)}</h2>
           <div className="stars">
-            {Array.from({ length: 5 }, (_, index) => (
-              <React.Fragment key={index}>
-                <input
-                  type="radio"
-                  id={`star${index + 1}`}
-                  name="rating"
-                  value={index + 1}
-                  checked={index < 1}
-                />
-                <label htmlFor={`star${index + 1}`}></label>
-              </React.Fragment>
-            ))}
+            {displayStarsHTML}
+            <span>({propertyScore})</span>
             <p className="review-count">{reviews.length} Reviews</p>
           </div>
           <p>
-            I think we can make a short description here by combining the
-            information from EPC site, criminal and may be location: smth like
-            the property is located in West-East Area bla bla. It has this
-            walls, windows and roof. There is 500 m till the closest tesco and
-            14 km to city center.
+            Property type: <span>{selectedProperty["property-type"]}</span>
+            <br />
+            More info will be added here soon...
           </p>
         </div>
         <div className="stats">

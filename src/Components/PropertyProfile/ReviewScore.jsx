@@ -1,15 +1,15 @@
 import React,{useEffect, useState} from "react";
 
 function ReviewScore({reviews}) {
-  const [reviewScore, setReviewScore] = useState('-');
-  const [Heating, setHeating] = useState('-');
-  const [Litting, setLitting] = useState('-');
-  const [InternetConnection, setInternetConnection] = useState('-');
+  const [reviewScore, setReviewScore] = useState('');
+  const [Heating, setHeating] = useState('');
+  const [Litting, setLitting] = useState('');
+  const [InternetConnection, setInternetConnection] = useState('');
   const [PetFriendly, setPetFriendly] = useState('No');
-  const [NoiseLevel, setNoiseLevel] = useState('-');
-  const [Traffic, setTraffic] = useState('-');
-  const [Parking, setParking] = useState('-');
-  const [Neighbors, setNeighbors] = useState('-');
+  const [NoiseLevel, setNoiseLevel] = useState('');
+  const [Traffic, setTraffic] = useState('');
+  const [Parking, setParking] = useState('');
+  const [Neighbors, setNeighbors] = useState('');
   const [fiveStar, setFiveStar] = useState(0);
   const [fourStar, setFourStar] = useState(0);
   const [threeStar, setThreeStar] = useState(0);
