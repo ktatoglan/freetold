@@ -1,5 +1,21 @@
 User-agent: *
 Disallow: /admin/
 Disallow: /private/
-Allow: /
+Disallow: /write-a-review-*
+Disallow: /user-profile/
+Disallow: /property-profile/review/
+Allow: /property-profile/
+Allow: /property-listing/
+Allow: /blog/
+Allow: /page/
 Sitemap: https://freetold.com/sitemap.xml
+
+# Specific bots (optional)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: Googlebot
+Allow: /
