@@ -11,7 +11,6 @@ function ReviewProfilePage() {
   const { reviewID } = useParams();
   const {serverUrl} = useAppProvider();
   const[review, setReview] = useState({});
-  console.log("reviewID" , reviewID);
   useEffect(() => {
     axios.get(`${serverUrl}/review/getReview/${reviewID}`)
     .then((response) => {
