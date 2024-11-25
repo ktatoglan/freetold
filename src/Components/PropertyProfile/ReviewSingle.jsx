@@ -1,4 +1,9 @@
 import React from "react";
+import axios from "axios";
+import { useAppProvider } from "../../Contexts/AppContext";
+
+import { toast } from "react-toastify";
+
 
 const getTenancyPeriodText = (tenancyPeriod) => {
   const { number, period } = JSON.parse(tenancyPeriod);
@@ -6,15 +11,35 @@ const getTenancyPeriodText = (tenancyPeriod) => {
   return `Stayed in this property for ${number} ${periodText}`;
 };
 
-const ReviewSingle = ({ review }) => (
-  <div className="review-single">
+
+
+const ReviewSingle = ({ review }) => {
+  const { serverUrl, userId } = useAppProvider();
+
+  const addFavouriteReview = async () => {
+
+    try {
+      const response = await axios.post(`${serverUrl}/addFavouriteReview/${userId}`, {
+        reviewId: review.review_id
+      });
+      if (response.status === 200) {
+        toast.success('Review added to favourites');
+      }
+    } catch (error) {
+      toast.error(error.response.data.message);
+    }
+  };
+
+  return (
+    <div className="review-single">
     <div className="user-info">
       {/* <div className="avatar-placeholder"></div> */}
       <div>
-        <div className="user-name">{review.user_id}</div>
         <div className="user-duration">{getTenancyPeriodText(review.tenancy_period)}</div>
       </div>
-      <button className="save-favorites">
+      <button className="save-favorites"
+        onClick={() => addFavouriteReview(review.review_id)}
+      >
         <svg
           width="20"
           height="19"
@@ -210,6 +235,9 @@ const ReviewSingle = ({ review }) => (
       </div>
     </div>
   </div>
-);
+  );
+}
+
+
 
 export default ReviewSingle;

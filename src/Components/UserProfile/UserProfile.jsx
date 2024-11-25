@@ -2,12 +2,14 @@ import React,{useState, useEffect} from "react";
 import Sidebar from "./Sidebar";
 import UserInfo from "./UserInfo";
 import UserReviews from "./UserReviews";
+import FavReviews from "./FavReviews";
 import SavedProperties from "./SavedProperties";
 import axios from "axios";
 import { useAppProvider } from "../../Contexts/AppContext";
 
 const UserProfile = () => {
   const [reviews, setReviews] = useState([]);
+  const [favouriteReviews, setFavouriteReviews] = useState([]);
   const [user, setUser] = useState({});
   const { userId, serverUrl } = useAppProvider();
   useEffect(() => {
@@ -20,14 +22,25 @@ const UserProfile = () => {
         console.log(error);
       });
 
-      //fetch router.get('/getUserById/:userId', userController.getUserById);
-      axios.get(serverUrl + "/getUserById/" + userId)
+    //fetch router.get('/getUserById/:userId', userController.getUserById);
+    axios.get(serverUrl + "/getUserById/" + userId)
       .then(response => {
         setUser(response.data);
       })
       .catch(error => {
         console.log(error);
       });
+
+
+    axios
+      .get(serverUrl + "/getFavouriteReviews/" + userId)
+      .then((response) => {
+        setFavouriteReviews(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
   }, [userId, serverUrl]);
 
 
@@ -52,11 +65,8 @@ const UserProfile = () => {
           </div>
 
           <UserReviews reviews = {reviews} />
-          {/* silinecek */}
-          <br />
-          <br />
-          <br />
-          {/*  */}
+          <FavReviews reviews = {favouriteReviews} />
+
           <SavedProperties />
         </section>
       </section>

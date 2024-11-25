@@ -193,6 +193,23 @@ p {
   flex: 2;
   padding: 0px 16px;
 }
+.property-info .save-favorites {
+  display: flex;
+  align-items: center;
+  background-color: #ef6c67;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.property-info .save-favorites svg {
+  margin-right: 10px;
+}
+.property-info .save-favorites:hover {
+  background-color: #ea3f39;
+}
 @media (max-width: 768px) {
   .property-info {
     padding: 0;
@@ -568,4 +585,4 @@ p {
 .review-sidebar .cost .value,
 .review-sidebar .rating .value {
   font-size: 14px;
-}/*# sourceMappingURL=ReviewProfile.css.map */
+}
