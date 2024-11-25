@@ -16,7 +16,7 @@ $background-color_3: transparent;
   @media (max-width: 768px) {
     justify-content: center;
     align-items: start;
-    padding: calc($large-spacing * 2);
+    padding: $half-spacing;
   }
 }
 .modalContainer {
@@ -27,7 +27,7 @@ $background-color_3: transparent;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
   flex-direction: column;
-  padding: 25px;
+  //padding: 25px;
   @media (max-width: 768px) {
     width: 100%;
     height: unset;
@@ -138,6 +138,12 @@ $background-color_3: transparent;
   &.loginModal {
     width: 25%;
     min-width: 350px;
+    // mobile
+    @media (max-width: 768px) {
+      width: 100%;
+      gap: $half-spacing;
+      max-height: 90vh;
+    }
   }
   .login-buttons {
     width: 100%;
@@ -247,7 +253,14 @@ $background-color_3: transparent;
   &.registerModal {
     width: 25%;
     min-width: 350px;
-    overflow: auto;
-    // height: 900px;
+    overflow-y: auto;
+    max-height: 90vh;
+    padding: 0px;
+    // mobile
+    @media (max-width: 768px) {
+      width: 100%;
+      gap: $half-spacing;
+      max-height: 90vh;
+    }
   }
 }

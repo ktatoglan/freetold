@@ -48,12 +48,22 @@ const RegisterModal = ({ closeRegisterModal }) => {
       }
     };
 
+    const disableScroll = () => {
+      document.body.style.overflow = "hidden";
+    };
+
+    const enableScroll = () => {
+      document.body.style.overflow = "auto";
+    };
+
     document.addEventListener("mousedown", handleClickOutside);
     document.addEventListener("keydown", handleEscapeKey);
+    disableScroll();
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", handleEscapeKey);
+      enableScroll();
     };
   }, [closeRegisterModal]);
 
@@ -142,7 +152,8 @@ const RegisterModal = ({ closeRegisterModal }) => {
               </p>
             </div>
           </div>
-          <div className="row m-0">
+          {/*
+            <div className="row m-0">
             <div className="col">
               <div className="toggle-group">
                 <input type="checkbox" id="switch" />
@@ -151,6 +162,7 @@ const RegisterModal = ({ closeRegisterModal }) => {
               </div>
             </div>
           </div>
+          */}
           <div className="row">
             <div className="col">
               <p className="register-agree">

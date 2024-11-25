@@ -101,7 +101,7 @@ p, .modalContainer .form button {
   .modalBackground {
     justify-content: center;
     align-items: start;
-    padding: 48px;
+    padding: 4px;
   }
 }
 
@@ -112,7 +112,6 @@ p, .modalContainer .form button {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
   flex-direction: column;
-  padding: 25px;
 }
 @media (max-width: 768px) {
   .modalContainer {
@@ -228,6 +227,13 @@ p, .modalContainer .form button {
   width: 25%;
   min-width: 350px;
 }
+@media (max-width: 768px) {
+  .modalContainer.loginModal {
+    width: 100%;
+    gap: 4px;
+    max-height: 90vh;
+  }
+}
 .modalContainer .login-buttons {
   width: 100%;
   justify-content: center;
@@ -334,5 +340,14 @@ p, .modalContainer .form button {
 .modalContainer.registerModal {
   width: 25%;
   min-width: 350px;
-  overflow: auto;
-}/*# sourceMappingURL=Modal.css.map */
+  overflow-y: auto;
+  max-height: 90vh;
+  padding: 0px;
+}
+@media (max-width: 768px) {
+  .modalContainer.registerModal {
+    width: 100%;
+    gap: 4px;
+    max-height: 90vh;
+  }
+}

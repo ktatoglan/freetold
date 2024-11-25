@@ -24,6 +24,14 @@ const LoginModal = ({ closeLoginModal }) => {
     }
   };
 
+  const disableScroll = () => {
+    document.body.style.overflow = "hidden";
+  };
+
+  const enableScroll = () => {
+    document.body.style.overflow = "auto";
+  };
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -42,10 +50,12 @@ const LoginModal = ({ closeLoginModal }) => {
 
     document.addEventListener("mousedown", handleClickOutside);
     document.addEventListener("keydown", handleEscapeKey);
+    disableScroll();
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", handleEscapeKey);
+      enableScroll();
     };
   }, [closeLoginModal]);
 
