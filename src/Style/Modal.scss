@@ -144,6 +144,12 @@ $background-color_3: transparent;
       gap: $half-spacing;
       max-height: 80vh;
     }
+    .row {
+      @media (max-width: 768px) {
+        margin: calc($small-spacing / 4) 0px !important;
+        width: 100%;
+      }
+    }
   }
   .login-buttons {
     width: 100%;
@@ -262,10 +268,10 @@ $background-color_3: transparent;
       gap: $half-spacing;
       max-height: 80vh;
     }
-    .row{
+    .row {
       @media (max-width: 768px) {
-        margin: calc($small-spacing / 4) 0px!important;
-        width: 100%
+        margin: calc($small-spacing / 4) 0px !important;
+        width: 100%;
       }
     }
   }
