@@ -47,7 +47,7 @@ const AppProvider = ({ children }) => {
   const [trafficScore, setTrafficScore] = useState(0);
   const [safetyConcerns, setSafetyConcerns] = useState('');
   const [agreeCheckbox, setAgreeCheckbox] = useState(false);
-  const serverUrl = 'https://freetold-backend.vercel.app';
+  const serverUrl = 'http://localhost:3050';
 
   useEffect(() => {
     cookies.set('user', { userId});

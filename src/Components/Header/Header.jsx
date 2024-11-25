@@ -17,6 +17,18 @@ const Header = () => {
   // Ref for detecting clicks outside the menu
   const menuRef = useRef(null);
 
+  useEffect(() => {
+    console.log("Header mounted");
+    //checek if there is a referer_id in the url
+    const urlParams = new URLSearchParams(window.location.search);
+    const referer_id = urlParams.get("referer_id");
+    if (referer_id && !userId) {
+      localStorage.setItem("referer_id", referer_id);
+      setOpenRegisterModal(true);
+    }
+
+  }, []);
+
   // Toggle mobile menu visibility
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((prev) => !prev);

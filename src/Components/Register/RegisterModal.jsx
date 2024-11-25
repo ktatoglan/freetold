@@ -12,6 +12,8 @@ const RegisterModal = ({ closeRegisterModal }) => {
   const [postcode, setPostcode] = useState("");
   const [password, setPassword] = useState("");
   const { serverUrl, userId, setUserId } = useAppProvider();
+  // get referer_id from local storage
+  const referer_id = localStorage.getItem("referer_id");
 
   const handleRegister = () => {
     axios
@@ -20,11 +22,19 @@ const RegisterModal = ({ closeRegisterModal }) => {
         name,
         postcode,
         password,
+        referer_id
       })
       .then((response) => {
         toast.success(response.data.message);
         setUserId(response.data.userId);
         closeRegisterModal();
+        // remove referer_id from local storage
+        localStorage.removeItem("referer_id");
+        //remove referer_id from url
+        const url = window.location.href;
+        const urlParams = new URLSearchParams(window.location.search);
+        urlParams.delete("referer_id");
+
       })
       .catch((error) => {
         console.error("Error:", error);

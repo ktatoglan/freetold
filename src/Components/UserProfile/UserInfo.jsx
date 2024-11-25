@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import { toast } from "react-toastify";
 
 const UserInfo = ({user}) => {
   const [date, setDate] = useState(null);
@@ -31,7 +32,11 @@ const UserInfo = ({user}) => {
 
       <div className="invite-friends">
         <h4>Got someone who wants to share their experience?</h4>
-        <button className="invite-button">Invite them!</button>
+        <button className="invite-button" onClick={()=>{
+          //copy to clipboard
+            navigator.clipboard.writeText(`${window.location.origin}?referer_id=${user.user_id}`);
+            toast.success("Link copied to clipboard!");
+        }}>Invite them!</button>
       </div>
     </div>
   );
