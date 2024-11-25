@@ -6,7 +6,8 @@ const HeaderSection = ({review}) => {
   return (
     <div className="header-section">
       <div className="back-link">
-        <a href="#" onClick={() => window.history.back()}>← Back</a>
+        <a href="#" onClick={() => (window.location.href = `/property-profile?address=${review['address_line_1']}&postcode=${review['post_code']}`)
+}>← Back</a>
       </div>
       <div className="user-info">
         <div className="left-section">
