@@ -170,8 +170,10 @@ const Header = () => {
           <button
             className="online-login"
             onClick={() => {
-              //setOpenLoginModal(true);
-              window.location.href = "/user-profile";
+              if(!userId)
+                setOpenLoginModal(true);
+              else
+                window.location.href = "/user-profile";
             }}
           >
             <img src={User} alt="user" />
