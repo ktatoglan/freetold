@@ -166,6 +166,15 @@ p, .footer ul.footer-socials a, .footer ul.footer-links a, .footer .copyright {
   background-color: transparent;
   color: #fff;
 }
+.header .menu ul li button.logout {
+  background-color: #0a2446;
+  color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.header .menu ul li button.logout:hover {
+  background-color: #ef6c67;
+  color: #fff;
+}
 .header .menu .close-menu {
   display: none;
 }
@@ -318,4 +327,4 @@ p, .footer ul.footer-socials a, .footer ul.footer-links a, .footer .copyright {
 
 .hover-cursor:hover {
   cursor: pointer;
-}/*# sourceMappingURL=root.css.map */
+}

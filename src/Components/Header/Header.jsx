@@ -82,6 +82,24 @@ const Header = () => {
               <a href="/blog">Blog</a>
             </li>
 
+            {window.location.href.includes("write-a-review") ? null : (
+              <li>
+                <button
+                  className="write-a-review"
+                  onClick={() => {
+                    if (!userId) {
+                      toast.error("Please login to write a review");
+                      return;
+                    }
+                    window.location.href = "/write-a-review-0";
+                    setIsMobileMenuOpen(false);
+                  }}
+                >
+                  Write a review
+                </button>
+              </li>
+            )}
+
             {!userId ? (
               <>
                 <li>
@@ -109,34 +127,30 @@ const Header = () => {
                 </li>
               </>
             ) : (
-              <li style={{display:"inline-flex"}}>
-                <img
-                  className="logged-in"
-                  src={User}
-                  alt="user"
-                  onClick={() => {
-                    window.location.href = "/user-profile";
-                    setIsMobileMenuOpen(false);
-                  }}
-                />
-              </li>
-            )}
-            {window.location.href.includes("write-a-review") ? null : (
-              <li>
-                <button
-                  className="write-a-review"
-                  onClick={() => {
-                    if (!userId) {
-                      toast.error("Please login to write a review");
-                      return;
-                    }
-                    window.location.href = "/write-a-review-0";
-                    setIsMobileMenuOpen(false);
-                  }}
-                >
-                  Write a review
-                </button>
-              </li>
+              <>
+                <li style={{display:"inline-flex"}}>
+                  <img
+                    className="logged-in"
+                    src={User}
+                    alt="user"
+                    onClick={() => {
+                      window.location.href = "/user-profile";
+                      setIsMobileMenuOpen(false);
+                    }}
+                  />
+                </li>
+                <li>
+                  <button
+                    className="logout"
+                    onClick={() => {
+                      toast.success("Logged out successfully");
+                      setUserId(null);
+                    }}
+                  >
+                    Log Out
+                  </button>
+                </li>
+              </>
             )}
           </ul>
         </nav>
