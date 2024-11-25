@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../Style/SearchBar.css";
 
 const SearchBar = () => {
@@ -6,7 +6,12 @@ const SearchBar = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [searchFullResults, setSearchFullResults] = useState([]);
   const [searchByPostcode, setSearchByPostcode] = useState(true);
-
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    if (window.innerWidth < 768) {
+      setIsMobile(true);
+    }
+  }, []);
   const token =
     "ZG9ndWNhbmJhc2tpbkBnbWFpbC5jb206NzljMDc5YjllOTNmMGQ3MWQ3MjIyY2MwYjAyNWM1NDI2NjEwMjg3OA==";
   const headers = {
@@ -110,8 +115,29 @@ const SearchBar = () => {
           }}
           placeholder={`Search property by ${searchByPostcode ? "postcode" : "address"}`}
         />
+        {isMobile ?
+          <span className="search-icon-mobile">
+            <svg
+              width="18"
+              height="17"
+              viewBox="0 0 18 17"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16.5 16L12.875 12.375M14.8333 7.66667C14.8333 11.3486 11.8486 14.3333 8.16667 14.3333C4.48477 14.3333 1.5 11.3486 1.5 7.66667C1.5 3.98477 4.48477 1 8.16667 1C11.8486 1 14.8333 3.98477 14.8333 7.66667Z"
+                stroke="#0A2446"
+                strokeWidth="1.66667"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+          :
+          <button onClick={handleSearch}>Find Properties & reviews</button>
+        }
+
       </div>
-      <button onClick={handleSearch}>Find Properties & reviews</button>
       {searchTerm.trim() && searchResults.length > 0 && (
         <ul className="search-results">
           {searchResults.map((result, index) => (

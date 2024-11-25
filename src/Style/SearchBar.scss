@@ -11,10 +11,17 @@
     display: inline-flex;
     align-items: center;
     margin: calc($small-spacing / 2) 0px $medium-spacing 0px;
+    button{
+      margin-left: 10px;
+    }
   }
   .search-icon svg {
     position: relative;
     left: 28px;
+  }
+  .search-icon-mobile svg {
+    position: relative;
+    left: 18px;
   }
   input {
     width: 40%;
@@ -63,7 +70,7 @@
 
   .search-results {
     position: absolute;
-    top: 55%;
+    top: 83%;
     background: white;
     padding: $small-spacing;
     border-radius: $medium-spacing;

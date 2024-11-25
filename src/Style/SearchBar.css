@@ -100,9 +100,16 @@ p, .home-search button {
   align-items: center;
   margin: 4px 0px 16px 0px;
 }
+.home-search .search-line button {
+  margin-left: 10px;
+}
 .home-search .search-icon svg {
   position: relative;
   left: 28px;
+}
+.home-search .search-icon-mobile svg {
+  position: relative;
+  left: 18px;
 }
 .home-search input {
   width: 40%;
@@ -151,7 +158,7 @@ p, .home-search button {
 }
 .home-search .search-results {
   position: absolute;
-  top: 55%;
+  top: 83%;
   background: white;
   padding: 8px;
   border-radius: 16px;
@@ -170,4 +177,4 @@ p, .home-search button {
 }
 .home-search .search-results li:hover {
   background-color: rgba(0, 0, 0, 0.2549019608);
-}/*# sourceMappingURL=SearchBar.css.map */
+}
