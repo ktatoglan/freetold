@@ -8,7 +8,7 @@ const UserInfo = ({user}) => {
   return (
     <div className="user-profile">
       <div className="user-info">
-        <h2>{user.email}</h2>
+        <h2>{user.name}</h2>
         <div className="user-info-line">
           <p>
             <svg
