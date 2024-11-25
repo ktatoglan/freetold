@@ -174,11 +174,22 @@ function BlogsMobile() {
                 {categories.length > 0 ? (
                   categories.map((category) => (
                     <li key={category.id}
-                      onClick={() => {
-                        const filteredBlogs = allBlog.filter((blog) =>
-                          blog.category.some((cat) => cat.name === category.name)
-                        );
+                      className="category"
+                      onClick={(event) => {
+                        if(window.location.pathname !== '/blog') {
+                          window.location.href = `/blog?category=${category.name}`;
+                        }
+                        if(event.target.classList.contains('active-category')) {
+                          event.target.classList.remove('active-category');
+                          setBlogs(allBlog);
+                          return;
+                        }
+                        const filteredBlogs = allBlog.filter(blog => blog.category.some(cat => cat.name === category.name));
                         setBlogs(filteredBlogs);
+                        //add active-category class to the selected category
+                        const categories = document.querySelectorAll('.category');
+                        categories.forEach(category => category.classList.remove('active-category'));
+                        event.target.classList.add('active-category');
                       }}
                     >
                       <img src={category.image} alt={category.name} />
@@ -206,11 +217,22 @@ function BlogsMobile() {
               {tags.length > 0 ? (
                 tags.map((tag) => (
                   <span key={tag.id} className="tag"
-                    onClick={() => {
-                      const filteredBlogs = allBlog.filter((blog) =>
-                        blog.tag.some((t) => t.name === tag.name)
-                      );
+                    onClick={(event) => {
+                      if(window.location.pathname !== '/blog') {
+                        window.location.href = `/blog?tag=${tag.name}`;
+                      }
+                      if(event.target.classList.contains('active-blog')) {
+                        event.target.classList.remove('active-blog');
+                        setBlogs(allBlog);
+                        return;
+                      }
+                      const filteredBlogs = allBlog.filter(blog => blog.tag.some(t => t.name === tag.name));
                       setBlogs(filteredBlogs);
+                      //add active-blog class to the selected tag
+                      const tags = document.querySelectorAll('.tag');
+                      tags.forEach(tag => tag.classList.remove('active-blog'));
+                      event.target.classList.add('active-blog');
+
                     }}
                   >
                     #{tag.name}
