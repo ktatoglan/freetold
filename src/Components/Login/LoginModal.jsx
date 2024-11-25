@@ -58,7 +58,7 @@ const LoginModal = ({ closeLoginModal }) => {
         <div className="login-buttons row">
           <div className="col">
             <div className="login-google-div">
-              <button className="google-login">
+              <button className="google-login" onClick={()=>{toast.error("Coming soon!")}}>
                 <div className="logo">
                   <svg
                     width="24"
