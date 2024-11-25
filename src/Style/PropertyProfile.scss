@@ -763,6 +763,23 @@ button {
         margin-top: $medium-spacing;
       }
     }
+
+    .delete-review {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: $half-spacing;
+      margin-left: $half-spacing;
+      background-color: transparent;
+      border: none;
+      color: $light-text;
+      text-align: center;
+      cursor: pointer;
+      font-size: 14px;
+      @media (max-width: 768px) {
+        margin-top: $medium-spacing;
+      }
+    }
   }
 
   .review-content {

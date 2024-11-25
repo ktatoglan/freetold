@@ -4,6 +4,7 @@ const UserInfo = ({user}) => {
   const [date, setDate] = useState(null);
   useEffect(() => {
     setDate(new Date(user.registration_date).toLocaleDateString());
+    console.log("user", user);
   }, [user]);
   return (
     <div className="user-profile">

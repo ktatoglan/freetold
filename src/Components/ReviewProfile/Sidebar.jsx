@@ -17,7 +17,7 @@ const Sidebar = ({review}) => {
             :
             <span>Per whole household</span>
           }
-          <span className="value">{review.rent_amount} £</span>
+          <span className="value">{parseInt(review.rent_amount)} £</span>
         </div>
         <div className="cost-item bills-title">
           <span className="label">Monthly bills breakdown</span>{" "}

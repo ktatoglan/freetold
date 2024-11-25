@@ -20,6 +20,7 @@ $large-font-size: 20px;
 
 // Spacing
 $no-spacing: 0px;
+$half-spacing: 4px;
 $small-spacing: 8px;
 $medium-spacing: 16px;
 $large-spacing: 24px;
@@ -49,7 +50,7 @@ $large-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 
 .container-fluid {
   margin: 0;
-  padding: 0;  
+  padding: 0;
 }
 
 .row {

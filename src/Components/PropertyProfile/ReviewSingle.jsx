@@ -13,7 +13,7 @@ const getTenancyPeriodText = (tenancyPeriod) => {
 
 
 
-const ReviewSingle = ({ review }) => {
+const ReviewSingle = ({ review, type }) => {
   const { serverUrl, userId } = useAppProvider();
 
   const addFavouriteReview = async () => {
@@ -30,6 +30,20 @@ const ReviewSingle = ({ review }) => {
     }
   };
 
+  const deleteMyReview = async (reviewId) => {
+    try {
+      const response = await axios.delete(`${serverUrl}/review/deleteReview/${reviewId}`);
+      if (response.status === 200) {
+        toast.success('Review deleted successfully');
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
+      }
+    } catch (error) {
+      toast.error(error.response.data.message);
+    }
+  };
+
   return (
     <div className="review-single">
     <div className="user-info">
@@ -37,23 +51,77 @@ const ReviewSingle = ({ review }) => {
       <div>
         <div className="user-duration">{getTenancyPeriodText(review.tenancy_period)}</div>
       </div>
-      <button className="save-favorites"
-        onClick={() => addFavouriteReview(review.review_id)}
-      >
-        <svg
-          width="20"
-          height="19"
-          viewBox="0 0 20 19"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+      {type != 'fav-reviews' ?
+        <button className="save-favorites"
+          onClick={() => addFavouriteReview(review.review_id)}
         >
-          <path
-            d="M10.1 15.55L10 15.65L9.89 15.55C5.14 11.24 2 8.39 2 5.5C2 3.5 3.5 2 5.5 2C7.04 2 8.54 3 9.07 4.36H10.93C11.46 3 12.96 2 14.5 2C16.5 2 18 3.5 18 5.5C18 8.39 14.86 11.24 10.1 15.55ZM14.5 0C12.76 0 11.09 0.81 10 2.08C8.91 0.81 7.24 0 5.5 0C2.42 0 0 2.41 0 5.5C0 9.27 3.4 12.36 8.55 17.03L10 18.35L11.45 17.03C16.6 12.36 20 9.27 20 5.5C20 2.41 17.58 0 14.5 0Z"
-            fill="#919191"
-          />
-        </svg>
-        Save to favorites
-      </button>
+          <svg
+            width="20"
+            height="19"
+            viewBox="0 0 20 19"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10.1 15.55L10 15.65L9.89 15.55C5.14 11.24 2 8.39 2 5.5C2 3.5 3.5 2 5.5 2C7.04 2 8.54 3 9.07 4.36H10.93C11.46 3 12.96 2 14.5 2C16.5 2 18 3.5 18 5.5C18 8.39 14.86 11.24 10.1 15.55ZM14.5 0C12.76 0 11.09 0.81 10 2.08C8.91 0.81 7.24 0 5.5 0C2.42 0 0 2.41 0 5.5C0 9.27 3.4 12.36 8.55 17.03L10 18.35L11.45 17.03C16.6 12.36 20 9.27 20 5.5C20 2.41 17.58 0 14.5 0Z"
+              fill="#919191"
+            />
+          </svg>
+          Save to favorites
+        </button>
+        :
+        <></>
+      }
+
+      { type == 'user-reviews' ?
+
+        <div className="edit-del-buttons">
+          {
+            /*
+            <p>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18.988 2.01196L21.988 5.01196L19.701 7.29996L16.701 4.29996L18.988 2.01196ZM8 16H11L18.287 8.71296L15.287 5.71296L8 13V16Z"
+                  fill="#919191"
+                />
+                <path
+                  d="M19 19H8.158C8.132 19 8.105 19.01 8.079 19.01C8.046 19.01 8.013 19.001 7.979 19H5V5H11.847L13.847 3H5C3.897 3 3 3.896 3 5V19C3 20.104 3.897 21 5 21H19C19.5304 21 20.0391 20.7893 20.4142 20.4142C20.7893 20.0391 21 19.5304 21 19V10.332L19 12.332V19Z"
+                  fill="#919191"
+                />
+              </svg>
+              Edit my Review
+            </p>
+            */
+          }
+          <button className="delete-review"
+            onClick={() => deleteMyReview(review.review_id)}
+          >
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 30 30"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.51875 25.0001C8.94375 25.0001 8.46375 24.8076 8.07875 24.4226C7.69292 24.0368 7.5 23.5563 7.5 22.9813L7.5 7.5001H6.25V6.2501L11.25 6.2501V5.2876L18.75 5.2876V6.2501L23.75 6.2501V7.5001H22.5L22.5 22.9813C22.5 23.5563 22.3075 24.0363 21.9225 24.4213C21.5367 24.8072 21.0563 25.0001 20.4813 25.0001L9.51875 25.0001ZM12.26 21.2501H13.51L13.51 10.0001H12.26L12.26 21.2501ZM16.49 21.2501H17.74V10.0001H16.49V21.2501Z"
+                fill="#919191"
+              />
+            </svg>
+            Delete my Review
+          </button>
+        </div>
+        :
+        <></>
+
+      }
+
     </div>
     <div className="review-content">
       <div className="review-details">
@@ -92,23 +160,25 @@ const ReviewSingle = ({ review }) => {
           <p>{review.review_cons}</p>
         </div>
         <div className="review-footer">
-          <div className="likes">
-            <span className="like-icon">
-              <svg
-                width="19"
-                height="18"
-                viewBox="0 0 19 18"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M19 8.1C19 7.62261 18.818 7.16477 18.4941 6.82721C18.1702 6.48964 17.7308 6.3 17.2727 6.3H11.8145L12.6436 2.187C12.6609 2.097 12.6695 1.998 12.6695 1.899C12.6695 1.53 12.5227 1.188 12.2895 0.945L11.3741 0L5.69136 5.922C5.37182 6.255 5.18182 6.705 5.18182 7.2V16.2C5.18182 16.6774 5.3638 17.1352 5.68772 17.4728C6.01165 17.8104 6.45099 18 6.90909 18H14.6818C15.3986 18 16.0118 17.55 16.2709 16.902L18.8791 10.557C18.9568 10.35 19 10.134 19 9.9V8.1ZM0 18H3.45455V7.2H0V18Z"
-                  fill="#646464"
-                />
-              </svg>
-            </span>
-            <span>{review.likes || 0} likes</span>
-          </div>
+          {/*
+            <div className="likes">
+              <span className="like-icon">
+                <svg
+                  width="19"
+                  height="18"
+                  viewBox="0 0 19 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M19 8.1C19 7.62261 18.818 7.16477 18.4941 6.82721C18.1702 6.48964 17.7308 6.3 17.2727 6.3H11.8145L12.6436 2.187C12.6609 2.097 12.6695 1.998 12.6695 1.899C12.6695 1.53 12.5227 1.188 12.2895 0.945L11.3741 0L5.69136 5.922C5.37182 6.255 5.18182 6.705 5.18182 7.2V16.2C5.18182 16.6774 5.3638 17.1352 5.68772 17.4728C6.01165 17.8104 6.45099 18 6.90909 18H14.6818C15.3986 18 16.0118 17.55 16.2709 16.902L18.8791 10.557C18.9568 10.35 19 10.134 19 9.9V8.1ZM0 18H3.45455V7.2H0V18Z"
+                    fill="#646464"
+                  />
+                </svg>
+              </span>
+              <span>{review.likes || 0} likes</span>
+            </div>
+          */}
           <a href={"/property-profile/review/" + review.review_id} className="full-review-link">
             Read full review
           </a>

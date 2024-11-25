@@ -67,7 +67,7 @@ const UserProfile = () => {
           <UserReviews reviews = {reviews} />
           <FavReviews reviews = {favouriteReviews} />
 
-          <SavedProperties />
+          {/*<SavedProperties /> */}
         </section>
       </section>
     </>
