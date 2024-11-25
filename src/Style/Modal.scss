@@ -262,5 +262,11 @@ $background-color_3: transparent;
       gap: $half-spacing;
       max-height: 90vh;
     }
+    .row{
+      @media (max-width: 768px) {
+        margin: calc($small-spacing / 4) 0px!important;
+        width: 100%
+      }
+    }
   }
 }

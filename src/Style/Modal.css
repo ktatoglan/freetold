@@ -351,3 +351,9 @@ p, .modalContainer .form button {
     max-height: 90vh;
   }
 }
+@media (max-width: 768px) {
+  .modalContainer.registerModal .row {
+    margin: 2px 0px !important;
+    width: 100%;
+  }
+}/*# sourceMappingURL=Modal.css.map */
