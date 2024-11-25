@@ -45,8 +45,8 @@ const PropertyDetails = ({reviews, selectedProperty}) => {
     setGas(totalGas/reviews.length);
     setWater(totalWater/reviews.length);
     setInternet(totalInternet/reviews.length);
-    setTotalEstimatedBills((totalElectricity + totalGas + totalWater + totalInternet) / reviews.length);
-    setLastPrice(reviews.length > 0 ? reviews[0].rent_amount : '-' /*+ " " + reviews[0].rent_period*/);
+    setTotalEstimatedBills(((totalElectricity + totalGas + totalWater + totalInternet) / reviews.length).toFixed(2));
+    setLastPrice(reviews.length > 0 ? parseInt(reviews[0].rent_amount, 10) : '-');
   }, [reviews]);
 
 
