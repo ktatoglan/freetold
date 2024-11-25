@@ -11,7 +11,7 @@ import { useAppProvider } from '../../Contexts/AppContext';
 
 
 const PropertyProfile = ({postalCode,address}) => {
-   const { serverUrl } = useAppProvider();
+   const { serverUrl, setTownCity, setCountry, setPostCode, setAddressLine1  } = useAppProvider();
    const [reviews, setReviews] = useState([]);
    const [addressDetails, setAddressDetails] = useState({});
    const [selectedProperty, setSelectedProperty] = useState({});
@@ -58,6 +58,12 @@ const PropertyProfile = ({postalCode,address}) => {
         }
         //console.log(formattedData);
         setSelectedProperty(formattedData[0]);
+
+        setTownCity(formattedData[0].county);
+        setCountry("United Kingdom");
+        setPostCode(postalCode);
+        setAddressLine1(address);
+
       })
       .catch((error) => {
         console.error("There was a problem with the fetch operation:", error);

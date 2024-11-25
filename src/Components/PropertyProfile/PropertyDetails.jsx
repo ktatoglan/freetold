@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useAppProvider } from "../../Contexts/AppContext";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+
 const PropertyDetails = ({reviews, selectedProperty}) => {
   const [isSummaryVisible, setSummaryVisible] = useState(false);
   const [showBreakdown, setShowBreakdown] = useState(false);
@@ -14,6 +16,7 @@ const PropertyDetails = ({reviews, selectedProperty}) => {
   const breakdownRef = useRef(null);
   const infoRef = useRef(null);
   const { serverUrl, userId } = useAppProvider();
+  const navigate = useNavigate();
 
   // Dış tıklama olayını dinlemek için tek bir işlev
   const handleClickOutside = (event) => {
@@ -71,7 +74,9 @@ const PropertyDetails = ({reviews, selectedProperty}) => {
       toast.error("Please login to write a review");
       return;
     }
-    window.location.href = `/write-review-0`;
+
+    navigate(`/write-a-review-1`);
+    //window.location.href = `/write-a-review-1`;
   }
 
   return (
