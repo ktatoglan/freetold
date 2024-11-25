@@ -29,6 +29,7 @@ const ReviewCard = ({ ReviewID, review }) => {
         </div>
         {/* <div className="user-duration">{getTenancyPeriodText(review.tenancy_period)}</div> */}
         <div className="user-duration">
+          <h4>{review.address_line_1}</h4>
           <p>Stayed in this property for {review.rent_duration} {review.rent_period == 'per-month' ? "month" : "year"}</p>
         </div>
       </div>

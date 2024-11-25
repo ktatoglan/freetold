@@ -201,7 +201,7 @@
         .user-duration {
           color: $gray-text;
           display: flex;
-          align-items: center;
+          flex-direction: column;;
         }
       }
       .review-title {

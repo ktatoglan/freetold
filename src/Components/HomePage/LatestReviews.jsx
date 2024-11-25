@@ -68,6 +68,7 @@ export const LatestReviews = () => {
     <section className="latest-reviews">
       <div className="container-fluid">
         <h3 className="title">Latest reviews from our users</h3>
+
         <div className="reviews-holder">
           <Slider {...settings}>
             {reviews.map((review) => (

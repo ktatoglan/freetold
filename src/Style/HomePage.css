@@ -292,7 +292,7 @@ p, .contact-us-temp .container .form button, .contact-us .container .form button
 .latest-reviews .reviews-holder .review-single .review-user .user-duration {
   color: #646464;
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }
 .latest-reviews .reviews-holder .review-single .review-title h4 {
   color: #0a2446;
