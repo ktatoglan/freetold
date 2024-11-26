@@ -5,6 +5,9 @@ import { useNavigate } from "react-router-dom";
 
 function WriteReview2() {
   const {
+    addressLine1,
+    addressLine2,
+    postCode,
     rentAmount,
     setRentAmount,
     rentPeriod,
@@ -56,7 +59,7 @@ function WriteReview2() {
 
   return (
     <div className="container">
-      <div className="review-flow">
+      <div className="review-flow wr2">
         <div className="review-header">
           <p className="header-text">You are writing a review for</p>
           <div className="header-address">
@@ -85,7 +88,7 @@ function WriteReview2() {
                   />
                 </svg>
               </span>
-              Glan Yr Afon Road, Swansea SA2
+              {addressLine1} {addressLine2}, {postCode}
             </p>
           </div>
           <div className="header-progress-bar">

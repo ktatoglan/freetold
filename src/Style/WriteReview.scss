@@ -308,8 +308,8 @@
 
         label {
           display: inline-block;
-          width: 25px;
-          height: 24px;
+          width: 40px;
+          height: 40px;
           background-size: contain;
           background-repeat: no-repeat;
           cursor: pointer;
@@ -472,6 +472,7 @@
       //   }
       // }
       // 3rd Step
+
       .content {
         width: 100%;
         padding-left: 0;
@@ -531,6 +532,12 @@
           color: $primary-color;
         }
       }
+    }
+    &.wr2 .content,
+    &.wr3 .content,
+    &.wr4 .content,
+    &.wr5 .content{
+      margin: calc($small-spacing / 4) auto!important;
     }
   }
 }

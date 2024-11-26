@@ -6,7 +6,19 @@ import { useNavigate } from "react-router-dom";
 function WriteReview3() {
   const [text, setText] = useState("");
   const maxLength = 75;
-  const { reviewScore, setReviewScore, reviewHeadline, setReviewHeadline, reviewPros, setReviewPros, reviewCons, setReviewCons } = useAppProvider();
+  const {
+    addressLine1,
+    addressLine2,
+    postCode,
+    reviewScore,
+    setReviewScore,
+    reviewHeadline,
+    setReviewHeadline,
+    reviewPros,
+    setReviewPros,
+    reviewCons,
+    setReviewCons,
+  } = useAppProvider();
   const navigate = useNavigate();
 
   const handleChange = (event) => {
@@ -24,7 +36,7 @@ function WriteReview3() {
 
   return (
     <div className="container">
-      <div className="review-flow">
+      <div className="review-flow wr3">
         <div className="review-header">
           <p className="header-text">You are writing a review for</p>
           <div className="header-address">
@@ -53,7 +65,7 @@ function WriteReview3() {
                   />
                 </svg>
               </span>
-              Glan Yr Afon Road, Swansea SA2
+              {addressLine1} {addressLine2}, {postCode}
             </p>
           </div>
           <div className="header-progress-bar">
@@ -78,15 +90,15 @@ function WriteReview3() {
               <p className="input-title">Rate your current property</p>
               <div className="row mt-small mb-small">
                 <div className="rating-container stars">
-                {Array.from({ length: 5 }, (_, index) => (
+                  {Array.from({ length: 5 }, (_, index) => (
                     <React.Fragment key={index}>
                       <input
                         type="radio"
                         id={`star${index + 1}`}
                         name="rating"
                         value={index + 1}
-                        checked={reviewScore === 5 - index }
-                        onClick={() => setReviewScore(5 - index )}
+                        checked={reviewScore === 5 - index}
+                        onClick={() => setReviewScore(5 - index)}
                         onChange={() => {}}
                       />
                       <label htmlFor={`star${index + 1}`}></label>

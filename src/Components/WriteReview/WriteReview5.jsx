@@ -5,6 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 function WriteReview5() {
   const {
+    addressLine1,
+    addressLine2,
+    postCode,
     sendReview,
     perceptionNeighborsLevel,
     setPerceptionNeighborsLevel,
@@ -23,7 +26,7 @@ function WriteReview5() {
 
   return (
     <div className="container">
-      <div className="review-flow">
+      <div className="review-flow wr5">
         <div className="review-header">
           <p className="header-text">You are writing a review for</p>
           <div className="header-address">
@@ -52,7 +55,7 @@ function WriteReview5() {
                   />
                 </svg>
               </span>
-              Glan Yr Afon Road, Swansea SA2
+              {addressLine1} {addressLine2}, {postCode}
             </p>
           </div>
           <div className="header-progress-bar">

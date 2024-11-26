@@ -382,8 +382,8 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
 }
 .container .review-flow .review-content .rating-container label {
   display: inline-block;
-  width: 25px;
-  height: 24px;
+  width: 40px;
+  height: 40px;
   background-size: contain;
   background-repeat: no-repeat;
   cursor: pointer;
@@ -554,4 +554,7 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
 }
 .container .review-flow .review-content .approval a:hover {
   color: #0a2446;
+}
+.container .review-flow.wr2 .content, .container .review-flow.wr3 .content, .container .review-flow.wr4 .content, .container .review-flow.wr5 .content {
+  margin: 2px auto !important;
 }/*# sourceMappingURL=WriteReview.css.map */
