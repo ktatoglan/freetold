@@ -18,7 +18,7 @@ const Header = () => {
   const menuRef = useRef(null);
 
   useEffect(() => {
-    console.log("Header mounted");
+    // console.log("Header mounted");
     //checek if there is a referer_id in the url
     const urlParams = new URLSearchParams(window.location.search);
     const referer_id = urlParams.get("referer_id");
@@ -101,6 +101,8 @@ const Header = () => {
                   onClick={() => {
                     if (!userId) {
                       toast.error("Please login to write a review");
+                      setOpenLoginModal(true);
+                      setIsMobileMenuOpen(false);
                       return;
                     }
                     window.location.href = "/write-a-review-0";
