@@ -1,0 +1,177 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Geologica", sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.container-fluid {
+  margin: 0;
+  padding: 0;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 16px;
+  margin-left: 16px;
+}
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+}
+
+.col {
+  flex: 1 0 0;
+  padding: 0 16px;
+}
+@media (max-width: 768px) {
+  .col {
+    flex: none;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+}
+
+h1 {
+  font-family: Geologica;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 80px;
+  text-align: left;
+}
+
+h2 {
+  font-family: Geologica;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 53px;
+  text-align: left;
+}
+
+h3 {
+  font-family: Geologica;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 40px;
+  text-align: left;
+}
+
+h4 {
+  font-family: Geologica;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+  text-align: left;
+}
+
+p {
+  font-family: Geologica;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: left;
+}
+
+.small-text {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 16px;
+  text-align: left;
+}
+
+.contact-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  min-height: calc(100vh - 191px);
+}
+.contact-page .contact-container {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .contact-page .contact-container {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+.contact-page .left-column {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.contact-page .left-column .contact-image {
+  width: 100%;
+}
+.contact-page .right-column {
+  flex: 1;
+  padding: 20px;
+}
+.contact-page .right-column h1 {
+  color: #0a2446;
+  margin: 16px auto;
+}
+@media (max-width: 768px) {
+  .contact-page .right-column h1 {
+    font-size: 2rem;
+    line-height: 2.2rem;
+  }
+}
+.contact-page .right-column p {
+  margin-bottom: 16px;
+}
+.contact-page .right-column p ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.contact-page .right-column .contact-form {
+  display: flex;
+  flex-direction: column;
+}
+.contact-page .right-column .contact-form label {
+  margin-bottom: 16px;
+  color: #646464;
+}
+.contact-page .right-column .contact-form label input,
+.contact-page .right-column .contact-form label textarea {
+  width: 100%;
+  background-color: rgba(245, 245, 245, 0.5019607843);
+  border-radius: 8px;
+  border: 1px solid #d9d9d9;
+  padding: 10px 14px 10px 14px;
+  margin-right: 5px;
+  color: #919191;
+}
+.contact-page .right-column .contact-form button {
+  padding: 16px;
+  margin: 16px 0 24px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 350px;
+  border: 1px solid #ef6c67;
+  cursor: pointer;
+  background-color: #ef6c67;
+  color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-align: center;
+  align-self: center;
+}
+.contact-page .right-column .contact-form button:hover {
+  background-color: #0a2446;
+  border-color: #0a2446;
+}/*# sourceMappingURL=ContactUs.css.map */

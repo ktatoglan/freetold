@@ -17,15 +17,15 @@ const Footer = () => {
             </li>
             {/* <li>
               <a href="#">Cookies</a>
-            </li> 
-            <li>
-              <a href="#">Contact us</a>
-            </li>*/}
+            </li> */}
             <li>
               <a href="/page/faq">FAQ</a>
             </li>
             <li>
               <a href="/blog/meet-freetold-a-new-era-of-openness-in-the-housing-market">About</a>
+            </li>
+            <li>
+              <a href="#">Contact</a>
             </li>
           </ul>{" "}
         </div>
