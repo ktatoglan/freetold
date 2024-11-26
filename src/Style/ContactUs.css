@@ -117,6 +117,7 @@ p {
 .contact-page .right-column {
   flex: 1;
   padding: 20px;
+  color: #646464;
 }
 .contact-page .right-column h1 {
   color: #0a2446;
