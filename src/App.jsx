@@ -28,6 +28,7 @@ import BlogSingleMobile from "./Components/Blogs/BlogSingleMobile";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import StaticPage from "./Pages/StaticPage";
+import ContactUs from "./Pages/ContactUs";
 
 function App() {
   const [isMobile, setIsMobile] = useState(false);
@@ -103,6 +104,7 @@ function App() {
               <Route path="/blog/" exact element={<MobileBlogPage />} />
               <Route path="/blog/:slug" exact element={<BlogSingleMobile />} />
               <Route path="/page/:slug" exact element={<StaticPage />} />
+              <Route path="/contact-us/" exact element={<ContactUs />} />
             </Routes>
           ) : (
             <Routes>
@@ -159,6 +161,7 @@ function App() {
               <Route path="/blog/" exact element={<BlogsPage />} />
               <Route path="/blog/:slug" exact element={<BlogSingle />} />
               <Route path="/page/:slug" exact element={<StaticPage />} />
+              <Route path="/contact-us/" exact element={<ContactUs />} />
             </Routes>
           )}
         </Router>
