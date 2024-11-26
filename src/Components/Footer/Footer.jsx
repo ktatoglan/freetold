@@ -25,7 +25,7 @@ const Footer = () => {
               <a href="/blog/meet-freetold-a-new-era-of-openness-in-the-housing-market">About</a>
             </li>
             <li>
-              <a href="#">Contact</a>
+              <a href="/contact-us">Contact</a>
             </li>
           </ul>{" "}
         </div>
