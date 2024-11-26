@@ -102,6 +102,7 @@ p, .modalContainer .form button {
     justify-content: center;
     align-items: start;
     padding: 4px;
+    overflow: scroll;
   }
 }
 
