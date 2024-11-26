@@ -28,7 +28,7 @@ const HeaderSection = ({review}) => {
           <div className="user-details">
             <span className="username">{review.user_name}</span>
             <span className="stay-duration">
-              Stayed in this property for {review.rent_duration}  {" " + review.rent_period == 'per-month' ? 'months' : 'years'}
+              Stayed in this property for {review.rent_duration} {review.rent_period == 'per-month' ? 'months' : 'years'}
             </span>
           </div>
         </div>
