@@ -231,6 +231,7 @@ p {
   }
 }
 .property-listing .property-results .property-map {
+  display: none;
   width: 400px;
   position: relative;
   transition: width 0.5s ease; /* gpt: Haritanın genişleme animasyonu */

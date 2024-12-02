@@ -146,6 +146,7 @@
     }
 
     .property-map {
+      display: none; // Will be deleted later
       width: 400px;
       position: relative;
       transition: width 0.5s ease; /* gpt: Haritanın genişleme animasyonu */
