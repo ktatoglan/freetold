@@ -81,8 +81,8 @@ const PropertyDetails = ({reviews, selectedProperty}) => {
       return;
     }
 
-    navigate(`/write-a-review-1`);
-    //window.location.href = `/write-a-review-1`;
+    // navigate(`/write-a-review-1`);
+    window.location.href = `/write-a-review-1`;
   }
 
   function displayStars(score){
