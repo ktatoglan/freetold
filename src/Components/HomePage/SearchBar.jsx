@@ -116,7 +116,7 @@ const SearchBar = () => {
           placeholder={`Search property by ${searchByPostcode ? "postcode" : "address"}`}
         />
         {isMobile ?
-          <span className="search-icon-mobile">
+          <span className="search-icon-mobile" onClick={handleSearch}>
             <svg
               width="18"
               height="17"
