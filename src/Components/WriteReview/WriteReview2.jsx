@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import "../../Style/WriteReview.css";
 import { useAppProvider } from "../../Contexts/AppContext";
 import { useNavigate } from "react-router-dom";
@@ -28,26 +28,28 @@ function WriteReview2() {
     setInternetBill,
   } = useAppProvider();
   const navigate = useNavigate();
-  const [formattedRentAmount, setFormattedRentAmount] = useState('');
+  const [formattedRentAmount, setFormattedRentAmount] = useState("");
 
   useEffect(() => {
     if (rentAmount) {
-      const formattedValue = new Intl.NumberFormat('en-US').format(parseInt(rentAmount, 10));
+      const formattedValue = new Intl.NumberFormat("en-US").format(
+        parseInt(rentAmount, 10)
+      );
       setFormattedRentAmount(formattedValue);
     }
   }, []);
 
   const handleRentAmountChange = (e) => {
-    const value = e.target.value.replace(/\./g, ''); // Remove existing dots
+    const value = e.target.value.replace(/\./g, ""); // Remove existing dots
     const numberValue = parseInt(value, 10);
 
     if (!isNaN(numberValue)) {
-      const formattedValue = new Intl.NumberFormat('en-US').format(numberValue);
+      const formattedValue = new Intl.NumberFormat("en-US").format(numberValue);
       setRentAmount(value);
       setFormattedRentAmount(formattedValue);
     } else {
-      setRentAmount('');
-      setFormattedRentAmount('');
+      setRentAmount("");
+      setFormattedRentAmount("");
     }
   };
 
@@ -192,7 +194,7 @@ function WriteReview2() {
             <div className="col">
               <div className="bill">
                 <div className="title">
-                <svg
+                  <svg
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
@@ -204,12 +206,18 @@ function WriteReview2() {
                       fill="#0A2446"
                     />
                   </svg>
-                  Electricity</div>
+                  Electricity
+                </div>
                 <div className="bill-input-group">
                   <input
                     type="text"
                     value={electricBill}
-                    onChange={(e) => setElectricBill(e.target.value)}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      if (/^\d*$/.test(value)) {
+                        setElectricBill(value);
+                      }
+                    }}
                     onFocus={handleFocus(setElectricBill)}
                   />
                   <label htmlFor="" className="cur-symbol">
@@ -221,7 +229,7 @@ function WriteReview2() {
             <div className="col">
               <div className="bill">
                 <div className="title">
-                <svg
+                  <svg
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
@@ -233,12 +241,18 @@ function WriteReview2() {
                       fill="#0A2446"
                     />
                   </svg>
-                  Water</div>
+                  Water
+                </div>
                 <div className="bill-input-group">
                   <input
                     type="text"
                     value={waterBill}
-                    onChange={(e) => setWaterBill(e.target.value)}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      if (/^\d*$/.test(value)) {
+                        setWaterBill(value);
+                      }
+                    }}
                     onFocus={handleFocus(setWaterBill)}
                   />
                   <label htmlFor="" className="cur-symbol">
@@ -250,7 +264,7 @@ function WriteReview2() {
             <div className="col">
               <div className="bill">
                 <div className="title">
-                <svg
+                  <svg
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
@@ -262,12 +276,18 @@ function WriteReview2() {
                       fill="#0A2446"
                     />
                   </svg>
-                  Gas</div>
+                  Gas
+                </div>
                 <div className="bill-input-group">
                   <input
                     type="text"
                     value={gasBill}
-                    onChange={(e) => setGasBill(e.target.value)}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      if (/^\d*$/.test(value)) {
+                        setGasBill(value);
+                      }
+                    }}
                     onFocus={handleFocus(setGasBill)}
                   />
                   <label htmlFor="" className="cur-symbol">
@@ -279,7 +299,7 @@ function WriteReview2() {
             <div className="col">
               <div className="bill">
                 <div className="title">
-                <svg
+                  <svg
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
@@ -291,12 +311,18 @@ function WriteReview2() {
                       fill="#0A2446"
                     />
                   </svg>
-                  Internet</div>
+                  Internet
+                </div>
                 <div className="bill-input-group">
                   <input
                     type="text"
                     value={internetBill}
-                    onChange={(e) => setInternetBill(e.target.value)}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      if (/^\d*$/.test(value)) {
+                        setInternetBill(value);
+                      }
+                    }}
                     onFocus={handleFocus(setInternetBill)}
                   />
                   <label htmlFor="" className="cur-symbol">

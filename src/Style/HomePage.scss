@@ -196,17 +196,20 @@
       }
       .review-user {
         display: flex;
-        margin-bottom: $large-spacing;
+        margin-bottom: $medium-spacing;
         gap: $small-spacing;
         .user-duration {
-          color: $gray-text;
+          color: $primary-color;
           display: flex;
-          flex-direction: column;;
+          flex-direction: column;
+        }
+        p {
+          color: $gray-text;
         }
       }
       .review-title {
         h4 {
-          color: $primary-color;
+          color: $gray-text;
           margin-bottom: $large-spacing;
           height: 80px;
           // width: 310px;
@@ -225,8 +228,8 @@
         }
         label {
           display: inline-block;
-          width: 25px;
-          height: 24px;
+          width: 40px;
+          height: 40px;
           background-size: contain;
           background-repeat: no-repeat;
           margin-right: $small-spacing;
@@ -247,12 +250,6 @@
           input[type="radio"]:checked ~ label ~ input[type="radio"] + label,
           input[type="radio"]:checked ~ label ~ label {
             background-image: url("../assets/img/star-selected.svg");
-          }
-          .review-date {
-            font-size: 14px;
-            font-weight: 300;
-            color: $gray-text;
-            line-height: 22px;
           }
         }
       }
@@ -318,6 +315,14 @@
             font-weight: 300;
           }
         }
+      }
+      .review-date {
+        display: flex;
+        margin-bottom: $medium-spacing;
+        font-size: 14px;
+        font-weight: 300;
+        color: $gray-text;
+        line-height: 22px;
       }
     }
 

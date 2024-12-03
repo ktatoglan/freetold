@@ -136,9 +136,13 @@ function WriteReview1() {
                   type="text"
                   className="mbl-bottom-gap-small"
                   value={rentDuration}
-                  onChange={(e) =>
-                    setRentDuration(e.target.value)
-                  }
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    if (/^\d*$/.test(value)) {
+                      // Sadece sayılar
+                      setRentDuration(value);
+                    }
+                  }}
                   onFocus={handleFocus(setRentDuration)}
                 />
                 <select
@@ -177,9 +181,23 @@ function WriteReview1() {
                 Including you, how many people are living in this property?
               </p>
               <div className="counter-group">
-                <button className="decr" onClick={() => setPeopleNumberLivingAtHome(peopleNumberLivingAtHome - 1)}>-</button>
+                <button
+                  className="decr"
+                  onClick={() =>
+                    setPeopleNumberLivingAtHome(peopleNumberLivingAtHome - 1)
+                  }
+                >
+                  -
+                </button>
                 <p className="counter">{peopleNumberLivingAtHome}</p>
-                <button className="incr" onClick={() => setPeopleNumberLivingAtHome(peopleNumberLivingAtHome + 1)}>+</button>
+                <button
+                  className="incr"
+                  onClick={() =>
+                    setPeopleNumberLivingAtHome(peopleNumberLivingAtHome + 1)
+                  }
+                >
+                  +
+                </button>
               </div>
             </div>
           </div>

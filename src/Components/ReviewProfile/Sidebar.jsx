@@ -1,10 +1,30 @@
 import React from "react";
+import selectedStarSrc from "../../assets/img/star-selected.svg"
+import defaultStarSrc from "../../assets/img/star-default.svg"
 
-const Sidebar = ({review}) => {
-  function createStar(times) {
-    var char = "⭐";
-    return char.repeat(times);
-  }
+const Sidebar = ({ review }) => {
+  // function createStar(times) {
+  //   var char = "⭐";
+  //   return char.repeat(times);
+  // }
+  const createStar = ( times ) => {
+    const totalStars = 5; 
+
+
+    const stars = Array.from({ length: totalStars }, (_, index) => {
+      const isSelected = index < times; // İlk `times` kadar yıldız seçili
+      return (
+        <img
+          key={index}
+          src={isSelected ? selectedStarSrc : defaultStarSrc}
+          alt={isSelected ? "Selected Star" : "Default Star"}
+          className="star-icon"
+        />
+      );
+    });
+
+    return <div className="star-rating">{stars}</div>;
+  };
 
   return (
     <div className="review-sidebar">
@@ -12,16 +32,21 @@ const Sidebar = ({review}) => {
         <h4>How much it costs to live here</h4>
         <div className="cost-item rent">
           <span className="label">Monthly rent</span>
-          { review.is_it_sharing_flat ?
-            <span>Per person / {review.people_number_leaving_at_home} people staying there</span>
-            :
+          {review.is_it_sharing_flat ? (
+            <span>
+              Per person / {review.people_number_leaving_at_home} people staying
+              there
+            </span>
+          ) : (
             <span>Per whole household</span>
-          }
+          )}
           <span className="value">{parseInt(review.rent_amount)} £</span>
         </div>
         <div className="cost-item bills-title">
           <span className="label">Monthly bills breakdown</span>{" "}
-          <span>{review.bills_per_person ? "Per person" : "Per whole household"}</span>
+          <span>
+            {review.bills_per_person ? "Per person" : "Per whole household"}
+          </span>
         </div>
         <div className="cost-item">
           <span className="label">
@@ -113,14 +138,16 @@ const Sidebar = ({review}) => {
           <span className="label">Internet connection</span>{" "}
           <span className="stars">
             {createStar(review.internet_connection_level)}
-            </span>
+          </span>
         </div>
         <div className="items-title">
           <p className="title">Around the neigborhood</p>
         </div>
         <div className="rating-item">
           <span className="label">Noise level</span>{" "}
-          <span className="stars">{createStar(review.noise_neighbors_level)}</span>
+          <span className="stars">
+            {createStar(review.noise_neighbors_level)}
+          </span>
         </div>
         <div className="rating-item">
           <span className="label">Parking</span>{" "}
@@ -132,14 +159,18 @@ const Sidebar = ({review}) => {
         </div>
         <div className="rating-item">
           <span className="label">Neighbors</span>{" "}
-          <span className="stars">{createStar(review.perception_neighbors_level)}</span>
+          <span className="stars">
+            {createStar(review.perception_neighbors_level)}
+          </span>
         </div>
         <div className="items-title">
           <p className="title">Last but not least</p>
         </div>
         <div className="rating-item">
           <span className="label">Owner's respond</span>{" "}
-          <span className="stars">{createStar(review.owner_respond_score)}</span>
+          <span className="stars">
+            {createStar(review.owner_respond_score)}
+          </span>
         </div>
         <div className="rating-item pet-friendly">
           <span className="label">
@@ -157,7 +188,9 @@ const Sidebar = ({review}) => {
             </svg>
             Pet-friendly
           </span>{" "}
-          <span className="value">{review.is_it_pet_friendly ? "Yes" : "No"}</span>
+          <span className="value">
+            {review.is_it_pet_friendly ? "Yes" : "No"}
+          </span>
         </div>
       </div>
     </div>
