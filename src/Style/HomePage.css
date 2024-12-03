@@ -286,16 +286,19 @@ p, .contact-us-temp .container .form button, .contact-us .container .form button
 }
 .latest-reviews .reviews-holder .review-single .review-user {
   display: flex;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   gap: 8px;
 }
 .latest-reviews .reviews-holder .review-single .review-user .user-duration {
-  color: #646464;
+  color: #0a2446;
   display: flex;
   flex-direction: column;
 }
+.latest-reviews .reviews-holder .review-single .review-user p, .latest-reviews .reviews-holder .review-single .review-user .contact-us-temp .container .form button, .contact-us-temp .container .form .latest-reviews .reviews-holder .review-single .review-user button, .latest-reviews .reviews-holder .review-single .review-user .contact-us .container .form button, .contact-us .container .form .latest-reviews .reviews-holder .review-single .review-user button, .latest-reviews .reviews-holder .review-single .review-user .homepage-text-welcome .form button, .homepage-text-welcome .form .latest-reviews .reviews-holder .review-single .review-user button, .latest-reviews .reviews-holder .review-single .review-user .main-cards .subtitle, .main-cards .latest-reviews .reviews-holder .review-single .review-user .subtitle, .latest-reviews .reviews-holder .review-single .review-user .testimonials .subtitle, .testimonials .latest-reviews .reviews-holder .review-single .review-user .subtitle {
+  color: #646464;
+}
 .latest-reviews .reviews-holder .review-single .review-title h4 {
-  color: #0a2446;
+  color: #646464;
   margin-bottom: 24px;
   height: 80px;
 }
@@ -304,8 +307,8 @@ p, .contact-us-temp .container .form button, .contact-us .container .form button
 }
 .latest-reviews .reviews-holder .review-single .review-stars label {
   display: inline-block;
-  width: 25px;
-  height: 24px;
+  width: 40px;
+  height: 40px;
   background-size: contain;
   background-repeat: no-repeat;
   margin-right: 8px;
@@ -325,12 +328,6 @@ p, .contact-us-temp .container .form button, .contact-us .container .form button
 .latest-reviews .reviews-holder .review-single .review-stars .stars input[type=radio]:checked ~ label ~ input[type=radio] + label,
 .latest-reviews .reviews-holder .review-single .review-stars .stars input[type=radio]:checked ~ label ~ label {
   background-image: url("../assets/img/star-selected.svg");
-}
-.latest-reviews .reviews-holder .review-single .review-stars .stars .review-date {
-  font-size: 14px;
-  font-weight: 300;
-  color: #646464;
-  line-height: 22px;
 }
 .latest-reviews .reviews-holder .review-single .review-rating {
   border: 1px solid #d9d9d9;
@@ -389,6 +386,14 @@ p, .contact-us-temp .container .form button, .contact-us .container .form button
   color: #919191;
   font-size: 14px;
   font-weight: 300;
+}
+.latest-reviews .reviews-holder .review-single .review-date {
+  display: flex;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 300;
+  color: #646464;
+  line-height: 22px;
 }
 .latest-reviews .reviews-holder .slick-dots {
   padding-top: 24px;

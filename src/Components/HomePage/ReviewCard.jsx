@@ -10,8 +10,8 @@ const ReviewCard = ({ ReviewID, review }) => {
   return (
     <div className="review-single">
       <div className="review-user">
-        <div className="avatar-placeholder">
-          {/* Avatar Placeholder */}
+        {/* <div className="avatar-placeholder">
+          
           <svg
             width="54"
             height="54"
@@ -25,14 +25,15 @@ const ReviewCard = ({ ReviewID, review }) => {
             />
           </svg>
 
-          {/*  */}
-        </div>
+         
+        </div> */}
         {/* <div className="user-duration">{getTenancyPeriodText(review.tenancy_period)}</div> */}
         <div className="user-duration">
           <h4>{review.address_line_1}</h4>
           <p>Stayed in this property for {review.rent_duration} {review.rent_period == 'per-month' ? "month" : "year"}</p>
         </div>
       </div>
+      <span className="review-date">{new Date(review.date).toLocaleDateString()}</span>
       <div className="review-title">
         <h4>{review.review_headline}</h4>
       </div>
@@ -50,7 +51,7 @@ const ReviewCard = ({ ReviewID, review }) => {
               <label htmlFor={`star${index + 1}`}></label>
             </React.Fragment>
           ))}
-          <span className="review-date">{new Date(review.date).toLocaleDateString()}</span>
+          
         </div>
       </div>
       <div className="review-rating">
