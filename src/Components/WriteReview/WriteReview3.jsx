@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../../Style/WriteReview.css";
 import { useAppProvider } from "../../Contexts/AppContext";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify"; // Toastify import
 
 function WriteReview3() {
   const [text, setText] = useState("");
@@ -25,6 +26,48 @@ function WriteReview3() {
     const inputText = event.target.value;
     if (inputText.length <= maxLength) {
       setText(inputText);
+    }
+  };
+
+  // Validation
+  const validateFields = () => {
+    let isValid = true;
+
+    // Boş Alanların Kontrolü
+    const fields = [
+      { value: reviewHeadline, id: "review-headline", name: "Headline" },
+      { value: reviewPros, id: "review-pros", name: "Pros" },
+      { value: reviewCons, id: "review-cons", name: "Cons" },
+    ];
+
+    fields.forEach((field) => {
+      const inputElement = document.getElementById(field.id);
+      if (!field.value.trim()) {
+        isValid = false;
+        toast.error(`${field.name} cannot be empty!`); // Toastify mesajı
+        if (inputElement) inputElement.classList.add("error");
+      } else {
+        if (inputElement) inputElement.classList.remove("error");
+      }
+    });
+
+    // Rating Kontrolü
+    if (!reviewScore) {
+      isValid = false;
+      toast.error("Please select a rating!");
+      const ratingContainer = document.querySelector(".rating-container");
+      if (ratingContainer) ratingContainer.classList.add("error");
+    } else {
+      const ratingContainer = document.querySelector(".rating-container");
+      if (ratingContainer) ratingContainer.classList.remove("error");
+    }
+
+    return isValid;
+  };
+
+  const handleNextStep = () => {
+    if (validateFields()) {
+      navigate("/write-a-review-4");
     }
   };
 
@@ -117,6 +160,7 @@ function WriteReview3() {
               <div className="input-container">
                 <input
                   type="text"
+                  id="review-headline"
                   value={reviewHeadline}
                   onChange={(event) => setReviewHeadline(event.target.value)}
                   maxLength={maxLength}
@@ -135,6 +179,7 @@ function WriteReview3() {
               <div className="input-container">
                 <textarea
                   className="custom-textarea"
+                  id="review-pros"
                   placeholder="Great lightning, smart appliances or cool facilities"
                   rows={4}
                   value={reviewPros}
@@ -153,6 +198,7 @@ function WriteReview3() {
               <div className="input-container">
                 <textarea
                   className="custom-textarea"
+                  id="review-cons"
                   placeholder="Heating issues, tube sound or no parking "
                   rows={4}
                   value={reviewCons}
@@ -176,12 +222,7 @@ function WriteReview3() {
               >
                 Previous step
               </button>
-              <button
-                className="next-step"
-                onClick={() => {
-                  navigate("/write-a-review-4");
-                }}
-              >
+              <button className="next-step" onClick={handleNextStep}>
                 Next step
               </button>
             </div>

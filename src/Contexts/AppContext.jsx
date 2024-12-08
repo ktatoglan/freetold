@@ -26,10 +26,10 @@ const AppProvider = ({ children }) => {
   const [isBillsIncluded, setIsBillsIncluded] = useState(false);
   const [billsPerPerson, setBillsPerPerson] = useState(false);
   const [billsWholeHouse, setBillsWholeHouse] = useState(false);
-  const [electricBill, setElectricBill] = useState(0.0);
-  const [waterBill, setWaterBill] = useState(0.0);
-  const [gasBill, setGasBill] = useState(0.0);
-  const [internetBill, setInternetBill] = useState(0.0);
+  const [electricBill, setElectricBill] = useState('');
+  const [waterBill, setWaterBill] = useState('');
+  const [gasBill, setGasBill] = useState('');
+  const [internetBill, setInternetBill] = useState('');
   const [reviewScore, setReviewScore] = useState(0);
   const [reviewHeadline, setReviewHeadline] = useState('');
   const [reviewPros, setReviewPros] = useState('');
