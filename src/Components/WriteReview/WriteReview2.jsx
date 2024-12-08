@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../../Style/WriteReview.css";
 import { useAppProvider } from "../../Contexts/AppContext";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify"; // Toastify import
 
 function WriteReview2() {
   const {
@@ -56,6 +57,75 @@ function WriteReview2() {
   const handleFocus = (setter) => (e) => {
     if (e.target.value === "0") {
       setter("");
+    }
+  };
+
+  // Validation
+  const validateFields = () => {
+    let isValid = true;
+
+    // Rent Amount Kontrolü
+    if (!rentAmount) {
+      isValid = false;
+      toast.error("Please enter the rent amount!");
+      document.querySelector("input[type='text']").classList.add("error");
+    } else {
+      document.querySelector("input[type='text']").classList.remove("error");
+    }
+
+    // Bills Per Radio Buttons Kontrolü
+    if (!billsPerPerson && !billsWholeHouse) {
+      isValid = false;
+      toast.error("Please select how the bills are calculated!");
+      document
+        .querySelectorAll("input[name='billsPer']")
+        .forEach((el) => el.classList.add("error"));
+    } else {
+      document
+        .querySelectorAll("input[name='billsPer']")
+        .forEach((el) => el.classList.remove("error"));
+    }
+
+    // Fatura Alanları Kontrolü
+    const billFields = [
+      { value: electricBill, id: "electric-bill", name: "Electricity" },
+      { value: waterBill, id: "water-bill", name: "Water" },
+      { value: gasBill, id: "gas-bill", name: "Gas" },
+      { value: internetBill, id: "internet-bill", name: "Internet" },
+    ];
+
+    billFields.forEach((field) => {
+      const inputElement = document.getElementById(field.id);
+      // console.log(field);
+
+      if (field.value === "" || parseFloat(field.value) < 0 || field.value === undefined || field.value === null) {
+        isValid = false;
+
+        // Hata mesajı: Negatif veya boş değerler için
+        if (field.value === "") {
+          toast.error(`Please fill out the ${field.name} bill!`);
+        } else if (parseFloat(field.value) < 0) {
+          toast.error(`The ${field.name} bill cannot be negative!`);
+        }
+
+        // Hatalı alanı işaretleme
+        if (inputElement) {
+          inputElement.classList.add("error");
+        }
+      } else {
+        // Hatalı değilse, error sınıfını kaldır
+        if (inputElement) {
+          inputElement.classList.remove("error");
+        }
+      }
+    });
+
+    return isValid;
+  };
+
+  const handleNextStep = () => {
+    if (validateFields()) {
+      navigate("/write-a-review-3");
     }
   };
 
@@ -211,6 +281,7 @@ function WriteReview2() {
                 <div className="bill-input-group">
                   <input
                     type="text"
+                    id="electric-bill"
                     value={electricBill}
                     onChange={(e) => {
                       const value = e.target.value;
@@ -246,7 +317,8 @@ function WriteReview2() {
                 <div className="bill-input-group">
                   <input
                     type="text"
-                    value={waterBill}
+                    id="water-bill"
+                    value={waterBill === 0.0 ? "" : waterBill}
                     onChange={(e) => {
                       const value = e.target.value;
                       if (/^\d*$/.test(value)) {
@@ -281,7 +353,8 @@ function WriteReview2() {
                 <div className="bill-input-group">
                   <input
                     type="text"
-                    value={gasBill}
+                    id="gas-bill"
+                    value={gasBill === 0.0 ? "" : gasBill}
                     onChange={(e) => {
                       const value = e.target.value;
                       if (/^\d*$/.test(value)) {
@@ -316,7 +389,8 @@ function WriteReview2() {
                 <div className="bill-input-group">
                   <input
                     type="text"
-                    value={internetBill}
+                    id="internet-bill"
+                    value={internetBill === 0.0 ? "" : internetBill}
                     onChange={(e) => {
                       const value = e.target.value;
                       if (/^\d*$/.test(value)) {
@@ -342,12 +416,7 @@ function WriteReview2() {
               >
                 Previous step
               </button>
-              <button
-                className="next-step"
-                onClick={() => {
-                  navigate("/write-a-review-3");
-                }}
-              >
+              <button className="next-step" onClick={handleNextStep}>
                 Next step
               </button>
             </div>

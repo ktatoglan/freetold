@@ -2,6 +2,7 @@ import React from "react";
 import "../../Style/WriteReview.css";
 import { useAppProvider } from "../../Contexts/AppContext";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify"; // Toastify import
 
 function WriteReview1() {
   const {
@@ -28,6 +29,59 @@ function WriteReview1() {
       setter("");
     }
   };
+
+  // Başlangıç: Eklenen validasyon kodu
+  const validateFields = () => {
+    let isValid = true;
+
+    // Move-in Date Validation
+    if (!moveInDate.month || !moveInDate.year) {
+      isValid = false;
+      toast.error("Please select your move-in date!");
+      document
+        .querySelectorAll("select[name='month'], select[name='year']")
+        .forEach((el) => {
+          el.classList.add("error"); // Hata sınıfını ekle
+        });
+    } else {
+      document
+        .querySelectorAll("select[name='month'], select[name='year']")
+        .forEach((el) => {
+          el.classList.remove("error"); // Hata sınıfını kaldır
+        });
+    }
+
+    // Rent Duration Validation
+    const rentDurationInput = document.querySelector("input[type='text']");
+    if (!rentDuration) {
+      isValid = false;
+      toast.error("Please enter the total tenancy period!");
+      rentDurationInput.classList.add("error"); // Hata sınıfını ekle
+    } else {
+      rentDurationInput.classList.remove("error"); // Hata sınıfını kaldır
+    }
+
+    // People Number Validation
+    const peopleCounter = document.querySelector(".counter");
+    if (peopleNumberLivingAtHome < 1) {
+      isValid = false;
+      toast.error(
+        "The number of people living in the property must be at least 1!"
+      );
+      peopleCounter.classList.add("error"); // Hata sınıfını ekle
+    } else {
+      peopleCounter.classList.remove("error"); // Hata sınıfını kaldır
+    }
+
+    return isValid;
+  };
+
+  const handleNextStep = () => {
+    if (validateFields()) {
+      navigate("/write-a-review-2");
+    }
+  };
+  // Bitiş: Eklenen validasyon kodu
 
   return (
     <div className="container">
@@ -184,7 +238,9 @@ function WriteReview1() {
                 <button
                   className="decr"
                   onClick={() =>
-                    setPeopleNumberLivingAtHome(peopleNumberLivingAtHome - 1)
+                    setPeopleNumberLivingAtHome(
+                      Math.max(1, peopleNumberLivingAtHome - 1)
+                    )
                   }
                 >
                   -
@@ -225,12 +281,7 @@ function WriteReview1() {
               <button className="pre-step" disabled>
                 Previous step
               </button>
-              <button
-                className="next-step"
-                onClick={() => {
-                  navigate("/write-a-review-2");
-                }}
-              >
+              <button className="next-step" onClick={handleNextStep}>
                 Next step
               </button>
             </div>

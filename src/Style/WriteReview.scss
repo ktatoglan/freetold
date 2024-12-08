@@ -1,5 +1,8 @@
 @import "vars";
 .container {
+  .error {
+    border: 2px solid red !important;
+  }
   .review-flow {
     text-align: center;
     margin: 2rem auto;
@@ -536,8 +539,8 @@
     &.wr2 .content,
     &.wr3 .content,
     &.wr4 .content,
-    &.wr5 .content{
-      margin: calc($small-spacing / 4) auto!important;
+    &.wr5 .content {
+      margin: calc($small-spacing / 4) auto !important;
     }
   }
 }

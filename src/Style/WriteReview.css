@@ -88,6 +88,9 @@ p, .container .review-flow .review-content .buttons button, .container .review-f
   text-align: left;
 }
 
+.container .error {
+  border: 2px solid red !important;
+}
 .container .review-flow {
   text-align: center;
   margin: 2rem auto;

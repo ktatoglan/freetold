@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../../Style/WriteReview.css";
 import { useAppProvider } from "../../Contexts/AppContext";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify"; // Toastify import
 
 function WriteReview4() {
   const {
@@ -21,11 +22,69 @@ function WriteReview4() {
     ownerRespondScore,
     setOwnerRespondScore,
     healthConcerns,
-    setHealthConcerns
+    setHealthConcerns,
   } = useAppProvider();
 
   const [reviewScore, setReviewScore] = useState(0);
   const navigate = useNavigate();
+
+  const validateFields = () => {
+    let isValid = true;
+
+    // Rating Alanlarının Kontrolü
+    const ratings = [
+      { value: heatUpLevel, id: "heat", name: "Heat Up Level" },
+      { value: wellLitLevel, id: "lit", name: "Well-Lit Level" },
+      {
+        value: internetConnectionLevel,
+        id: "web",
+        name: "Internet Connection",
+      },
+      { value: ownerRespondScore, id: "mail", name: "Owner Response Score" },
+    ];
+
+    ratings.forEach((rating) => {
+      const container = document.querySelector(
+        `.rating-container.${rating.id}`
+      );
+      if (!rating.value) {
+        isValid = false;
+        toast.error(`Please rate the ${rating.name}!`);
+        if (container) container.classList.add("error");
+      } else {
+        if (container) container.classList.remove("error");
+      }
+    });
+
+    // Textarea Alanlarının Kontrolü
+    const textareas = [
+      {
+        value: anythingToBeFixed,
+        id: "anything-to-be-fixed",
+        name: "Anything to be fixed",
+      },
+      { value: healthConcerns, id: "health-concerns", name: "Health Concerns" },
+    ];
+
+    textareas.forEach((textarea) => {
+      const inputElement = document.getElementById(textarea.id);
+      if (!textarea.value.trim()) {
+        isValid = false;
+        toast.error(`${textarea.name} cannot be empty!`);
+        if (inputElement) inputElement.classList.add("error");
+      } else {
+        if (inputElement) inputElement.classList.remove("error");
+      }
+    });
+
+    return isValid;
+  };
+
+  const handleNextStep = () => {
+    if (validateFields()) {
+      navigate("/write-a-review-5");
+    }
+  };
 
   return (
     <div className="container">
@@ -112,7 +171,7 @@ function WriteReview4() {
                         name="lit-container"
                         value={index + 1}
                         checked={wellLitLevel === 5 - index}
-                        onClick={() => setWellLitLevel(5 - index )}
+                        onClick={() => setWellLitLevel(5 - index)}
                         onChange={() => {}}
                       />
                       <label htmlFor={`lit${index + 1}`}></label>
@@ -134,7 +193,7 @@ function WriteReview4() {
                         id={`web${index + 1}`}
                         name="web-container"
                         value={index + 1}
-                        checked={internetConnectionLevel === 5 - index }
+                        checked={internetConnectionLevel === 5 - index}
                         onClick={() => setInternetConnectionLevel(5 - index)}
                         onChange={() => {}}
                       />
@@ -192,6 +251,7 @@ function WriteReview4() {
 
               <div className="input-container">
                 <textarea
+                  id="anything-to-be-fixed"
                   className="custom-textarea"
                   placeholder="Such as appliances, windows, etc"
                   rows={4}
@@ -214,8 +274,8 @@ function WriteReview4() {
                         id={`mail${index + 1}`}
                         name="mail-container"
                         value={index + 1}
-                        checked={ownerRespondScore === (5 - (index ))}
-                        onClick={() => setOwnerRespondScore(5 - (index ))}
+                        checked={ownerRespondScore === 5 - index}
+                        onClick={() => setOwnerRespondScore(5 - index)}
                         onChange={() => {}}
                       />
                       <label htmlFor={`mail${index + 1}`}></label>
@@ -233,6 +293,7 @@ function WriteReview4() {
 
               <div className="input-container">
                 <textarea
+                  id="health-concerns"
                   className="custom-textarea"
                   placeholder="Mold, leaking, etc."
                   rows={4}
@@ -255,12 +316,7 @@ function WriteReview4() {
               >
                 Previous step
               </button>
-              <button
-                className="next-step"
-                onClick={() => {
-                  navigate("/write-a-review-5");
-                }}
-              >
+              <button className="next-step" onClick={handleNextStep}>
                 Next step
               </button>
             </div>

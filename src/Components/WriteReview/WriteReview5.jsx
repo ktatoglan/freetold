@@ -24,6 +24,71 @@ function WriteReview5() {
   } = useAppProvider();
   const navigate = useNavigate();
 
+  const validateFields = () => {
+    let isValid = true;
+
+    // Rating Alanlarının Kontrolü
+    const ratings = [
+      {
+        value: perceptionNeighborsLevel,
+        id: "neighbor",
+        name: "Perception about neighbors",
+      },
+      { value: noiseNeighborsLevel, id: "sound", name: "Noise level" },
+      { value: parkingScore, id: "parking", name: "Parking" },
+      { value: trafficScore, id: "traffic", name: "Traffic" },
+    ];
+
+    ratings.forEach((rating) => {
+      const container = document.querySelector(
+        `.rating-container.${rating.id}`
+      );
+      if (!rating.value) {
+        isValid = false;
+        toast.error(`Please rate the ${rating.name}!`);
+        if (container) container.classList.add("error");
+      } else {
+        if (container) container.classList.remove("error");
+      }
+    });
+
+    // Textarea Kontrolü
+    const textareaElement = document.querySelector(".custom-textarea");
+    if (!safetyConcerns.trim()) {
+      isValid = false;
+      toast.error("Safety concerns cannot be empty!");
+      if (textareaElement) textareaElement.classList.add("error");
+    } else {
+      if (textareaElement) textareaElement.classList.remove("error");
+    }
+
+    // Checkbox Kontrolü
+    const checkboxElement = document.getElementById("agree-checkbox");
+    if (!agreeCheckbox) {
+      isValid = false;
+      toast.error("You must agree to the Terms and Conditions!");
+      if (checkboxElement) checkboxElement.classList.add("error");
+    } else {
+      if (checkboxElement) checkboxElement.classList.remove("error");
+    }
+
+    return isValid;
+  };
+
+  const handleSubmit = async () => {
+    if (validateFields()) {
+      const response = await sendReview();
+      if (response) {
+        toast.success("Review submitted successfully!");
+        setTimeout(() => {
+          window.location.href = `/property-profile/review/${response.review_id}`;
+        }, 2000);
+      } else {
+        alert("There was an error submitting the review. Please try again.");
+      }
+    }
+  };
+
   return (
     <div className="container">
       <div className="review-flow wr5">
@@ -183,6 +248,7 @@ function WriteReview5() {
 
               <div className="input-container">
                 <textarea
+                  id="safety-concerns"
                   className="custom-textarea"
                   placeholder="Theft, poor street lighting, speeding etc."
                   rows={4}
@@ -225,24 +291,7 @@ function WriteReview5() {
               >
                 Previous step
               </button>
-              <button
-                className="next-step"
-                onClick={async () => {
-                  const response = await sendReview();
-                  if (response) {
-                    toast.success("Review submitted successfully");
-                    //sleep(2000).then(() => { window.location.href = '/'; });
-                    setTimeout(() => {
-                      window.location.href =
-                        "/property-profile/review/" + response.review_id;
-                    }, 2000);
-                  } else {
-                    alert(
-                      "There was an error while submitting the review, Please fill all the fields and try again"
-                    );
-                  }
-                }}
-              >
+              <button className="next-step" onClick={handleSubmit}>
                 Submit the review
               </button>
             </div>
