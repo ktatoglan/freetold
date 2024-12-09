@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "../../Style/WriteReview.css";
 import { useAppProvider } from "../../Contexts/AppContext";
 import { useNavigate } from "react-router-dom";
@@ -21,6 +21,7 @@ function WriteReview1() {
     setPeopleNumberLivingAtHome,
     futureRentersContactMe,
     setFutureRentersContactMe,
+    userId
   } = useAppProvider();
   const navigate = useNavigate();
 
@@ -29,6 +30,12 @@ function WriteReview1() {
       setter("");
     }
   };
+
+  useEffect(() => {
+    if (!userId) {
+      navigate("/");
+    }
+  }, []);
 
   // Başlangıç: Eklenen validasyon kodu
   const validateFields = () => {
