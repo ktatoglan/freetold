@@ -89,7 +89,7 @@ const SearchBar = () => {
         </label>
       </div>
       <div className="search-line">
-        <span className="search-icon">
+        <span className="search-icon" onClick={handleSearch}>
           <svg
             width="18"
             height="17"

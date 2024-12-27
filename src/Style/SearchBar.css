@@ -103,6 +103,9 @@ p, .home-search button {
 .home-search .search-line button {
   margin-left: 10px;
 }
+.home-search .search-icon:hover {
+  cursor: pointer;
+}
 .home-search .search-icon svg {
   position: relative;
   left: 28px;
@@ -177,4 +180,4 @@ p, .home-search button {
 }
 .home-search .search-results li:hover {
   background-color: rgba(0, 0, 0, 0.2549019608);
-}/*# sourceMappingURL=SearchBar.css.map */
+}
