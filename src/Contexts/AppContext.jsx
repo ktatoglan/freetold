@@ -50,8 +50,8 @@ const AppProvider = ({ children }) => {
   const serverUrl = 'https://freetold-backend.vercel.app';
 
   useEffect(() => {
-    cookies.set('user', { userId});
-  }, [userId]);
+    cookies.set('user', { userId, mode, addressLine1, addressLine2, townCity, country, postCode, moveInDate, tenancyPeriod, isItSharingFlat, peopleNumberLivingAtHome, futureRentersContactMe, rentAmount, rentPeriod, rentDuration, isBillsIncluded, billsPerPerson, billsWholeHouse, electricBill, waterBill, gasBill, internetBill, reviewScore, reviewHeadline, reviewPros, reviewCons, heatUpLevel, wellLitLevel, internetConnectionLevel, isItPetFriendly, anythingToBeFixed, ownerRespondScore, healthConcerns, perceptionNeighborsLevel, noiseNeighborsLevel, parkingScore, trafficScore, safetyConcerns, agreeCheckbox }, { path: '/' });
+  }, [userId, mode, addressLine1, addressLine2, townCity, country, postCode, moveInDate, tenancyPeriod, isItSharingFlat, peopleNumberLivingAtHome, futureRentersContactMe, rentAmount, rentPeriod, rentDuration, isBillsIncluded, billsPerPerson, billsWholeHouse, electricBill, waterBill, gasBill, internetBill, reviewScore, reviewHeadline, reviewPros, reviewCons, heatUpLevel, wellLitLevel, internetConnectionLevel, isItPetFriendly, anythingToBeFixed, ownerRespondScore, healthConcerns, perceptionNeighborsLevel, noiseNeighborsLevel, parkingScore, trafficScore, safetyConcerns, agreeCheckbox]);
 
 
   const sendReview = async() => {
