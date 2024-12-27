@@ -5,40 +5,45 @@ import { useAppProvider } from "../../Contexts/AppContext";
 import axios from "axios";
 
 const RegisterModal = ({ closeRegisterModal }) => {
-  const RegisterModalRef = useRef();
+  const registerModalRef = useRef();
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [rePassword, setRePassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const { serverUrl, setUserId } = useAppProvider();
-  const referer_id = localStorage.getItem("referer_id");
+  const refererId = localStorage.getItem("referer_id");
 
   const resetForm = () => {
     setEmail("");
     setName("");
     setPassword("");
+    setRePassword("");
   };
 
   const validateForm = () => {
-    // No empty field is allowed
-    if (!email || !name || !password) {
+    if (!email || !name || !password || !rePassword) {
       toast.error("All fields must be filled.");
       return false;
     }
 
-    // Email should be in email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       toast.error("Please enter a valid email address.");
       return false;
     }
 
-    // Password should include upper, lower case, number and a special character
-    const passwordRegex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&.]{8,}$/;
+
     if (!passwordRegex.test(password)) {
       toast.error(
         "Password must include an uppercase letter, a lowercase letter, a number, and a special character."
       );
+      return false;
+    }
+
+    if (password !== rePassword) {
+      toast.error("Passwords do not match.");
       return false;
     }
 
@@ -53,14 +58,13 @@ const RegisterModal = ({ closeRegisterModal }) => {
         email,
         name,
         password,
-        referer_id,
+        refererId,
       });
       toast.success(response.data.message);
       setUserId(response.data.userId);
       resetForm();
       closeRegisterModal();
 
-      // Referer ID temizliği
       localStorage.removeItem("referer_id");
       const urlParams = new URLSearchParams(window.location.search);
       urlParams.delete("referer_id");
@@ -77,8 +81,8 @@ const RegisterModal = ({ closeRegisterModal }) => {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
-        RegisterModalRef.current &&
-        !RegisterModalRef.current.contains(event.target)
+        registerModalRef.current &&
+        !registerModalRef.current.contains(event.target)
       ) {
         closeRegisterModal();
       }
@@ -111,7 +115,7 @@ const RegisterModal = ({ closeRegisterModal }) => {
 
   return (
     <div className="modalBackground">
-      <div className="modalContainer registerModal" ref={RegisterModalRef}>
+      <div className="modalContainer registerModal" ref={registerModalRef}>
         <div className="title">
           <h3>Create an account</h3>
         </div>
@@ -169,12 +173,38 @@ const RegisterModal = ({ closeRegisterModal }) => {
             <div className="col">
               <p>Password</p>
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 className="text-input"
-                placeholder="******"
+                placeholder="Please enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col">
+              <p>Password</p>
+              <input
+                type={showPassword ? "text" : "password"}
+                className="text-input"
+                placeholder="Please re-enter your password"
+                value={rePassword}
+                onChange={(e) => setRePassword(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col">
+              <input
+                type="checkbox"
+                checked={showPassword}
+                onChange={() => setShowPassword(!showPassword)}
+              />
+              <label>Show Password</label>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col">
               <p className="pw-info">
                 Should include uppercase letter, lowercase letter, number, and a
                 special character.

@@ -84,8 +84,8 @@ const PropertyListing = ({searchByPostcode, searchTerm}) => {
           {/* <PropertyCard />
           <PropertyCard />
           <PropertyCard /> */}
-          {searchFullResults.map((property) => (
-            <PropertyCard key={property["building-reference-number"]} property={property} />
+          {searchFullResults.map((property, index) => (
+            <PropertyCard key={index} property={property} />
           ))}
           {/* İstediğiniz kadar PropertyCard ekleyebilirsiniz */}
         </div>
