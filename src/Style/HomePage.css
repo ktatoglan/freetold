@@ -91,22 +91,29 @@ p, .contact-us-temp .container .form button, .contact-us .container .form button
   height: 80vh;
   display: flex;
   align-items: center;
-  background-image: url(../assets/img/main-banner.svg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center 65%;
+  position: relative;
+  overflow: hidden;
 }
-@media screen and (max-width: 1300px) {
-  .main-banner {
-    background-position: center 200%;
-  }
+.main-banner .main-banner-image {
+  z-index: -99;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 @media screen and (max-width: 768px) {
   .main-banner {
     height: 75vh;
-    background-image: url(../assets/img/mbl-main-banner.svg);
-    background-size: 200%;
-    background-position: center -30%;
+  }
+  .main-banner .main-banner-image {
+    top: -20%;
+    -o-object-fit: contain;
+       object-fit: contain;
+    -o-object-position: center center;
+       object-position: center center;
   }
 }
 .main-banner .homepage-text {

@@ -3,22 +3,33 @@
   height: 80vh;
   display: flex;
   align-items: center;
-  background-image: url(../assets/img/main-banner.svg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center 65%;
-  @media screen and (max-width: 1300px) {
-    background-position: center 200%;
+  position: relative;
+  overflow: hidden; 
+
+  .main-banner-image {
+    z-index: -99;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
   }
+
   @media screen and (max-width: 768px) {
     height: 75vh;
-    background-image: url(../assets/img/mbl-main-banner.svg);
-    background-size: 200%;
-    background-position: center -30%;
+
+    .main-banner-image {
+      top: -20%;
+      object-fit: contain; 
+      object-position: center center; 
+    }
   }
+
   .homepage-text {
     text-align: center;
     padding-top: 30%;
+
     @media screen and (max-width: 768px) {
       padding-top: 70%;
     }
@@ -234,7 +245,7 @@
           background-repeat: no-repeat;
           margin-right: $small-spacing/2;
         }
-        
+
         .stars {
           display: flex;
           margin-bottom: $large-spacing;
@@ -245,7 +256,7 @@
           // }
           // label {
           //   background-image: url("../assets/img/star-default.svg");
-            
+
           // }
           // input[type="radio"]:checked ~ label,
           // input[type="radio"]:checked ~ label ~ input[type="radio"] + label,
