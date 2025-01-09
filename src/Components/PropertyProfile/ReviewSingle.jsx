@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useAppProvider } from "../../Contexts/AppContext";
+import createStar from "../../Utils/createStar";
 
 import { toast } from "react-toastify";
 
@@ -44,26 +45,26 @@ const ReviewSingle = ({ review, type }) => {
     }
   };
 
-  function displayStars(score){
-    let stars = [];
-    for (let i = 0; i < Math.round(score); i++){
-      stars.push(
-        <div key={review.review_id + 's'+i}>
-          <input type="radio" id={`cstar${i+1}`} name="rating" value={i+1} checked={true} onChange={()=>{}} readOnly/>
-          <label className="checked-star" htmlFor={`star${i+1}`}></label>
-        </div>
-      );
-    }
-    for (let i = 0; i < 5 - Math.round(score); i++){
-      stars.push(
-        <div key={review.review_id + "u"+i}>
-          <input type="radio" id={`star${i+1}`} name="rating" value={i+1} onChange={()=>{}} readOnly/>
-          <label htmlFor={`star${i+1}`}></label>
-        </div>
-      );
-    }
-    return stars;
-  }
+  // function displayStars(score){
+  //   let stars = [];
+  //   for (let i = 0; i < Math.round(score); i++){
+  //     stars.push(
+  //       <div key={review.review_id + 's'+i}>
+  //         <input type="radio" id={`cstar${i+1}`} name="rating" value={i+1} checked={true} onChange={()=>{}} readOnly/>
+  //         <label className="checked-star" htmlFor={`star${i+1}`}></label>
+  //       </div>
+  //     );
+  //   }
+  //   for (let i = 0; i < 5 - Math.round(score); i++){
+  //     stars.push(
+  //       <div key={review.review_id + "u"+i}>
+  //         <input type="radio" id={`star${i+1}`} name="rating" value={i+1} onChange={()=>{}} readOnly/>
+  //         <label htmlFor={`star${i+1}`}></label>
+  //       </div>
+  //     );
+  //   }
+  //   return stars;
+  // }
 
   return (
     <div className="review-single">
@@ -150,7 +151,7 @@ const ReviewSingle = ({ review, type }) => {
         <div className="review-rating">
           <div className="stars">
 
-            {displayStars(review.review_score)}
+            {createStar(review.review_score)}
 
             <span className="review-date">
               {new Date(review.move_in_date).toLocaleDateString('en-US', {
