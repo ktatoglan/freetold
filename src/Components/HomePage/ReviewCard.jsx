@@ -1,4 +1,5 @@
 import React from "react";
+import createStar from "../../Utils/createStar.jsx";
 
 // const getTenancyPeriodText = (tenancyPeriod) => {
 //   const { number, period } = JSON.parse(tenancyPeriod);
@@ -38,21 +39,10 @@ const ReviewCard = ({ ReviewID, review }) => {
         <h4>{review.review_headline}</h4>
       </div>
       <div className="review-stars">
-        <div className="stars">
-          {Array.from({ length: 5 }, (_, index) => (
-            <React.Fragment key={index}>
-              <input
-                type="radio"
-                id={`star${index + 1}`}
-                name="rating"
-                value={index + 1}
-                checked={index <= 5}
-              />
-              <label htmlFor={`star${index + 1}`}></label>
-            </React.Fragment>
-          ))}
+
+          {createStar(review.review_score,"stars")}
           
-        </div>
+      
       </div>
       <div className="review-rating">
         <div className="rating-container">

@@ -305,29 +305,17 @@ p, .contact-us-temp .container .form button, .contact-us .container .form button
 .latest-reviews .reviews-holder .review-single .review-stars input[type=radio] {
   display: none;
 }
-.latest-reviews .reviews-holder .review-single .review-stars label {
+.latest-reviews .reviews-holder .review-single .review-stars img {
   display: inline-block;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   background-size: contain;
   background-repeat: no-repeat;
-  margin-right: 8px;
+  margin-right: 4px;
 }
 .latest-reviews .reviews-holder .review-single .review-stars .stars {
   display: flex;
-}
-.latest-reviews .reviews-holder .review-single .review-stars .stars .review-count {
-  color: #646464;
-  margin-left: 16px;
-}
-.latest-reviews .reviews-holder .review-single .review-stars .stars label {
-  background-image: url("../assets/img/star-default.svg");
   margin-bottom: 24px;
-}
-.latest-reviews .reviews-holder .review-single .review-stars .stars input[type=radio]:checked ~ label,
-.latest-reviews .reviews-holder .review-single .review-stars .stars input[type=radio]:checked ~ label ~ input[type=radio] + label,
-.latest-reviews .reviews-holder .review-single .review-stars .stars input[type=radio]:checked ~ label ~ label {
-  background-image: url("../assets/img/star-selected.svg");
 }
 .latest-reviews .reviews-holder .review-single .review-rating {
   border: 1px solid #d9d9d9;
