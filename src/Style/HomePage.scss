@@ -226,31 +226,32 @@
         input[type="radio"] {
           display: none;
         }
-        label {
+        img {
           display: inline-block;
-          width: 40px;
-          height: 40px;
+          width: 32px;
+          height: 32px;
           background-size: contain;
           background-repeat: no-repeat;
-          margin-right: $small-spacing;
+          margin-right: $small-spacing/2;
         }
-
+        
         .stars {
           display: flex;
-          .review-count {
-            // @extend p;
-            color: $gray-text;
-            margin-left: $medium-spacing;
-          }
-          label {
-            background-image: url("../assets/img/star-default.svg");
-            margin-bottom: $large-spacing;
-          }
-          input[type="radio"]:checked ~ label,
-          input[type="radio"]:checked ~ label ~ input[type="radio"] + label,
-          input[type="radio"]:checked ~ label ~ label {
-            background-image: url("../assets/img/star-selected.svg");
-          }
+          margin-bottom: $large-spacing;
+          // .review-count {
+          //   // @extend p;
+          //   color: $gray-text;
+          //   margin-left: $medium-spacing;
+          // }
+          // label {
+          //   background-image: url("../assets/img/star-default.svg");
+            
+          // }
+          // input[type="radio"]:checked ~ label,
+          // input[type="radio"]:checked ~ label ~ input[type="radio"] + label,
+          // input[type="radio"]:checked ~ label ~ label {
+          //   background-image: url("../assets/img/star-selected.svg");
+          // }
         }
       }
       .review-rating {

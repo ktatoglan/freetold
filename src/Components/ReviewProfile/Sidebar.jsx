@@ -1,30 +1,9 @@
 import React from "react";
-import selectedStarSrc from "../../assets/img/star-selected.svg"
-import defaultStarSrc from "../../assets/img/star-default.svg"
+import createStar from "../../Utils/createStar.jsx";
+
 
 const Sidebar = ({ review }) => {
-  // function createStar(times) {
-  //   var char = "⭐";
-  //   return char.repeat(times);
-  // }
-  const createStar = ( times ) => {
-    const totalStars = 5; 
 
-
-    const stars = Array.from({ length: totalStars }, (_, index) => {
-      const isSelected = index < times; // İlk `times` kadar yıldız seçili
-      return (
-        <img
-          key={index}
-          src={isSelected ? selectedStarSrc : defaultStarSrc}
-          alt={isSelected ? "Selected Star" : "Default Star"}
-          className="star-icon"
-        />
-      );
-    });
-
-    return <div className="star-rating">{stars}</div>;
-  };
 
   return (
     <div className="review-sidebar">
