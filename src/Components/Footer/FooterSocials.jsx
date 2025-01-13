@@ -71,7 +71,7 @@ function FooterSocials() {
           </a>
         </li>
         <li className="facebook">
-          <a href="https://www.facebook.com/freetold" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/freetoldhq" target="_blank" rel="noopener noreferrer">
             <svg
               width="26"
               height="26"
