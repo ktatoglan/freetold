@@ -33,7 +33,8 @@ const RegisterModal = ({ closeRegisterModal }) => {
       return false;
     }
 
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&.]{8,}$/;
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&._-]{8,}$/;
 
     if (!passwordRegex.test(password)) {
       toast.error(
