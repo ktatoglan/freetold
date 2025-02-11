@@ -15,7 +15,7 @@ const PropertyDetails = ({reviews, selectedProperty, selectedPropertyLocate}) =>
   const [internet, setInternet] = useState('-');
   const breakdownRef = useRef(null);
   const infoRef = useRef(null);
-  const { serverUrl, userId } = useAppProvider();
+  const { serverUrl, userId, setReviewLocateId } = useAppProvider();
   const [propertyScore , setPropertyScore] = useState(0);
   const [displayStarsHTML, setDisplayStarsHTML] = useState('');
   const navigate = useNavigate();
@@ -52,7 +52,7 @@ const PropertyDetails = ({reviews, selectedProperty, selectedPropertyLocate}) =>
     const totalScore = reviews.reduce((acc, review) => acc + Number(review.review_score), 0);
     setPropertyScore(reviews.length > 0 ? (totalScore / reviews.length).toFixed(2) : 0);
     displayStars((totalScore / reviews.length).toFixed(0));
-
+    setReviewLocateId(selectedPropertyLocate.Id);
   }, [reviews]);
 
 

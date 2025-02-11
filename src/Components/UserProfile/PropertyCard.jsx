@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useAppProvider } from "../../Contexts/AppContext";
 
 const PropertyCard = ({ property }) => {
   const [epcDetails, setEpcDetails] = useState([]);
-
+  const { setReviewLocateId } = useAppProvider();
   useEffect(() => {
     const descriptionSentences = property.Description.split(' ');
     const lastTwoSentences = descriptionSentences.slice(-2).join('');
@@ -37,7 +38,8 @@ const PropertyCard = ({ property }) => {
           throw new Error("Network response was not ok");
         }
         console.log(formattedData);
-        setEpcDetails(formattedData[0]);
+        if (formattedData.length > 0)
+          setEpcDetails(formattedData[0]);
       })
       .catch((error) => {
         console.error("There was a problem with the fetch operation:", error);
