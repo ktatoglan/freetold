@@ -72,7 +72,12 @@ const Modal = ({ closeModal }) => {
         setTownCity(currentAddress.City);
         setCountry("United Kingdom");
         setPostCode(currentAddress.PostalCode);
-        let address = currentAddress.Label;
+        let address = currentAddress.Line1;
+        for(let i = 2; i <= 5; i++){
+          if(currentAddress["Line" + i]){
+            address += ", " + currentAddress["Line" + i];
+          }
+        }
         //delete spaces at the end and beginning
         setAddressLine1(address);
         setSearchResults([]);
@@ -223,8 +228,8 @@ const Modal = ({ closeModal }) => {
                       key={index}
                       onClick={() =>{
                         let selectedAddress = searchFullResults[index];
+                        setReviewLocateId(selectedAddress.Id);
                         if(selectedAddress.Type === "Address"){
-                          setReviewLocateId(selectedAddress.Id);
                           handleUnitSelect(selectedAddress.Id, result);
                         }
                         else {
