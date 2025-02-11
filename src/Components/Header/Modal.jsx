@@ -204,7 +204,9 @@ const Modal = ({ closeModal }) => {
         </div>
         <div className="form">
           <div className="row search-bar">
-            <label>
+            {/**
+             *
+             <label>
               <input
                 type="checkbox"
                 checked={searchByPostcode}
@@ -212,6 +214,8 @@ const Modal = ({ closeModal }) => {
               />
               Search by postcode
             </label>
+             *
+             */}
             <input
               type="text"
               className="text-input search-input"
