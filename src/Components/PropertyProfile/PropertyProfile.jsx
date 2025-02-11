@@ -19,7 +19,7 @@ const PropertyProfile = ({postalCode,address, id}) => {
 
   useEffect(() => {
 
-    const url = `${serverUrl}/review/getReviewsByPostalCodeAndAddress/${id}`;
+    const url = `${serverUrl}/review/getReviewsById/${id}`;
     axios.get(url)
       .then(response => {
         setReviews(response.data);
