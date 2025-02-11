@@ -92,7 +92,6 @@ p, .contact-us-temp .container .form button, .contact-us .container .form button
   display: flex;
   align-items: center;
   position: relative;
-  overflow: hidden;
 }
 .main-banner .main-banner-image {
   z-index: -99;
