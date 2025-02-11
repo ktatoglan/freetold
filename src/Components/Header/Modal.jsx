@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import "../../Style/Modal.css";
 import { useAppProvider } from "../../Contexts/AppContext";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Modal = ({ closeModal }) => {
   const modalRef = useRef();
@@ -15,7 +16,9 @@ const Modal = ({ closeModal }) => {
     country,
     setCountry,
     postCode,
-    setPostCode
+    setPostCode,
+    reviewLocateId,
+    setReviewLocateId,
   } = useAppProvider();
   const navigate = useNavigate();
   const [searchResults, setSearchResults] = useState([]);
@@ -45,8 +48,90 @@ const Modal = ({ closeModal }) => {
     };
   }, [closeModal]);
 
+  function createAddressString2(data) {
+    return data['Text'] + ", " + data['Description'];
+  }
+
+  // Retrieve the full address details of a selected unit
+  const handleUnitSelect = async (id, text) => {
+    try {
+      const response = await axios.get(
+        "https://api.addressy.com/Capture/Interactive/Retrieve/v1.2/json3.ws",
+        {
+          params: {
+            Key: import.meta.env.VITE_LOCATE_KEY,
+            Id: id,
+          },
+        }
+      );
+
+      if (response.data.Items) {
+        let currentAddress = response.data.Items[0];
+        console.log("Full address details:", response.data.Items[0]);
+
+        setTownCity(currentAddress.City);
+        setCountry("United Kingdom");
+        setPostCode(currentAddress.PostalCode);
+        let address = currentAddress.Label;
+        //delete spaces at the end and beginning
+        setAddressLine1(address);
+        setSearchResults([]);
+        setSearchText("");
+
+      }
+    } catch (error) {
+      console.error("Error retrieving full address:", error);
+    }
+  };
+
+  // Fetch unit-level addresses when a base address is selected
+  const handleBaseAddressSelect = async (id) => {
+    try {
+      const response = await axios.get(
+        "https://api.addressy.com/Capture/Interactive/Find/v1.1/json3.ws",
+        {
+          params: {
+            Key: import.meta.env.VITE_LOCATE_KEY,
+            Container: id, // This refines search within the selected address
+            Countries: "GB", // Search only in the UK
+          },
+        }
+      );
+
+      if (response.data.Items) {
+        setSearchFullResults(response.data.Items);
+        setSearchResults(response.data.Items.map(createAddressString2));
+      }
 
 
+    } catch (error) {
+      console.error("Error fetching units:", error);
+    }
+  };
+
+  const searchApi = async (word) => {
+
+    if (word.length > 2) { // Search after 3+ characters
+      try {
+        const response = await axios.get(
+          "https://api.addressy.com/Capture/Interactive/Find/v1.10/json3.ws",
+          {
+            params: {
+              Key: import.meta.env.VITE_LOCATE_KEY,
+              Text: word,
+              Countries: "GB", // Search only in the UK
+            },
+          }
+        );
+        setSearchResults(response.data.Items.map(createAddressString2) || []);
+        setSearchFullResults(response.data.Items);
+      } catch (error) {
+        console.error("Error fetching addresses:", error);
+      }
+    } else {
+      setSearchResults([]);
+    }
+  };
 
   const token =
     "ZG9ndWNhbmJhc2tpbkBnbWFpbC5jb206NzljMDc5YjllOTNmMGQ3MWQ3MjIyY2MwYjAyNWM1NDI2NjEwMjg3OA==";
@@ -56,7 +141,7 @@ const Modal = ({ closeModal }) => {
   };
   const baseUrl = "https://epc.opendatacommunities.org/api/v1/domestic/search";
 
-  async function searchProperties(query) {
+ /* async function searchProperties(query) {
     if (!query.trim()) {
       setSearchResults([]);
       return;
@@ -105,7 +190,7 @@ const Modal = ({ closeModal }) => {
       data["postcode"],
     ].filter((part) => part && part.trim() !== "");
     return addressParts.join(", ");
-  }
+  }*/
   return (
     <div className="modalBackground">
       <div className="modalContainer" ref={modalRef}>
@@ -128,7 +213,7 @@ const Modal = ({ closeModal }) => {
               placeholder="Enter address starting from postcode"
               onChange={(e) => {
                 setSearchText(e.target.value);
-                searchProperties(e.target.value);
+                searchApi(e.target.value);
               }}
             />
             {searchText.trim() && searchResults.length > 0 && (
@@ -137,16 +222,14 @@ const Modal = ({ closeModal }) => {
                     <li
                       key={index}
                       onClick={() =>{
-                        setTownCity(searchFullResults[index].county);
-                        setCountry("United Kingdom");
-                        setPostCode(searchFullResults[index].postcode);
-                        let address = searchFullResults[index]['address1'] + " " + searchFullResults[index]['address2'] + " " + searchFullResults[index]['address3'];
-                        //delete spaces at the end and beginning
-                        address = address.trim();
-
-                        setAddressLine1(address);
-                        setSearchResults([]);
-                        setSearchText("");
+                        let selectedAddress = searchFullResults[index];
+                        if(selectedAddress.Type === "Address"){
+                          setReviewLocateId(selectedAddress.Id);
+                          handleUnitSelect(selectedAddress.Id, result);
+                        }
+                        else {
+                          handleBaseAddressSelect(selectedAddress.Id);
+                        }
                       }}
                     >
                       {result}

@@ -2,11 +2,11 @@ import React, {useState} from "react";
 
 const HeaderSection = ({review}) => {
   const formattedDate = new Date(review.date).toLocaleDateString();
-
+  console.log(review);
   return (
     <div className="header-section">
       <div className="back-link">
-        <a href="#" onClick={() => (window.location.href = `/property-profile?address=${review['address_line_1']}&postcode=${review['post_code']}`)
+        <a href="#" onClick={() => (window.location.href = `/property-profile?id=${review.review_locate_id}&address=${review['address_line_1']}&postcode=${review['post_code']}`)
 }>← Back</a>
       </div>
       <div className="user-info">

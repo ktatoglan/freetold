@@ -8,9 +8,11 @@ const PropertyListingPage = () => {
   //    window.location.href = `/property-listing/?search=${searchTerm}&isItPostCode=${searchByPostcode}`;
   const url = new URL(window.location.href);
   const searchTerm = url.searchParams.get('search').replace(/%20/g, ' ');
-  const searchByPostcode = url.searchParams.get('isItPostCode');
+  const id = url.searchParams.get('id');
+
+  //const searchByPostcode = url.searchParams.get('isItPostCode');
   return (
-    <PropertyListing searchTerm={searchTerm} searchByPostcode={searchByPostcode}  />
+    <PropertyListing searchTerm={searchTerm} id = {id} />
   )
 }
 

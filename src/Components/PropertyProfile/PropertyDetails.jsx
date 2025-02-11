@@ -3,7 +3,7 @@ import { useAppProvider } from "../../Contexts/AppContext";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
-const PropertyDetails = ({reviews, selectedProperty}) => {
+const PropertyDetails = ({reviews, selectedProperty, selectedPropertyLocate}) => {
   const [isSummaryVisible, setSummaryVisible] = useState(false);
   const [showBreakdown, setShowBreakdown] = useState(false);
   const [totalEstimatedBills, setTotalEstimatedBills] = useState('-');
@@ -15,7 +15,7 @@ const PropertyDetails = ({reviews, selectedProperty}) => {
   const [internet, setInternet] = useState('-');
   const breakdownRef = useRef(null);
   const infoRef = useRef(null);
-  const { serverUrl, userId } = useAppProvider();
+  const { serverUrl, userId, setReviewLocateId } = useAppProvider();
   const [propertyScore , setPropertyScore] = useState(0);
   const [displayStarsHTML, setDisplayStarsHTML] = useState('');
   const navigate = useNavigate();
@@ -52,7 +52,7 @@ const PropertyDetails = ({reviews, selectedProperty}) => {
     const totalScore = reviews.reduce((acc, review) => acc + Number(review.review_score), 0);
     setPropertyScore(reviews.length > 0 ? (totalScore / reviews.length).toFixed(2) : 0);
     displayStars((totalScore / reviews.length).toFixed(0));
-
+    setReviewLocateId(selectedPropertyLocate.Id);
   }, [reviews]);
 
 
@@ -111,14 +111,14 @@ const PropertyDetails = ({reviews, selectedProperty}) => {
     <div className="property-details">
       <div className="property-info">
         <div className="details">
-          <h2>{createAddressString(selectedProperty)}</h2>
+          <h2>{selectedPropertyLocate.Label}</h2>
           <div className="stars">
             {displayStarsHTML}
             <span>({propertyScore})</span>
             <p className="review-count">{reviews.length} Reviews</p>
           </div>
           <p>
-            Property type: <span>{selectedProperty["property-type"]}</span>
+            Property type: <span>{selectedPropertyLocate["Type"]}</span>
             <br />
             More info will be added here soon...
           </p>
@@ -163,7 +163,7 @@ const PropertyDetails = ({reviews, selectedProperty}) => {
             </div>
             <div className="stat-text">
               <div className="stat-label">Total floor area</div>
-              <div className="stat-value">{selectedProperty["total-floor-area"]} sq m</div>
+              <div className="stat-value">{selectedProperty["total-floor-area"] ? selectedProperty["total-floor-area"]+" sq m" : "-" } </div>
             </div>
           </div>
           <div className="stat-item">
@@ -322,7 +322,7 @@ const PropertyDetails = ({reviews, selectedProperty}) => {
               <div className="stat-label">EPC rating</div>
               <div className="stat-value">
                 <p>
-                  {selectedProperty["current-energy-rating"]}{`(${selectedProperty["current-energy-efficiency"]})`}
+                  { selectedProperty["current-energy-rating"] ? selectedProperty["current-energy-rating"] + `(${selectedProperty["current-energy-efficiency"]})` : "Unknown" }
                   <span className="info" onClick={toggleSummary} ref={infoRef}>
                     <svg
                       width="15"

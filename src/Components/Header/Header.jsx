@@ -18,7 +18,6 @@ const Header = () => {
   const menuRef = useRef(null);
 
   useEffect(() => {
-    // console.log("Header mounted");
     //checek if there is a referer_id in the url
     const urlParams = new URLSearchParams(window.location.search);
     const referer_id = urlParams.get("referer_id");

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../../Style/SearchBar.css";
+import axios from "axios";
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -7,6 +8,14 @@ const SearchBar = () => {
   const [searchFullResults, setSearchFullResults] = useState([]);
   const [searchByPostcode, setSearchByPostcode] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+
+
+  const [suggestions, setSuggestions] = useState([]);
+  const [selectedAddress, setSelectedAddress] = useState(null);
+  const [unitSuggestions, setUnitSuggestions] = useState([]);
+  const API_KEY = import.meta.env.VITE_LOCATE_KEY; // Replace with your actual Loqate API key
+
+
   useEffect(() => {
     if (window.innerWidth < 768) {
       setIsMobile(true);
@@ -20,7 +29,7 @@ const SearchBar = () => {
   };
   const baseUrl = "https://epc.opendatacommunities.org/api/v1/domestic/search";
 
-  async function searchProperties(query) {
+  /*async function searchProperties(query) {
     if (!query.trim()) {
       setSearchResults([]);
       return;
@@ -47,8 +56,8 @@ const SearchBar = () => {
         console.error("There was a problem with the fetch operation:", error);
         setSearchResults([]);
       });
-  }
-
+  }*/
+/*
   function csvToKeyValueArray(csv) {
     const lines = csv.split("\n");
     const headers = lines[0].split(",");
@@ -60,7 +69,8 @@ const SearchBar = () => {
       }, {});
     });
   }
-
+*/
+/*
   function createAddressString(data) {
     const addressParts = [
       data["address1"],
@@ -71,13 +81,73 @@ const SearchBar = () => {
     ].filter((part) => part && part.trim() !== "");
     return addressParts.join(", ");
   }
+*/
+  function createAddressString2(data) {
+    return data['Text'] + ", " + data['Description'];
+  }
 
   const handleSearch = () => {
     window.location.href = `/property-listing/?search=${searchTerm}&isItPostCode=${searchByPostcode}`;
   };
 
+
+
+  const searchApi = async (word) => {
+
+    if (word.length > 2) { // Search after 3+ characters
+      try {
+        const response = await axios.get(
+          "https://api.addressy.com/Capture/Interactive/Find/v1.10/json3.ws",
+          {
+            params: {
+              Key: API_KEY,
+              Text: word,
+              Countries: "GB", // Search only in the UK
+            },
+          }
+        );
+        setSearchResults(response.data.Items.map(createAddressString2) || []);
+        setSearchFullResults(response.data.Items);
+      } catch (error) {
+        console.error("Error fetching addresses:", error);
+      }
+    } else {
+      setSearchResults([]);
+    }
+  };
+
+
+  // Retrieve the full address details of a selected unit
+  const handleUnitSelect = async (id, text) => {
+    try {
+      const response = await axios.get(
+        "https://api.addressy.com/Capture/Interactive/Retrieve/v1.2/json3.ws",
+        {
+          params: {
+            Key: API_KEY,
+            Id: id,
+          },
+        }
+      );
+
+      if (response.data.Items) {
+        let currentAddress = response.data.Items[0];
+        console.log("Full address details:", response.data.Items[0]);
+        /*setSelectedAddress(response.data.Items[0].Label);
+        setUnitSuggestions([]);*/
+
+        // redirect to property profile page
+        window.location.href = `/property-profile?id=${id}&address=${text}&postcode=${currentAddress.PostalCode.replace(/\s+/g, '')}`;
+      }
+    } catch (error) {
+      console.error("Error retrieving full address:", error);
+    }
+  };
+
   return (
     <div className="home-search">
+      {/*
+
       <div className="search-options">
         <label>
           <input
@@ -88,6 +158,8 @@ const SearchBar = () => {
           Search by postcode
         </label>
       </div>
+
+      */}
       <div className="search-line">
         <span className="search-icon" onClick={handleSearch}>
           <svg
@@ -111,7 +183,8 @@ const SearchBar = () => {
           value={searchTerm}
           onChange={(e) => {
             setSearchTerm(e.target.value);
-            searchProperties(e.target.value);
+              searchApi(e.target.value);
+            //searchProperties(e.target.value);
           }}
           placeholder={`Search property by ${searchByPostcode ? "postcode" : "address"}`}
         />
@@ -143,8 +216,19 @@ const SearchBar = () => {
           {searchResults.map((result, index) => (
             <li
               key={index}
-              onClick={() =>
-                (window.location.href = `/property-profile?address=${searchFullResults[index]['address1'] + " " + searchFullResults[index]['address2'] + " " + searchFullResults[index]['address3']}&postcode=${searchFullResults[index]['postcode']}`)
+              onClick={() =>{
+                //(window.location.href = `/property-profile?address=${searchFullResults[index]['address1'] + " " + searchFullResults[index]['address2'] + " " + searchFullResults[index]['address3']}&postcode=${searchFullResults[index]['postcode']}`)
+                let address = searchFullResults[index];
+
+                if(address.Type === "Address") {
+                  handleUnitSelect(address.Id, address.Text);
+                }
+                else{
+                  //handleBaseAddressSelect(searchFullResults[index]);
+                  //redirect to property listing page with search term and id
+                  window.location.href = `/property-listing/?search=${searchTerm}&id=${address.Id}`;
+                }
+              }
               }
             >
               {result}

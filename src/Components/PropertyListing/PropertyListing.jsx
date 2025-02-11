@@ -4,14 +4,15 @@ import PropertyCard from '../UserProfile/PropertyCard'; // Bu mevcut bileşen, r
 import axios from "axios";
 import { useAppProvider } from "../../Contexts/AppContext";
 
-const PropertyListing = ({searchByPostcode, searchTerm}) => {
+const PropertyListing = ({searchByPostcode, searchTerm, id}) => {
   const [isFullScreen, setIsFullScreen] = useState(false);
   const { serverUrl } = useAppProvider();
   const [searchResults, setSearchResults] = useState([]);
   const [searchFullResults, setSearchFullResults] = useState([]);
 
   useEffect(() => {
-    searchProperties(searchTerm);
+    //searchProperties(searchTerm);
+    handleBaseAddressSelect(id, searchTerm);
   }, []);
 
   const handleFullScreenToggle = () => {
@@ -20,57 +21,29 @@ const PropertyListing = ({searchByPostcode, searchTerm}) => {
 
 
 
-  const token =
-    "ZG9ndWNhbmJhc2tpbkBnbWFpbC5jb206NzljMDc5YjllOTNmMGQ3MWQ3MjIyY2MwYjAyNWM1NDI2NjEwMjg3OA==";
-  const headers = {
-    Accept: "text/csv",
-    Authorization: `Basic ${token}`,
-  };
-  const baseUrl = "https://epc.opendatacommunities.org/api/v1/domestic/search";
-
-  async function searchProperties(query) {
-    if (!query.trim()) {
-      setSearchResults([]);
-      return;
-    }
-    const queryParams = searchByPostcode ? { "postcode": query } : { "address": query };
-    const encodedParams = new URLSearchParams(queryParams).toString();
-    const fullUrl = `${baseUrl}?${encodedParams}`;
-
-    await fetch(fullUrl, {
-      method: "GET",
-      headers: headers,
-    })
-      .then(async (response) => {
-        const responseText = await response.text();
-        const formattedData = csvToKeyValueArray(responseText);
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
+  // Fetch unit-level addresses when a base address is selected
+  const handleBaseAddressSelect = async (id, text) => {
+    try {
+      const response = await axios.get(
+        "https://api.addressy.com/Capture/Interactive/Find/v1.1/json3.ws",
+        {
+          params: {
+            Key: import.meta.env.VITE_LOCATE_KEY,
+            Container: id, // This refines search within the selected address
+            Countries: "GB", // Search only in the UK
+          },
         }
-        console.log(formattedData);
-        setSearchFullResults(formattedData);
-      })
-      .catch((error) => {
-        console.error("There was a problem with the fetch operation:", error);
-        setSearchResults([]);
-      });
-  }
+      );
 
-  function csvToKeyValueArray(csv) {
-    const lines = csv.split("\n");
-    const headers = lines[0].split(",");
-    return lines.slice(1).map((line) => {
-      const values = line.split(",");
-      return headers.reduce((obj, header, index) => {
-        obj[header] = values[index];
-        return obj;
-      }, {});
-    });
-  }
+      if (response.data.Items) {
+        setSearchFullResults(response.data.Items);
+      }
 
 
-
-
+    } catch (error) {
+      console.error("Error fetching units:", error);
+    }
+  };
 
   return (
     <div className="property-listing">
@@ -81,13 +54,10 @@ const PropertyListing = ({searchByPostcode, searchTerm}) => {
         }`}
       >
         <div className="property-cards">
-          {/* <PropertyCard />
-          <PropertyCard />
-          <PropertyCard /> */}
+
           {searchFullResults.map((property, index) => (
             <PropertyCard key={index} property={property} />
           ))}
-          {/* İstediğiniz kadar PropertyCard ekleyebilirsiniz */}
         </div>
         <div className="property-map">
           <div className="map-container">

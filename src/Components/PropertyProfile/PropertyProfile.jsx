@@ -10,15 +10,16 @@ import axios from 'axios';
 import { useAppProvider } from '../../Contexts/AppContext';
 
 
-const PropertyProfile = ({postalCode,address}) => {
+const PropertyProfile = ({postalCode,address, id}) => {
    const { serverUrl, setTownCity, setCountry, setPostCode, setAddressLine1  } = useAppProvider();
    const [reviews, setReviews] = useState([]);
    const [addressDetails, setAddressDetails] = useState({});
    const [selectedProperty, setSelectedProperty] = useState({});
+   const [unitDetails, setUnitDetails] = useState({});
 
   useEffect(() => {
 
-    const url = `${serverUrl}/review/getReviewsByPostalCodeAndAddress/${postalCode}/${address}`;
+    const url = `${serverUrl}/review/getReviewsById/${id}`;
     axios.get(url)
       .then(response => {
         setReviews(response.data);
@@ -28,6 +29,7 @@ const PropertyProfile = ({postalCode,address}) => {
       });
 
       getAddressFromPostcode(postalCode);
+      handleUnitSelect(id);
       getPropertyInfo();
   }, [postalCode, serverUrl]);
 
@@ -40,6 +42,30 @@ const PropertyProfile = ({postalCode,address}) => {
     Authorization: `Basic ${token}`,
   };
   const baseUrl = "https://epc.opendatacommunities.org/api/v1/domestic/search";
+
+    // Retrieve the full address details of a selected unit
+    const handleUnitSelect = async (id) => {
+      try {
+        const response = await axios.get(
+          "https://api.addressy.com/Capture/Interactive/Retrieve/v1.2/json3.ws",
+          {
+            params: {
+              Key: import.meta.env.VITE_LOCATE_KEY,
+              Id: id,
+            },
+          }
+        );
+
+        if (response.data.Items) {
+          let currentAddress = response.data.Items[0];
+          setUnitDetails(currentAddress);
+          // redirect to property profile page
+          //window.location.href = `/property-profile?id=${id}&address=${text}&postcode=${currentAddress.PostalCode.replace(/\s+/g, '')}`;
+        }
+      } catch (error) {
+        console.error("Error retrieving full address:", error);
+      }
+    };
 
   async function getPropertyInfo() {
     const queryParams = { "postcode": postalCode, "address": address };
@@ -57,9 +83,13 @@ const PropertyProfile = ({postalCode,address}) => {
           throw new Error("Network response was not ok");
         }
         //console.log(formattedData);
-        setSelectedProperty(formattedData[0]);
+        if(formattedData.length > 0){
+          setSelectedProperty(formattedData[0]);
+          setTownCity(formattedData[0].county);
+        }
+        else
+          setTownCity('Unknown');
 
-        setTownCity(formattedData[0].county);
         setCountry("United Kingdom");
         setPostCode(postalCode);
         setAddressLine1(address);
@@ -105,12 +135,12 @@ const PropertyProfile = ({postalCode,address}) => {
         <Sidebar/>
       </aside>
       <section className="content">
-        <ContentHeader selectedProperty={selectedProperty} lastUpdate={reviews.length > 0 ? new Date(reviews[reviews.length-1].date).toLocaleDateString() : selectedProperty['inspection-date']}/>
-        <PropertyDetails selectedProperty={selectedProperty} reviews={reviews}/>
-        <ReviewScore selectedProperty={selectedProperty} reviews={reviews}/>
-        <LocationMap selectedProperty={selectedProperty} addressDetails={addressDetails}/>
+        <ContentHeader selectedProperty={selectedProperty} selectedPropertyLocate = {unitDetails} lastUpdate={reviews.length > 0 ? new Date(reviews[reviews.length-1].date).toLocaleDateString() : selectedProperty['inspection-date']}/>
+        <PropertyDetails selectedProperty={selectedProperty} selectedPropertyLocate = {unitDetails} reviews={reviews}/>
+        <ReviewScore selectedProperty={selectedProperty} selectedPropertyLocate = {unitDetails} reviews={reviews}/>
+        <LocationMap selectedProperty={selectedProperty} selectedPropertyLocate = {unitDetails} addressDetails={addressDetails}/>
         {/*<LocationDetails selectedProperty={selectedProperty} /> */}
-        <Reviews selectedProperty={selectedProperty} reviews={reviews} />
+        <Reviews selectedProperty={selectedProperty} selectedPropertyLocate = {unitDetails} reviews={reviews} />
       </section>
     </section>
     </>
