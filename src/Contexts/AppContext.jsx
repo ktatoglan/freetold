@@ -9,6 +9,7 @@ const AppProvider = ({ children }) => {
   const storedUserData = cookies.get('user');
 
   const [mode, setMode] = useState('light');
+  const [reviewLocateId, setReviewLocateId] = useState(storedUserData && storedUserData.review_locate_id ? storedUserData.review_locate_id : null);
   const [userId, setUserId] = useState(storedUserData && storedUserData.userId ? storedUserData.userId : null);
   const [addressLine1, setAddressLine1] = useState('');
   const [addressLine2, setAddressLine2] = useState('');
@@ -50,8 +51,8 @@ const AppProvider = ({ children }) => {
   const serverUrl = 'https://freetold-backend.vercel.app';
 
   useEffect(() => {
-    cookies.set('user', { userId, mode, addressLine1, addressLine2, townCity, country, postCode, moveInDate, tenancyPeriod, isItSharingFlat, peopleNumberLivingAtHome, futureRentersContactMe, rentAmount, rentPeriod, rentDuration, isBillsIncluded, billsPerPerson, billsWholeHouse, electricBill, waterBill, gasBill, internetBill, reviewScore, reviewHeadline, reviewPros, reviewCons, heatUpLevel, wellLitLevel, internetConnectionLevel, isItPetFriendly, anythingToBeFixed, ownerRespondScore, healthConcerns, perceptionNeighborsLevel, noiseNeighborsLevel, parkingScore, trafficScore, safetyConcerns, agreeCheckbox }, { path: '/' });
-  }, [userId, mode, addressLine1, addressLine2, townCity, country, postCode, moveInDate, tenancyPeriod, isItSharingFlat, peopleNumberLivingAtHome, futureRentersContactMe, rentAmount, rentPeriod, rentDuration, isBillsIncluded, billsPerPerson, billsWholeHouse, electricBill, waterBill, gasBill, internetBill, reviewScore, reviewHeadline, reviewPros, reviewCons, heatUpLevel, wellLitLevel, internetConnectionLevel, isItPetFriendly, anythingToBeFixed, ownerRespondScore, healthConcerns, perceptionNeighborsLevel, noiseNeighborsLevel, parkingScore, trafficScore, safetyConcerns, agreeCheckbox]);
+    cookies.set('user', { userId, mode, addressLine1, addressLine2, townCity, country, postCode, moveInDate, tenancyPeriod, isItSharingFlat, peopleNumberLivingAtHome, futureRentersContactMe, rentAmount, rentPeriod, rentDuration, isBillsIncluded, billsPerPerson, billsWholeHouse, electricBill, waterBill, gasBill, internetBill, reviewScore, reviewHeadline, reviewPros, reviewCons, heatUpLevel, wellLitLevel, internetConnectionLevel, isItPetFriendly, anythingToBeFixed, ownerRespondScore, healthConcerns, perceptionNeighborsLevel, noiseNeighborsLevel, parkingScore, trafficScore, safetyConcerns, agreeCheckbox, reviewLocateId }, { path: '/' });
+  }, [userId, mode, addressLine1, addressLine2, townCity, country, postCode, moveInDate, tenancyPeriod, isItSharingFlat, peopleNumberLivingAtHome, futureRentersContactMe, rentAmount, rentPeriod, rentDuration, isBillsIncluded, billsPerPerson, billsWholeHouse, electricBill, waterBill, gasBill, internetBill, reviewScore, reviewHeadline, reviewPros, reviewCons, heatUpLevel, wellLitLevel, internetConnectionLevel, isItPetFriendly, anythingToBeFixed, ownerRespondScore, healthConcerns, perceptionNeighborsLevel, noiseNeighborsLevel, parkingScore, trafficScore, safetyConcerns, agreeCheckbox, reviewLocateId]);
 
 
   const sendReview = async() => {
@@ -95,7 +96,8 @@ const AppProvider = ({ children }) => {
         parking_score: parkingScore,
         traffic_score: trafficScore,
         safety_concerns: safetyConcerns,
-        agree_checkbox: agreeCheckbox
+        agree_checkbox: agreeCheckbox,
+        review_locate_id: reviewLocateId
       });
 
       return response.data; // Return true if the request is successful
@@ -108,6 +110,7 @@ const AppProvider = ({ children }) => {
   return (
     <MyContext.Provider
       value={{sendReview, mode, setMode, userId, setUserId,serverUrl,
+        reviewLocateId, setReviewLocateId,
         addressLine1, setAddressLine1, addressLine2, setAddressLine2, townCity, setTownCity, country, setCountry, postCode, setPostCode,
         moveInDate, setMoveInDate, tenancyPeriod, setTenancyPeriod, isItSharingFlat, setIsItSharingFlat, peopleNumberLivingAtHome, setPeopleNumberLivingAtHome, futureRentersContactMe, setFutureRentersContactMe,
         rentAmount, setRentAmount, rentPeriod, setRentPeriod, rentDuration, setRentDuration, isBillsIncluded, setIsBillsIncluded, billsPerPerson, setBillsPerPerson, billsWholeHouse, setBillsWholeHouse, electricBill, setElectricBill, waterBill, setWaterBill, gasBill, setGasBill, internetBill, setInternetBill,

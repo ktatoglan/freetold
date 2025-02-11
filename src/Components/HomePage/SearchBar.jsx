@@ -146,6 +146,8 @@ const SearchBar = () => {
 
   return (
     <div className="home-search">
+      {/*
+
       <div className="search-options">
         <label>
           <input
@@ -156,6 +158,8 @@ const SearchBar = () => {
           Search by postcode
         </label>
       </div>
+
+      */}
       <div className="search-line">
         <span className="search-icon" onClick={handleSearch}>
           <svg
