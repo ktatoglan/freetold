@@ -1,19 +1,96 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const PropertyCard = ({ property }) => {
+  const [epcDetails, setEpcDetails] = useState([]);
+
+  useEffect(() => {
+    const descriptionSentences = property.Description.split(' ');
+    const lastTwoSentences = descriptionSentences.slice(-2).join('');
+    searchProperties(lastTwoSentences);
+  }, []);
+
+    const token =
+    "ZG9ndWNhbmJhc2tpbkBnbWFpbC5jb206NzljMDc5YjllOTNmMGQ3MWQ3MjIyY2MwYjAyNWM1NDI2NjEwMjg3OA==";
+  const headers = {
+    Accept: "text/csv",
+    Authorization: `Basic ${token}`,
+  };
+  const baseUrl = "https://epc.opendatacommunities.org/api/v1/domestic/search";
+
+  async function searchProperties(query) {
+    if (!query.trim()) {
+      return;
+    }
+    const queryParams = { "postcode": query };
+    const encodedParams = new URLSearchParams(queryParams).toString();
+    const fullUrl = `${baseUrl}?${encodedParams}`;
+
+    await fetch(fullUrl, {
+      method: "GET",
+      headers: headers,
+    })
+      .then(async (response) => {
+        const responseText = await response.text();
+        const formattedData = csvToKeyValueArray(responseText);
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        console.log(formattedData);
+        setEpcDetails(formattedData[0]);
+      })
+      .catch((error) => {
+        console.error("There was a problem with the fetch operation:", error);
+      });
+  }
+
+  function csvToKeyValueArray(csv) {
+    const lines = csv.split("\n");
+    const headers = lines[0].split(",");
+    return lines.slice(1).map((line) => {
+      const values = line.split(",");
+      return headers.reduce((obj, header, index) => {
+        obj[header] = values[index];
+        return obj;
+      }, {});
+    });
+  }
+
+
+  // Retrieve the full address details of a selected unit
+  const handleUnitSelect = async (id, text) => {
+    try {
+      const response = await axios.get(
+        "https://api.addressy.com/Capture/Interactive/Retrieve/v1.2/json3.ws",
+        {
+          params: {
+            Key: import.meta.env.VITE_LOCATE_KEY,
+            Id: id,
+          },
+        }
+      );
+
+      if (response.data.Items) {
+        let currentAddress = response.data.Items[0];
+        // redirect to property profile page
+        window.location.href = `/property-profile?id=${id}&address=${text}&postcode=${currentAddress.PostalCode.replace(/\s+/g, '')}`;
+      }
+    } catch (error) {
+      console.error("Error retrieving full address:", error);
+    }
+  };
+
+
   function createAddressString(data) {
     const addressParts = [
-      data["address1"],
-      data["address2"],
-      data["address3"],
-      data["posttown"],
-      data["postcode"],
+      data["Text"],
+      data["Description"],
     ].filter((part) => part && part.trim() !== "");
     return addressParts.join(", ");
   }
   return (
     <div className="property-card" onClick={()=>{
-      window.location.href = `/property-profile/?postcode=${property.postcode}&address=${property.address1 + " " + property.address2 + " " + property.address3}`;
+      handleUnitSelect(property.Id, property.Text);
     }}>
       <div className="property-header">
         <h4>{createAddressString(property)}</h4>
@@ -121,7 +198,7 @@ const PropertyCard = ({ property }) => {
                 fill="#919191"
               />
             </svg>
-            EPC rating: {property['current-energy-rating']} ({property['current-energy-efficiency']})
+            EPC rating: {epcDetails['current-energy-rating']} ({epcDetails['current-energy-efficiency']})
           </span>
         </p>
         <p className="property-description">{property.description}</p>
