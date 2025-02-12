@@ -90,6 +90,7 @@ const PropertySearchBar = () => {
         {isFilterMenuOpen && <FilterMenu onApplyFilters={applyFilters} />}
       </div>
       <div className="filters-and-sort">
+        {/*
         <div className="active-filters">
           <span>
             <svg
@@ -191,6 +192,8 @@ const PropertySearchBar = () => {
             </svg>
           </span>
         </div>
+        */}
+        {/*
         <div className="sort">
           <div className="sort-options">
             <label htmlFor="sort-select">Sort by:</label>
@@ -207,6 +210,7 @@ const PropertySearchBar = () => {
             </select>
           </div>
         </div>
+        */}
       </div>
     </>
   );
