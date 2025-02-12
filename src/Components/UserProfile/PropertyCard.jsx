@@ -60,27 +60,10 @@ const PropertyCard = ({ property }) => {
 
 
   // Retrieve the full address details of a selected unit
-  const handleUnitSelect = async (id, text) => {
-    try {
-      const response = await axios.get(
-        "https://api.addressy.com/Capture/Interactive/Retrieve/v1.2/json3.ws",
-        {
-          params: {
-            Key: import.meta.env.VITE_LOCATE_KEY,
-            Id: id,
-          },
-        }
-      );
-
-      if (response.data.Items) {
-        let currentAddress = response.data.Items[0];
-        // redirect to property profile page
-        window.location.href = `/property-profile?id=${id}&address=${text}&postcode=${currentAddress.PostalCode.replace(/\s+/g, '')}`;
-      }
-    } catch (error) {
-      console.error("Error retrieving full address:", error);
-    }
-  };
+  const handleUnitSelect = async (id, text, Description) => {
+    const postalCode = Description.split(" ").slice(-2).join("");
+    window.location.href = `/property-profile?id=${id}&address=${text}&postcode=${postalCode.replace(/\s+/g, '')}`;
+};
 
 
   function createAddressString(data) {
@@ -92,7 +75,7 @@ const PropertyCard = ({ property }) => {
   }
   return (
     <div className="property-card" onClick={()=>{
-      handleUnitSelect(property.Id, property.Text);
+      handleUnitSelect(property.Id, property.Text, property.Description);
     }}>
       <div className="property-header">
         <h4>{createAddressString(property)}</h4>

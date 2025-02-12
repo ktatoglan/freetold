@@ -46,21 +46,29 @@ const PropertyProfile = ({postalCode,address, id}) => {
     // Retrieve the full address details of a selected unit
     const handleUnitSelect = async (id) => {
       try {
-        const response = await axios.get(
-          "https://api.addressy.com/Capture/Interactive/Retrieve/v1.2/json3.ws",
-          {
-            params: {
-              Key: import.meta.env.VITE_LOCATE_KEY,
-              Id: id,
-            },
-          }
-        );
 
-        if (response.data.Items) {
-          let currentAddress = response.data.Items[0];
-          setUnitDetails(currentAddress);
-          // redirect to property profile page
-          //window.location.href = `/property-profile?id=${id}&address=${text}&postcode=${currentAddress.PostalCode.replace(/\s+/g, '')}`;
+        const checkDb = await axios.get(`${serverUrl}/property/getProperty/${id}`);
+        if (checkDb.data) {
+          setUnitDetails(checkDb.data);
+        }
+        else{
+          //get from api
+          const response = await axios.get(
+            "https://api.addressy.com/Capture/Interactive/Retrieve/v1.2/json3.ws",
+            {
+              params: {
+                Key: import.meta.env.VITE_LOCATE_KEY,
+                Id: id,
+              },
+            }
+          );
+
+          if (response.data.Items) {
+            let currentAddress = response.data.Items[0];
+            setUnitDetails(currentAddress);
+            //add unit to database
+            await axios.post(`${serverUrl}/property/addProperty`, { details: currentAddress });
+          }
         }
       } catch (error) {
         console.error("Error retrieving full address:", error);

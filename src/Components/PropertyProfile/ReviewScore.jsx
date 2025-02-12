@@ -5,7 +5,7 @@ function ReviewScore({reviews}) {
   const [Heating, setHeating] = useState('');
   const [Litting, setLitting] = useState('');
   const [InternetConnection, setInternetConnection] = useState('');
-  const [PetFriendly, setPetFriendly] = useState('No');
+  const [PetFriendly, setPetFriendly] = useState('-');
   const [NoiseLevel, setNoiseLevel] = useState('');
   const [Traffic, setTraffic] = useState('');
   const [Parking, setParking] = useState('');
@@ -18,61 +18,75 @@ function ReviewScore({reviews}) {
 
   useEffect(() => {
     //is_it_pet_friendly
-    reviews.map((review) => {
-      if (review.is_it_pet_friendly == true) {
-        setPetFriendly('Yes');
+    for (let review of reviews) {
+      if (review.is_it_pet_friendly === true) {
+      setPetFriendly('Yes');
+      break;
+      } else {
+      setPetFriendly('No');
       }
-    });
-    //heating
-    let totalHeating = 0;
-    reviews.map((review) => {
+    }
+    if (reviews.length === 0) {
+      setHeating('-');
+      setLitting('-');
+      setInternetConnection('-');
+      setNoiseLevel('-');
+      setTraffic('-');
+      setParking('-');
+      setNeighbors('-');
+      setReviewScore('-');
+    } else {
+      //heating
+      let totalHeating = 0;
+      reviews.map((review) => {
       totalHeating += review.heat_up_level;
-    });
-    setHeating((totalHeating / reviews.length).toFixed(1));
-    //litting
-    let totalLitting = 0;
-    reviews.map((review) => {
+      });
+      setHeating((totalHeating / reviews.length).toFixed(1));
+      //litting
+      let totalLitting = 0;
+      reviews.map((review) => {
       totalLitting += review.well_lit_level;
-    });
-    setLitting((totalLitting / reviews.length).toFixed(1));
+      });
+      setLitting((totalLitting / reviews.length).toFixed(1));
 
-    //internet connection
-    let totalInternetConnection = 0;
-    reviews.map((review) => {
+      //internet connection
+      let totalInternetConnection = 0;
+      reviews.map((review) => {
       totalInternetConnection += review.internet_connection_level;
-    });
-    setInternetConnection((totalInternetConnection / reviews.length).toFixed(1));
+      });
+      setInternetConnection((totalInternetConnection / reviews.length).toFixed(1));
 
-    //noise level
-    let totalNoiseLevel = 0;
-    reviews.map((review) => {
+      //noise level
+      let totalNoiseLevel = 0;
+      reviews.map((review) => {
       totalNoiseLevel += review.noise_neighbors_level;
-    });
-    setNoiseLevel((totalNoiseLevel / reviews.length).toFixed(1));
-    //traffic
-    let totalTraffic = 0;
-    reviews.map((review) => {
+      });
+      setNoiseLevel((totalNoiseLevel / reviews.length).toFixed(1));
+      //traffic
+      let totalTraffic = 0;
+      reviews.map((review) => {
       totalTraffic += review.traffic_score;
-    });
-    setTraffic((totalTraffic / reviews.length).toFixed(1));
-    //parking
-    let totalParking = 0;
-    reviews.map((review) => {
+      });
+      setTraffic((totalTraffic / reviews.length).toFixed(1));
+      //parking
+      let totalParking = 0;
+      reviews.map((review) => {
       totalParking += review.parking_score;
-    });
-    setParking((totalParking / reviews.length).toFixed(1));
-    //neighbors
-    let totalNeighbors = 0;
-    reviews.map((review) => {
-      totalNeighbors += review.owner_respond_score;//To be changed neighbors_score
-    });
-    setNeighbors((totalNeighbors / reviews.length).toFixed(1));
-    //review score
-    let totalReviewScore = 0;
-    reviews.map((review) => {
+      });
+      setParking((totalParking / reviews.length).toFixed(1));
+      //neighbors
+      let totalNeighbors = 0;
+      reviews.map((review) => {
+      totalNeighbors += review.owner_respond_score; // To be changed neighbors_score
+      });
+      setNeighbors((totalNeighbors / reviews.length).toFixed(1));
+      //review score
+      let totalReviewScore = 0;
+      reviews.map((review) => {
       totalReviewScore += review.review_score;
-    });
-    setReviewScore((totalReviewScore / reviews.length).toFixed(1));
+      });
+      setReviewScore((totalReviewScore / reviews.length).toFixed(1));
+    }
 
     //review distribution
     let totalFiveStar = 0;

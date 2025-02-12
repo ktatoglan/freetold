@@ -39,6 +39,14 @@ const PropertyDetails = ({reviews, selectedProperty, selectedPropertyLocate}) =>
   }, []);
 
   useEffect(() => {
+    if(reviews.length === 0){
+      setTotalEstimatedBills('-');
+      setLastPrice('-');
+      setPropertyScore(0);
+      setDisplayStarsHTML('');
+      return;
+    }
+
     let totalElectricity = reviews.reduce((acc, review) => acc + Number(review.electric_bill), 0);
     let totalGas = reviews.reduce((acc, review) => acc + Number(review.gas_bill), 0);
     let totalWater = reviews.reduce((acc, review) => acc + Number(review.water_bill), 0);
@@ -52,7 +60,7 @@ const PropertyDetails = ({reviews, selectedProperty, selectedPropertyLocate}) =>
     const totalScore = reviews.reduce((acc, review) => acc + Number(review.review_score), 0);
     setPropertyScore(reviews.length > 0 ? (totalScore / reviews.length).toFixed(2) : 0);
     displayStars((totalScore / reviews.length).toFixed(0));
-    setReviewLocateId(selectedPropertyLocate.Id);
+    setReviewLocateId(selectedPropertyLocate.Id ? selectedPropertyLocate.Id : selectedPropertyLocate.id);
   }, [reviews]);
 
 
@@ -111,14 +119,14 @@ const PropertyDetails = ({reviews, selectedProperty, selectedPropertyLocate}) =>
     <div className="property-details">
       <div className="property-info">
         <div className="details">
-          <h2>{selectedPropertyLocate.Label}</h2>
+          <h2>{selectedPropertyLocate.Label ? selectedPropertyLocate.Label : selectedPropertyLocate.label}</h2>
           <div className="stars">
             {displayStarsHTML}
             <span>({propertyScore})</span>
             <p className="review-count">{reviews.length} Reviews</p>
           </div>
           <p>
-            Property type: <span>{selectedPropertyLocate["Type"]}</span>
+            Property type: <span>{selectedPropertyLocate["Type"] ? selectedPropertyLocate["Type"] : selectedPropertyLocate["type"]}</span>
             <br />
             More info will be added here soon...
           </p>

@@ -106,6 +106,7 @@ const SearchBar = () => {
             },
           }
         );
+        console.log("Search results:", response.data.Items);
         setSearchResults(response.data.Items.map(createAddressString2) || []);
         setSearchFullResults(response.data.Items);
       } catch (error) {
@@ -118,30 +119,9 @@ const SearchBar = () => {
 
 
   // Retrieve the full address details of a selected unit
-  const handleUnitSelect = async (id, text) => {
-    try {
-      const response = await axios.get(
-        "https://api.addressy.com/Capture/Interactive/Retrieve/v1.2/json3.ws",
-        {
-          params: {
-            Key: API_KEY,
-            Id: id,
-          },
-        }
-      );
-
-      if (response.data.Items) {
-        let currentAddress = response.data.Items[0];
-        console.log("Full address details:", response.data.Items[0]);
-        /*setSelectedAddress(response.data.Items[0].Label);
-        setUnitSuggestions([]);*/
-
-        // redirect to property profile page
-        window.location.href = `/property-profile?id=${id}&address=${text}&postcode=${currentAddress.PostalCode.replace(/\s+/g, '')}`;
-      }
-    } catch (error) {
-      console.error("Error retrieving full address:", error);
-    }
+  const handleUnitSelect = async (id, text, Description) => {
+      const postalCode = Description.split(" ").slice(-2).join("");
+      window.location.href = `/property-profile?id=${id}&address=${text}&postcode=${postalCode.replace(/\s+/g, '')}`;
   };
 
   return (
@@ -221,7 +201,7 @@ const SearchBar = () => {
                 let address = searchFullResults[index];
 
                 if(address.Type === "Address") {
-                  handleUnitSelect(address.Id, address.Text);
+                  handleUnitSelect(address.Id, address.Text, address.Description);
                 }
                 else{
                   //handleBaseAddressSelect(searchFullResults[index]);

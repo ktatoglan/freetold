@@ -19,6 +19,7 @@ const Modal = ({ closeModal }) => {
     setPostCode,
     reviewLocateId,
     setReviewLocateId,
+    serverUrl,
   } = useAppProvider();
   const navigate = useNavigate();
   const [searchResults, setSearchResults] = useState([]);
@@ -53,36 +54,58 @@ const Modal = ({ closeModal }) => {
   }
 
   // Retrieve the full address details of a selected unit
-  const handleUnitSelect = async (id, text) => {
+  const handleUnitSelect = async (id) => {
     try {
-      const response = await axios.get(
-        "https://api.addressy.com/Capture/Interactive/Retrieve/v1.2/json3.ws",
-        {
-          params: {
-            Key: import.meta.env.VITE_LOCATE_KEY,
-            Id: id,
-          },
-        }
-      );
 
-      if (response.data.Items) {
-        let currentAddress = response.data.Items[0];
-        console.log("Full address details:", response.data.Items[0]);
+      const checkDb = await axios.get(`${serverUrl}/property/getProperty/${id}`);
+      if (checkDb.data) {
+        let currentAddress = checkDb.data;
 
-        setTownCity(currentAddress.City);
+        setTownCity(currentAddress.city);
         setCountry("United Kingdom");
-        setPostCode(currentAddress.PostalCode);
-        let address = currentAddress.Line1;
+        setPostCode(currentAddress.postalcode);
+        let address = currentAddress.line1;
         for(let i = 2; i <= 5; i++){
-          if(currentAddress["Line" + i]){
-            address += ", " + currentAddress["Line" + i];
+          if(currentAddress["line" + i]){
+            address += ", " + currentAddress["line" + i];
           }
         }
         //delete spaces at the end and beginning
         setAddressLine1(address);
         setSearchResults([]);
         setSearchText("");
+      }
+      else{
+        //get from api
+        const response = await axios.get(
+          "https://api.addressy.com/Capture/Interactive/Retrieve/v1.2/json3.ws",
+          {
+            params: {
+              Key: import.meta.env.VITE_LOCATE_KEY,
+              Id: id,
+            },
+          }
+        );
 
+        if (response.data.Items) {
+          let currentAddress = response.data.Items[0];
+          console.log("Full address details:", response.data.Items[0]);
+
+          setTownCity(currentAddress.City);
+          setCountry("United Kingdom");
+          setPostCode(currentAddress.PostalCode);
+          let address = currentAddress.Line1;
+          for(let i = 2; i <= 5; i++){
+            if(currentAddress["Line" + i]){
+              address += ", " + currentAddress["Line" + i];
+            }
+          }
+          //delete spaces at the end and beginning
+          setAddressLine1(address);
+          setSearchResults([]);
+          setSearchText("");
+          await axios.post(`${serverUrl}/property/addProperty`, { details: currentAddress });
+        }
       }
     } catch (error) {
       console.error("Error retrieving full address:", error);
