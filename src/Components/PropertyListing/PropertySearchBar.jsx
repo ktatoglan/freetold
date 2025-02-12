@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import FilterMenu from "./FilterMenu";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const PropertySearchBar = () => {
   const [selectedFilters, setSelectedFilters] = useState([]);
@@ -7,6 +9,7 @@ const PropertySearchBar = () => {
   const [selectedOption, setSelectedOption] = useState(
     "Pricing (from low to high)"
   );
+  const [searchTerm, setSearchTerm] = useState("");
 
   const sortOptions = [
     "Distance (from close to far)",
@@ -36,6 +39,15 @@ const PropertySearchBar = () => {
     toggleFilterMenu(); // Menüyü kapatmak için
   };
 
+  const searchApi = async (word) => {
+
+    if (word.length > 2) { // Search after 3+ characters
+      window.location.href = `/property-listing/?search=${word}`;
+    } else {
+      toast.error("Please enter at least 3 characters to search");
+    }
+  };
+
   return (
     <>
       <div className="property-search-bar-container">
@@ -44,8 +56,12 @@ const PropertySearchBar = () => {
             type="text"
             placeholder="Search property"
             className="search-input"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <button className="find-reviews-btn">Find reviews</button>
+          <button className="find-reviews-btn" onClick={() => searchApi(searchTerm)}>
+            Find reviews
+          </button>
           <button className="filter-menu-btn" onClick={toggleFilterMenu}>
             <svg
               width="24"
