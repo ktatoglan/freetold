@@ -75,7 +75,12 @@ const PropertyCard = ({ property }) => {
   }
   return (
     <div className="property-card" onClick={()=>{
-      handleUnitSelect(property.Id, property.Text, property.Description);
+      if (property.Type === "Address"){
+        handleUnitSelect(property.Id, property.Text, property.Description);
+      }
+      else{
+        window.location.href = `/property-listing/?search=${property.Text}&id=${property.Id}`;
+      }
     }}>
       <div className="property-header">
         <h4>{createAddressString(property)}</h4>

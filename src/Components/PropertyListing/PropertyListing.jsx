@@ -12,15 +12,45 @@ const PropertyListing = ({searchByPostcode, searchTerm, id}) => {
 
   useEffect(() => {
     //searchProperties(searchTerm);
-    handleBaseAddressSelect(id, searchTerm);
+    if(id){
+      handleBaseAddressSelect(id, searchTerm);
+    }
+    else{
+      searchApi(searchTerm);
+    }
   }, []);
 
   const handleFullScreenToggle = () => {
     setIsFullScreen(!isFullScreen);
   };
 
+  const searchApi = async (word) => {
 
+    if (word.length > 2) { // Search after 3+ characters
+      try {
+        const response = await axios.get(
+          "https://api.addressy.com/Capture/Interactive/Find/v1.10/json3.ws",
+          {
+            params: {
+              Key: import.meta.env.VITE_LOCATE_KEY,
+              Text: word,
+              Countries: "GB", // Search only in the UK
+            },
+          }
+        );
+        setSearchResults(response.data.Items.map(createAddressString2) || []);
+        setSearchFullResults(response.data.Items);
+      } catch (error) {
+        console.error("Error fetching addresses:", error);
+      }
+    } else {
+      setSearchResults([]);
+    }
+  };
 
+  function createAddressString2(data) {
+    return data['Text'] + ", " + data['Description'];
+  }
   // Fetch unit-level addresses when a base address is selected
   const handleBaseAddressSelect = async (id, text) => {
     try {
