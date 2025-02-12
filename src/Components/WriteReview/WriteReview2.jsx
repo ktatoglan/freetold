@@ -94,31 +94,33 @@ function WriteReview2() {
       { value: internetBill, id: "internet-bill", name: "Internet" },
     ];
 
-    billFields.forEach((field) => {
-      const inputElement = document.getElementById(field.id);
-      // console.log(field);
+    if (!isBillsIncluded) {
+      billFields.forEach((field) => {
+        const inputElement = document.getElementById(field.id);
+        // console.log(field);
 
-      if (field.value === "" || parseFloat(field.value) < 0 || field.value === undefined || field.value === null) {
-        isValid = false;
+        if (field.value === "" || parseFloat(field.value) < 0 || field.value === undefined || field.value === null) {
+          isValid = false;
 
-        // Hata mesajı: Negatif veya boş değerler için
-        if (field.value === "") {
-          toast.error(`Please fill out the ${field.name} bill!`);
-        } else if (parseFloat(field.value) < 0) {
-          toast.error(`The ${field.name} bill cannot be negative!`);
-        }
+          // Hata mesajı: Negatif veya boş değerler için
+          if (field.value === "") {
+            toast.error(`Please fill out the ${field.name} bill!`);
+          } else if (parseFloat(field.value) < 0) {
+            toast.error(`The ${field.name} bill cannot be negative!`);
+          }
 
-        // Hatalı alanı işaretleme
-        if (inputElement) {
-          inputElement.classList.add("error");
+          // Hatalı alanı işaretleme
+          if (inputElement) {
+            inputElement.classList.add("error");
+          }
+        } else {
+          // Hatalı değilse, error sınıfını kaldır
+          if (inputElement) {
+            inputElement.classList.remove("error");
+          }
         }
-      } else {
-        // Hatalı değilse, error sınıfını kaldır
-        if (inputElement) {
-          inputElement.classList.remove("error");
-        }
-      }
-    });
+      });
+    }
 
     return isValid;
   };
@@ -283,6 +285,7 @@ function WriteReview2() {
                     type="text"
                     id="electric-bill"
                     value={electricBill}
+                    disabled={isBillsIncluded}
                     onChange={(e) => {
                       const value = e.target.value;
                       if (/^\d*$/.test(value)) {
@@ -318,6 +321,7 @@ function WriteReview2() {
                   <input
                     type="text"
                     id="water-bill"
+                    disabled={isBillsIncluded}
                     value={waterBill === 0.0 ? "" : waterBill}
                     onChange={(e) => {
                       const value = e.target.value;
@@ -355,6 +359,7 @@ function WriteReview2() {
                     type="text"
                     id="gas-bill"
                     value={gasBill === 0.0 ? "" : gasBill}
+                    disabled={isBillsIncluded}
                     onChange={(e) => {
                       const value = e.target.value;
                       if (/^\d*$/.test(value)) {
@@ -391,6 +396,7 @@ function WriteReview2() {
                     type="text"
                     id="internet-bill"
                     value={internetBill === 0.0 ? "" : internetBill}
+                    disabled={isBillsIncluded}
                     onChange={(e) => {
                       const value = e.target.value;
                       if (/^\d*$/.test(value)) {
