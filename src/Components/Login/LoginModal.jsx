@@ -21,6 +21,7 @@ const LoginModal = ({ closeLoginModal }) => {
       closeLoginModal();
     } catch (error) {
       console.error("Error:", error);
+      toast.error("Invalid email or password");
     }
   };
 
