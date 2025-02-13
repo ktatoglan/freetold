@@ -2,13 +2,13 @@ import { useEffect, useState, useRef } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/img/logo-white.svg";
 import User from "../../assets/img/user.svg";
-import Modal from "./Modal";
+//import Modal from "./Modal";
 import LoginModal from "../Login/LoginModal";
 import RegisterModal from "../Register/RegisterModal";
 import { toast } from "react-toastify";
 import { useAppProvider } from "../../Contexts/AppContext";
 const Header = () => {
-  const [openModal, setOpenModal] = useState(false);
+  //const [openModal, setOpenModal] = useState(false);
   const [openLoginModal, setOpenLoginModal] = useState(false);
   const [openRegisterModal, setOpenRegisterModal] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -186,7 +186,7 @@ const Header = () => {
           <span className="line"></span>
         </button>
       </header>
-      {openModal && <Modal closeModal={setOpenModal} />}
+      {/*openModal && <Modal closeModal={setOpenModal} />*/}
       {openLoginModal && <LoginModal closeLoginModal={setOpenLoginModal} />}
       {openRegisterModal && (
         <RegisterModal closeRegisterModal={setOpenRegisterModal} />

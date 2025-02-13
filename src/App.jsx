@@ -7,7 +7,7 @@ import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import "./Style/root.css";
 import { AppProvider } from "./Contexts/AppContext";
-import WriteReview0 from "./Components/Header/Modal";
+import WriteReview0 from "./Components/WriteReview/WriteReview0";
 import WriteReview1 from "./Components/WriteReview/WriteReview1";
 import WriteReview2 from "./Components/WriteReview/WriteReview2";
 import WriteReview3 from "./Components/WriteReview/WriteReview3";
@@ -43,11 +43,12 @@ function App() {
     <AppProvider>
       <div className="main-content">
         <ToastContainer />
-        {window.location.pathname.slice(1, 15) !== "write-a-review" ? (
+        {/*window.location.pathname.slice(1, 15) !== "write-a-review" ? (
           <Header />
         ) : (
           <></>
-        )}
+        )*/}
+        <Header />
         <Router>
           {isMobile ? (
             <Routes>
