@@ -19,7 +19,9 @@ const PropertyProfile = ({postalCode,address, id}) => {
 
   useEffect(() => {
     if(!userId){
-      setOpenLoginModal(true);
+      setTimeout(() => {
+        setOpenLoginModal(true);
+      }, 3000);
     }
     const url = `${serverUrl}/review/getReviewsById/${id}`;
     axios.get(url)
