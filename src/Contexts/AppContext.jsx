@@ -48,6 +48,8 @@ const AppProvider = ({ children }) => {
   const [trafficScore, setTrafficScore] = useState(0);
   const [safetyConcerns, setSafetyConcerns] = useState('');
   const [agreeCheckbox, setAgreeCheckbox] = useState(false);
+  const [openLoginModal, setOpenLoginModal] = useState(false);
+  const [openRegisterModal, setOpenRegisterModal] = useState(false);
   const serverUrl = import.meta.env.VITE_SERVER_URL;
 
   useEffect(() => {
@@ -109,7 +111,8 @@ const AppProvider = ({ children }) => {
 
   return (
     <MyContext.Provider
-      value={{sendReview, mode, setMode, userId, setUserId,serverUrl,
+      value={{openLoginModal, setOpenLoginModal, openRegisterModal, setOpenRegisterModal,
+        sendReview, mode, setMode, userId, setUserId,serverUrl,
         reviewLocateId, setReviewLocateId,
         addressLine1, setAddressLine1, addressLine2, setAddressLine2, townCity, setTownCity, country, setCountry, postCode, setPostCode,
         moveInDate, setMoveInDate, tenancyPeriod, setTenancyPeriod, isItSharingFlat, setIsItSharingFlat, peopleNumberLivingAtHome, setPeopleNumberLivingAtHome, futureRentersContactMe, setFutureRentersContactMe,

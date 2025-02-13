@@ -9,11 +9,10 @@ import { toast } from "react-toastify";
 import { useAppProvider } from "../../Contexts/AppContext";
 const Header = () => {
   //const [openModal, setOpenModal] = useState(false);
-  const [openLoginModal, setOpenLoginModal] = useState(false);
-  const [openRegisterModal, setOpenRegisterModal] = useState(false);
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [specialClass, setSpecialClass] = useState("");
-  const { userId, setUserId } = useAppProvider();
+  const { userId, setUserId, openLoginModal, setOpenLoginModal, openRegisterModal, setOpenRegisterModal } = useAppProvider();
   // Ref for detecting clicks outside the menu
   const menuRef = useRef(null);
 
@@ -187,9 +186,9 @@ const Header = () => {
         </button>
       </header>
       {/*openModal && <Modal closeModal={setOpenModal} />*/}
-      {openLoginModal && <LoginModal closeLoginModal={setOpenLoginModal} />}
+      {openLoginModal && <LoginModal/>}
       {openRegisterModal && (
-        <RegisterModal closeRegisterModal={setOpenRegisterModal} />
+        <RegisterModal />
       )}
     </>
   );

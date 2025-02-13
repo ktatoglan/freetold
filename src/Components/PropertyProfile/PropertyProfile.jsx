@@ -11,14 +11,16 @@ import { useAppProvider } from '../../Contexts/AppContext';
 
 
 const PropertyProfile = ({postalCode,address, id}) => {
-   const { serverUrl, setTownCity, setCountry, setPostCode, setAddressLine1  } = useAppProvider();
+   const { userId, serverUrl, setTownCity, setCountry, setPostCode, setAddressLine1, setOpenLoginModal, setOpenRegisterModal  } = useAppProvider();
    const [reviews, setReviews] = useState([]);
    const [addressDetails, setAddressDetails] = useState({});
    const [selectedProperty, setSelectedProperty] = useState({});
    const [unitDetails, setUnitDetails] = useState({});
 
   useEffect(() => {
-
+    if(!userId){
+      setOpenLoginModal(true);
+    }
     const url = `${serverUrl}/review/getReviewsById/${id}`;
     axios.get(url)
       .then(response => {

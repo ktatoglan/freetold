@@ -4,11 +4,11 @@ import { useAppProvider } from "../../Contexts/AppContext";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const LoginModal = ({ closeLoginModal }) => {
+const LoginModal = ({ }) => {
   const LoginModalRef = useRef();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { serverUrl, userId, setUserId } = useAppProvider();
+  const { serverUrl, userId, setUserId, setOpenLoginModal, setOpenRegisterModal } = useAppProvider();
 
   const handleLogin = async () => {
     try {
@@ -18,7 +18,7 @@ const LoginModal = ({ closeLoginModal }) => {
       });
       setUserId(response.data.userId);
       toast.success(response.data.message);
-      closeLoginModal();
+      setOpenLoginModal();
     } catch (error) {
       console.error("Error:", error);
       toast.error("Invalid email or password");
@@ -39,13 +39,13 @@ const LoginModal = ({ closeLoginModal }) => {
         LoginModalRef.current &&
         !LoginModalRef.current.contains(event.target)
       ) {
-        closeLoginModal();
+        setOpenLoginModal();
       }
     };
 
     const handleEscapeKey = (event) => {
       if (event.key === "Escape") {
-        closeLoginModal();
+        setOpenLoginModal();
       }
     };
 
@@ -58,7 +58,7 @@ const LoginModal = ({ closeLoginModal }) => {
       document.removeEventListener("keydown", handleEscapeKey);
       enableScroll();
     };
-  }, [closeLoginModal]);
+  }, [setOpenLoginModal]);
 
   return (
     <div className="modalBackground">
@@ -128,6 +128,12 @@ const LoginModal = ({ closeLoginModal }) => {
                 <label htmlFor="switch">Toggle</label>
                 <p>Stay signed in</p>
               </div>
+              <button
+                onClick={() => {
+                  setOpenRegisterModal(true);
+                  setOpenLoginModal(false);
+                }}
+              >Register</button>
             </div>
           </div>
           <div className="row">

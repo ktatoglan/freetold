@@ -4,14 +4,14 @@ import { toast } from "react-toastify";
 import { useAppProvider } from "../../Contexts/AppContext";
 import axios from "axios";
 
-const RegisterModal = ({ closeRegisterModal }) => {
+const RegisterModal = ({ }) => {
   const registerModalRef = useRef();
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const { serverUrl, setUserId } = useAppProvider();
+  const { serverUrl, setUserId, setOpenLoginModal, setOpenRegisterModal  } = useAppProvider();
   const refererId = localStorage.getItem("referer_id");
 
   const resetForm = () => {
@@ -64,7 +64,7 @@ const RegisterModal = ({ closeRegisterModal }) => {
       toast.success(response.data.message);
       setUserId(response.data.userId);
       resetForm();
-      closeRegisterModal();
+      setOpenRegisterModal();
 
       localStorage.removeItem("referer_id");
       const urlParams = new URLSearchParams(window.location.search);
@@ -88,13 +88,13 @@ const RegisterModal = ({ closeRegisterModal }) => {
         registerModalRef.current &&
         !registerModalRef.current.contains(event.target)
       ) {
-        closeRegisterModal();
+        setOpenRegisterModal();
       }
     };
 
     const handleEscapeKey = (event) => {
       if (event.key === "Escape") {
-        closeRegisterModal();
+        setOpenRegisterModal();
       }
     };
 
@@ -115,7 +115,7 @@ const RegisterModal = ({ closeRegisterModal }) => {
       document.removeEventListener("keydown", handleEscapeKey);
       enableScroll();
     };
-  }, [closeRegisterModal]);
+  }, [setOpenRegisterModal]);
 
   return (
     <div className="modalBackground">
