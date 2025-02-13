@@ -70,6 +70,9 @@ const RegisterModal = ({ closeRegisterModal }) => {
       const urlParams = new URLSearchParams(window.location.search);
       urlParams.delete("referer_id");
       window.history.replaceState({}, "", `${window.location.pathname}`);
+      setTimeout(() => {
+        window.location.href = "/write-a-review-0";
+      }, 2000);
     } catch (error) {
       console.error("Error:", error);
       const errorMessage =
