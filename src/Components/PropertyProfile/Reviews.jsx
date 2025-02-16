@@ -52,10 +52,12 @@ const Reviews = ({ reviews }) => {
       </div>
 
       :
-      sortedReviews.map((review) => (
-        <ReviewSingle key={review.review_id} review={review} />
-      ))
-
+       userId ? (
+        sortedReviews.map((review) => (
+            <ReviewSingle key={review.review_id} review={review} />
+          ))
+        ) :
+        <>Please Login First</>
       }
     </div>
   );
