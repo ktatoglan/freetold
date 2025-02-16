@@ -7,6 +7,7 @@ const Reviews = ({ reviews }) => {
   const [sortedReviews, setSortedReviews] = useState([]);
   const [sortOption, setSortOption] = useState("rating");
   const { userId } = useAppProvider();
+  const [ reviewsContainerClass, setReviewsContainerClass ] = useState("reviews-container");
   useEffect(() => {
     let sortedArray = [...reviews];
     if (sortOption === "rating") {
@@ -15,6 +16,12 @@ const Reviews = ({ reviews }) => {
       sortedArray.sort((a, b) => new Date(b.move_in_date) - new Date(a.move_in_date));
     }
     setSortedReviews(sortedArray);
+
+
+    if(!userId){
+      setReviewsContainerClass("reviews-container not-logged-in");
+    }
+
   }, [reviews, sortOption]);
 
   const handleSortChange = (e) => {
@@ -22,7 +29,7 @@ const Reviews = ({ reviews }) => {
   };
 
   return (
-    <div className="reviews-container">
+    <div className={reviewsContainerClass}>
       <div className="reviews-header">
         <h3>Reviews</h3>
         <div className="sort-by">
