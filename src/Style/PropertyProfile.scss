@@ -18,9 +18,9 @@
 }
 
 .hide-lg {
-  display: none!important;
+  display: none !important;
   @media (max-width: 768px) {
-    display: flex!important;
+    display: flex !important;
   }
 }
 
@@ -206,10 +206,9 @@ button {
         input[type="radio"]:checked ~ label ~ label {
           background-image: url("../assets/img/star-selected.svg");
         }
-        .checked-star{
+        .checked-star {
           background-image: url("../assets/img/star-selected.svg") !important;
         }
-
       }
       p {
         // @extend p;
@@ -718,6 +717,56 @@ button {
   }
 }
 
+.not-logged-in {
+  position: relative;
+
+  &::before {
+    content: "Please Log in First";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ef6c67;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    white-space: nowrap;
+    z-index: 10;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(40px); // 🚀 BLUR MAKSİMUM SEVİYEDE
+    background: rgba(255, 255, 255, 0.6); // Daha güçlü beyaz opak katman
+    opacity: 0.9; // Ekstra opaklık ekledik
+
+    mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 5%,
+      rgba(0, 0, 0, 0.8) 25%,
+      rgba(0, 0, 0, 1) 70%
+    );
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 5%,
+      rgba(0, 0, 0, 0.8) 25%,
+      rgba(0, 0, 0, 1) 70%
+    );
+
+    z-index: 5;
+  }
+
+  // İçerikte etkileşimi önlemek için
+  pointer-events: none;
+}
+
 .review-single {
   border-bottom: 1px solid $light-border;
   margin: 0px 0px $large-spacing;
@@ -747,7 +796,6 @@ button {
     .user-name {
       font-weight: bold;
       color: #333;
-
     }
 
     .user-duration {
