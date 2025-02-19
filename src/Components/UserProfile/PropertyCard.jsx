@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
+import LocationMap from "../PropertyProfile/LocationMap";
 import axios from "axios";
 import { useAppProvider } from "../../Contexts/AppContext";
 
 const PropertyCard = ({ property }) => {
   const [epcDetails, setEpcDetails] = useState([]);
+  const [showMap, setShowMap] = useState(false);
+  const [addressDetails, setAddressDetails] = useState({});
   const { setReviewLocateId } = useAppProvider();
   useEffect(() => {
     const descriptionSentences = property.Description.split(' ');
     const lastTwoSentences = descriptionSentences.slice(-2).join('');
     searchProperties(lastTwoSentences);
+    getAddressFromPostcode(property.Description);
   }, []);
 
     const token =
@@ -37,7 +41,7 @@ const PropertyCard = ({ property }) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
-        console.log(formattedData);
+        //console.log(formattedData);
         if (formattedData.length > 0)
           setEpcDetails(formattedData[0]);
       })
@@ -63,7 +67,25 @@ const PropertyCard = ({ property }) => {
   const handleUnitSelect = async (id, text, Description) => {
     const postalCode = Description.split(" ").slice(-2).join("");
     window.location.href = `/property-profile?id=${id}&address=${text}&postcode=${postalCode.replace(/\s+/g, '')}`;
-};
+  };
+
+  const getAddressFromPostcode = async (Description) => {
+    try {
+      const postcode = Description.split(" ").slice(-2).join("");
+      const response = await axios.get(`https://api.postcodes.io/postcodes/${postcode}`);
+      const data = response.data;
+      if (data.status === 200 && data.result && data.result.latitude && data.result.longitude) {
+        // You can process the data as needed
+        //console.log(data.result);
+        setAddressDetails(data.result);
+        setShowMap(true);
+      } else {
+        console.log('Postcode not found');
+      }
+    } catch (error) {
+      console.error('Error fetching address:', error);
+    }
+  };
 
 
   function createAddressString(data) {
@@ -84,7 +106,7 @@ const PropertyCard = ({ property }) => {
     }}>
       <div className="property-header">
         <h4>{createAddressString(property)}</h4>
-        <a href="#" className="show-on-map">
+        <a href="#" className="show-on-map" onClick={(e) => {showMap(true); e.stopPropagation();}}>
           <svg
             width="24"
             height="24"
@@ -191,6 +213,7 @@ const PropertyCard = ({ property }) => {
             EPC rating: {epcDetails['current-energy-rating']} ({epcDetails['current-energy-efficiency']})
           </span>
         </p>
+        {showMap && <LocationMap addressDetails={addressDetails} />}
         <p className="property-description">{property.description}</p>
       </div>
       <div className="property-footer">
