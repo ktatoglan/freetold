@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import ReviewSingle from "./ReviewSingle";
 import { useAppProvider } from "../../Contexts/AppContext";
 import { toast } from "react-toastify";
-import { use } from "react";
 
 const Reviews = ({ reviews }) => {
   const [sortedReviews, setSortedReviews] = useState([]);
