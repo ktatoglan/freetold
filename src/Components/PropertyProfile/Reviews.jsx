@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReviewSingle from "./ReviewSingle";
 import { useAppProvider } from "../../Contexts/AppContext";
 import { toast } from "react-toastify";
+import { use } from "react";
 
 const Reviews = ({ reviews }) => {
   const [sortedReviews, setSortedReviews] = useState([]);
@@ -26,10 +27,18 @@ const Reviews = ({ reviews }) => {
       setReviewsContainerClass("reviews-container");
     }
   }, [reviews, sortOption]);
-  
+
   const handleSortChange = (e) => {
     setSortOption(e.target.value);
   };
+
+  useEffect(() => {
+    if (!userId) {
+      setReviewsContainerClass("reviews-container not-logged-in");
+    } else {
+      setReviewsContainerClass("reviews-container");
+    }
+  }, [userId]);
 
   return (
     <div className={reviewsContainerClass}>
