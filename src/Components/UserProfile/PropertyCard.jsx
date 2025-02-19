@@ -7,21 +7,34 @@ const PropertyCard = ({ property }) => {
   const [epcDetails, setEpcDetails] = useState([]);
   const [showMap, setShowMap] = useState(false);
   const [addressDetails, setAddressDetails] = useState({});
-  const { setReviewLocateId } = useAppProvider();
+  const [reviews, setReviews] = useState([]);
+  const { setReviewLocateId, serverUrl } = useAppProvider();
   useEffect(() => {
     const descriptionSentences = property.Description.split(' ');
     const lastTwoSentences = descriptionSentences.slice(-2).join('');
     searchProperties(lastTwoSentences);
     getAddressFromPostcode(property.Description);
+    getReviewsCount(property.Id);
   }, []);
 
-    const token =
-    "ZG9ndWNhbmJhc2tpbkBnbWFpbC5jb206NzljMDc5YjllOTNmMGQ3MWQ3MjIyY2MwYjAyNWM1NDI2NjEwMjg3OA==";
+  const token =
+  "ZG9ndWNhbmJhc2tpbkBnbWFpbC5jb206NzljMDc5YjllOTNmMGQ3MWQ3MjIyY2MwYjAyNWM1NDI2NjEwMjg3OA==";
   const headers = {
     Accept: "text/csv",
     Authorization: `Basic ${token}`,
   };
   const baseUrl = "https://epc.opendatacommunities.org/api/v1/domestic/search";
+
+  async function getReviewsCount(id) {
+    const url = `${serverUrl}/review/getReviewsById/${id}`;
+    axios.get(url)
+      .then(response => {
+        setReviews(response.data);
+      })
+      .catch(error => {
+        console.log('error', error);
+      });
+  }
 
   async function searchProperties(query) {
     if (!query.trim()) {
@@ -218,14 +231,14 @@ const PropertyCard = ({ property }) => {
       </div>
       <div className="property-footer">
         <div className="footer-review-info">
-          <p>{property.reviews > 0 ? property.reviews : "0"} Reviews</p>
+          <p>{reviews ? reviews.length : 0} Reviews</p>
           <a
             href="#"
             className={
-              property.reviews > 0 ? "write-review" : "first write-review"
+              (reviews && reviews.length > 0) ? "write-review" : "first write-review"
             }
           >
-            {property.reviews > 0 ? (
+            { (reviews && reviews.length > 0) ? (
               <>
                 <i className="icon-write-review" />
                 <svg
