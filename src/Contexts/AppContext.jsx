@@ -9,7 +9,7 @@ const AppProvider = ({ children }) => {
   const storedUserData = cookies.get('user');
 
   const [mode, setMode] = useState('light');
-  const [reviewLocateId, setReviewLocateId] = useState(storedUserData && storedUserData.review_locate_id ? storedUserData.review_locate_id : null);
+  const [reviewLocateId, setReviewLocateId] = useState(storedUserData && storedUserData.reviewLocateId ? storedUserData.reviewLocateId : null);
   const [userId, setUserId] = useState(storedUserData && storedUserData.userId ? storedUserData.userId : null);
   const [addressLine1, setAddressLine1] = useState(storedUserData && storedUserData.addressLine1 ? storedUserData.addressLine1 : '');
   const [addressLine2, setAddressLine2] = useState(storedUserData && storedUserData.addressLine2 ? storedUserData.addressLine2 : '');
@@ -58,6 +58,7 @@ const AppProvider = ({ children }) => {
   }, [userId, mode, addressLine1, addressLine2, townCity, country, postCode, moveInDate, tenancyPeriod, isItSharingFlat, peopleNumberLivingAtHome, futureRentersContactMe, rentAmount, rentPeriod, rentDuration, isBillsIncluded, billsPerPerson, billsWholeHouse, electricBill, waterBill, gasBill, internetBill, reviewScore, reviewHeadline, reviewPros, reviewCons, heatUpLevel, wellLitLevel, internetConnectionLevel, isItPetFriendly, anythingToBeFixed, ownerRespondScore, healthConcerns, perceptionNeighborsLevel, noiseNeighborsLevel, parkingScore, trafficScore, safetyConcerns, agreeCheckbox, reviewLocateId, anonymous]);
 
   const resetAllFields = () => {
+    setReviewLocateId(null);
     setAddressLine1('');
     setAddressLine2('');
     setTownCity('');
