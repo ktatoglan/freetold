@@ -120,7 +120,7 @@ const PropertyDetails = ({reviews, selectedProperty, selectedPropertyLocate}) =>
     <div className="property-details">
       <div className="property-info">
         <div className="details">
-          <h2>{selectedPropertyLocate.Label ? selectedPropertyLocate.Label : selectedPropertyLocate.label}</h2>
+          <h2 style={{whiteSpace: "pre-line"}}>{(selectedPropertyLocate.Label || selectedPropertyLocate.label)?.replaceAll("\n", " ")}</h2>
           <div className="stars">
             {displayStarsHTML}
             <span>({propertyScore})</span>
