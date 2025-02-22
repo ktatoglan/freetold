@@ -112,12 +112,14 @@ p, .modalContainer .form button {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 }
 @media (max-width: 768px) {
   .modalContainer {
     width: 100%;
     height: unset;
     padding: 8px;
+    max-height: 90vh;
   }
 }
 .modalContainer .title {
@@ -362,4 +364,4 @@ p, .modalContainer .form button {
     margin: 2px 0px !important;
     width: 100%;
   }
-}/*# sourceMappingURL=Modal.css.map */
+}
