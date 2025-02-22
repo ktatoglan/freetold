@@ -9,7 +9,7 @@ const AppProvider = ({ children }) => {
   const storedUserData = cookies.get('user');
 
   const [mode, setMode] = useState('light');
-  const [enableCookies, setEnableCookies] = useState(storedUserData && storedUserData.enableCookies ? storedUserData.enableCookies : "not_asked");
+  const [enableCookies, setEnableCookies] = useState(storedUserData && storedUserData.enableCookies ? storedUserData.enableCookies : "not_set");
   const [reviewLocateId, setReviewLocateId] = useState(storedUserData && storedUserData.reviewLocateId ? storedUserData.reviewLocateId : null);
   const [userId, setUserId] = useState(storedUserData && storedUserData.userId ? storedUserData.userId : null);
   const [addressLine1, setAddressLine1] = useState(storedUserData && storedUserData.addressLine1 ? storedUserData.addressLine1 : '');
@@ -52,6 +52,7 @@ const AppProvider = ({ children }) => {
   const [anonymous, setAnonymous] = useState(storedUserData && storedUserData.anonymous ? storedUserData.anonymous : false);
   const [openLoginModal, setOpenLoginModal] = useState(false);
   const [openRegisterModal, setOpenRegisterModal] = useState(false);
+  const [openCookieModal, setOpenCookieModal] = useState(false);
   const serverUrl = import.meta.env.VITE_SERVER_URL;
 
   useEffect(() => {
@@ -155,7 +156,7 @@ const AppProvider = ({ children }) => {
 
   return (
     <MyContext.Provider
-      value={{openLoginModal, setOpenLoginModal, openRegisterModal, setOpenRegisterModal,
+      value={{openLoginModal, setOpenLoginModal, openRegisterModal, setOpenRegisterModal, openCookieModal, setOpenCookieModal,
         sendReview, mode, setMode, enableCookies, setEnableCookies, userId, setUserId,serverUrl,
         reviewLocateId, setReviewLocateId,
         addressLine1, setAddressLine1, addressLine2, setAddressLine2, townCity, setTownCity, country, setCountry, postCode, setPostCode,

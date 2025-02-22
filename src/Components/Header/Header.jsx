@@ -5,6 +5,7 @@ import User from "../../assets/img/user.svg";
 //import Modal from "./Modal";
 import LoginModal from "../Login/LoginModal";
 import RegisterModal from "../Register/RegisterModal";
+import CookieModal from "../Cookie/Cookie";
 import { toast } from "react-toastify";
 import { useAppProvider } from "../../Contexts/AppContext";
 const Header = () => {
@@ -12,7 +13,7 @@ const Header = () => {
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [specialClass, setSpecialClass] = useState("");
-  const { userId, setUserId, openLoginModal, setOpenLoginModal, openRegisterModal, setOpenRegisterModal, enableCookies, setEnableCookies } = useAppProvider();
+  const { userId, setUserId, openLoginModal, setOpenLoginModal, openRegisterModal, setOpenRegisterModal, enableCookies, setOpenCookieModal, openCookieModal } = useAppProvider();
   // Ref for detecting clicks outside the menu
   const menuRef = useRef(null);
 
@@ -25,8 +26,8 @@ const Header = () => {
       setOpenRegisterModal(true);
     }
 
-    if(enableCookies == 'not_asked'){
-      //ask and set // yes or no //TODO kazim
+    if(enableCookies == 'not_set'){
+      setOpenCookieModal(true);
     }
 
   }, []);
@@ -191,9 +192,8 @@ const Header = () => {
       </header>
       {/*openModal && <Modal closeModal={setOpenModal} />*/}
       {openLoginModal && <LoginModal/>}
-      {openRegisterModal && (
-        <RegisterModal />
-      )}
+      {openRegisterModal && (<RegisterModal />)}
+      {openCookieModal && <CookieModal/>}
     </>
   );
 };
