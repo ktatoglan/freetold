@@ -88,6 +88,9 @@ function WriteReview1() {
       navigate("/write-a-review-2");
     }
   };
+  const handlePreviousStep = () => {
+    navigate("/write-a-review-0");
+  };
   // Bitiş: Eklenen validasyon kodu
 
   return (
@@ -285,7 +288,7 @@ function WriteReview1() {
           </div>
           <div className="row">
             <div className="buttons">
-              <button className="pre-step" disabled>
+              <button className="pre-step" onClick={handlePreviousStep}>
                 Previous step
               </button>
               <button className="next-step" onClick={handleNextStep}>

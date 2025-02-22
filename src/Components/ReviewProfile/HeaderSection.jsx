@@ -2,7 +2,6 @@ import React, {useState} from "react";
 
 const HeaderSection = ({review}) => {
   const formattedDate = new Date(review.date).toLocaleDateString();
-  console.log(review);
   return (
     <div className="header-section">
       <div className="back-link">
@@ -26,7 +25,7 @@ const HeaderSection = ({review}) => {
             </svg>
           </div>
           <div className="user-details">
-            <span className="username">{review.user_name}</span>
+            <span className="username">{review.anonymous ? "Anonymous" : review.user_name}</span>
             <span className="stay-duration">
               Stayed in this property for {review.rent_duration} {review.rent_period == 'per-month' ? 'months' : 'years'}
             </span>

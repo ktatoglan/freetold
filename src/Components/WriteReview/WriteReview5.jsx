@@ -21,6 +21,8 @@ function WriteReview5() {
     setSafetyConcerns,
     agreeCheckbox,
     setAgreeCheckbox,
+    anonymous,
+    setAnonymous
   } = useAppProvider();
   const navigate = useNavigate();
 
@@ -275,6 +277,17 @@ function WriteReview5() {
                 </a>{" "}
                 and that this review is an honest and accurate account of my
                 experience ....
+              </p>
+
+              <p className="approval">
+                <input
+                  type="checkbox"
+                  name="agree"
+                  id="agree-checkbox"
+                  checked={anonymous}
+                  onChange={(e) => setAnonymous(e.target.checked)}
+                />
+                Share this review anonymously
               </p>
             </div>
           </div>

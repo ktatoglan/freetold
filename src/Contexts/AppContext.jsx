@@ -11,50 +11,51 @@ const AppProvider = ({ children }) => {
   const [mode, setMode] = useState('light');
   const [reviewLocateId, setReviewLocateId] = useState(storedUserData && storedUserData.review_locate_id ? storedUserData.review_locate_id : null);
   const [userId, setUserId] = useState(storedUserData && storedUserData.userId ? storedUserData.userId : null);
-  const [addressLine1, setAddressLine1] = useState('');
-  const [addressLine2, setAddressLine2] = useState('');
-  const [townCity, setTownCity] = useState('');
-  const [country, setCountry] = useState('');
-  const [postCode, setPostCode] = useState('');
-  const [moveInDate, setMoveInDate] = useState('');
-  const [tenancyPeriod, setTenancyPeriod] = useState({"number":"1","period":"month"});
-  const [isItSharingFlat, setIsItSharingFlat] = useState(false);
-  const [peopleNumberLivingAtHome, setPeopleNumberLivingAtHome] = useState(0);
-  const [futureRentersContactMe, setFutureRentersContactMe] = useState(true);
-  const [rentAmount, setRentAmount] = useState(0.0);
-  const [rentPeriod, setRentPeriod] = useState('per-month');
-  const [rentDuration, setRentDuration] = useState(0);
-  const [isBillsIncluded, setIsBillsIncluded] = useState(false);
-  const [billsPerPerson, setBillsPerPerson] = useState(false);
-  const [billsWholeHouse, setBillsWholeHouse] = useState(false);
-  const [electricBill, setElectricBill] = useState('');
-  const [waterBill, setWaterBill] = useState('');
-  const [gasBill, setGasBill] = useState('');
-  const [internetBill, setInternetBill] = useState('');
-  const [reviewScore, setReviewScore] = useState(0);
-  const [reviewHeadline, setReviewHeadline] = useState('');
-  const [reviewPros, setReviewPros] = useState('');
-  const [reviewCons, setReviewCons] = useState('');
-  const [heatUpLevel, setHeatUpLevel] = useState(0);
-  const [wellLitLevel, setWellLitLevel] = useState(0);
-  const [internetConnectionLevel, setInternetConnectionLevel] = useState(0);
-  const [isItPetFriendly, setIsItPetFriendly] = useState(false);
-  const [anythingToBeFixed, setAnythingToBeFixed] = useState('');
-  const [ownerRespondScore, setOwnerRespondScore] = useState(0);
-  const [healthConcerns, setHealthConcerns] = useState('');
-  const [perceptionNeighborsLevel, setPerceptionNeighborsLevel] = useState(0);
-  const [noiseNeighborsLevel, setNoiseNeighborsLevel] = useState(0);
-  const [parkingScore, setParkingScore] = useState(0);
-  const [trafficScore, setTrafficScore] = useState(0);
-  const [safetyConcerns, setSafetyConcerns] = useState('');
-  const [agreeCheckbox, setAgreeCheckbox] = useState(false);
+  const [addressLine1, setAddressLine1] = useState(storedUserData && storedUserData.addressLine1 ? storedUserData.addressLine1 : '');
+  const [addressLine2, setAddressLine2] = useState(storedUserData && storedUserData.addressLine2 ? storedUserData.addressLine2 : '');
+  const [townCity, setTownCity] = useState(storedUserData && storedUserData.townCity ? storedUserData.townCity : '');
+  const [country, setCountry] = useState(storedUserData && storedUserData.country ? storedUserData.country : '');
+  const [postCode, setPostCode] = useState(storedUserData && storedUserData.postCode ? storedUserData.postCode : '');
+  const [moveInDate, setMoveInDate] = useState(storedUserData && storedUserData.moveInDate ? storedUserData.moveInDate : '');
+  const [tenancyPeriod, setTenancyPeriod] = useState(storedUserData && storedUserData.tenancyPeriod ? storedUserData.tenancyPeriod : {"number":"1","period":"month"});
+  const [isItSharingFlat, setIsItSharingFlat] = useState(storedUserData && storedUserData.isItSharingFlat ? storedUserData.isItSharingFlat : false);
+  const [peopleNumberLivingAtHome, setPeopleNumberLivingAtHome] = useState(storedUserData && storedUserData.peopleNumberLivingAtHome ? storedUserData.peopleNumberLivingAtHome : 0);
+  const [futureRentersContactMe, setFutureRentersContactMe] = useState(storedUserData && storedUserData.futureRentersContactMe ? storedUserData.futureRentersContactMe : true);
+  const [rentAmount, setRentAmount] = useState(storedUserData && storedUserData.rentAmount ? storedUserData.rentAmount : 0.0);
+  const [rentPeriod, setRentPeriod] = useState(storedUserData && storedUserData.rentPeriod ? storedUserData.rentPeriod : 'per-month');
+  const [rentDuration, setRentDuration] = useState(storedUserData && storedUserData.rentDuration ? storedUserData.rentDuration : 0);
+  const [isBillsIncluded, setIsBillsIncluded] = useState(storedUserData && storedUserData.isBillsIncluded ? storedUserData.isBillsIncluded : false);
+  const [billsPerPerson, setBillsPerPerson] = useState(storedUserData && storedUserData.billsPerPerson ? storedUserData.billsPerPerson : false);
+  const [billsWholeHouse, setBillsWholeHouse] = useState(storedUserData && storedUserData.billsWholeHouse ? storedUserData.billsWholeHouse : false);
+  const [electricBill, setElectricBill] = useState(storedUserData && storedUserData.electricBill ? storedUserData.electricBill : '');
+  const [waterBill, setWaterBill] = useState(storedUserData && storedUserData.waterBill ? storedUserData.waterBill : '');
+  const [gasBill, setGasBill] = useState(storedUserData && storedUserData.gasBill ? storedUserData.gasBill : '');
+  const [internetBill, setInternetBill] = useState(storedUserData && storedUserData.internetBill ? storedUserData.internetBill : '');
+  const [reviewScore, setReviewScore] = useState(storedUserData && storedUserData.reviewScore ? storedUserData.reviewScore : 0);
+  const [reviewHeadline, setReviewHeadline] = useState(storedUserData && storedUserData.reviewHeadline ? storedUserData.reviewHeadline : '');
+  const [reviewPros, setReviewPros] = useState(storedUserData && storedUserData.reviewPros ? storedUserData.reviewPros : '');
+  const [reviewCons, setReviewCons] = useState(storedUserData && storedUserData.reviewCons ? storedUserData.reviewCons : '');
+  const [heatUpLevel, setHeatUpLevel] = useState(storedUserData && storedUserData.heatUpLevel ? storedUserData.heatUpLevel : 0);
+  const [wellLitLevel, setWellLitLevel] = useState(storedUserData && storedUserData.wellLitLevel ? storedUserData.wellLitLevel : 0);
+  const [internetConnectionLevel, setInternetConnectionLevel] = useState(storedUserData && storedUserData.internetConnectionLevel ? storedUserData.internetConnectionLevel : 0);
+  const [isItPetFriendly, setIsItPetFriendly] = useState(storedUserData && storedUserData.isItPetFriendly ? storedUserData.isItPetFriendly : false);
+  const [anythingToBeFixed, setAnythingToBeFixed] = useState(storedUserData && storedUserData.anythingToBeFixed ? storedUserData.anythingToBeFixed : '');
+  const [ownerRespondScore, setOwnerRespondScore] = useState(storedUserData && storedUserData.ownerRespondScore ? storedUserData.ownerRespondScore : 0);
+  const [healthConcerns, setHealthConcerns] = useState(storedUserData && storedUserData.healthConcerns ? storedUserData.healthConcerns : '');
+  const [perceptionNeighborsLevel, setPerceptionNeighborsLevel] = useState(storedUserData && storedUserData.perceptionNeighborsLevel ? storedUserData.perceptionNeighborsLevel : 0);
+  const [noiseNeighborsLevel, setNoiseNeighborsLevel] = useState(storedUserData && storedUserData.noiseNeighborsLevel ? storedUserData.noiseNeighborsLevel : 0);
+  const [parkingScore, setParkingScore] = useState(storedUserData && storedUserData.parkingScore ? storedUserData.parkingScore : 0);
+  const [trafficScore, setTrafficScore] = useState(storedUserData && storedUserData.trafficScore ? storedUserData.trafficScore : 0);
+  const [safetyConcerns, setSafetyConcerns] = useState(storedUserData && storedUserData.safetyConcerns ? storedUserData.safetyConcerns : '');
+  const [agreeCheckbox, setAgreeCheckbox] = useState(storedUserData && storedUserData.agreeCheckbox ? storedUserData.agreeCheckbox : false);
+  const [anonymous, setAnonymous] = useState(storedUserData && storedUserData.anonymous ? storedUserData.anonymous : false);
   const [openLoginModal, setOpenLoginModal] = useState(false);
   const [openRegisterModal, setOpenRegisterModal] = useState(false);
   const serverUrl = import.meta.env.VITE_SERVER_URL;
 
   useEffect(() => {
-    cookies.set('user', { userId, mode, addressLine1, addressLine2, townCity, country, postCode, moveInDate, tenancyPeriod, isItSharingFlat, peopleNumberLivingAtHome, futureRentersContactMe, rentAmount, rentPeriod, rentDuration, isBillsIncluded, billsPerPerson, billsWholeHouse, electricBill, waterBill, gasBill, internetBill, reviewScore, reviewHeadline, reviewPros, reviewCons, heatUpLevel, wellLitLevel, internetConnectionLevel, isItPetFriendly, anythingToBeFixed, ownerRespondScore, healthConcerns, perceptionNeighborsLevel, noiseNeighborsLevel, parkingScore, trafficScore, safetyConcerns, agreeCheckbox, reviewLocateId }, { path: '/' });
-  }, [userId, mode, addressLine1, addressLine2, townCity, country, postCode, moveInDate, tenancyPeriod, isItSharingFlat, peopleNumberLivingAtHome, futureRentersContactMe, rentAmount, rentPeriod, rentDuration, isBillsIncluded, billsPerPerson, billsWholeHouse, electricBill, waterBill, gasBill, internetBill, reviewScore, reviewHeadline, reviewPros, reviewCons, heatUpLevel, wellLitLevel, internetConnectionLevel, isItPetFriendly, anythingToBeFixed, ownerRespondScore, healthConcerns, perceptionNeighborsLevel, noiseNeighborsLevel, parkingScore, trafficScore, safetyConcerns, agreeCheckbox, reviewLocateId]);
+    cookies.set('user', { userId, mode, addressLine1, addressLine2, townCity, country, postCode, moveInDate, tenancyPeriod, isItSharingFlat, peopleNumberLivingAtHome, futureRentersContactMe, rentAmount, rentPeriod, rentDuration, isBillsIncluded, billsPerPerson, billsWholeHouse, electricBill, waterBill, gasBill, internetBill, reviewScore, reviewHeadline, reviewPros, reviewCons, heatUpLevel, wellLitLevel, internetConnectionLevel, isItPetFriendly, anythingToBeFixed, ownerRespondScore, healthConcerns, perceptionNeighborsLevel, noiseNeighborsLevel, parkingScore, trafficScore, safetyConcerns, agreeCheckbox, reviewLocateId, anonymous }, { path: '/' });
+  }, [userId, mode, addressLine1, addressLine2, townCity, country, postCode, moveInDate, tenancyPeriod, isItSharingFlat, peopleNumberLivingAtHome, futureRentersContactMe, rentAmount, rentPeriod, rentDuration, isBillsIncluded, billsPerPerson, billsWholeHouse, electricBill, waterBill, gasBill, internetBill, reviewScore, reviewHeadline, reviewPros, reviewCons, heatUpLevel, wellLitLevel, internetConnectionLevel, isItPetFriendly, anythingToBeFixed, ownerRespondScore, healthConcerns, perceptionNeighborsLevel, noiseNeighborsLevel, parkingScore, trafficScore, safetyConcerns, agreeCheckbox, reviewLocateId, anonymous]);
 
 
   const sendReview = async() => {
@@ -99,7 +100,8 @@ const AppProvider = ({ children }) => {
         traffic_score: trafficScore,
         safety_concerns: safetyConcerns,
         agree_checkbox: agreeCheckbox,
-        review_locate_id: reviewLocateId
+        review_locate_id: reviewLocateId,
+        anonymous: anonymous
       });
 
       return response.data; // Return true if the request is successful
@@ -119,7 +121,7 @@ const AppProvider = ({ children }) => {
         rentAmount, setRentAmount, rentPeriod, setRentPeriod, rentDuration, setRentDuration, isBillsIncluded, setIsBillsIncluded, billsPerPerson, setBillsPerPerson, billsWholeHouse, setBillsWholeHouse, electricBill, setElectricBill, waterBill, setWaterBill, gasBill, setGasBill, internetBill, setInternetBill,
         reviewScore, setReviewScore, reviewHeadline, setReviewHeadline, reviewPros, setReviewPros, reviewCons, setReviewCons,
         heatUpLevel, setHeatUpLevel, wellLitLevel, setWellLitLevel, internetConnectionLevel, setInternetConnectionLevel, isItPetFriendly, setIsItPetFriendly, anythingToBeFixed, setAnythingToBeFixed, ownerRespondScore, setOwnerRespondScore, healthConcerns, setHealthConcerns,
-        perceptionNeighborsLevel, setPerceptionNeighborsLevel, noiseNeighborsLevel, setNoiseNeighborsLevel, parkingScore, setParkingScore, trafficScore, setTrafficScore, safetyConcerns, setSafetyConcerns, agreeCheckbox, setAgreeCheckbox}}
+        perceptionNeighborsLevel, setPerceptionNeighborsLevel, noiseNeighborsLevel, setNoiseNeighborsLevel, parkingScore, setParkingScore, trafficScore, setTrafficScore, safetyConcerns, setSafetyConcerns, anonymous, setAnonymous, agreeCheckbox, setAgreeCheckbox}}
 
     >
       {children}
