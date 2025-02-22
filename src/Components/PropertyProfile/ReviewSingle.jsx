@@ -37,7 +37,8 @@ const ReviewSingle = ({ review, type }) => {
       if (response.status === 200) {
         toast.success('Review deleted successfully');
         setTimeout(() => {
-          window.location.reload();
+          //redirect to user profile
+          window.location.href = "/user-profile";
         }, 2000);
       }
     } catch (error) {
