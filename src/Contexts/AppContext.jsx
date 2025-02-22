@@ -9,6 +9,7 @@ const AppProvider = ({ children }) => {
   const storedUserData = cookies.get('user');
 
   const [mode, setMode] = useState('light');
+  const [enableCookies, setEnableCookies] = useState(storedUserData && storedUserData.enableCookies ? storedUserData.enableCookies : "not_asked");
   const [reviewLocateId, setReviewLocateId] = useState(storedUserData && storedUserData.reviewLocateId ? storedUserData.reviewLocateId : null);
   const [userId, setUserId] = useState(storedUserData && storedUserData.userId ? storedUserData.userId : null);
   const [addressLine1, setAddressLine1] = useState(storedUserData && storedUserData.addressLine1 ? storedUserData.addressLine1 : '');
@@ -54,8 +55,8 @@ const AppProvider = ({ children }) => {
   const serverUrl = import.meta.env.VITE_SERVER_URL;
 
   useEffect(() => {
-    cookies.set('user', { userId, mode, addressLine1, addressLine2, townCity, country, postCode, moveInDate, tenancyPeriod, isItSharingFlat, peopleNumberLivingAtHome, futureRentersContactMe, rentAmount, rentPeriod, rentDuration, isBillsIncluded, billsPerPerson, billsWholeHouse, electricBill, waterBill, gasBill, internetBill, reviewScore, reviewHeadline, reviewPros, reviewCons, heatUpLevel, wellLitLevel, internetConnectionLevel, isItPetFriendly, anythingToBeFixed, ownerRespondScore, healthConcerns, perceptionNeighborsLevel, noiseNeighborsLevel, parkingScore, trafficScore, safetyConcerns, agreeCheckbox, reviewLocateId, anonymous }, { path: '/' });
-  }, [userId, mode, addressLine1, addressLine2, townCity, country, postCode, moveInDate, tenancyPeriod, isItSharingFlat, peopleNumberLivingAtHome, futureRentersContactMe, rentAmount, rentPeriod, rentDuration, isBillsIncluded, billsPerPerson, billsWholeHouse, electricBill, waterBill, gasBill, internetBill, reviewScore, reviewHeadline, reviewPros, reviewCons, heatUpLevel, wellLitLevel, internetConnectionLevel, isItPetFriendly, anythingToBeFixed, ownerRespondScore, healthConcerns, perceptionNeighborsLevel, noiseNeighborsLevel, parkingScore, trafficScore, safetyConcerns, agreeCheckbox, reviewLocateId, anonymous]);
+    cookies.set('user', { userId, mode, enableCookies, addressLine1, addressLine2, townCity, country, postCode, moveInDate, tenancyPeriod, isItSharingFlat, peopleNumberLivingAtHome, futureRentersContactMe, rentAmount, rentPeriod, rentDuration, isBillsIncluded, billsPerPerson, billsWholeHouse, electricBill, waterBill, gasBill, internetBill, reviewScore, reviewHeadline, reviewPros, reviewCons, heatUpLevel, wellLitLevel, internetConnectionLevel, isItPetFriendly, anythingToBeFixed, ownerRespondScore, healthConcerns, perceptionNeighborsLevel, noiseNeighborsLevel, parkingScore, trafficScore, safetyConcerns, agreeCheckbox, reviewLocateId, anonymous }, { path: '/' });
+  }, [userId, mode, enableCookies, addressLine1, addressLine2, townCity, country, postCode, moveInDate, tenancyPeriod, isItSharingFlat, peopleNumberLivingAtHome, futureRentersContactMe, rentAmount, rentPeriod, rentDuration, isBillsIncluded, billsPerPerson, billsWholeHouse, electricBill, waterBill, gasBill, internetBill, reviewScore, reviewHeadline, reviewPros, reviewCons, heatUpLevel, wellLitLevel, internetConnectionLevel, isItPetFriendly, anythingToBeFixed, ownerRespondScore, healthConcerns, perceptionNeighborsLevel, noiseNeighborsLevel, parkingScore, trafficScore, safetyConcerns, agreeCheckbox, reviewLocateId, anonymous]);
 
   const resetAllFields = () => {
     setReviewLocateId(null);
@@ -155,7 +156,7 @@ const AppProvider = ({ children }) => {
   return (
     <MyContext.Provider
       value={{openLoginModal, setOpenLoginModal, openRegisterModal, setOpenRegisterModal,
-        sendReview, mode, setMode, userId, setUserId,serverUrl,
+        sendReview, mode, setMode, enableCookies, setEnableCookies, userId, setUserId,serverUrl,
         reviewLocateId, setReviewLocateId,
         addressLine1, setAddressLine1, addressLine2, setAddressLine2, townCity, setTownCity, country, setCountry, postCode, setPostCode,
         moveInDate, setMoveInDate, tenancyPeriod, setTenancyPeriod, isItSharingFlat, setIsItSharingFlat, peopleNumberLivingAtHome, setPeopleNumberLivingAtHome, futureRentersContactMe, setFutureRentersContactMe,

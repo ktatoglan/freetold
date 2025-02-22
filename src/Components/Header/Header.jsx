@@ -12,7 +12,7 @@ const Header = () => {
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [specialClass, setSpecialClass] = useState("");
-  const { userId, setUserId, openLoginModal, setOpenLoginModal, openRegisterModal, setOpenRegisterModal } = useAppProvider();
+  const { userId, setUserId, openLoginModal, setOpenLoginModal, openRegisterModal, setOpenRegisterModal, enableCookies, setEnableCookies } = useAppProvider();
   // Ref for detecting clicks outside the menu
   const menuRef = useRef(null);
 
@@ -23,6 +23,10 @@ const Header = () => {
     if (referer_id && !userId) {
       localStorage.setItem("referer_id", referer_id);
       setOpenRegisterModal(true);
+    }
+
+    if(enableCookies == 'not_asked'){
+      //ask and set // yes or no //TODO kazim
     }
 
   }, []);
