@@ -57,6 +57,46 @@ const AppProvider = ({ children }) => {
     cookies.set('user', { userId, mode, addressLine1, addressLine2, townCity, country, postCode, moveInDate, tenancyPeriod, isItSharingFlat, peopleNumberLivingAtHome, futureRentersContactMe, rentAmount, rentPeriod, rentDuration, isBillsIncluded, billsPerPerson, billsWholeHouse, electricBill, waterBill, gasBill, internetBill, reviewScore, reviewHeadline, reviewPros, reviewCons, heatUpLevel, wellLitLevel, internetConnectionLevel, isItPetFriendly, anythingToBeFixed, ownerRespondScore, healthConcerns, perceptionNeighborsLevel, noiseNeighborsLevel, parkingScore, trafficScore, safetyConcerns, agreeCheckbox, reviewLocateId, anonymous }, { path: '/' });
   }, [userId, mode, addressLine1, addressLine2, townCity, country, postCode, moveInDate, tenancyPeriod, isItSharingFlat, peopleNumberLivingAtHome, futureRentersContactMe, rentAmount, rentPeriod, rentDuration, isBillsIncluded, billsPerPerson, billsWholeHouse, electricBill, waterBill, gasBill, internetBill, reviewScore, reviewHeadline, reviewPros, reviewCons, heatUpLevel, wellLitLevel, internetConnectionLevel, isItPetFriendly, anythingToBeFixed, ownerRespondScore, healthConcerns, perceptionNeighborsLevel, noiseNeighborsLevel, parkingScore, trafficScore, safetyConcerns, agreeCheckbox, reviewLocateId, anonymous]);
 
+  const resetAllFields = () => {
+    setAddressLine1('');
+    setAddressLine2('');
+    setTownCity('');
+    setCountry('');
+    setPostCode('');
+    setMoveInDate('');
+    setTenancyPeriod({"number":"1","period":"month"});
+    setIsItSharingFlat(false);
+    setPeopleNumberLivingAtHome(0);
+    setFutureRentersContactMe(true);
+    setRentAmount(0.0);
+    setRentPeriod('per-month');
+    setRentDuration(0);
+    setIsBillsIncluded(false);
+    setBillsPerPerson(false);
+    setBillsWholeHouse(false);
+    setElectricBill('');
+    setWaterBill('');
+    setGasBill('');
+    setInternetBill('');
+    setReviewScore(0);
+    setReviewHeadline('');
+    setReviewPros('');
+    setReviewCons('');
+    setHeatUpLevel(0);
+    setWellLitLevel(0);
+    setInternetConnectionLevel(0);
+    setIsItPetFriendly(false);
+    setAnythingToBeFixed('');
+    setOwnerRespondScore(0);
+    setHealthConcerns('');
+    setPerceptionNeighborsLevel(0);
+    setNoiseNeighborsLevel(0);
+    setParkingScore(0);
+    setTrafficScore(0);
+    setSafetyConcerns('');
+    setAgreeCheckbox(false);
+    setAnonymous(false);
+  }
 
   const sendReview = async() => {
     //console.log('sendReview');
@@ -103,7 +143,7 @@ const AppProvider = ({ children }) => {
         review_locate_id: reviewLocateId,
         anonymous: anonymous
       });
-
+      resetAllFields();
       return response.data; // Return true if the request is successful
     } catch (error) {
       console.log(error);
