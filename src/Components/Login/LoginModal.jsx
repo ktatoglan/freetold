@@ -21,7 +21,10 @@ const LoginModal = ({ }) => {
       setOpenLoginModal();
     } catch (error) {
       console.error("Error:", error);
-      toast.error("Invalid email or password");
+      const errorMessage =
+        error.response?.data?.message ||
+        "An error occurred during login.";
+      toast.error(errorMessage);
     }
   };
 
